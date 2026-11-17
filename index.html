@@ -1,0 +1,441 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>深谷・熊谷 高校入試ナビ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@500;600&display=swap">
+<style>
+/* Layout: 白地に青の帯。教室HPに合わせた青と白。熊谷=青、深谷=水色、行田=灰青。図が主役で文は短く */
+:root{
+  --bg:#f5f8fd; --surface:#ffffff; --ink:#15233f; --muted:#56637c; --line:#d6e0f0; --soft:#eaf1fb;
+  --negi:#1593c4; --negi-soft:#dff2fa;
+  --heat:#1f5fbf; --heat-soft:#e1ebfa;
+  --gyoda:#6a7ea6; --gyoda-soft:#e9edf5;
+  --exam:#1e3a8a; --report:#5aa9f0; --talk:#f0a030;
+  --accent:#1f5fbf; --band:#1f5fbf; --band-ink:#ffffff;
+  --f-display:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-data:"IBM Plex Sans JP","Zen Kaku Gothic New",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1626; --surface:#152039; --ink:#e6edf8; --muted:#a2b0c8; --line:#2a3a5a; --soft:#1c2a47;
+  --negi:#4cc3ec; --negi-soft:#14334a; --heat:#7aa7f0; --heat-soft:#1b2d52; --gyoda:#a3b3d4; --gyoda-soft:#232f48;
+  --exam:#8fa9f0; --report:#6fb8f5; --talk:#f4b555; --accent:#7aa7f0; --band:#1a3d7a; --band-ink:#ffffff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1626; --surface:#152039; --ink:#e6edf8; --muted:#a2b0c8; --line:#2a3a5a; --soft:#1c2a47;
+  --negi:#4cc3ec; --negi-soft:#14334a; --heat:#7aa7f0; --heat-soft:#1b2d52; --gyoda:#a3b3d4; --gyoda-soft:#232f48;
+  --exam:#8fa9f0; --report:#6fb8f5; --talk:#f4b555; --accent:#7aa7f0; --band:#1a3d7a; --band-ink:#ffffff; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.75;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:72px;padding-block:32px 64px}
+h1,h2{font-family:var(--f-display);font-weight:700;letter-spacing:.02em;text-wrap:balance;line-height:1.3;margin:0}
+h1{font-size:clamp(30px,6vw,52px)}
+h2{font-size:clamp(23px,3.6vw,32px)}
+h3{font-size:18px;margin:0;line-height:1.4}
+p{margin:0}
+.eyebrow{font-family:var(--f-data);font-size:13px;letter-spacing:.12em;color:var(--accent);font-weight:600}
+.lead{color:var(--muted);max-width:62ch}
+section{display:flex;flex-direction:column;gap:20px;min-width:0}
+.head{display:flex;flex-direction:column;gap:8px}
+.head h2{display:flex;align-items:center;gap:12px}
+.head h2::before{content:"";width:6px;align-self:stretch;min-height:1.1em;border-radius:3px;background:var(--accent)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;min-width:0}
+.scroll{overflow-x:auto}
+svg text{font-family:var(--f-data)}
+.num{font-family:var(--f-data);font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--muted)}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.topbar{background:var(--band);color:var(--band-ink);margin-left:calc(-1*max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1*max(16px,env(safe-area-inset-right,0px)));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.topbar-in{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:12px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:18px;letter-spacing:.04em}.brand small{font-size:13px;font-weight:500;opacity:.9;margin-left:6px}
+.tel{font-size:15px;user-select:all}
+.hero{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px}
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:center}
+.hero-text{display:flex;flex-direction:column;gap:16px;min-width:0}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:13px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface);white-space:nowrap}
+.tag.f{background:var(--negi-soft);border-color:transparent;color:var(--negi)}
+.tag.k{background:var(--heat-soft);border-color:transparent;color:var(--heat)}
+.tag.g{background:var(--gyoda-soft);border-color:transparent;color:var(--gyoda)}
+@media (max-width:760px){.hero{grid-template-columns:1fr}}
+
+/* 3 changes */
+.changes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.change{display:flex;flex-direction:column;gap:10px}
+.change svg{width:100%;height:auto;max-width:220px}
+.change .big{font-family:var(--f-display);font-size:26px;line-height:1.2}
+@media (max-width:760px){.changes{grid-template-columns:1fr}}
+
+/* toggle */
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface);gap:2px;flex-wrap:wrap}
+.seg button{font:inherit;font-size:14px;border:0;background:transparent;color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+
+/* school cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0;border-top:5px solid var(--c)}
+.card[data-city="f"]{--c:var(--negi)} .card[data-city="k"]{--c:var(--heat)} .card[data-city="g"]{--c:var(--gyoda)}
+.card-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.card .dept{font-size:13px;color:var(--muted)}
+.hen{font-family:var(--f-data);text-align:right;line-height:1.1;white-space:nowrap}
+.hen b{font-size:26px;color:var(--c)}
+.hen span{display:block;font-size:11px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.fact{background:var(--soft);border-radius:8px;padding:6px 8px;display:flex;flex-direction:column}
+.fact small{font-size:11px;color:var(--muted)}
+.fact b{font-family:var(--f-data);font-size:15px;font-variant-numeric:tabular-nums}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;padding:2px 8px;border-radius:6px;background:var(--soft);color:var(--ink)}
+.chip.hot{background:var(--heat-soft);color:var(--heat)}
+.chip.key{background:var(--negi-soft);color:var(--negi)}
+.card .tip{font-size:14px}
+.card .tip b{color:var(--c)}
+.minibar{display:flex;height:12px;border-radius:6px;overflow:hidden}
+.minibar span{display:block;height:100%}
+
+/* private */
+.privs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:760px){.privs{grid-template-columns:1fr}}
+.courses{display:flex;flex-direction:column;gap:6px}
+.course{display:flex;align-items:center;gap:10px;font-size:14px}
+.course i{display:block;height:10px;border-radius:5px;background:var(--gyoda)}
+
+/* juku */
+.juku{background:var(--band);color:var(--band-ink);border-radius:18px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.juku h2{color:#fff}
+.juku .lead{color:#dce8fb}
+.juku ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.juku li{background:rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;font-size:15px}
+.juku li b{display:block}
+.contact{font-family:var(--f-data);font-size:20px;user-select:all}
+@media (max-width:760px){.juku{grid-template-columns:1fr;padding:20px}}
+
+.sources{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.sources ul{margin:0;padding-left:18px}
+@media (prefers-reduced-motion:no-preference){.bar-anim{transition:width .5s ease}}
+</style>
+
+<div class="topbar"><div class="topbar-in"><span class="brand">学習空間 <small>深谷上柴教室</small></span><span class="tel num">048-571-5050</span></div></div>
+<div class="wrap">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">2027年度(令和9年度)入試対応</div>
+    <h1>深谷・熊谷<br>高校入試ナビ</h1>
+    <p class="lead">深谷市・熊谷市周辺の高校13校を、偏差値の目安・配点・内申点のしくみ・受験対策まで、図でまとめました。志望校選びの最初の地図として使ってください。</p>
+    <div class="hero-tags">
+      <span class="tag k">熊谷市 7校</span><span class="tag f">深谷市 5校</span><span class="tag g">行田市 1校</span>
+    </div>
+    <p class="note">作成:学習空間 深谷上柴教室/情報は2026年11月17日時点</p>
+  </div>
+  <div class="panel" aria-label="地域の模式図">
+    <svg id="mapSvg" viewBox="0 0 440 330" role="img" aria-label="深谷市・熊谷市・行田市の高校の模式図"></svg>
+    <p class="note">位置関係はイメージの模式図です。</p>
+  </div>
+</header>
+
+<!-- 3 CHANGES -->
+<section>
+  <div class="head"><div class="eyebrow">WHAT'S NEW</div><h2>2027年度入試、ここが変わる</h2>
+  <p class="lead">埼玉県のすべての公立高校で、次の3つが新しくなります。</p></div>
+  <div class="changes">
+    <div class="panel change">
+      <svg viewBox="0 0 220 110" aria-hidden="true">
+        <rect x="10" y="10" width="200" height="90" rx="10" fill="var(--soft)"/>
+        <g id="markGrid"></g>
+      </svg>
+      <div class="big">マーク式 <span class="num">約9割</span></div>
+      <p>学力検査は5教科各100点。解答の約9割がマークシート、約1割が記述式になります。難易度や出題方針は変わりません。</p>
+    </div>
+    <div class="panel change">
+      <svg viewBox="0 0 220 110" aria-hidden="true">
+        <rect x="10" y="10" width="200" height="90" rx="10" fill="var(--soft)"/>
+        <circle cx="60" cy="58" r="20" fill="var(--talk)"/>
+        <rect x="42" y="78" width="36" height="20" rx="8" fill="var(--talk)"/>
+        <path d="M100 30 h90 a10 10 0 0 1 10 10 v24 a10 10 0 0 1 -10 10 h-70 l-14 12 v-12 h-6 a10 10 0 0 1 -10 -10 v-24 a10 10 0 0 1 10 -10z" fill="var(--surface)" stroke="var(--talk)" stroke-width="2"/>
+        <text x="146" y="58" text-anchor="middle" font-size="15" fill="var(--talk)" font-weight="600">My Voice</text>
+      </svg>
+      <div class="big">全員に面接</div>
+      <p>すべての高校・すべての受検生に面接があります。最初に自分の言葉で話す「My Voice」があり、そのあと質問に答えます。</p>
+    </div>
+    <div class="panel change">
+      <svg viewBox="0 0 220 110" aria-hidden="true">
+        <rect x="10" y="10" width="200" height="90" rx="10" fill="var(--soft)"/>
+        <rect x="40" y="62" width="34" height="28" rx="4" fill="var(--report)" opacity=".55"/>
+        <rect x="93" y="62" width="34" height="28" rx="4" fill="var(--report)" opacity=".75"/>
+        <rect x="146" y="34" width="34" height="56" rx="4" fill="var(--report)"/>
+        <text x="57" y="56" text-anchor="middle" font-size="12" fill="var(--muted)">中1</text>
+        <text x="110" y="56" text-anchor="middle" font-size="12" fill="var(--muted)">中2</text>
+        <text x="163" y="28" text-anchor="middle" font-size="12" fill="var(--muted)">中3</text>
+      </svg>
+      <div class="big">内申は中1から</div>
+      <p>調査書には中1〜中3の9教科の評定(各学年45点満点)がのります。学年の比率は高校ごとにちがいます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section>
+  <div class="head"><div class="eyebrow">SCHEDULE</div><h2>入試までのスケジュール</h2>
+  <p class="lead">私立は1月、公立は2月が本番です。公立の出願はインターネットで行います。</p></div>
+  <div class="panel scroll"><svg id="tlSvg" viewBox="0 0 960 250" style="min-width:760px;width:100%" role="img" aria-label="2026年11月から2027年3月までの入試日程"></svg></div>
+  <p class="note">私立の日程は正智深谷・東京成徳大学深谷の例です。学校により異なります。</p>
+</section>
+
+<!-- HENSACHI -->
+<section>
+  <div class="head"><div class="eyebrow">LEVEL</div><h2>偏差値の目安マップ</h2>
+  <p class="lead">学科によって幅がある学校は、線で範囲を示しています。偏差値は目安で、合否は学力検査・調査書・面接の合計点で決まります。</p></div>
+  <div class="panel scroll"><svg id="henSvg" viewBox="0 0 900 470" style="min-width:640px;width:100%" role="img" aria-label="公立高校の偏差値の目安"></svg></div>
+  <div class="legend"><span><i style="background:var(--heat)"></i>熊谷市</span><span><i style="background:var(--negi)"></i>深谷市</span><span><i style="background:var(--gyoda)"></i>行田市</span></div>
+  <p class="note">偏差値:「みんなの高校情報」の掲載値(2026年10月25日時点の民間まとめ)。私立は公表値がないため載せていません。</p>
+</section>
+
+<!-- SCORE MIX -->
+<section>
+  <div class="head"><div class="eyebrow">SCORE MIX</div><h2>何で決まる? 学校ごとの配点バランス</h2>
+  <p class="lead">帯の長さは合計点に占める割合です。<b>金色(調査書)が長い学校は内申点</b>、<b>ピンク(面接)が長い学校は面接</b>が合否を左右します。</p></div>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="選抜の段階">
+      <button type="button" id="st1" aria-pressed="true">第1次選抜</button>
+      <button type="button" id="st2" aria-pressed="false">第2次選抜</button>
+    </div>
+    <div class="legend"><span><i style="background:var(--exam)"></i>学力検査</span><span><i style="background:var(--report)"></i>調査書(内申)</span><span><i style="background:var(--talk)"></i>面接</span></div>
+  </div>
+  <div class="panel scroll"><svg id="mixSvg" viewBox="0 0 900 580" style="min-width:680px;width:100%" role="img" aria-label="学校ごとの配点の割合"></svg></div>
+  <p class="note">第1次選抜で大部分(60〜80%)の合格者が決まり、残りを第2次選抜で選びます。熊谷女子は「特色選抜/共通選抜」を第1次/第2次の位置に表示しています。出典:埼玉県教育委員会「令和9年度 各高等学校の選抜実施内容」。</p>
+</section>
+
+<!-- NAISHIN -->
+<section>
+  <div class="head"><div class="eyebrow">NAISHIN</div><h2>内申点のしくみ:学年比率</h2>
+  <p class="lead">各学年の評定合計(45点満点)に、高校が決めた比率をかけて合計します。比率が「1:1:3」なら中3の成績が全体の6割。でも中1・中2も4割を占めます。</p></div>
+  <div class="panel scroll"><svg id="ratioSvg" viewBox="0 0 900 330" style="min-width:680px;width:100%" role="img" aria-label="学年比率ごとの中1・中2・中3の割合"></svg></div>
+  <div class="panel" style="display:flex;flex-direction:column;gap:8px">
+    <h3>計算例:比率 1:1:2 の高校</h3>
+    <p class="num">中1 40点×1 + 中2 40点×1 + 中3 42点×2 = <b>164点</b>(180点満点)</p>
+    <p class="note">この点数を、高校ごとに決めた配点(例:300点)に換算します。調査書には評定のほか「総合的な学習の時間の記録」がのり、出欠の記録は選抜に使われません。</p>
+  </div>
+</section>
+
+<!-- INTERVIEW -->
+<section>
+  <div class="head"><div class="eyebrow">INTERVIEW</div><h2>面接の流れ(1人あたりの目安)</h2></div>
+  <div class="panel scroll"><svg id="ivSvg" viewBox="0 0 900 150" style="min-width:600px;width:100%" role="img" aria-label="面接の流れ"></svg></div>
+  <p class="lead">My Voiceでは、中学校で力を注いだこと、高校で取り組みたいことを自分の言葉で話します。出願時に出す「自己評価資料」は面接の参考にされます(得点には使われません)。</p>
+</section>
+
+<!-- SCHOOLS -->
+<section>
+  <div class="head"><div class="eyebrow">SCHOOLS</div><h2>高校別ガイドと受験対策</h2></div>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="地域で絞り込み">
+      <button type="button" data-f="all" aria-pressed="true">すべて</button>
+      <button type="button" data-f="k" aria-pressed="false">熊谷市</button>
+      <button type="button" data-f="f" aria-pressed="false">深谷市</button>
+      <button type="button" data-f="g" aria-pressed="false">行田市</button>
+    </div>
+    <div class="legend"><span><i style="background:var(--exam)"></i>学検</span><span><i style="background:var(--report)"></i>調査書</span><span><i style="background:var(--talk)"></i>面接</span><span>(第1次の配点)</span></div>
+  </div>
+  <div class="cards" id="cards"></div>
+  <p class="note">内申の目安(9教科・45点満点)は学習空間 深谷上柴教室の進路指導での目安です。倍率は2026年度の志願確定倍率です。</p>
+</section>
+
+<!-- PRIVATE -->
+<section>
+  <div class="head"><div class="eyebrow">PRIVATE</div><h2>深谷市の私立高校</h2>
+  <p class="lead">私立は1月に入試があり、公立の併願先にもなります。11〜12月の個別相談会に、通知表や北辰テストの結果を持って相談に行くのが一般的です。</p></div>
+  <div class="privs">
+    <div class="card" data-city="f">
+      <div class="card-top"><div><h3>正智深谷高校</h3><div class="dept">普通科・4コース</div></div></div>
+      <div class="courses">
+        <div class="course"><i style="width:30px"></i>特別選抜</div>
+        <div class="course"><i style="width:30px;opacity:.85"></i>特別進学</div>
+        <div class="course"><i style="width:30px;opacity:.65"></i>選抜進学</div>
+        <div class="course"><i style="width:30px;opacity:.45"></i>総合進学</div>
+      </div>
+      <div class="chips"><span class="chip">単願推薦</span><span class="chip">併願 第1〜3回</span><span class="chip">国・数・英</span></div>
+      <p class="tip">単願推薦・併願第1回は1月22日(金)の予定です(民間サイトのまとめ。入試要項で要確認)。学校説明会は11/22、12/13。個別相談会は1月5日まで(要予約)。</p>
+      <p class="tip"><b>対策:</b>国数英3教科の基礎固め。個別相談には北辰テストの結果を持っていきましょう。</p>
+    </div>
+    <div class="card" data-city="f">
+      <div class="card-top"><div><h3>東京成徳大学深谷高校</h3><div class="dept">普通科・3コース</div></div></div>
+      <div class="courses">
+        <div class="course"><i style="width:30px"></i>特進S(3教科の合計で判定)</div>
+        <div class="course"><i style="width:30px;opacity:.7"></i>進学選抜(高い2教科で判定)</div>
+        <div class="course"><i style="width:30px;opacity:.45"></i>進学(高い2教科で判定)</div>
+      </div>
+      <div class="chips"><span class="chip">単願(個人面接あり)</span><span class="chip">併願1・2</span><span class="chip">2月入試</span><span class="chip key">特待生判定あり</span></div>
+      <p class="tip">出願12/1〜1/8。単願・併願1は1/22(金)、併願2は1/23(土)、発表は1/27(水)。2月入試は2/6(土)。</p>
+      <p class="tip"><b>対策:</b>進学選抜・進学コースは得意な2教科で勝負できます。得意教科を確実に伸ばしましょう。</p>
+    </div>
+  </div>
+</section>
+
+<!-- JUKU -->
+<section class="juku">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div class="eyebrow" style="color:#cfe0fa">学習空間 深谷上柴教室</div>
+    <h2>志望校の配点から逆算して、やることを決める</h2>
+    <p class="lead">内申点が大きい学校、学力検査の応用力が大切な学校、面接の配点が大きい学校。志望校に合わせて、何を優先するかを一人ひとり決めています。</p>
+    <p>無料体験(1週間・3回程度)・進路相談は、公式LINEまたはお電話で。</p>
+    <p class="contact">048-571-5050</p>
+    <p style="font-size:13px;color:#cfe0fa">受付 平日17:00〜22:00/深谷市上柴町東4-14-1</p>
+  </div>
+  <ul>
+    <li><b>内申点対策</b>学校ワークを塾で3〜5周。提出物と定期テストの得点アップを両立。実技教科も声かけ。</li>
+    <li><b>定期テスト対策</b>テスト2週間前から土日祝も開校。英数理+社国の5教科。</li>
+    <li><b>学力検査対策</b>県公立入試の過去問と北辰テスト対策を個別に。北辰は第4・5回(私立相談用)と第8回(直前)がおすすめ。</li>
+    <li><b>面接対策</b>My Voiceの内容づくりから、志望校の求める生徒像に合わせた受け答えの練習まで。</li>
+  </ul>
+</section>
+
+<!-- SOURCES -->
+<footer class="sources">
+  <b>情報源</b>
+  <ul>
+    <li><a href="https://www.pref.saitama.lg.jp/f2208/r9nyuushi-senbatsuzisshinaiyou.html" target="_blank" rel="noopener">令和9年度 各高等学校の選抜実施内容(確定版)</a>(埼玉県教育委員会)</li>
+    <li><a href="https://www.pref.saitama.lg.jp/documents/24599/r9gaiyou.pdf" target="_blank" rel="noopener">令和9年度 生徒募集人員</a>/<a href="https://www.pref.saitama.lg.jp/documents/268192/r8shigankakutei0219.pdf" target="_blank" rel="noopener">令和8年度 入学志願確定者数</a>(埼玉県教育委員会)</li>
+    <li><a href="https://www.pref.saitama.lg.jp/f2208/r9nyuushiqa.html" target="_blank" rel="noopener">令和9年度 入学者選抜Q&amp;A</a>/<a href="https://www.pref.saitama.lg.jp/f2208/news/page/news2025052203.html" target="_blank" rel="noopener">入試日程</a>(埼玉県)</li>
+    <li><a href="https://saitama-juken-real.com/saitama-hensachi-hokushin-2026/" target="_blank" rel="noopener">埼玉県公立高校偏差値ランキング2026年度</a>(「みんなの高校情報」の値をまとめた民間サイト)</li>
+    <li><a href="https://shochi.jp/admission/openschool/" target="_blank" rel="noopener">正智深谷高校 説明会・個別相談会</a>/<a href="https://tsfh.jp/entrance_exam/%E5%8B%9F%E9%9B%86%E8%A6%81%E9%A0%85" target="_blank" rel="noopener">東京成徳大学深谷高校 募集要項</a>(各校公式)</li>
+  </ul>
+  <p>最新・正確な内容は、必ず埼玉県教育委員会と各高校の発表でご確認ください。</p>
+</footer>
+</div>
+
+<script>
+const S=[
+ {n:"熊谷",c:"k",d:"普通科(男子)",h:[65,65],na:"37",t:"280",b:"1.13",type:"特色選抜のみ",sel:true,r:"2:2:5",s1:[500,300,30],s2:[500,200,60],tags:["学校選択問題","中3重視 2:2:5"],tip:"中3の成績の比重が県内でも大きい学校。<b>数学・英語の学校選択問題</b>の応用演習が欠かせません。自己評価資料では高い目標に挑戦した経験を具体的に。"},
+ {n:"熊谷女子",c:"k",d:"普通科(女子)",h:[63,63],na:"39",t:"280",b:"1.13",type:"特色+共通",sel:true,r:"1:1:2",s1:[650,135,30],s2:[500,200,30],l1:"特色",l2:"共通",tags:["国数英 各150点","学校選択問題"],tip:"特色選抜(80%)は<b>国語・数学・英語が各150点</b>の傾斜配点。3教科の得点力が合否を大きく左右します。"},
+ {n:"熊谷西(理数)",c:"k",d:"理数科",h:[63,63],na:"37",t:"40",b:"0.88",type:"特色選抜のみ",sel:true,r:"1:1:2",s1:[700,400,30],s2:[700,250,30],tags:["数・理 各200点","普通科と相互に第2志望"],tip:"<b>数学と理科が各200点</b>。数学(学校選択問題)と理科の得点力が決め手。普通科を第2志望にできます。"},
+ {n:"熊谷西(普通)",c:"k",d:"普通科",h:[62,62],na:"37",t:"280",b:"1.17",type:"共通選抜のみ",sel:true,r:"1:1:2",s1:[500,300,30],s2:[500,200,30],tags:["学校選択問題","個人面接"],tip:"共通選抜のみで配点はシンプル。2026年度は1.17倍と周辺の普通科で最も高い倍率でした。5教科の総合力と学校選択問題対策を。"},
+ {n:"深谷第一",c:"f",d:"普通科",h:[52,52],na:"30〜31",t:"280",b:"1.01",type:"特色選抜のみ",sel:false,r:"1:1:3",s1:[500,225,30],s2:[500,135,120],tags:["中3重視 1:1:3","2次は面接120点"],tip:"第2次選抜は<b>面接が120点</b>に。5教科で安定して得点しつつ、学業と部活動を両立してきた経験を話せるように準備しましょう。"},
+ {n:"深谷商業",c:"f",d:"商業・会計・情報処理",h:[47,47],na:"27〜30",t:"280",b:"1.01〜1.08",type:"特色選抜のみ",sel:false,r:"1:1:2",s1:[500,540,60],s2:[500,270,30],tags:["調査書540点","全学科 相互に第2志望"],tip:"第1次は<b>調査書540点で学力検査より大きい</b>のが最大の特徴。中1からの内申点がとても重要です。"},
+ {n:"進修館",c:"g",d:"総合・工業系3学科",h:[44,47],na:"25〜26",t:"320",b:"0.28〜0.77",type:"特色選抜のみ",sel:false,r:"1:1:3",s1:[500,450,100],s2:[500,225,100],tags:["面接100点","全学科 相互に第2志望"],tip:"調査書と面接の配点がどちらも大きい学校。自己評価資料では志望学科の学びをどう調べたかを書くので、<b>学校説明会への参加</b>がそのまま対策になります。"},
+ {n:"熊谷商業",c:"k",d:"総合ビジネス科",h:[46,46],na:"—",t:"160",b:"0.81",type:"共通選抜のみ",sel:false,r:"1:1:2",s1:[500,400,30],s2:[500,400,60],down:true,tags:["調査書400点","募集40人減"],tip:"調査書400点で<b>内申点が合否を左右</b>。2027年度は募集が200→160人に減ります(2026年度の志願者は161人)。"},
+ {n:"熊谷工業",c:"k",d:"機械・電気・建築・土木・情報技術",h:[42,43],na:"25〜26",t:"240",b:"0.78〜1.15",type:"共通選抜のみ",sel:false,r:"1:1:3",s1:[500,300,30],s2:[500,400,60],tags:["中3重視 1:1:3","全学科 相互に第2志望"],tip:"2026年度は情報技術科1.15倍・建築科1.03倍。面接では<b>ものづくりへの関心</b>と入学後の目標を自分の言葉で。"},
+ {n:"深谷",c:"f",d:"普通科",h:[42,42],na:"25〜26",t:"160",b:"0.75",type:"特色選抜のみ",sel:false,r:"1:1:3",s1:[500,225,120],s2:[500,180,200],down:true,tags:["面接120〜200点","募集40人減"],tip:"<b>面接の配点が大きい</b>学校(2次は200点)。部活動・委員会などで力を注いだ経験を振り返る練習を重ねましょう。2027年度は募集160人に減ります。"},
+ {n:"熊谷農業",c:"k",d:"食品科学・生物生産工学・生活技術・生物生産技術",h:[40,42],na:"25〜26",t:"240",b:"0.90〜1.18",type:"共通選抜のみ",sel:false,r:"1:1:2",s1:[500,300,30],s2:[500,300,60],tags:["集団面接","全学科 相互に第2志望"],tip:"食品科学科は2026年度1.18倍と人気。実験・実習への意欲を面接で伝えられるように準備します。"},
+ {n:"妻沼",c:"k",d:"普通科",h:[40,40],na:"—",t:"120",b:"0.67",type:"共通選抜のみ",sel:false,r:"1:1:2",s1:[500,400,60],s2:[500,200,60],tags:["調査書400点","学び直し歓迎"],tip:"「学び直しをしたい生徒」を歓迎する学校。<b>基礎の計算・英単語・漢字</b>を確実に得点し、高校生活への意欲を面接で伝えましょう。"}
+];
+const col={k:"var(--heat)",f:"var(--negi)",g:"var(--gyoda)"};
+const NS="http://www.w3.org/2000/svg";
+function el(tag,attrs,txt){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(txt!=null)e.textContent=txt;return e}
+
+/* mark grid icon */
+(()=>{const g=document.getElementById("markGrid");for(let r=0;r<4;r++)for(let c=0;c<10;c++){const filled=(r*10+c)<36;g.appendChild(el("ellipse",{cx:32+c*18,cy:30+r*18,rx:6,ry:5,fill:filled?"var(--exam)":"var(--surface)",stroke:"var(--exam)","stroke-width":1.5}))}})();
+
+/* map */
+(()=>{const s=document.getElementById("mapSvg");
+ // river
+ s.appendChild(el("path",{d:"M0 40 C120 20 260 60 440 30",fill:"none",stroke:"var(--gyoda)","stroke-width":6,opacity:.35,"stroke-linecap":"round"}));
+ s.appendChild(el("text",{x:330,y:28,"font-size":11,fill:"var(--muted)"},"利根川"));
+ const areas=[{x:16,y:70,w:190,h:240,c:"f",l:"深谷市"},{x:216,y:60,w:208,h:200,c:"k",l:"熊谷市"},{x:300,y:270,w:124,h:52,c:"g",l:"行田市"}];
+ const soft={f:"var(--negi-soft)",k:"var(--heat-soft)",g:"var(--gyoda-soft)"};
+ areas.forEach(a=>{s.appendChild(el("rect",{x:a.x,y:a.y,width:a.w,height:a.h,rx:22,fill:soft[a.c]}));s.appendChild(el("text",{x:a.x+14,y:a.y+26,"font-size":15,"font-weight":600,fill:col[a.c]},a.l))});
+ const pins=[["深谷第一",70,130,"f"],["深谷",50,200,"f"],["深谷商業",130,165,"f"],["正智深谷",95,250,"f"],["東京成徳深谷",120,290,"f"],
+  ["妻沼",300,95,"k"],["熊谷西",250,150,"k"],["熊谷",330,160,"k"],["熊谷女子",350,200,"k"],["熊谷商業",260,215,"k"],["熊谷農業",300,240,"k"],["熊谷工業",380,120,"k"],["進修館",352,306,"g"]];
+ pins.forEach(p=>{s.appendChild(el("circle",{cx:p[1],cy:p[2],r:6,fill:col[p[3]]}));s.appendChild(el("text",{x:p[1]+10,y:p[2]+4,"font-size":11.5,fill:"var(--ink)"},p[0]))});
+ // juku star
+ const jx=178,jy=118;
+ s.appendChild(el("circle",{cx:jx,cy:jy,r:11,fill:"var(--surface)",stroke:"var(--negi)","stroke-width":3}));
+ s.appendChild(el("text",{x:jx,y:jy+4,"text-anchor":"middle","font-size":11,"font-weight":700,fill:"var(--negi)"},"塾"));
+ s.appendChild(el("text",{x:jx-8,y:jy-18,"text-anchor":"middle","font-size":11,"font-weight":600,fill:"var(--negi)"},"学習空間 上柴"));
+})();
+
+/* timeline */
+(()=>{const s=document.getElementById("tlSvg");
+ const start=new Date(2026,10,1),end=new Date(2027,2,10),x0=30,x1=930;
+ const X=d=>x0+(d-start)/(end-start)*(x1-x0);
+ const months=[[2026,10,"11月"],[2026,11,"12月"],[2027,0,"1月"],[2027,1,"2月"],[2027,2,"3月"]];
+ s.appendChild(el("line",{x1:x0,y1:120,x2:x1,y2:120,stroke:"var(--line)","stroke-width":4,"stroke-linecap":"round"}));
+ months.forEach(m=>{const x=X(new Date(m[0],m[1],1));s.appendChild(el("line",{x1:x,y1:110,x2:x,y2:130,stroke:"var(--muted)","stroke-width":1.5}));s.appendChild(el("text",{x:x+4,y:108,"font-size":13,fill:"var(--muted)"},m[2]))});
+ // today
+ const tx=X(new Date(2026,10,17));s.appendChild(el("line",{x1:tx,y1:96,x2:tx,y2:132,stroke:"var(--ink)","stroke-dasharray":"3 3"}));s.appendChild(el("text",{x:tx,y:90,"text-anchor":"middle","font-size":11,fill:"var(--ink)"},"いま"));
+ const spans=[ // private (above)
+  [new Date(2026,10,14),new Date(2027,0,5),"私立 個別相談会",50,"var(--gyoda)"],
+  [new Date(2026,11,1),new Date(2027,0,8),"私立 出願",74,"var(--gyoda)"],
+  [new Date(2027,0,26),new Date(2027,1,9),"公立 出願(ネット)",172,"var(--negi)"],
+  [new Date(2027,1,17),new Date(2027,1,18),"志願先変更 2/17・18",74,"var(--negi)"]];
+ spans.forEach(sp=>{const a=X(sp[0]),b=Math.max(X(sp[1]),a+8);s.appendChild(el("rect",{x:a,y:sp[3]-12,width:b-a,height:14,rx:7,fill:sp[4],opacity:.85}));s.appendChild(el("text",{x:a,y:sp[3]-18,"font-size":12,fill:"var(--ink)"},sp[2]))});
+ const pts=[[new Date(2027,0,22),"私立入試 1/22〜",100,"var(--gyoda)"],[new Date(2027,1,25),"学力検査 2/25",196,"var(--heat)"],[new Date(2027,1,26),"面接 2/26",216,"var(--talk)"],[new Date(2027,2,5),"発表 3/5",236,"var(--ink)"]];
+ pts.forEach(p=>{const x=X(p[0]);s.appendChild(el("circle",{cx:x,cy:120,r:7,fill:p[3]}));s.appendChild(el("line",{x1:x,y1:120,x2:x,y2:p[2]-4,stroke:p[3],"stroke-width":1.5}));
+  const late=p[2]>150;s.appendChild(el("text",{x:late?x-8:x,y:p[2],"text-anchor":late?"end":"middle","font-size":12.5,"font-weight":600,fill:"var(--ink)"},p[1]))});
+})();
+
+/* hensachi dot/range chart */
+(()=>{const s=document.getElementById("henSvg");const lo=38,hi=67,x0=170,x1=870,top=30,row=34;
+ const X=v=>x0+(v-lo)/(hi-lo)*(x1-x0);
+ for(let v=40;v<=65;v+=5){const x=X(v);s.appendChild(el("line",{x1:x,y1:top-10,x2:x,y2:top+row*S.length,stroke:"var(--line)"}));s.appendChild(el("text",{x:x,y:top+row*S.length+20,"text-anchor":"middle","font-size":12,fill:"var(--muted)"},v))}
+ S.forEach((d,i)=>{const y=top+i*row+row/2;s.appendChild(el("text",{x:x0-12,y:y+4,"text-anchor":"end","font-size":13,fill:"var(--ink)"},d.n));
+  if(d.h[0]!==d.h[1]){s.appendChild(el("line",{x1:X(d.h[0]),y1:y,x2:X(d.h[1]),y2:y,stroke:col[d.c],"stroke-width":8,"stroke-linecap":"round",opacity:.45}))}
+  const m=(d.h[0]+d.h[1])/2;s.appendChild(el("circle",{cx:X(m),cy:y,r:7,fill:col[d.c]}));
+  s.appendChild(el("text",{x:X(d.h[1])+14,y:y+4,"font-size":12.5,fill:"var(--muted)"},d.h[0]===d.h[1]?d.h[0]:d.h[0]+"〜"+d.h[1]))});
+})();
+
+/* score mix */
+let stage=1;
+function drawMix(){const s=document.getElementById("mixSvg");s.innerHTML="";const x0=170,x1=800,top=24,row=44;
+ const cols=["var(--exam)","var(--report)","var(--talk)"];
+ [0,25,50,75,100].forEach(p=>{const x=x0+(x1-x0)*p/100;s.appendChild(el("line",{x1:x,y1:top-6,x2:x,y2:top+row*S.length-8,stroke:"var(--line)"}));s.appendChild(el("text",{x:x,y:top+row*S.length+10,"text-anchor":"middle","font-size":12,fill:"var(--muted)"},p+"%"))});
+ S.forEach((d,i)=>{const v=stage===1?d.s1:d.s2,tot=v[0]+v[1]+v[2],y=top+i*row;
+  const lab=d.n+(d.l1?(stage===1?"("+d.l1+")":"("+d.l2+")"):"");
+  s.appendChild(el("text",{x:x0-12,y:y+19,"text-anchor":"end","font-size":13,fill:col[d.c],"font-weight":600},lab));
+  let x=x0;v.forEach((val,j)=>{const w=(x1-x0)*val/tot;s.appendChild(el("rect",{x:x,y:y+4,width:Math.max(w-1.5,0),height:22,fill:cols[j],rx:3}));
+   if(w>34)s.appendChild(el("text",{x:x+w/2,y:y+19,"text-anchor":"middle","font-size":11.5,fill:j===0?"#fff":"#10213f","font-weight":600},val));x+=w});
+  s.appendChild(el("text",{x:x1+12,y:y+19,"font-size":12.5,fill:"var(--ink)"},"計"+tot+"点"))});
+}
+drawMix();
+["st1","st2"].forEach((id,i)=>document.getElementById(id).addEventListener("click",()=>{stage=i+1;document.getElementById("st1").setAttribute("aria-pressed",stage===1);document.getElementById("st2").setAttribute("aria-pressed",stage===2);drawMix()}));
+
+/* ratio diagram */
+(()=>{const s=document.getElementById("ratioSvg");const rs=[
+  ["1:1:2",[1,1,2],"熊谷女子・熊谷西・熊谷商業・熊谷農業・妻沼・深谷商業"],
+  ["1:1:3",[1,1,3],"深谷第一・深谷(第1次)・熊谷工業・進修館"],
+  ["2:2:5",[2,2,5],"熊谷"],
+  ["1:1:1",[1,1,1],"(周辺13校では使われていません)"]];
+ const x0=110,x1=560,top=30,row=72,ops=[.45,.7,1];
+ rs.forEach((r,i)=>{const y=top+i*row,sum=r[1][0]+r[1][1]+r[1][2];s.appendChild(el("text",{x:x0-14,y:y+24,"text-anchor":"end","font-size":18,"font-weight":600,fill:"var(--ink)"},r[0]));
+  let x=x0;r[1].forEach((v,j)=>{const w=(x1-x0)*v/sum;s.appendChild(el("rect",{x:x,y:y,width:w-3,height:36,rx:5,fill:"var(--report)",opacity:ops[j]}));
+   s.appendChild(el("text",{x:x+w/2,y:y+23,"text-anchor":"middle","font-size":12.5,fill:"#10213f","font-weight":600},["中1","中2","中3"][j]+" "+Math.round(v/sum*100)+"%"));x+=w});
+  s.appendChild(el("text",{x:x1+16,y:y+16,"font-size":12.5,fill:"var(--muted)"},"満点 "+45*sum+"点"));
+  s.appendChild(el("text",{x:x1+16,y:y+34,"font-size":12,fill:"var(--ink)"},r[2]))});
+})();
+
+/* interview */
+(()=>{const s=document.getElementById("ivSvg");const x0=20,x1=880,maxMin=8,X=m=>x0+(x1-x0)*m/maxMin;
+ s.appendChild(el("rect",{x:X(0),y:40,width:X(2)-X(0)-4,height:40,rx:8,fill:"var(--talk)"}));
+ s.appendChild(el("rect",{x:X(1.5),y:40,width:X(2)-X(1.5)-4,height:40,rx:0,fill:"var(--talk)",opacity:.5}));
+ s.appendChild(el("text",{x:X(0)+12,y:66,"font-size":14,"font-weight":600,fill:"#10213f"},"My Voice"));
+ s.appendChild(el("rect",{x:X(2),y:40,width:X(8)-X(2),height:40,rx:8,fill:"var(--exam)"}));
+ s.appendChild(el("rect",{x:X(5.5),y:40,width:X(8)-X(5.5),height:40,rx:8,fill:"var(--exam)",opacity:.5}));
+ s.appendChild(el("text",{x:X(2)+14,y:66,"font-size":14,"font-weight":600,fill:"#fff"},"質問への応答"));
+ s.appendChild(el("text",{x:X(0),y:28,"font-size":12.5,fill:"var(--muted)"},"1分30秒〜2分"));
+ s.appendChild(el("text",{x:X(2),y:28,"font-size":12.5,fill:"var(--muted)"},"3分30秒〜6分"));
+ for(let m=0;m<=8;m+=2){s.appendChild(el("text",{x:X(m),y:104,"text-anchor":m===0?"start":(m===8?"end":"middle"),"font-size":12,fill:"var(--muted)"},m+"分"))}
+ s.appendChild(el("text",{x:X(0),y:134,"font-size":12.5,fill:"var(--ink)"},"個人面接か集団面接かは高校ごとにちがいます(各校の形式は下のカードを参照)。"));
+})();
+
+/* cards */
+const cards=document.getElementById("cards");
+S.forEach(d=>{const a=document.createElement("article");a.className="card";a.dataset.city=d.c;const v=d.s1,tot=v[0]+v[1]+v[2];
+ a.innerHTML=`<div class="card-top"><div><h3>${d.n.replace(/(\(|$)/,"高校$1")}</h3><div class="dept">${d.d}・${d.type}</div></div>
+ <div class="hen"><b>${d.h[0]===d.h[1]?d.h[0]:d.h[0]+"-"+d.h[1]}</b><span>偏差値の目安</span></div></div>
+ <div class="facts"><div class="fact"><small>内申の目安</small><b>${d.na}</b></div><div class="fact"><small>2027募集</small><b>${d.t}${d.down?" ↓":""}</b></div><div class="fact"><small>2026倍率</small><b>${d.b}</b></div></div>
+ <div class="minibar" aria-label="第1次の配点 学検${v[0]}点 調査書${v[1]}点 面接${v[2]}点"><span style="width:${v[0]/tot*100}%;background:var(--exam)"></span><span style="width:${v[1]/tot*100}%;background:var(--report)"></span><span style="width:${v[2]/tot*100}%;background:var(--talk)"></span></div>
+ <div class="note num">${d.l1?d.l1+"選抜":"第1次"}:学検${v[0]}/調査書${v[1]}/面接${v[2]}(内申比率 ${d.r})</div>
+ <div class="chips">${d.tags.map(t=>`<span class="chip ${/減/.test(t)?"hot":(/点|重視/.test(t)?"key":"")}">${t}</span>`).join("")}</div>
+ <p class="tip"><b>対策:</b>${d.tip}</p>`;
+ cards.appendChild(a)});
+document.querySelectorAll("[data-f]").forEach(b=>b.addEventListener("click",()=>{const f=b.dataset.f;document.querySelectorAll("[data-f]").forEach(x=>x.setAttribute("aria-pressed",x===b));
+ cards.querySelectorAll(".card").forEach(c=>c.hidden=!(f==="all"||c.dataset.city===f))}));
+</script>
+
+</body></html>
