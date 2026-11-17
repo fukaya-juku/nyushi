@@ -1,13 +1,13 @@
 // 高校別ページの生成。public/index.html の高校データ(S)・日程(TL)・CSS・日付と、
 // data/school-pages.json の高校ごとの文章から、public/<slug>/index.html と sitemap.xml を作る。
-// Netlify のビルドでも毎回実行されるので、トップページのデータを直せば高校別ページもそろって更新される。
+// GitHub Pages への公開(.github/workflows/pages.yml)でも毎回実行されるので、トップページのデータを直せば高校別ページもそろって更新される。
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PUB = path.join(ROOT, "public");
-const SITE = "https://fukaya-kumagaya-nyushi.netlify.app";
+const SITE = "https://fukaya-juku.github.io/nyushi";
 const LINE = "https://lin.ee/rcfMHgx";
 
 const top = fs.readFileSync(path.join(PUB, "index.html"), "utf8");
@@ -287,5 +287,4 @@ fs.writeFileSync(path.join(PUB, "sitemap.xml"), `<?xml version="1.0" encoding="U
 ${urls.map(u => `  <url><loc>${u.loc}</loc><lastmod>${isoDate}</lastmod><priority>${u.pri}</priority></url>`).join("\n")}
 </urlset>
 `);
-fs.writeFileSync(path.join(PUB, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
-console.log(`高校別ページ ${pages.length}件・sitemap.xml・robots.txt を作成しました(${STAMP}時点)`);
+console.log(`高校別ページ ${pages.length}件・sitemap.xml を作成しました(${STAMP}時点)`);

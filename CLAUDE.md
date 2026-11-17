@@ -1,7 +1,7 @@
 # 深谷・熊谷 高校入試ナビ（自動更新のルール）
 
-このリポジトリは https://fukaya-kumagaya-nyushi.netlify.app のソースです。
-`main` ブランチに push すると、Netlify が自動で本番に公開します。
+このリポジトリは https://fukaya-juku.github.io/nyushi/ (学習空間 深谷上柴教室のサイト https://fukaya-juku.github.io/ の中の「高校入試ナビ」)のソースです。
+`main` ブランチに push すると、GitHub Actions(`.github/workflows/pages.yml`)が高校別ページを作り直し、GitHub Pages に自動で公開します。
 
 ## ファイル
 - `public/index.html` … サイト本体（公開されるのは public フォルダだけ）（1ファイル。CSS・JS・データはすべてこの中）
@@ -11,7 +11,7 @@
 - 日程は script 内の `TL` 配列（`at`=開始日。「いまここ」は今日の日付で自動表示）、情報源はフッター「情報源」リストの `<li><a ...>`
 - 高校別ページ(`public/kumagaya/` など)は `tools/build-schools.mjs` が自動で作る。**直接編集しない**。
   - 数字は `public/index.html` の配列 `S`・`TL`・時点の日付・情報源から、高校ごとの文章は `data/school-pages.json` から作られる
-  - Netlify のビルドでも毎回実行されるが、`public/index.html` を直したら `node tools/build-schools.mjs` を実行し、生成されたファイルもいっしょにコミットする
+  - 公開のたびに GitHub Actions でも実行されるが、`public/index.html` を直したら `node tools/build-schools.mjs` を実行し、生成されたファイルもいっしょにコミットする
   - `data/school-pages.json` の `points`・`comment` は塾の先生の文章。自動更新では、数字が公式情報と食いちがう部分だけ直す
 - デザインは教室サイト（https://blue0728.studio.site/）に合わせた青と白・スマホ優先。色・文字サイズ・レイアウトは変えない
 
