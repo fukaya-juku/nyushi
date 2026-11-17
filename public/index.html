@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>深谷・熊谷 高校入試ナビ｜学習空間 深谷上柴教室</title>
-<meta name="description" content="深谷市・熊谷市・行田市の公立高校13校の入試を、日程・偏差値・配点・内申点・面接・合否の目安まで図でまとめました。">
+<meta name="description" content="深谷市・熊谷市・本庄市・鴻巣市・上尾市など埼玉県北部・県央の高校20校の入試を、日程・偏差値・配点・内申点・面接・合否の目安まで図でまとめました。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Lato:wght@700;900&display=swap">
@@ -19,6 +19,8 @@
   --k:#004cd0; --k-soft:#e3edfc;     /* 熊谷 */
   --f:#0097c4; --f-soft:#e0f4fa;     /* 深谷 */
   --g:#5c6bc0; --g-soft:#eceefa;     /* 行田 */
+  --h:#00897b; --h-soft:#e0f2f1;     /* 本庄・寄居 */
+  --c:#455a64; --c-soft:#eceff1;     /* 鴻巣・上尾・伊奈 */
   --exam:#1a237e; --report:#42a5f5; --talk:#ff8924;
   --font:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
   --num:"Lato","Noto Sans JP",sans-serif;
@@ -149,12 +151,13 @@ b.hl{background:linear-gradient(transparent 60%,#ffe0b2 60%)}
 
 /* school cards */
 .filters{position:sticky;top:60px;z-index:10;background:var(--sky);padding:8px 0}
-.filters .seg{gap:6px;flex-wrap:nowrap}
+.filters .seg{gap:6px;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch}
+.filters .seg button{flex:none}
 .filters .seg button{padding:6px 12px;font-size:15px;min-height:42px}
 .cards{display:grid;grid-template-columns:1fr;gap:18px}
 @media (min-width:760px){.cards{grid-template-columns:1fr 1fr}}
 .sc{background:var(--white);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 16px rgba(3,18,91,.08)}
-.sc[data-city="k"]{--c:var(--k);--cs:var(--k-soft)} .sc[data-city="f"]{--c:var(--f);--cs:var(--f-soft)} .sc[data-city="g"]{--c:var(--g);--cs:var(--g-soft)}
+.sc[data-city="k"]{--c:var(--k);--cs:var(--k-soft)} .sc[data-city="f"]{--c:var(--f);--cs:var(--f-soft)} .sc[data-city="g"]{--c:var(--g);--cs:var(--g-soft)} .sc[data-city="h"]{--c:var(--h);--cs:var(--h-soft)} .sc[data-city="c"]{--c:var(--c);--cs:var(--c-soft)}
 .sc-h{background:var(--c);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
 .sc-h h3{margin:0;font-size:22px;font-weight:900;line-height:1.3}
 .sc-h .dept{font-size:14px;opacity:.95;line-height:1.5}
@@ -256,11 +259,11 @@ footer b{color:#fff}
 <header class="hero">
   <div class="in">
     <span class="pill">2027年度(令和9年度)入試 対応</span>
-    <h1><span>深谷・熊谷・行田の13校</span>高校入試ナビ</h1>
+    <h1><span>深谷・熊谷・本庄・鴻巣・上尾エリアの20校</span>高校入試ナビ</h1>
     <p class="lead">偏差値・配点・内申点・面接・合否の目安まで、<b>図でひと目で</b>わかるようにまとめました。志望校選びの最初の地図として使ってください。</p>
-    <div class="areas"><span>熊谷市 7校</span><span>深谷市 5校</span><span>行田市 1校</span></div>
+    <div class="areas"><span>熊谷市 7校</span><span>深谷市 5校</span><span>本庄市 2校</span><span>鴻巣市 2校</span><span>行田市 1校</span><span>寄居町 1校</span><span>上尾市 1校</span><span>伊奈町 1校</span></div>
     <div class="map" aria-label="地域の模式図">
-      <svg id="mapSvg" viewBox="0 0 440 340" role="img" aria-label="深谷市・熊谷市・行田市の高校の模式図"></svg>
+      <svg id="mapSvg" viewBox="0 0 440 500" role="img" aria-label="深谷市・熊谷市・行田市の高校の模式図"></svg>
       <p class="cap">位置関係はイメージの模式図です</p>
     </div>
     <p class="stamp">作成:学習空間 深谷上柴教室/情報は2026年11月17日時点</p>
@@ -302,7 +305,7 @@ footer b{color:#fff}
   <p class="lead">私立は<b class="hl">1月</b>、公立は<b class="hl">2月</b>が本番です。公立の出願はインターネットで行います。</p>
   <ol class="tl" id="tl"></ol>
   <div class="legend"><span><i style="background:var(--g)"></i>私立</span><span><i style="background:var(--f)"></i>公立の手続き</span><span><i style="background:var(--navy)"></i>公立の本番</span></div>
-  <p class="note">私立の日程は正智深谷・東京成徳大学深谷の例です。学校により異なります。</p>
+  <p class="note">私立の日程は正智深谷・東京成徳大学深谷・本庄第一の例です。学校により異なります。</p>
 </div></section>
 
 <!-- HENSACHI -->
@@ -310,7 +313,7 @@ footer b{color:#fff}
   <div class="h2"><span class="en">LEVEL</span><h2>偏差値の目安マップ</h2></div>
   <p class="lead">学科で幅がある学校は、帯の長さで範囲を示しています。合否は学力検査・調査書・面接の合計点で決まります。</p>
   <div class="box"><div class="hen" id="hen"></div></div>
-  <div class="legend"><span><i style="background:var(--k)"></i>熊谷市</span><span><i style="background:var(--f)"></i>深谷市</span><span><i style="background:var(--g)"></i>行田市</span></div>
+  <div class="legend"><span><i style="background:var(--k)"></i>熊谷市</span><span><i style="background:var(--f)"></i>深谷市</span><span><i style="background:var(--g)"></i>行田市</span><span><i style="background:var(--h)"></i>本庄・寄居</span><span><i style="background:var(--c)"></i>鴻巣・上尾・伊奈</span></div>
   <p class="note">偏差値:「みんなの高校情報」の掲載値(2026年10月25日時点の民間まとめ)。私立は公表値がないため載せていません。</p>
 </div></section>
 
@@ -368,15 +371,17 @@ footer b{color:#fff}
     <button type="button" data-f="k" aria-pressed="false">熊谷市</button>
     <button type="button" data-f="f" aria-pressed="false">深谷市</button>
     <button type="button" data-f="g" aria-pressed="false">行田市</button>
+    <button type="button" data-f="h" aria-pressed="false">本庄・寄居</button>
+    <button type="button" data-f="c" aria-pressed="false">鴻巣・上尾・伊奈</button>
   </div></div>
   <div class="cards" id="cards"></div>
   <p class="note">内申の目安(9教科・45点満点)は学習空間 深谷上柴教室の進路指導での目安です。倍率は2026年度の志願確定倍率です。</p>
-  <p class="note">合否の目安:2026年度入試を受けた先輩の開示得点(民間の調査資料)をもとに、学習空間 深谷上柴教室が算出しました。「安心ライン」は合格者の平均、「ボーダー」は合格者を点数順に並べた下から4分の1の位置です(5教科は5点単位に丸めています)。学科が複数ある高校はまとめて計算しています。熊谷・熊谷女子・熊谷西は数学・英語が学校選択問題のため、ほかの高校と点数を比べられません。年度によって問題の難しさや倍率が変わるため、あくまで目安です。</p>
+  <p class="note">合否の目安:2026年度入試を受けた先輩の開示得点(民間の調査資料)をもとに、学習空間 深谷上柴教室が算出しました。「安心ライン」は合格者の平均、「ボーダー」は合格者を点数順に並べた下から4分の1の位置です(5教科は5点単位に丸めています)。学科・学系が複数ある高校はまとめて計算しています(伊奈学園総合はスポーツ科学系・芸術系を含む)。熊谷・熊谷女子・熊谷西は数学・英語が学校選択問題のため、ほかの高校と点数を比べられません。年度によって問題の難しさや倍率が変わるため、あくまで目安です。</p>
 </div></section>
 
 <!-- PRIVATE -->
 <section class="sec" id="private"><div class="in">
-  <div class="h2"><span class="en">PRIVATE</span><h2>深谷市の私立高校</h2></div>
+  <div class="h2"><span class="en">PRIVATE</span><h2>私立高校(深谷・本庄)</h2></div>
   <p class="lead">私立は1月に入試があり、公立の併願先にもなります。11〜12月の個別相談会に、通知表や北辰テストの結果を持って相談に行くのが一般的です。</p>
   <div class="privs">
     <article class="sc" data-city="f">
@@ -404,6 +409,19 @@ footer b{color:#fff}
         <div class="chips"><span class="chip">単願(個人面接あり)</span><span class="chip">併願1・2</span><span class="chip">2月入試</span><span class="chip hot">特待生判定あり</span></div>
         <p>出願12/1〜1/8。単願・併願1は1/22(金)、併願2は1/23(土)、発表は1/27(水)。2月入試は2/6(土)。</p>
         <p class="tip"><span class="lb">対策</span>進学選抜・進学コースは得意な2教科で勝負できます。得意教科を確実に伸ばしましょう。</p>
+      </div>
+    </article>
+    <article class="sc" data-city="h">
+      <div class="sc-h"><div><h3>本庄第一高校</h3><div class="dept">普通科・3類型(定員350人)</div></div></div>
+      <div class="sc-b">
+        <div class="courses">
+          <div class="course"><i style="background:var(--h)"></i>S類型</div>
+          <div class="course"><i style="background:var(--h);opacity:.7"></i>AⅠ類型(アドバンス・スタンダード)</div>
+          <div class="course"><i style="background:var(--h);opacity:.45"></i>AⅡ類型</div>
+        </div>
+        <div class="chips"><span class="chip">単願推薦1〜3</span><span class="chip">併願推薦1〜3</span><span class="chip">英・国・数(マーク式)</span><span class="chip hot">学業奨学生あり</span></div>
+        <p>Web出願は12/9(水)〜1/7(木)。単願推薦1・併願推薦1は1/22(金)、併願推薦2は1/24(日)、単願推薦2・併願推薦3は2/6(土)。英・国・数は各100点・40分のマーク式で、単願は面接(5〜10分)もあります。個別相談会は11/21・11/25・12/12・12/25・12/26。</p>
+        <p class="tip"><span class="lb">対策</span>S類型・AⅠ類型は、届かなかったときも第2希望の類型で判定してもらえます。学業奨学生は単願推薦1・併願推薦1のみなので、1月の入試で力を出し切りましょう。</p>
       </div>
     </article>
   </div>
@@ -435,6 +453,8 @@ footer b{color:#fff}
     <li><a href="https://www.pref.saitama.lg.jp/documents/24599/r9gaiyou.pdf" target="_blank" rel="noopener">令和9年度 生徒募集人員</a>/<a href="https://www.pref.saitama.lg.jp/documents/268192/r8shigankakutei0219.pdf" target="_blank" rel="noopener">令和8年度 入学志願確定者数</a>(埼玉県教育委員会)</li>
     <li><a href="https://www.pref.saitama.lg.jp/f2208/r9nyuushiqa.html" target="_blank" rel="noopener">令和9年度 入学者選抜Q&amp;A</a>/<a href="https://www.pref.saitama.lg.jp/f2208/news/page/news2025052203.html" target="_blank" rel="noopener">入試日程</a>(埼玉県)</li>
     <li><a href="https://saitama-juken-real.com/saitama-hensachi-hokushin-2026/" target="_blank" rel="noopener">埼玉県公立高校偏差値ランキング2026年度</a>(「みんなの高校情報」の値をまとめた民間サイト)</li>
+    <li><a href="https://www.pref.saitama.lg.jp/f2208/r9nyuushi-senbatsuzisshinaiyou.html" target="_blank" rel="noopener">本庄・寄居城北・鴻巣・鴻巣女子・上尾・伊奈学園総合の選抜実施内容</a>(埼玉県教育委員会・各校のPDF)</li>
+    <li><a href="https://www.hon1.ed.jp/hs/examination/" target="_blank" rel="noopener">本庄第一高校 入試・イベント情報/令和9年度 入学試験要項</a>(学校公式)</li>
     <li><a href="https://shochi.jp/admission/openschool/" target="_blank" rel="noopener">正智深谷高校 説明会・個別相談会</a>/<a href="https://tsfh.jp/entrance_exam/%E5%8B%9F%E9%9B%86%E8%A6%81%E9%A0%85" target="_blank" rel="noopener">東京成徳大学深谷高校 募集要項</a>(各校公式)</li>
   </ul>
   <p>最新・正確な内容は、必ず埼玉県教育委員会と各高校の発表でご確認ください。</p>
@@ -447,12 +467,18 @@ const S=[
  {n:"熊谷女子",g:{t:[335,315],y:[40,38]},c:"k",d:"普通科(女子)",h:[63,63],na:"39",t:"280",b:"1.13",type:"特色+共通",sel:true,r:"1:1:2",s1:[650,135,30],s2:[500,200,30],l1:"特色",l2:"共通",tags:["国数英 各150点","学校選択問題"],tip:"特色選抜(80%)は<b>国語・数学・英語が各150点</b>の傾斜配点。3教科の得点力が合否を大きく左右します。"},
  {n:"熊谷西(理数)",g:{few:true},c:"k",d:"理数科",h:[63,63],na:"37",t:"40",b:"0.88",type:"特色選抜のみ",sel:true,r:"1:1:2",s1:[700,400,30],s2:[700,250,30],tags:["数・理 各200点","普通科と相互に第2志望"],tip:"<b>数学と理科が各200点</b>。数学(学校選択問題)と理科の得点力が決め手。普通科を第2志望にできます。"},
  {n:"熊谷西(普通)",g:{t:[330,315],y:[38,35]},c:"k",d:"普通科",h:[62,62],na:"37",t:"280",b:"1.17",type:"共通選抜のみ",sel:true,r:"1:1:2",s1:[500,300,30],s2:[500,200,30],tags:["学校選択問題","個人面接"],tip:"共通選抜のみで配点はシンプル。2026年度は1.17倍と周辺の普通科で最も高い倍率でした。5教科の総合力と学校選択問題対策を。"},
+ {n:"伊奈学園総合",g:{t:[375,355],y:[36,33]},c:"c",d:"普通科(普通学系・スポーツ科学系・芸術系)",h:[59,59],na:"33〜36",t:"760",b:"1.10",type:"普通学系は共通選抜のみ",sel:false,r:"1:1:3",s1:[500,300,30],s2:[500,200,30],down:true,tags:["中3重視 1:1:3","スポーツ・芸術系は実技あり","募集40人減"],tip:"普通学系は人文・理数・語学・生活科学・情報経営から選べる県内最大級の学校(募集760人は伊奈学園中からの進学者を含む)。スポーツ科学系・芸術系は特色選抜で<b>実技検査200点</b>があります。中3の成績の比重が大きいので、中3の定期テストで上げきりましょう。"},
+ {n:"上尾",g:{t:[360,340],y:[36,34]},c:"c",d:"普通科・商業科",h:[55,57],na:"34〜36",t:"360",b:"1.28〜1.33",type:"特色選抜のみ",sel:false,r:"1:1:2",s1:[500,180,60],s2:[500,180,120],tags:["学力検査の比重大","商業科あり","面接60〜240点"],tip:"第1次は調査書180点で、<b>学力検査500点の比重がとても大きい</b>学校。2026年度は普通科1.33倍の高倍率でした。5教科の得点力を磨きましょう。商業科は第2次で面接が240点になります。"},
+ {n:"本庄",g:{t:[350,320],y:[36,33]},c:"h",d:"普通科",h:[56,56],na:"33〜36",t:"280",b:"1.09",type:"特色選抜のみ",sel:false,r:"1:1:2",s1:[500,310,30],s2:[500,155,60],down:true,tags:["個人面接","募集40人減"],tip:"県北の伝統校。自己評価資料のテーマは<b>高い目標に向けて主体的に探究した取組</b>。2027年度は募集が320→280人に減るため、倍率の上昇に注意しましょう。"},
  {n:"深谷第一",g:{t:[315,300],y:[31,29]},c:"f",d:"普通科",h:[52,52],na:"30〜31",t:"280",b:"1.01",type:"特色選抜のみ",sel:false,r:"1:1:3",s1:[500,225,30],s2:[500,135,120],tags:["中3重視 1:1:3","2次は面接120点"],tip:"第2次選抜は<b>面接が120点</b>に。5教科で安定して得点しつつ、学業と部活動を両立してきた経験を話せるように準備しましょう。"},
  {n:"深谷商業",g:{t:[255,230],y:[29,27]},c:"f",d:"商業・会計・情報処理",h:[47,47],na:"27〜30",t:"280",b:"1.01〜1.08",type:"特色選抜のみ",sel:false,r:"1:1:2",s1:[500,540,60],s2:[500,270,30],tags:["調査書540点","全学科 相互に第2志望"],tip:"第1次は<b>調査書540点で学力検査より大きい</b>のが最大の特徴。中1からの内申点がとても重要です。"},
- {n:"進修館",g:{t:[215,190],y:[28,25]},c:"g",d:"総合・工業系3学科",h:[44,47],na:"25〜26",t:"320",b:"0.28〜0.77",type:"特色選抜のみ",sel:false,r:"1:1:3",s1:[500,450,100],s2:[500,225,100],tags:["面接100点","全学科 相互に第2志望"],tip:"調査書と面接の配点がどちらも大きい学校。自己評価資料では志望学科の学びをどう調べたかを書くので、<b>学校説明会への参加</b>がそのまま対策になります。"},
  {n:"熊谷商業",g:{t:[240,215],y:[29,26]},c:"k",d:"総合ビジネス科",h:[46,46],na:"—",t:"160",b:"0.81",type:"共通選抜のみ",sel:false,r:"1:1:2",s1:[500,400,30],s2:[500,400,60],down:true,tags:["調査書400点","募集40人減"],tip:"調査書400点で<b>内申点が合否を左右</b>。2027年度は募集が200→160人に減ります(2026年度の志願者は161人)。"},
- {n:"熊谷工業",g:{t:[225,175],y:[26,24]},c:"k",d:"機械・電気・建築・土木・情報技術",h:[42,43],na:"25〜26",t:"240",b:"0.78〜1.15",type:"共通選抜のみ",sel:false,r:"1:1:3",s1:[500,300,30],s2:[500,400,60],tags:["中3重視 1:1:3","全学科 相互に第2志望"],tip:"2026年度は情報技術科1.15倍・建築科1.03倍。面接では<b>ものづくりへの関心</b>と入学後の目標を自分の言葉で。"},
+ {n:"進修館",g:{t:[215,190],y:[28,25]},c:"g",d:"総合・工業系3学科",h:[44,47],na:"25〜26",t:"320",b:"0.28〜0.77",type:"特色選抜のみ",sel:false,r:"1:1:3",s1:[500,450,100],s2:[500,225,100],tags:["面接100点","全学科 相互に第2志望"],tip:"調査書と面接の配点がどちらも大きい学校。自己評価資料では志望学科の学びをどう調べたかを書くので、<b>学校説明会への参加</b>がそのまま対策になります。"},
+ {n:"鴻巣",g:{t:[265,230],y:[28,26]},c:"c",d:"普通科・商業科",h:[42,46],na:"26〜28",t:"240",b:"0.87〜0.98",type:"特色選抜のみ",sel:false,r:"1:1:2",s1:[500,540,60],s2:[500,240,90],down:true,tags:["調査書540点","普通・商業 相互に第2志望","普通科40人減"],tip:"第1次は<b>調査書540点で学力検査より大きい</b>のが特徴。中1からの内申点がとても大切です。2027年度は普通科の募集が200→160人に減ります。"},
+ {n:"寄居城北",g:{few:true},c:"h",d:"総合学科",h:[43,43],na:"—",t:"200",b:"0.99",type:"共通選抜のみ",sel:false,r:"1:1:3",s1:[500,200,60],s2:[500,400,60],tags:["中3重視 1:1:3","個人面接","2次は調査書400点"],tip:"興味に合わせて科目を選べる総合学科。自己評価資料は<b>勉強以外で続けてきた活動</b>について書くので、部活動や地域の活動を振り返っておきましょう。"},
+ {n:"熊谷工業",g:{t:[225,175],y:[26,26]},c:"k",d:"機械・電気・建築・土木・情報技術",h:[42,43],na:"25〜26",t:"240",b:"0.78〜1.15",type:"共通選抜のみ",sel:false,r:"1:1:3",s1:[500,300,30],s2:[500,400,60],tags:["中3重視 1:1:3","全学科 相互に第2志望"],tip:"2026年度は情報技術科1.15倍・建築科1.03倍。面接では<b>ものづくりへの関心</b>と入学後の目標を自分の言葉で。"},
  {n:"深谷",g:{few:true},c:"f",d:"普通科",h:[42,42],na:"25〜26",t:"160",b:"0.75",type:"特色選抜のみ",sel:false,r:"1:1:3",s1:[500,225,120],s2:[500,180,200],down:true,tags:["面接120〜200点","募集40人減"],tip:"<b>面接の配点が大きい</b>学校(2次は200点)。部活動・委員会などで力を注いだ経験を振り返る練習を重ねましょう。2027年度は募集160人に減ります。"},
+ {n:"鴻巣女子",g:{few:true},c:"c",d:"普通科・保育科・家政科学科",h:[40,44],na:"—",t:"160",b:"0.51〜0.98",type:"共通選抜のみ",sel:false,r:"1:1:2",s1:[500,300,60],s2:[500,400,60],tags:["女子校","集団面接","全学科 相互に第2志望"],tip:"保育科・家政科学科は県内でもめずらしい専門学科。<b>将来の仕事につながる学び</b>を面接で話せるよう、学校説明会で実習の様子を見ておきましょう。"},
  {n:"熊谷農業",g:{few:true},c:"k",d:"食品科学・生物生産工学・生活技術・生物生産技術",h:[40,42],na:"25〜26",t:"240",b:"0.90〜1.18",type:"共通選抜のみ",sel:false,r:"1:1:2",s1:[500,300,30],s2:[500,300,60],tags:["集団面接","全学科 相互に第2志望"],tip:"食品科学科は2026年度1.18倍と人気。実験・実習への意欲を面接で伝えられるように準備します。"},
  {n:"妻沼",g:{few:true},c:"k",d:"普通科",h:[40,40],na:"—",t:"120",b:"0.67",type:"共通選抜のみ",sel:false,r:"1:1:2",s1:[500,400,60],s2:[500,200,60],tags:["調査書400点","学び直し歓迎"],tip:"「学び直しをしたい生徒」を歓迎する学校。<b>基礎の計算・英単語・漢字</b>を確実に得点し、高校生活への意欲を面接で伝えましょう。"}
 ];
@@ -460,14 +486,14 @@ const S=[
 const TL=[
  {d:"11月14日〜1月5日",at:"2026-11-14",w:"私立 個別相談会",s:"通知表・北辰テストの結果を持って相談",c:"pri"},
  {d:"12月1日〜1月8日",at:"2026-12-01",w:"私立 出願",c:"pri"},
- {d:"1月22日〜",at:"2027-01-22",w:"私立 入試",s:"単願・併願1は1/22(金)",c:"pri"},
+ {d:"1月22日〜",at:"2027-01-22",w:"私立 入試",s:"多くの学校が1/22(金)〜。本庄第一は1/24(日)・2/6(土)もあり",c:"pri"},
  {d:"1月26日〜2月9日",at:"2027-01-26",w:"公立 出願(インターネット)",c:"pub"},
  {d:"2月17日・18日",at:"2027-02-17",w:"公立 志願先変更",c:"pub"},
  {d:"2月25日",at:"2027-02-25",w:"公立 学力検査",s:"5教科・各100点",c:"big"},
  {d:"2月26日",at:"2027-02-26",w:"公立 面接",s:"全員に面接(My Voice)",c:"big"},
  {d:"3月5日",at:"2027-03-05",w:"公立 合格発表",c:"big"}
 ];
-const col={k:"var(--k)",f:"var(--f)",g:"var(--g)"};
+const col={k:"var(--k)",f:"var(--f)",g:"var(--g)",h:"var(--h)",c:"var(--c)"};
 const NS="http://www.w3.org/2000/svg";
 function el(tag,attrs,txt){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(txt!=null)e.textContent=txt;return e}
 const nm=n=>n.replace(/(\(|$)/,"高校$1");
@@ -475,20 +501,23 @@ const nm=n=>n.replace(/(\(|$)/,"高校$1");
 /* mark grid icon */
 (()=>{const g=document.getElementById("markGrid");for(let r=0;r<5;r++)for(let c=0;c<5;c++){const filled=(r*5+c)<22;g.appendChild(el("ellipse",{cx:28+c*16,cy:28+r*16,rx:6,ry:5,fill:filled?"var(--blue)":"#fff",stroke:"var(--blue)","stroke-width":2}))}})();
 
-/* map */
+/* map(模式図) */
 (()=>{const s=document.getElementById("mapSvg");
  s.appendChild(el("path",{d:"M0 34 C120 14 260 54 440 24",fill:"none",stroke:"var(--sky3)","stroke-width":8,"stroke-linecap":"round"}));
  s.appendChild(el("text",{x:352,y:20,"font-size":14,"font-weight":700,fill:"var(--muted)"},"利根川"));
- const soft={f:"var(--f-soft)",k:"var(--k-soft)",g:"var(--g-soft)"};
- [{x:8,y:58,w:200,h:270,c:"f",l:"深谷市"},{x:216,y:58,w:216,h:212,c:"k",l:"熊谷市"},{x:280,y:278,w:152,h:56,c:"g",l:"行田市"}]
-  .forEach(a=>{s.appendChild(el("rect",{x:a.x,y:a.y,width:a.w,height:a.h,rx:20,fill:soft[a.c]}));s.appendChild(el("text",{x:a.x+14,y:a.y+28,"font-size":18,"font-weight":900,fill:col[a.c]},a.l))});
- const pins=[["深谷第一",28,112,"f"],["深谷商業",28,148,"f"],["深谷",28,184,"f"],["正智深谷",28,262,"f"],["東京成徳深谷",28,298,"f"],
-  ["妻沼",232,110,"k"],["熊谷西",232,146,"k"],["熊谷商業",232,182,"k"],["熊谷農業",232,218,"k"],["熊谷",330,110,"k"],["熊谷女子",330,146,"k"],["熊谷工業",330,182,"k"],["進修館",364,312,"g"]];
- pins.forEach(p=>{s.appendChild(el("circle",{cx:p[1],cy:p[2]-5,r:7,fill:col[p[3]]}));s.appendChild(el("text",{x:p[1]+13,y:p[2],"font-size":16,"font-weight":700,fill:"var(--ink)"},p[0]))});
- const jx=150,jy=212;
- s.appendChild(el("circle",{cx:jx,cy:jy,r:17,fill:"var(--orange)"}));
- s.appendChild(el("text",{x:jx,y:jy+6,"text-anchor":"middle","font-size":16,"font-weight":900,fill:"#fff"},"塾"));
- s.appendChild(el("text",{x:jx,y:jy+36,"text-anchor":"middle","font-size":14,"font-weight":900,fill:"var(--orange)"},"学習空間"));
+ const soft={f:"var(--f-soft)",k:"var(--k-soft)",g:"var(--g-soft)",h:"var(--h-soft)",c:"var(--c-soft)"};
+ [{x:4,y:52,w:136,h:120,c:"h",l:"本庄市"},{x:4,y:180,w:136,h:84,c:"h",l:"寄居町"},{x:146,y:52,w:146,h:240,c:"f",l:"深谷市"},{x:298,y:52,w:138,h:240,c:"k",l:"熊谷市"},
+  {x:298,y:300,w:138,h:62,c:"g",l:"行田市"},{x:146,y:300,w:146,h:106,c:"c",l:"鴻巣市"},{x:146,y:414,w:140,h:80,c:"c",l:"上尾市"},{x:292,y:414,w:144,h:80,c:"c",l:"伊奈町"}]
+  .forEach(a=>{s.appendChild(el("rect",{x:a.x,y:a.y,width:a.w,height:a.h,rx:18,fill:soft[a.c]}));s.appendChild(el("text",{x:a.x+12,y:a.y+26,"font-size":17,"font-weight":900,fill:col[a.c]},a.l))});
+ const pins=[["本庄",16,106,"h"],["本庄第一",16,140,"h"],["寄居城北",16,238,"h"],
+  ["深谷第一",158,106,"f"],["深谷商業",158,140,"f"],["深谷",158,174,"f"],["正智深谷",158,244,"f"],["東京成徳深谷",158,276,"f"],
+  ["熊谷",310,104,"k"],["熊谷女子",310,130,"k"],["熊谷西",310,156,"k"],["熊谷商業",310,182,"k"],["熊谷工業",310,208,"k"],["熊谷農業",310,234,"k"],["妻沼",310,260,"k"],
+  ["進修館",310,350,"g"],["鴻巣",158,356,"c"],["鴻巣女子",158,390,"c"],["上尾",158,472,"c"],["伊奈学園総合",304,472,"c"]];
+ pins.forEach(p=>{s.appendChild(el("circle",{cx:p[1],cy:p[2]-5,r:6,fill:col[p[3]]}));s.appendChild(el("text",{x:p[1]+11,y:p[2],"font-size":15,"font-weight":700,fill:"var(--ink)"},p[0]))});
+ const jx=262,jy=196;
+ s.appendChild(el("circle",{cx:jx,cy:jy,r:16,fill:"var(--orange)"}));
+ s.appendChild(el("text",{x:jx,y:jy+6,"text-anchor":"middle","font-size":15,"font-weight":900,fill:"#fff"},"塾"));
+ s.appendChild(el("text",{x:jx-8,y:jy+34,"text-anchor":"middle","font-size":13,"font-weight":900,fill:"var(--orange)"},"学習空間"));
 })();
 
 /* timeline */
@@ -513,7 +542,7 @@ drawMix();
 ["st1","st2"].forEach((id,i)=>document.getElementById(id).addEventListener("click",()=>{stage=i+1;document.getElementById("st1").setAttribute("aria-pressed",stage===1);document.getElementById("st2").setAttribute("aria-pressed",stage===2);drawMix()}));
 
 /* ratio */
-(()=>{const rs=[["1:1:2",[1,1,2],"熊谷女子・熊谷西・熊谷商業・熊谷農業・妻沼・深谷商業"],["1:1:3",[1,1,3],"深谷第一・深谷(第1次)・熊谷工業・進修館"],["2:2:5",[2,2,5],"熊谷"],["1:1:1",[1,1,1],"(周辺13校では使われていません)"]];
+(()=>{const rs=[["1:1:2",[1,1,2],"熊谷女子・熊谷西・熊谷商業・熊谷農業・妻沼・深谷商業・本庄・鴻巣・鴻巣女子・上尾"],["1:1:3",[1,1,3],"深谷第一・深谷(第1次)・熊谷工業・進修館・寄居城北・伊奈学園総合"],["2:2:5",[2,2,5],"熊谷"],["1:1:1",[1,1,1],"(このページの公立高校では使われていません)"]];
  const op=[.45,.7,1];
  document.getElementById("ratio").innerHTML=rs.map(r=>{const sum=r[1][0]+r[1][1]+r[1][2];
   return `<div><div class="hd"><span class="rt">${r[0]}</span><span class="mx">満点 ${45*sum}点</span></div><div class="bar">${r[1].map((v,j)=>`<span style="width:${v/sum*100}%;background:rgba(66,165,245,${op[j]});${j===2?"color:#fff;background:var(--blue)":""}">${["中1","中2","中3"][j]} ${Math.round(v/sum*100)}%</span>`).join("")}</div><div class="sch">${r[2]}</div></div>`}).join("")})();
