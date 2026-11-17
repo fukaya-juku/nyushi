@@ -509,7 +509,7 @@ const col={k:"var(--k)",f:"var(--f)",g:"var(--g)",h:"var(--h)",c:"var(--c)"};
 const NS="http://www.w3.org/2000/svg";
 function el(tag,attrs,txt){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(txt!=null)e.textContent=txt;return e}
 /* 高校別ページへのリンク(tools/build-schools.mjs が data/school-pages.json から自動で書きかえる) */
-const PG={"熊谷":"kumagaya/","熊谷女子":"kumagaya-joshi/","熊谷西(普通)":"kumagaya-nishi/","熊谷西(理数)":"kumagaya-nishi/","深谷第一":"fukaya-daiichi/","深谷商業":"fukaya-shogyo/"};/*PG*/
+const PG={"熊谷":"kumagaya/","熊谷女子":"kumagaya-joshi/","熊谷西(普通)":"kumagaya-nishi/","熊谷西(理数)":"kumagaya-nishi/","深谷第一":"fukaya-daiichi/","深谷商業":"fukaya-shogyo/","本庄":"honjo/","上尾":"ageo/","伊奈学園総合":"ina-gakuen/","熊谷商業":"kumagaya-shogyo/","熊谷工業":"kumagaya-kogyo/","熊谷農業":"kumagaya-nogyo/","妻沼":"menuma/","深谷":"fukaya/","寄居城北":"yorii-johoku/","鴻巣":"konosu/","鴻巣女子":"konosu-joshi/","進修館":"shinshukan/"};/*PG*/
 const nm=n=>n.replace(/(\(|$)/,"高校$1");
 
 /* mark grid icon */

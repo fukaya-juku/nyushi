@@ -23,7 +23,8 @@ const isoDate = (() => { const [, y, m, d] = STAMP.match(/(\d+)年(\d+)月(\d+)�
 
 const byName = Object.fromEntries(S.map(d => [d.n, d]));
 const slugOf = {}; pages.forEach(p => p.keys.forEach(k => { slugOf[k] = p.slug; }));
-const col = { k: "var(--k)", f: "var(--f)", g: "var(--g)", h: "var(--h)", c: "var(--c)" };
+const col = { k: "var(--k)", f: "var(--f)", g: "var(--g)", h: "var(--h)", c: "#455a64" };
+const AREAS = [["f", "深谷市"], ["k", "熊谷市"], ["h", "本庄市・寄居町"], ["g", "行田市"], ["c", "鴻巣市・上尾市・伊奈町"]];
 const MC = ["var(--exam)", "var(--report)", "var(--talk)"];
 const hv = d => d.h[0] === d.h[1] ? `${d.h[0]}` : `${d.h[0]}-${d.h[1]}`;
 const strip = s => s.replace(/<[^>]+>/g, "");
@@ -201,7 +202,7 @@ body{--c:var(--blue);--cs:var(--sky)}
 <section class="sec alt" id="goal"><div class="in">
   <div class="h2"><span class="en">BORDER</span><h2>何点取れば合格?<br>合否の目安</h2></div>
   ${ds.map(d => `<div class="box">${ds.length > 1 ? `<h3 class="h3">${d.d}</h3>` : ""}${goal(d)}</div>`).join("\n  ")}
-  <p class="note">2026年度入試を受けた先輩の開示得点(民間の調査資料)をもとに、学習空間 深谷上柴教室が算出しました。「安心ライン」は合格者の平均、「ボーダー」は合格者を点数順に並べた下から4分の1の位置です(5教科は5点単位に丸めています)。${ds.some(d => d.sel) ? "数学・英語は学校選択問題のため、学校選択問題を使わない高校とは点数を比べられません。" : ""}年度によって問題の難しさや倍率が変わるため、あくまで目安です。</p>
+  ${ds.every(d => !d.g || d.g.few) ? "" : `<p class="note">2026年度入試を受けた先輩の開示得点(民間の調査資料)をもとに、学習空間 深谷上柴教室が算出しました。「安心ライン」は合格者の平均、「ボーダー」は合格者を点数順に並べた下から4分の1の位置です(5教科は5点単位に丸めています)。${ds.some(d => d.sel) ? "数学・英語は学校選択問題のため、学校選択問題を使わない高校とは点数を比べられません。" : ""}年度によって問題の難しさや倍率が変わるため、あくまで目安です。</p>`}
 </div></section>
 
 <section class="sec" id="mix"><div class="in">
@@ -237,8 +238,8 @@ body{--c:var(--blue);--cs:var(--sky)}
 
 <section class="sec alt"><div class="in">
   <div class="h2"><span class="en">OTHER SCHOOLS</span><h2>ほかの高校の入試情報</h2></div>
-  <div class="links">${others.map(o => { const d = byName[o.keys[0]]; return `<a href="../${o.slug}/"><span>${o.name}<small>${o.area}・偏差値${hv(d)}・志願倍率${d.b}</small></span></a>`; }).join("")}
-  <a href="../#schools"><span>20校をまとめて見る<small>深谷・熊谷・本庄・鴻巣・上尾エリア</small></span></a></div>
+  ${[...AREAS].sort((x, y) => (y[0] === main.c) - (x[0] === main.c)).map(([c, lab]) => { const os = others.filter(o => byName[o.keys[0]].c === c); return os.length ? `<div class="box"><h3 class="h3" style="color:${col[c]}">${lab}</h3><div class="links">${os.map(o => { const d = byName[o.keys[0]]; return `<a href="../${o.slug}/"><span>${o.name}<small>偏差値${hv(d)}・志願倍率${d.b}</small></span></a>`; }).join("")}</div></div>` : ""; }).join("")}
+  <div class="links"><a href="../#schools"><span>20校をまとめて見る<small>私立高校もふくめた一覧</small></span></a></div>
 </div></section>
 
 <section class="juku" id="juku"><div class="in">
