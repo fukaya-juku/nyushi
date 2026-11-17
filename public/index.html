@@ -1,315 +1,434 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>深谷・熊谷 高校入試ナビ</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>深谷・熊谷 高校入試ナビ｜学習空間 深谷上柴教室</title>
+<meta name="description" content="深谷市・熊谷市・行田市の公立高校13校の入試を、日程・偏差値・配点・内申点・面接・合否の目安まで図でまとめました。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Sans+JP:wght@500;600&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Lato:wght@700;900&display=swap">
 <style>
-/* Layout: 白地に青の帯。教室HPに合わせた青と白。熊谷=青、深谷=水色、行田=灰青。図が主役で文は短く */
+/* 教室サイト(blue0728.studio.site)に合わせた青と白。スマホ優先・大きな文字・図が主役 */
 :root{
-  --bg:#f5f8fd; --surface:#ffffff; --ink:#15233f; --muted:#56637c; --line:#d6e0f0; --soft:#eaf1fb;
-  --negi:#1593c4; --negi-soft:#dff2fa;
-  --heat:#1f5fbf; --heat-soft:#e1ebfa;
-  --gyoda:#6a7ea6; --gyoda-soft:#e9edf5;
-  --exam:#1e3a8a; --report:#5aa9f0; --talk:#f0a030;
-  --accent:#1f5fbf; --band:#1f5fbf; --band-ink:#ffffff;
-  --f-display:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
-  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
-  --f-data:"IBM Plex Sans JP","Zen Kaku Gothic New",sans-serif;
+  color-scheme:light;
+  --blue:#004cd0; --navy:#03125b; --indigo:#283593;
+  --sky:#e3f2fd; --sky2:#bbdefb; --sky3:#90caf9;
+  --orange:#ff8924; --orange-soft:#fff1e3;
+  --ink:#333; --muted:#5f6b7d; --line:#d5e3f5; --white:#fff;
+  --k:#004cd0; --k-soft:#e3edfc;     /* 熊谷 */
+  --f:#0097c4; --f-soft:#e0f4fa;     /* 深谷 */
+  --g:#5c6bc0; --g-soft:#eceefa;     /* 行田 */
+  --exam:#1a237e; --report:#42a5f5; --talk:#ff8924;
+  --font:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --num:"Lato","Noto Sans JP",sans-serif;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0e1626; --surface:#152039; --ink:#e6edf8; --muted:#a2b0c8; --line:#2a3a5a; --soft:#1c2a47;
-  --negi:#4cc3ec; --negi-soft:#14334a; --heat:#7aa7f0; --heat-soft:#1b2d52; --gyoda:#a3b3d4; --gyoda-soft:#232f48;
-  --exam:#8fa9f0; --report:#6fb8f5; --talk:#f4b555; --accent:#7aa7f0; --band:#1a3d7a; --band-ink:#ffffff; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0e1626; --surface:#152039; --ink:#e6edf8; --muted:#a2b0c8; --line:#2a3a5a; --soft:#1c2a47;
-  --negi:#4cc3ec; --negi-soft:#14334a; --heat:#7aa7f0; --heat-soft:#1b2d52; --gyoda:#a3b3d4; --gyoda-soft:#232f48;
-  --exam:#8fa9f0; --report:#6fb8f5; --talk:#f4b555; --accent:#7aa7f0; --band:#1a3d7a; --band-ink:#ffffff; color-scheme:dark}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.75;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:72px;padding-block:32px 64px}
-h1,h2{font-family:var(--f-display);font-weight:700;letter-spacing:.02em;text-wrap:balance;line-height:1.3;margin:0}
-h1{font-size:clamp(30px,6vw,52px)}
-h2{font-size:clamp(23px,3.6vw,32px)}
-h3{font-size:18px;margin:0;line-height:1.4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+img,svg{max-width:100%}
 p{margin:0}
-.eyebrow{font-family:var(--f-data);font-size:13px;letter-spacing:.12em;color:var(--accent);font-weight:600}
-.lead{color:var(--muted);max-width:62ch}
-section{display:flex;flex-direction:column;gap:20px;min-width:0}
-.head{display:flex;flex-direction:column;gap:8px}
-.head h2{display:flex;align-items:center;gap:12px}
-.head h2::before{content:"";width:6px;align-self:stretch;min-height:1.1em;border-radius:3px;background:var(--accent)}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;min-width:0}
-.scroll{overflow-x:auto}
-svg text{font-family:var(--f-data)}
-.num{font-family:var(--f-data);font-variant-numeric:tabular-nums}
-.note{font-size:13px;color:var(--muted)}
-a{color:var(--accent)}
-:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+a{color:var(--blue);font-weight:700;text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+[hidden]{display:none!important}
+.num{font-family:var(--num);font-variant-numeric:tabular-nums}
+.in{max-width:960px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left,0px)) 0 max(16px,env(safe-area-inset-right,0px))}
 
-.topbar{background:var(--band);color:var(--band-ink);margin-left:calc(-1*max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1*max(16px,env(safe-area-inset-right,0px)));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.topbar-in{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:12px;flex-wrap:wrap}
-.brand{font-weight:700;font-size:18px;letter-spacing:.04em}.brand small{font-size:13px;font-weight:500;opacity:.9;margin-left:6px}
-.tel{font-size:15px;user-select:all}
-.hero{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px}
+/* header */
+.top{position:sticky;top:0;z-index:20;background:var(--white);box-shadow:0 2px 8px rgba(3,18,91,.08)}
+.top .in{display:flex;align-items:center;justify-content:space-between;gap:10px;height:60px}
+.logo{color:var(--blue);font-weight:900;font-size:22px;letter-spacing:.02em;text-decoration:none;line-height:1.1;white-space:nowrap}
+.logo small{font-size:13px;font-weight:700;color:var(--navy);margin-left:4px}
+.btn-tel{display:inline-flex;align-items:center;gap:6px;background:var(--orange);color:#fff;border-radius:999px;padding:8px 16px;font-size:15px;font-weight:900;text-decoration:none;white-space:nowrap}
+.nav{background:var(--blue)}
+.nav ul{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(4,1fr);max-width:960px}
+.nav a{display:block;color:#fff;text-decoration:none;text-align:center;font-size:14px;font-weight:700;padding:9px 2px;border-right:1px solid rgba(255,255,255,.25);border-bottom:1px solid rgba(255,255,255,.25)}
+.nav li:nth-child(4n) a{border-right:0}
+
 /* hero */
-.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:center}
-.hero-text{display:flex;flex-direction:column;gap:16px;min-width:0}
-.hero-tags{display:flex;flex-wrap:wrap;gap:8px}
-.tag{font-size:13px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface);white-space:nowrap}
-.tag.f{background:var(--negi-soft);border-color:transparent;color:var(--negi)}
-.tag.k{background:var(--heat-soft);border-color:transparent;color:var(--heat)}
-.tag.g{background:var(--gyoda-soft);border-color:transparent;color:var(--gyoda)}
-@media (max-width:760px){.hero{grid-template-columns:1fr}}
+.hero{background:linear-gradient(160deg,#004cd0 0%,#1e6fe0 55%,#64b5f6 100%);color:#fff;padding:36px 0 40px}
+.hero .in{display:flex;flex-direction:column;gap:18px}
+.pill{display:inline-block;align-self:flex-start;background:var(--orange);color:#fff;border-radius:999px;padding:4px 16px;font-size:15px;font-weight:900}
+.hero h1{margin:0;font-size:clamp(34px,9vw,56px);font-weight:900;line-height:1.25;letter-spacing:.03em}
+.hero h1 span{display:block;font-size:.5em;letter-spacing:.08em;opacity:.95}
+.hero .lead{font-size:17px;font-weight:500}
+.hero .stamp{font-size:14px;opacity:.95}
+.map{background:var(--white);border-radius:20px;padding:14px;color:var(--ink)}
+.map .cap{font-size:13px;color:var(--muted);text-align:center}
+.areas{display:flex;flex-wrap:wrap;gap:8px}
+.areas span{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:3px 14px;font-size:15px;font-weight:700}
 
-/* 3 changes */
-.changes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.change{display:flex;flex-direction:column;gap:10px}
-.change svg{width:100%;height:auto;max-width:220px}
-.change .big{font-family:var(--f-display);font-size:26px;line-height:1.2}
-@media (max-width:760px){.changes{grid-template-columns:1fr}}
+/* sections */
+.sec{padding:52px 0}
+.sec.alt{background:var(--sky)}
+.sec .in{display:flex;flex-direction:column;gap:22px}
+.h2{text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.h2 .en{font-family:var(--num);font-size:13px;font-weight:900;letter-spacing:.2em;color:var(--blue)}
+.h2 h2{margin:0;font-size:clamp(24px,6.4vw,32px);font-weight:900;color:var(--navy);line-height:1.4;text-wrap:balance}
+.h2 h2::after{content:"";display:block;width:56px;height:4px;border-radius:2px;background:var(--blue);margin:10px auto 0}
+.lead{font-size:17px}
+.box{background:var(--white);border-radius:20px;padding:20px 18px;box-shadow:0 4px 16px rgba(3,18,91,.07);min-width:0}
+.sec.alt .box{box-shadow:none}
+.note{font-size:14px;color:var(--muted);line-height:1.7}
+.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;font-size:15px;font-weight:700}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:6px;vertical-align:-2px}
+b.hl{background:linear-gradient(transparent 60%,#ffe0b2 60%)}
 
-/* toggle */
-.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface);gap:2px;flex-wrap:wrap}
-.seg button{font:inherit;font-size:14px;border:0;background:transparent;color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer}
-.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
-.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
-.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
-.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+/* changes */
+.changes{display:grid;gap:14px}
+.change{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center}
+.change svg{width:96px;height:auto}
+.change h3{margin:0 0 2px;font-size:21px;font-weight:900;color:var(--navy);line-height:1.4}
+.change h3 em{font-style:normal;color:var(--blue)}
+.change p{font-size:16px}
+
+/* formula */
+.formula{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px}
+.formula .blk{border-radius:14px;padding:12px 10px;color:#fff;font-weight:900;text-align:center;min-width:88px;line-height:1.35}
+.formula .blk small{display:block;font-size:12px;font-weight:700;opacity:.92}
+.formula .op{font-size:26px;font-weight:900;color:var(--navy)}
+.formula .sum{background:var(--white);color:var(--navy);border:3px solid var(--navy)}
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0 0 0 4px;position:relative}
+.tl::before{content:"";position:absolute;left:19px;top:10px;bottom:10px;width:4px;border-radius:2px;background:var(--sky2)}
+.tl li{position:relative;display:grid;grid-template-columns:40px 1fr;gap:10px;padding:8px 0}
+.tl .dot{width:32px;height:32px;border-radius:50%;background:var(--c,var(--blue));border:4px solid var(--white);box-shadow:0 0 0 2px var(--c,var(--blue));z-index:1;margin-top:2px}
+.tl .card{background:var(--white);border-radius:14px;padding:10px 14px;border-left:6px solid var(--c,var(--blue))}
+.tl .date{font-family:var(--num);font-weight:900;font-size:20px;color:var(--c,var(--blue));line-height:1.2}
+.tl .what{font-size:17px;font-weight:700;color:var(--navy)}
+.tl .sub{font-size:14px;color:var(--muted)}
+.tl li.now .dot{background:var(--orange);box-shadow:0 0 0 2px var(--orange)}
+.tl li.now .card{background:var(--orange-soft);border-left-color:var(--orange)}
+.tl li.big .card{background:var(--navy)} .tl li.big .what,.tl li.big .date{color:#fff} .tl li.big .sub{color:#cfd8ff}
+.tl .tagp{display:inline-block;font-size:12px;font-weight:900;border-radius:6px;padding:0 8px;margin-right:6px;vertical-align:2px;color:#fff;background:var(--c,var(--blue))}
+
+/* bar charts (html) */
+.seg{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.seg button{font:inherit;font-size:16px;font-weight:700;border:2px solid var(--blue);background:var(--white);color:var(--blue);padding:8px 18px;border-radius:999px;cursor:pointer;min-height:44px}
+.seg button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.hen{display:flex;flex-direction:column;gap:6px}
+.hen .row{display:grid;grid-template-columns:1fr auto;grid-template-areas:"nm v" "trk trk";align-items:center;gap:0 8px}
+.hen .nm{grid-area:nm;font-size:16px;font-weight:900;line-height:1.4}
+.hen .trk{grid-area:trk;position:relative;height:16px;background:var(--sky);border-radius:8px;background-image:repeating-linear-gradient(90deg,transparent 0 calc(17.24% - 1px),#fff calc(17.24% - 1px) 17.24%);background-position:6.9% 0}
+.hen .rng{position:absolute;top:0;bottom:0;border-radius:9px}
+.hen .v{grid-area:v;font-family:var(--num);font-weight:900;font-size:18px;text-align:right}
+.hen .axis{margin-top:2px}
+.hen .ticks{position:relative;height:20px;font-family:var(--num);font-size:13px;color:var(--muted)}
+.hen .ticks span{position:absolute;transform:translateX(-50%)}
+.mix{display:flex;flex-direction:column;gap:14px}
+.mix .row{display:flex;flex-direction:column;gap:4px}
+.mix .hd{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:0 8px}
+.mix .nm{font-size:17px;font-weight:900;white-space:nowrap}
+.mix .tot{font-family:var(--num);font-size:13px;color:var(--muted);font-weight:700;white-space:nowrap}
+.bar{display:flex;height:30px;border-radius:8px;overflow:hidden;background:var(--sky)}
+.bar span{display:flex;align-items:center;justify-content:center;font-family:var(--num);font-weight:900;font-size:14px;color:#fff;min-width:0;overflow:hidden;white-space:nowrap;transition:width .4s ease}
+.bar span.r{color:#0b2a55}
+.ratio{display:flex;flex-direction:column;gap:18px}
+.ratio .hd{display:flex;justify-content:space-between;align-items:baseline}
+.ratio .rt{font-family:var(--num);font-size:24px;font-weight:900;color:var(--navy)}
+.ratio .mx{font-size:14px;color:var(--muted);font-weight:700}
+.ratio .bar{height:40px}
+.ratio .bar span{font-size:14px;color:#0b2a55}
+.ratio .sch{font-size:15px;margin-top:4px}
+.calc{background:var(--sky);border-radius:14px;padding:12px 14px;font-size:16px}
+.calc b{color:var(--blue);font-size:20px}
+
+/* interview */
+.flow{display:flex;flex-direction:column;align-items:stretch;gap:8px}
+.step{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;border-radius:16px;padding:14px;color:#fff}
+.step svg{width:64px;height:64px}
+.step h3{margin:0;font-size:20px;font-weight:900;line-height:1.3}
+.step .t{font-family:var(--num);font-weight:900;font-size:17px}
+.step p{font-size:15px;opacity:.95}
+.arrow{text-align:center;color:var(--blue);font-size:22px;line-height:1}
+.app{display:flex;align-items:center;gap:12px;background:var(--white);border:3px solid var(--orange);border-radius:16px;padding:14px;text-decoration:none;color:var(--ink)}
+.app svg{flex:none;width:48px;height:48px}
+.app b{display:block;font-size:18px;color:var(--orange);font-weight:900}
+.app span{font-size:15px;font-weight:500}
 
 /* school cards */
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0;border-top:5px solid var(--c)}
-.card[data-city="f"]{--c:var(--negi)} .card[data-city="k"]{--c:var(--heat)} .card[data-city="g"]{--c:var(--gyoda)}
-.card-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
-.card .dept{font-size:13px;color:var(--muted)}
-.hen{font-family:var(--f-data);text-align:right;line-height:1.1;white-space:nowrap}
-.hen b{font-size:26px;color:var(--c)}
-.hen span{display:block;font-size:11px;color:var(--muted)}
+.filters{position:sticky;top:60px;z-index:10;background:var(--sky);padding:8px 0}
+.filters .seg{gap:6px;flex-wrap:nowrap}
+.filters .seg button{padding:6px 12px;font-size:15px;min-height:42px}
+.cards{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:760px){.cards{grid-template-columns:1fr 1fr}}
+.sc{background:var(--white);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 16px rgba(3,18,91,.08)}
+.sc[data-city="k"]{--c:var(--k);--cs:var(--k-soft)} .sc[data-city="f"]{--c:var(--f);--cs:var(--f-soft)} .sc[data-city="g"]{--c:var(--g);--cs:var(--g-soft)}
+.sc-h{background:var(--c);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.sc-h h3{margin:0;font-size:22px;font-weight:900;line-height:1.3}
+.sc-h .dept{font-size:14px;opacity:.95;line-height:1.5}
+.sc-h .hv{text-align:center;background:#fff;color:var(--c);border-radius:12px;padding:4px 10px;line-height:1.1;flex:none}
+.sc-h .hv b{display:block;font-family:var(--num);font-size:28px;font-weight:900}
+.sc-h .hv small{font-size:11px;font-weight:700}
+.sc-b{padding:16px;display:flex;flex-direction:column;gap:14px}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.fact{background:var(--soft);border-radius:8px;padding:6px 8px;display:flex;flex-direction:column}
-.fact small{font-size:11px;color:var(--muted)}
-.fact b{font-family:var(--f-data);font-size:15px;font-variant-numeric:tabular-nums}
+.fact{background:var(--cs);border-radius:12px;padding:8px 6px;text-align:center;line-height:1.3}
+.fact small{display:block;font-size:12.5px;font-weight:700;color:var(--muted)}
+.fact b{font-family:var(--num);font-size:20px;font-weight:900;color:var(--navy)}
+.goal{border:2px solid var(--c);border-radius:16px;padding:12px 12px 10px}
+.goal.few{border-style:dashed;border-color:var(--line);font-size:14px;color:var(--muted);padding:10px 12px}
+.goal-h{font-size:15px;font-weight:900;color:var(--c);margin-bottom:6px}
+.gauge{margin:4px 0 10px}
+.gauge .lab{display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:var(--muted)}
+.gauge .trk{position:relative;height:16px;background:var(--sky);border-radius:8px;margin:26px 0 26px}
+.gauge .zone{position:absolute;top:0;bottom:0;background:var(--c);opacity:.35;border-radius:8px}
+.gauge .mk{position:absolute;transform:translateX(-50%);font-size:13px;font-weight:900;white-space:nowrap;line-height:1}
+.gauge .mk.bd{top:-22px} .gauge .mk.avg{top:24px}
+.gauge .mk::after{content:"";position:absolute;left:50%;width:3px;height:22px;margin-left:-1.5px;border-radius:2px;background:currentColor}
+.gauge .mk.bd::after{top:14px} .gauge .mk.avg::after{bottom:14px}
+.gauge .mk.avg{color:var(--c)} .gauge .mk.bd{color:var(--orange)}
+.goal table{width:100%;border-collapse:collapse}
+.goal th,.goal td{padding:6px 4px;text-align:center;border-top:1px solid var(--line);vertical-align:middle;line-height:1.3}
+.goal thead th{border-top:0;font-size:13px;font-weight:900}
+.goal thead th:nth-child(2){color:var(--c)} .goal thead th:nth-child(3){color:var(--orange)}
+.goal tbody th{text-align:left;font-size:14px;font-weight:700}
+.goal small{display:block;font-size:11.5px;color:var(--muted);font-weight:500}
+.goal td{font-family:var(--num);font-size:21px;font-weight:900}
+.goal td:nth-child(2){color:var(--c)} .goal td:nth-child(3){color:var(--orange)}
+.mini .cap{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.mini .bar{height:26px}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-size:12px;padding:2px 8px;border-radius:6px;background:var(--soft);color:var(--ink)}
-.chip.hot{background:var(--heat-soft);color:var(--heat)}
-.chip.key{background:var(--negi-soft);color:var(--negi)}
-.card .tip{font-size:14px}
-.card .tip b{color:var(--c)}
-.goal{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--surface)}
-.goal.few{font-size:12px;color:var(--muted);padding:6px 10px}
-.goal-h{font-size:12px;font-weight:700;color:var(--c);margin-bottom:4px}
-.goal table{width:100%;border-collapse:collapse;font-size:13px}
-.goal th,.goal td{padding:3px 4px;text-align:center;border-top:1px solid var(--line);vertical-align:middle}
-.goal thead th{border-top:0;font-size:12px;color:var(--ink)}
-.goal tbody th{text-align:left;font-weight:500}
-.goal small{display:block;font-size:10.5px;color:var(--muted);font-weight:400}
-.goal td{font-family:var(--f-data);font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
-.goal td:nth-child(2){color:var(--c)}
-.minibar{display:flex;height:12px;border-radius:6px;overflow:hidden}
-.minibar span{display:block;height:100%}
+.chip{font-size:14px;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--cs);color:var(--c)}
+.chip.hot{background:var(--orange-soft);color:#d35400}
+.tip{font-size:16px;background:var(--sky);border-radius:12px;padding:10px 12px}
+.tip .lb{display:inline-block;background:var(--c);color:#fff;font-size:13px;font-weight:900;border-radius:6px;padding:0 8px;margin-right:6px}
+.tip b{color:var(--c)}
 
 /* private */
-.privs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media (max-width:760px){.privs{grid-template-columns:1fr}}
+.privs{display:grid;gap:18px}
+@media (min-width:760px){.privs{grid-template-columns:1fr 1fr}}
 .courses{display:flex;flex-direction:column;gap:6px}
-.course{display:flex;align-items:center;gap:10px;font-size:14px}
-.course i{display:block;height:10px;border-radius:5px;background:var(--gyoda)}
+.course{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700}
+.course i{display:block;width:12px;height:22px;border-radius:4px;background:var(--f)}
 
 /* juku */
-.juku{background:var(--band);color:var(--band-ink);border-radius:18px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.juku h2{color:#fff}
-.juku .lead{color:#dce8fb}
-.juku a{color:#ffe08a;font-weight:700;text-decoration:underline;text-underline-offset:3px}
-.juku ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-.juku li{background:rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;font-size:15px}
-.juku li b{display:block}
-.contact{font-family:var(--f-data);font-size:20px;user-select:all}
-@media (max-width:760px){.juku{grid-template-columns:1fr;padding:20px}}
+.juku{background:linear-gradient(160deg,#004cd0,#283593);color:#fff;padding:52px 0}
+.juku .in{display:flex;flex-direction:column;gap:20px}
+.juku h2{margin:0;font-size:clamp(24px,6.4vw,32px);font-weight:900;line-height:1.4;text-align:center}
+.juku .lead{text-align:center}
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.checks li{background:var(--white);color:var(--ink);border-radius:16px;padding:14px 14px 14px 56px;position:relative;font-size:16px}
+.checks li::before{content:"";position:absolute;left:14px;top:16px;width:28px;height:28px;border-radius:8px;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
+.checks li b{display:block;font-size:18px;font-weight:900;color:var(--navy)}
+.cta{display:flex;flex-direction:column;gap:12px;align-items:stretch;text-align:center}
+.cta .big{display:block;background:var(--orange);color:#fff;border-radius:999px;padding:14px;font-size:22px;font-weight:900;text-decoration:none;font-family:var(--num)}
+.cta .big small{display:block;font-family:var(--font);font-size:14px;font-weight:700}
+.cta .sub{display:block;background:var(--white);color:var(--blue);border-radius:999px;padding:12px;font-size:17px;font-weight:900;text-decoration:none}
+.cta p{font-size:14px;color:#dbe6ff}
 
-.sources{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
-.sources ul{margin:0;padding-left:18px}
-@media (prefers-reduced-motion:no-preference){.bar-anim{transition:width .5s ease}}
+footer{background:var(--navy);color:#cfd8ff;padding:32px 0 calc(32px + env(safe-area-inset-bottom,0px));font-size:14px;line-height:1.8}
+footer .in{display:flex;flex-direction:column;gap:10px}
+footer a{color:#fff;font-weight:500}
+footer ul{margin:0;padding-left:18px}
+footer b{color:#fff}
+
+@media (min-width:760px){
+  body{font-size:18px}
+  .nav ul{grid-template-columns:repeat(8,1fr)}
+  .nav li:nth-child(4n) a{border-right:1px solid rgba(255,255,255,.25)}
+  .changes{grid-template-columns:1fr 1fr 1fr}
+  .change{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .change svg{width:120px}
+  .flow{flex-direction:row;align-items:center}
+  .flow .step{flex:1}
+  .arrow{transform:rotate(-90deg)}
+  .cta{flex-direction:row;justify-content:center}
+  .cta .big,.cta .sub{min-width:280px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar span{transition:none}}
 </style>
+</head>
+<body>
 
-<div class="topbar"><div class="topbar-in"><span class="brand">学習空間 <small>深谷上柴教室</small></span><span class="tel num">048-571-5050</span></div></div>
-<div class="wrap">
+<div class="top">
+  <div class="in">
+    <a class="logo" href="https://blue0728.studio.site/" target="_blank" rel="noopener">学習空間<small>深谷上柴教室</small></a>
+    <a class="btn-tel" href="tel:0485715050">☎ 無料体験</a>
+  </div>
+  <nav class="nav" aria-label="ページ内メニュー"><ul>
+    <li><a href="#new">変更点</a></li><li><a href="#schedule">日程</a></li><li><a href="#level">偏差値</a></li><li><a href="#mix">配点</a></li>
+    <li><a href="#naishin">内申点</a></li><li><a href="#interview">面接</a></li><li><a href="#schools">高校別</a></li><li><a href="#private">私立</a></li>
+  </ul></nav>
+</div>
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-text">
-    <div class="eyebrow">2027年度(令和9年度)入試対応</div>
-    <h1>深谷・熊谷<br>高校入試ナビ</h1>
-    <p class="lead">深谷市・熊谷市周辺の高校13校を、偏差値の目安・配点・内申点のしくみ・受験対策まで、図でまとめました。志望校選びの最初の地図として使ってください。</p>
-    <div class="hero-tags">
-      <span class="tag k">熊谷市 7校</span><span class="tag f">深谷市 5校</span><span class="tag g">行田市 1校</span>
+  <div class="in">
+    <span class="pill">2027年度(令和9年度)入試 対応</span>
+    <h1><span>深谷・熊谷・行田の13校</span>高校入試ナビ</h1>
+    <p class="lead">偏差値・配点・内申点・面接・合否の目安まで、<b>図でひと目で</b>わかるようにまとめました。志望校選びの最初の地図として使ってください。</p>
+    <div class="areas"><span>熊谷市 7校</span><span>深谷市 5校</span><span>行田市 1校</span></div>
+    <div class="map" aria-label="地域の模式図">
+      <svg id="mapSvg" viewBox="0 0 440 340" role="img" aria-label="深谷市・熊谷市・行田市の高校の模式図"></svg>
+      <p class="cap">位置関係はイメージの模式図です</p>
     </div>
-    <p class="note">作成:学習空間 深谷上柴教室/情報は2026年11月17日時点</p>
-  </div>
-  <div class="panel" aria-label="地域の模式図">
-    <svg id="mapSvg" viewBox="0 0 440 330" role="img" aria-label="深谷市・熊谷市・行田市の高校の模式図"></svg>
-    <p class="note">位置関係はイメージの模式図です。</p>
+    <p class="stamp">作成:学習空間 深谷上柴教室/情報は2026年11月17日時点</p>
   </div>
 </header>
 
 <!-- 3 CHANGES -->
-<section>
-  <div class="head"><div class="eyebrow">WHAT'S NEW</div><h2>2027年度入試、ここが変わる</h2>
-  <p class="lead">埼玉県のすべての公立高校で、次の3つが新しくなります。</p></div>
+<section class="sec" id="new"><div class="in">
+  <div class="h2"><span class="en">WHAT'S NEW</span><h2>2027年度入試、<br>ここが変わる!</h2></div>
+  <p class="lead">埼玉県のすべての公立高校で、次の3つが新しくなります。</p>
   <div class="changes">
-    <div class="panel change">
-      <svg viewBox="0 0 220 110" aria-hidden="true">
-        <rect x="10" y="10" width="200" height="90" rx="10" fill="var(--soft)"/>
-        <g id="markGrid"></g>
-      </svg>
-      <div class="big">マーク式 <span class="num">約9割</span></div>
-      <p>学力検査は5教科各100点。解答の約9割がマークシート、約1割が記述式になります。難易度や出題方針は変わりません。</p>
+    <div class="box change">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><rect x="6" y="6" width="108" height="108" rx="20" fill="var(--sky)"/><g id="markGrid"></g></svg>
+      <div><h3>マーク式が<em class="num">約9割</em></h3><p>5教科各100点。約9割がマークシート、約1割が記述式。難しさは変わりません。</p></div>
     </div>
-    <div class="panel change">
-      <svg viewBox="0 0 220 110" aria-hidden="true">
-        <rect x="10" y="10" width="200" height="90" rx="10" fill="var(--soft)"/>
-        <circle cx="60" cy="58" r="20" fill="var(--talk)"/>
-        <rect x="42" y="78" width="36" height="20" rx="8" fill="var(--talk)"/>
-        <path d="M100 30 h90 a10 10 0 0 1 10 10 v24 a10 10 0 0 1 -10 10 h-70 l-14 12 v-12 h-6 a10 10 0 0 1 -10 -10 v-24 a10 10 0 0 1 10 -10z" fill="var(--surface)" stroke="var(--talk)" stroke-width="2"/>
-        <text x="146" y="58" text-anchor="middle" font-size="15" fill="var(--talk)" font-weight="600">My Voice</text>
-      </svg>
-      <div class="big">全員に面接</div>
-      <p>すべての高校・すべての受検生に面接があります。最初に自分の言葉で話す「My Voice」があり、そのあと質問に答えます。</p>
+    <div class="box change">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><rect x="6" y="6" width="108" height="108" rx="20" fill="var(--orange-soft)"/><circle cx="42" cy="52" r="14" fill="var(--orange)"/><rect x="26" y="68" width="32" height="26" rx="10" fill="var(--orange)"/><path d="M64 26h36a8 8 0 0 1 8 8v20a8 8 0 0 1-8 8H78l-10 9v-9h-4a8 8 0 0 1-8-8V34a8 8 0 0 1 8-8z" fill="#fff" stroke="var(--orange)" stroke-width="3"/><circle cx="72" cy="44" r="3" fill="var(--orange)"/><circle cx="82" cy="44" r="3" fill="var(--orange)"/><circle cx="92" cy="44" r="3" fill="var(--orange)"/></svg>
+      <div><h3><em>全員</em>に面接</h3><p>全校・全員に面接。最初に自分の言葉で話す「My Voice」があります。</p></div>
     </div>
-    <div class="panel change">
-      <svg viewBox="0 0 220 110" aria-hidden="true">
-        <rect x="10" y="10" width="200" height="90" rx="10" fill="var(--soft)"/>
-        <rect x="40" y="62" width="34" height="28" rx="4" fill="var(--report)" opacity=".55"/>
-        <rect x="93" y="62" width="34" height="28" rx="4" fill="var(--report)" opacity=".75"/>
-        <rect x="146" y="34" width="34" height="56" rx="4" fill="var(--report)"/>
-        <text x="57" y="56" text-anchor="middle" font-size="12" fill="var(--muted)">中1</text>
-        <text x="110" y="56" text-anchor="middle" font-size="12" fill="var(--muted)">中2</text>
-        <text x="163" y="28" text-anchor="middle" font-size="12" fill="var(--muted)">中3</text>
-      </svg>
-      <div class="big">内申は中1から</div>
-      <p>調査書には中1〜中3の9教科の評定(各学年45点満点)がのります。学年の比率は高校ごとにちがいます。</p>
+    <div class="box change">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><rect x="6" y="6" width="108" height="108" rx="20" fill="var(--sky)"/><rect x="22" y="70" width="20" height="30" rx="4" fill="var(--report)" opacity=".5"/><rect x="50" y="58" width="20" height="42" rx="4" fill="var(--report)" opacity=".75"/><rect x="78" y="30" width="20" height="70" rx="4" fill="var(--blue)"/><text x="32" y="64" text-anchor="middle" font-size="13" font-weight="700" fill="var(--navy)">中1</text><text x="60" y="52" text-anchor="middle" font-size="13" font-weight="700" fill="var(--navy)">中2</text><text x="88" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="var(--navy)">中3</text></svg>
+      <div><h3>内申は<em>中1から</em></h3><p>中1〜中3の9教科の評定(各学年45点満点)が使われます。</p></div>
     </div>
   </div>
-</section>
+  <div class="box">
+    <p style="text-align:center;font-weight:900;color:var(--navy);font-size:18px;margin-bottom:10px">合否はこの3つの合計点で決まる</p>
+    <div class="formula" aria-label="学力検査+調査書+面接=合計点">
+      <div class="blk" style="background:var(--exam)">学力検査<small>5教科 500点</small></div><span class="op">+</span>
+      <div class="blk" style="background:var(--report)">調査書<small>内申点</small></div><span class="op">+</span>
+      <div class="blk" style="background:var(--talk)">面接<small>My Voice</small></div><span class="op">=</span>
+      <div class="blk sum">合計点<small style="color:var(--muted)">高校ごとに配点がちがう</small></div>
+    </div>
+  </div>
+</div></section>
 
 <!-- TIMELINE -->
-<section>
-  <div class="head"><div class="eyebrow">SCHEDULE</div><h2>入試までのスケジュール</h2>
-  <p class="lead">私立は1月、公立は2月が本番です。公立の出願はインターネットで行います。</p></div>
-  <div class="panel scroll"><svg id="tlSvg" viewBox="0 0 960 250" style="min-width:760px;width:100%" role="img" aria-label="2026年11月から2027年3月までの入試日程"></svg></div>
+<section class="sec alt" id="schedule"><div class="in">
+  <div class="h2"><span class="en">SCHEDULE</span><h2>入試までのスケジュール</h2></div>
+  <p class="lead">私立は<b class="hl">1月</b>、公立は<b class="hl">2月</b>が本番です。公立の出願はインターネットで行います。</p>
+  <ol class="tl" id="tl"></ol>
+  <div class="legend"><span><i style="background:var(--g)"></i>私立</span><span><i style="background:var(--f)"></i>公立の手続き</span><span><i style="background:var(--navy)"></i>公立の本番</span></div>
   <p class="note">私立の日程は正智深谷・東京成徳大学深谷の例です。学校により異なります。</p>
-</section>
+</div></section>
 
 <!-- HENSACHI -->
-<section>
-  <div class="head"><div class="eyebrow">LEVEL</div><h2>偏差値の目安マップ</h2>
-  <p class="lead">学科によって幅がある学校は、線で範囲を示しています。偏差値は目安で、合否は学力検査・調査書・面接の合計点で決まります。</p></div>
-  <div class="panel scroll"><svg id="henSvg" viewBox="0 0 900 470" style="min-width:640px;width:100%" role="img" aria-label="公立高校の偏差値の目安"></svg></div>
-  <div class="legend"><span><i style="background:var(--heat)"></i>熊谷市</span><span><i style="background:var(--negi)"></i>深谷市</span><span><i style="background:var(--gyoda)"></i>行田市</span></div>
+<section class="sec" id="level"><div class="in">
+  <div class="h2"><span class="en">LEVEL</span><h2>偏差値の目安マップ</h2></div>
+  <p class="lead">学科で幅がある学校は、帯の長さで範囲を示しています。合否は学力検査・調査書・面接の合計点で決まります。</p>
+  <div class="box"><div class="hen" id="hen"></div></div>
+  <div class="legend"><span><i style="background:var(--k)"></i>熊谷市</span><span><i style="background:var(--f)"></i>深谷市</span><span><i style="background:var(--g)"></i>行田市</span></div>
   <p class="note">偏差値:「みんなの高校情報」の掲載値(2026年10月25日時点の民間まとめ)。私立は公表値がないため載せていません。</p>
-</section>
+</div></section>
 
 <!-- SCORE MIX -->
-<section>
-  <div class="head"><div class="eyebrow">SCORE MIX</div><h2>何で決まる? 学校ごとの配点バランス</h2>
-  <p class="lead">帯の長さは合計点に占める割合です。<b>金色(調査書)が長い学校は内申点</b>、<b>ピンク(面接)が長い学校は面接</b>が合否を左右します。</p></div>
-  <div class="controls">
-    <div class="seg" role="group" aria-label="選抜の段階">
-      <button type="button" id="st1" aria-pressed="true">第1次選抜</button>
-      <button type="button" id="st2" aria-pressed="false">第2次選抜</button>
-    </div>
-    <div class="legend"><span><i style="background:var(--exam)"></i>学力検査</span><span><i style="background:var(--report)"></i>調査書(内申)</span><span><i style="background:var(--talk)"></i>面接</span></div>
+<section class="sec alt" id="mix"><div class="in">
+  <div class="h2"><span class="en">SCORE MIX</span><h2>何で決まる?<br>学校ごとの配点バランス</h2></div>
+  <p class="lead">帯の長さは合計点に占める割合です。<b class="hl">水色(調査書)が長い学校は内申点</b>、<b class="hl">オレンジ(面接)が長い学校は面接</b>が合否を左右します。</p>
+  <div class="seg" role="group" aria-label="選抜の段階">
+    <button type="button" id="st1" aria-pressed="true">第1次選抜</button>
+    <button type="button" id="st2" aria-pressed="false">第2次選抜</button>
   </div>
-  <div class="panel scroll"><svg id="mixSvg" viewBox="0 0 900 580" style="min-width:680px;width:100%" role="img" aria-label="学校ごとの配点の割合"></svg></div>
+  <div class="legend"><span><i style="background:var(--exam)"></i>学力検査</span><span><i style="background:var(--report)"></i>調査書(内申)</span><span><i style="background:var(--talk)"></i>面接</span></div>
+  <div class="box"><div class="mix" id="mixList"></div></div>
   <p class="note">第1次選抜で大部分(60〜80%)の合格者が決まり、残りを第2次選抜で選びます。熊谷女子は「特色選抜/共通選抜」を第1次/第2次の位置に表示しています。出典:埼玉県教育委員会「令和9年度 各高等学校の選抜実施内容」。</p>
-</section>
+</div></section>
 
 <!-- NAISHIN -->
-<section>
-  <div class="head"><div class="eyebrow">NAISHIN</div><h2>内申点のしくみ:学年比率</h2>
-  <p class="lead">各学年の評定合計(45点満点)に、高校が決めた比率をかけて合計します。比率が「1:1:3」なら中3の成績が全体の6割。でも中1・中2も4割を占めます。</p></div>
-  <div class="panel scroll"><svg id="ratioSvg" viewBox="0 0 900 330" style="min-width:680px;width:100%" role="img" aria-label="学年比率ごとの中1・中2・中3の割合"></svg></div>
-  <div class="panel" style="display:flex;flex-direction:column;gap:8px">
-    <h3>計算例:比率 1:1:2 の高校</h3>
+<section class="sec" id="naishin"><div class="in">
+  <div class="h2"><span class="en">NAISHIN</span><h2>内申点のしくみ<br>学年比率</h2></div>
+  <p class="lead">各学年の評定合計(45点満点)に、高校が決めた比率をかけて合計します。「1:1:3」なら中3が全体の6割。でも<b class="hl">中1・中2も4割</b>を占めます。</p>
+  <div class="box"><div class="ratio" id="ratio"></div></div>
+  <div class="calc">
+    <p style="font-weight:900;color:var(--navy)">計算例:比率 1:1:2 の高校</p>
     <p class="num">中1 40点×1 + 中2 40点×1 + 中3 42点×2 = <b>164点</b>(180点満点)</p>
-    <p class="note">この点数を、高校ごとに決めた配点(例:300点)に換算します。調査書には評定のほか「総合的な学習の時間の記録」がのり、出欠の記録は選抜に使われません。</p>
+    <p class="note" style="margin-top:6px">この点数を、高校ごとに決めた配点(例:300点)に換算します。調査書には評定のほか「総合的な学習の時間の記録」がのり、出欠の記録は選抜に使われません。</p>
   </div>
-</section>
+</div></section>
 
 <!-- INTERVIEW -->
-<section>
-  <div class="head"><div class="eyebrow">INTERVIEW</div><h2>面接の流れ(1人あたりの目安)</h2></div>
-  <div class="panel scroll"><svg id="ivSvg" viewBox="0 0 900 150" style="min-width:600px;width:100%" role="img" aria-label="面接の流れ"></svg></div>
-  <p class="lead">My Voiceでは、中学校で力を注いだこと、高校で取り組みたいことを自分の言葉で話します。出願時に出す「自己評価資料」は面接の参考にされます(得点には使われません)。自分の長所や短所は<a href="https://splendid-centaur-c2b96a.netlify.app/" target="_blank" rel="noopener">こちら</a>で整理しておきましょう。</p>
-</section>
+<section class="sec alt" id="interview"><div class="in">
+  <div class="h2"><span class="en">INTERVIEW</span><h2>面接の流れ<br>(1人あたりの目安)</h2></div>
+  <div class="flow">
+    <div class="step" style="background:var(--orange)">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#fff" opacity=".25"/><rect x="25" y="14" width="14" height="24" rx="7" fill="#fff"/><path d="M19 30a13 13 0 0 0 26 0M32 43v8M24 51h16" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg>
+      <div><span class="t">1分30秒〜2分</span><h3>① My Voice</h3><p>中学校で力を注いだこと、高校で取り組みたいことを自分の言葉で話す</p></div>
+    </div>
+    <div class="arrow" aria-hidden="true">▼</div>
+    <div class="step" style="background:var(--exam)">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#fff" opacity=".2"/><path d="M14 18h36a5 5 0 0 1 5 5v16a5 5 0 0 1-5 5H30l-9 8v-8h-7a5 5 0 0 1-5-5V23a5 5 0 0 1 5-5z" fill="#fff"/><text x="32" y="37" text-anchor="middle" font-size="20" font-weight="900" fill="var(--exam)">?</text></svg>
+      <div><span class="t">3分30秒〜6分</span><h3>② 質問への応答</h3><p>面接官の質問に答える。個人面接か集団面接かは高校ごとにちがいます</p></div>
+    </div>
+  </div>
+  <p class="lead">出願時に出す「自己評価資料」は面接の参考にされます(得点には使われません)。自分の長所や短所は<a href="https://splendid-centaur-c2b96a.netlify.app/" target="_blank" rel="noopener">こちら</a>で整理しておきましょう。</p>
+  <a class="app" href="https://splendid-centaur-c2b96a.netlify.app/" target="_blank" rel="noopener">
+    <svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--orange)"/><path d="M14 16h20M14 24h20M14 32h12" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><circle cx="35" cy="33" r="5" fill="#fff"/></svg>
+    <span><b>長所・短所を整理するアプリ ›</b>My Voiceの材料を、質問に答えながら書き出せます</span>
+  </a>
+</div></section>
 
 <!-- SCHOOLS -->
-<section>
-  <div class="head"><div class="eyebrow">SCHOOLS</div><h2>高校別ガイドと受験対策</h2></div>
-  <div class="controls">
-    <div class="seg" role="group" aria-label="地域で絞り込み">
-      <button type="button" data-f="all" aria-pressed="true">すべて</button>
-      <button type="button" data-f="k" aria-pressed="false">熊谷市</button>
-      <button type="button" data-f="f" aria-pressed="false">深谷市</button>
-      <button type="button" data-f="g" aria-pressed="false">行田市</button>
-    </div>
-    <div class="legend"><span><i style="background:var(--exam)"></i>学検</span><span><i style="background:var(--report)"></i>調査書</span><span><i style="background:var(--talk)"></i>面接</span><span>(第1次の配点)</span></div>
-  </div>
+<section class="sec alt" id="schools" style="background:var(--sky)"><div class="in">
+  <div class="h2"><span class="en">SCHOOLS</span><h2>高校別ガイドと受験対策</h2></div>
+  <div class="filters"><div class="seg" role="group" aria-label="地域で絞り込み">
+    <button type="button" data-f="all" aria-pressed="true">すべて</button>
+    <button type="button" data-f="k" aria-pressed="false">熊谷市</button>
+    <button type="button" data-f="f" aria-pressed="false">深谷市</button>
+    <button type="button" data-f="g" aria-pressed="false">行田市</button>
+  </div></div>
   <div class="cards" id="cards"></div>
   <p class="note">内申の目安(9教科・45点満点)は学習空間 深谷上柴教室の進路指導での目安です。倍率は2026年度の志願確定倍率です。</p>
   <p class="note">合否の目安:2026年度入試を受けた先輩の開示得点(民間の調査資料)をもとに、学習空間 深谷上柴教室が算出しました。「安心ライン」は合格者の平均、「ボーダー」は合格者を点数順に並べた下から4分の1の位置です(5教科は5点単位に丸めています)。学科が複数ある高校はまとめて計算しています。熊谷・熊谷女子・熊谷西は数学・英語が学校選択問題のため、ほかの高校と点数を比べられません。年度によって問題の難しさや倍率が変わるため、あくまで目安です。</p>
-</section>
+</div></section>
 
 <!-- PRIVATE -->
-<section>
-  <div class="head"><div class="eyebrow">PRIVATE</div><h2>深谷市の私立高校</h2>
-  <p class="lead">私立は1月に入試があり、公立の併願先にもなります。11〜12月の個別相談会に、通知表や北辰テストの結果を持って相談に行くのが一般的です。</p></div>
+<section class="sec" id="private"><div class="in">
+  <div class="h2"><span class="en">PRIVATE</span><h2>深谷市の私立高校</h2></div>
+  <p class="lead">私立は1月に入試があり、公立の併願先にもなります。11〜12月の個別相談会に、通知表や北辰テストの結果を持って相談に行くのが一般的です。</p>
   <div class="privs">
-    <div class="card" data-city="f">
-      <div class="card-top"><div><h3>正智深谷高校</h3><div class="dept">普通科・4コース</div></div></div>
-      <div class="courses">
-        <div class="course"><i style="width:30px"></i>特別選抜</div>
-        <div class="course"><i style="width:30px;opacity:.85"></i>特別進学</div>
-        <div class="course"><i style="width:30px;opacity:.65"></i>選抜進学</div>
-        <div class="course"><i style="width:30px;opacity:.45"></i>総合進学</div>
+    <article class="sc" data-city="f">
+      <div class="sc-h"><div><h3>正智深谷高校</h3><div class="dept">普通科・4コース</div></div></div>
+      <div class="sc-b">
+        <div class="courses">
+          <div class="course"><i></i>特別選抜</div>
+          <div class="course"><i style="opacity:.8"></i>特別進学</div>
+          <div class="course"><i style="opacity:.6"></i>選抜進学</div>
+          <div class="course"><i style="opacity:.4"></i>総合進学</div>
+        </div>
+        <div class="chips"><span class="chip">単願推薦</span><span class="chip">併願 第1〜3回</span><span class="chip">国・数・英</span></div>
+        <p>単願推薦・併願第1回は1月22日(金)の予定です(民間サイトのまとめ。入試要項で要確認)。学校説明会は11/22、12/13。個別相談会は1月5日まで(要予約)。</p>
+        <p class="tip"><span class="lb">対策</span>国数英3教科の基礎固め。個別相談には北辰テストの結果を持っていきましょう。</p>
       </div>
-      <div class="chips"><span class="chip">単願推薦</span><span class="chip">併願 第1〜3回</span><span class="chip">国・数・英</span></div>
-      <p class="tip">単願推薦・併願第1回は1月22日(金)の予定です(民間サイトのまとめ。入試要項で要確認)。学校説明会は11/22、12/13。個別相談会は1月5日まで(要予約)。</p>
-      <p class="tip"><b>対策:</b>国数英3教科の基礎固め。個別相談には北辰テストの結果を持っていきましょう。</p>
-    </div>
-    <div class="card" data-city="f">
-      <div class="card-top"><div><h3>東京成徳大学深谷高校</h3><div class="dept">普通科・3コース</div></div></div>
-      <div class="courses">
-        <div class="course"><i style="width:30px"></i>特進S(3教科の合計で判定)</div>
-        <div class="course"><i style="width:30px;opacity:.7"></i>進学選抜(高い2教科で判定)</div>
-        <div class="course"><i style="width:30px;opacity:.45"></i>進学(高い2教科で判定)</div>
+    </article>
+    <article class="sc" data-city="f">
+      <div class="sc-h"><div><h3>東京成徳大学深谷高校</h3><div class="dept">普通科・3コース</div></div></div>
+      <div class="sc-b">
+        <div class="courses">
+          <div class="course"><i></i>特進S(3教科の合計で判定)</div>
+          <div class="course"><i style="opacity:.7"></i>進学選抜(高い2教科で判定)</div>
+          <div class="course"><i style="opacity:.45"></i>進学(高い2教科で判定)</div>
+        </div>
+        <div class="chips"><span class="chip">単願(個人面接あり)</span><span class="chip">併願1・2</span><span class="chip">2月入試</span><span class="chip hot">特待生判定あり</span></div>
+        <p>出願12/1〜1/8。単願・併願1は1/22(金)、併願2は1/23(土)、発表は1/27(水)。2月入試は2/6(土)。</p>
+        <p class="tip"><span class="lb">対策</span>進学選抜・進学コースは得意な2教科で勝負できます。得意教科を確実に伸ばしましょう。</p>
       </div>
-      <div class="chips"><span class="chip">単願(個人面接あり)</span><span class="chip">併願1・2</span><span class="chip">2月入試</span><span class="chip key">特待生判定あり</span></div>
-      <p class="tip">出願12/1〜1/8。単願・併願1は1/22(金)、併願2は1/23(土)、発表は1/27(水)。2月入試は2/6(土)。</p>
-      <p class="tip"><b>対策:</b>進学選抜・進学コースは得意な2教科で勝負できます。得意教科を確実に伸ばしましょう。</p>
-    </div>
+    </article>
   </div>
-</section>
+</div></section>
 
 <!-- JUKU -->
-<section class="juku">
-  <div style="display:flex;flex-direction:column;gap:14px">
-    <div class="eyebrow" style="color:#cfe0fa">学習空間 深谷上柴教室</div>
-    <h2>志望校の配点から逆算して、やることを決める</h2>
-    <p class="lead">内申点が大きい学校、学力検査の応用力が大切な学校、面接の配点が大きい学校。志望校に合わせて、何を優先するかを一人ひとり決めています。</p>
-    <p>無料体験(1週間・3回程度)・進路相談は、公式LINEまたはお電話で。</p>
-    <p class="contact">048-571-5050</p>
-    <p style="font-size:13px;color:#cfe0fa">受付 平日17:00〜22:00/深谷市上柴町東4-14-1</p>
-  </div>
-  <ul>
+<section class="juku" id="juku"><div class="in">
+  <span class="pill" style="align-self:center">受付中 個別相談・無料体験</span>
+  <h2>志望校の配点から逆算して、<br>やることを決める</h2>
+  <p class="lead">内申点が大きい学校、学力検査の応用力が大切な学校、面接の配点が大きい学校。志望校に合わせて、何を優先するかを一人ひとり決めています。</p>
+  <ul class="checks">
     <li><b>内申点対策</b>学校ワークを塾で3〜5周。提出物と定期テストの得点アップを両立。実技教科も声かけ。</li>
     <li><b>定期テスト対策</b>テスト2週間前から土日祝も開校。英数理+社国の5教科。</li>
     <li><b>学力検査対策</b>県公立入試の過去問と北辰テスト対策を個別に。北辰は第4・5回(私立相談用)と第8回(直前)がおすすめ。</li>
     <li><b>面接対策</b>My Voiceの内容づくりから、志望校の求める生徒像に合わせた受け答えの練習まで。まずは<a href="https://splendid-centaur-c2b96a.netlify.app/" target="_blank" rel="noopener">長所・短所を整理するアプリ</a>で、自分のよいところと課題を書き出してみましょう。</li>
   </ul>
-</section>
+  <div class="cta">
+    <a class="big" href="tel:0485715050"><small>無料体験(1週間・3回程度)・進路相談</small>048-571-5050</a>
+    <a class="sub" href="https://blue0728.studio.site/" target="_blank" rel="noopener">学習空間 深谷上柴教室のサイトへ ›</a>
+  </div>
+  <p style="text-align:center;font-size:14px;color:#dbe6ff">公式LINEまたはお電話で/受付 平日17:00〜22:00/深谷市上柴町東4-14-1</p>
+</div></section>
 
 <!-- SOURCES -->
-<footer class="sources">
+<footer><div class="in">
   <b>情報源</b>
   <ul>
     <li><a href="https://www.pref.saitama.lg.jp/f2208/r9nyuushi-senbatsuzisshinaiyou.html" target="_blank" rel="noopener">令和9年度 各高等学校の選抜実施内容(確定版)</a>(埼玉県教育委員会)</li>
@@ -319,8 +438,8 @@ a{color:var(--accent)}
     <li><a href="https://shochi.jp/admission/openschool/" target="_blank" rel="noopener">正智深谷高校 説明会・個別相談会</a>/<a href="https://tsfh.jp/entrance_exam/%E5%8B%9F%E9%9B%86%E8%A6%81%E9%A0%85" target="_blank" rel="noopener">東京成徳大学深谷高校 募集要項</a>(各校公式)</li>
   </ul>
   <p>最新・正確な内容は、必ず埼玉県教育委員会と各高校の発表でご確認ください。</p>
-</footer>
-</div>
+  <p>© 学習空間 深谷上柴教室</p>
+</div></footer>
 
 <script>
 const S=[
@@ -337,121 +456,92 @@ const S=[
  {n:"熊谷農業",g:{few:true},c:"k",d:"食品科学・生物生産工学・生活技術・生物生産技術",h:[40,42],na:"25〜26",t:"240",b:"0.90〜1.18",type:"共通選抜のみ",sel:false,r:"1:1:2",s1:[500,300,30],s2:[500,300,60],tags:["集団面接","全学科 相互に第2志望"],tip:"食品科学科は2026年度1.18倍と人気。実験・実習への意欲を面接で伝えられるように準備します。"},
  {n:"妻沼",g:{few:true},c:"k",d:"普通科",h:[40,40],na:"—",t:"120",b:"0.67",type:"共通選抜のみ",sel:false,r:"1:1:2",s1:[500,400,60],s2:[500,200,60],tags:["調査書400点","学び直し歓迎"],tip:"「学び直しをしたい生徒」を歓迎する学校。<b>基礎の計算・英単語・漢字</b>を確実に得点し、高校生活への意欲を面接で伝えましょう。"}
 ];
-const col={k:"var(--heat)",f:"var(--negi)",g:"var(--gyoda)"};
+/* 日程(上から順に表示)。at=開始日(並び順と「いまここ」の位置に使う) c: pri=私立 pub=公立の手続き big=公立の本番 */
+const TL=[
+ {d:"11月14日〜1月5日",at:"2026-11-14",w:"私立 個別相談会",s:"通知表・北辰テストの結果を持って相談",c:"pri"},
+ {d:"12月1日〜1月8日",at:"2026-12-01",w:"私立 出願",c:"pri"},
+ {d:"1月22日〜",at:"2027-01-22",w:"私立 入試",s:"単願・併願1は1/22(金)",c:"pri"},
+ {d:"1月26日〜2月9日",at:"2027-01-26",w:"公立 出願(インターネット)",c:"pub"},
+ {d:"2月17日・18日",at:"2027-02-17",w:"公立 志願先変更",c:"pub"},
+ {d:"2月25日",at:"2027-02-25",w:"公立 学力検査",s:"5教科・各100点",c:"big"},
+ {d:"2月26日",at:"2027-02-26",w:"公立 面接",s:"全員に面接(My Voice)",c:"big"},
+ {d:"3月5日",at:"2027-03-05",w:"公立 合格発表",c:"big"}
+];
+const col={k:"var(--k)",f:"var(--f)",g:"var(--g)"};
 const NS="http://www.w3.org/2000/svg";
 function el(tag,attrs,txt){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(txt!=null)e.textContent=txt;return e}
+const nm=n=>n.replace(/(\(|$)/,"高校$1");
 
 /* mark grid icon */
-(()=>{const g=document.getElementById("markGrid");for(let r=0;r<4;r++)for(let c=0;c<10;c++){const filled=(r*10+c)<36;g.appendChild(el("ellipse",{cx:32+c*18,cy:30+r*18,rx:6,ry:5,fill:filled?"var(--exam)":"var(--surface)",stroke:"var(--exam)","stroke-width":1.5}))}})();
+(()=>{const g=document.getElementById("markGrid");for(let r=0;r<5;r++)for(let c=0;c<5;c++){const filled=(r*5+c)<22;g.appendChild(el("ellipse",{cx:28+c*16,cy:28+r*16,rx:6,ry:5,fill:filled?"var(--blue)":"#fff",stroke:"var(--blue)","stroke-width":2}))}})();
 
 /* map */
 (()=>{const s=document.getElementById("mapSvg");
- // river
- s.appendChild(el("path",{d:"M0 40 C120 20 260 60 440 30",fill:"none",stroke:"var(--gyoda)","stroke-width":6,opacity:.35,"stroke-linecap":"round"}));
- s.appendChild(el("text",{x:330,y:28,"font-size":11,fill:"var(--muted)"},"利根川"));
- const areas=[{x:16,y:70,w:190,h:240,c:"f",l:"深谷市"},{x:216,y:60,w:208,h:200,c:"k",l:"熊谷市"},{x:300,y:270,w:124,h:52,c:"g",l:"行田市"}];
- const soft={f:"var(--negi-soft)",k:"var(--heat-soft)",g:"var(--gyoda-soft)"};
- areas.forEach(a=>{s.appendChild(el("rect",{x:a.x,y:a.y,width:a.w,height:a.h,rx:22,fill:soft[a.c]}));s.appendChild(el("text",{x:a.x+14,y:a.y+26,"font-size":15,"font-weight":600,fill:col[a.c]},a.l))});
- const pins=[["深谷第一",70,130,"f"],["深谷",50,200,"f"],["深谷商業",130,165,"f"],["正智深谷",95,250,"f"],["東京成徳深谷",120,290,"f"],
-  ["妻沼",300,95,"k"],["熊谷西",250,150,"k"],["熊谷",330,160,"k"],["熊谷女子",350,200,"k"],["熊谷商業",260,215,"k"],["熊谷農業",300,240,"k"],["熊谷工業",380,120,"k"],["進修館",352,306,"g"]];
- pins.forEach(p=>{s.appendChild(el("circle",{cx:p[1],cy:p[2],r:6,fill:col[p[3]]}));s.appendChild(el("text",{x:p[1]+10,y:p[2]+4,"font-size":11.5,fill:"var(--ink)"},p[0]))});
- // juku star
- const jx=178,jy=118;
- s.appendChild(el("circle",{cx:jx,cy:jy,r:11,fill:"var(--surface)",stroke:"var(--negi)","stroke-width":3}));
- s.appendChild(el("text",{x:jx,y:jy+4,"text-anchor":"middle","font-size":11,"font-weight":700,fill:"var(--negi)"},"塾"));
- s.appendChild(el("text",{x:jx-8,y:jy-18,"text-anchor":"middle","font-size":11,"font-weight":600,fill:"var(--negi)"},"学習空間 上柴"));
+ s.appendChild(el("path",{d:"M0 34 C120 14 260 54 440 24",fill:"none",stroke:"var(--sky3)","stroke-width":8,"stroke-linecap":"round"}));
+ s.appendChild(el("text",{x:352,y:20,"font-size":14,"font-weight":700,fill:"var(--muted)"},"利根川"));
+ const soft={f:"var(--f-soft)",k:"var(--k-soft)",g:"var(--g-soft)"};
+ [{x:8,y:58,w:200,h:270,c:"f",l:"深谷市"},{x:216,y:58,w:216,h:212,c:"k",l:"熊谷市"},{x:280,y:278,w:152,h:56,c:"g",l:"行田市"}]
+  .forEach(a=>{s.appendChild(el("rect",{x:a.x,y:a.y,width:a.w,height:a.h,rx:20,fill:soft[a.c]}));s.appendChild(el("text",{x:a.x+14,y:a.y+28,"font-size":18,"font-weight":900,fill:col[a.c]},a.l))});
+ const pins=[["深谷第一",28,112,"f"],["深谷商業",28,148,"f"],["深谷",28,184,"f"],["正智深谷",28,262,"f"],["東京成徳深谷",28,298,"f"],
+  ["妻沼",232,110,"k"],["熊谷西",232,146,"k"],["熊谷商業",232,182,"k"],["熊谷農業",232,218,"k"],["熊谷",330,110,"k"],["熊谷女子",330,146,"k"],["熊谷工業",330,182,"k"],["進修館",364,312,"g"]];
+ pins.forEach(p=>{s.appendChild(el("circle",{cx:p[1],cy:p[2]-5,r:7,fill:col[p[3]]}));s.appendChild(el("text",{x:p[1]+13,y:p[2],"font-size":16,"font-weight":700,fill:"var(--ink)"},p[0]))});
+ const jx=150,jy=212;
+ s.appendChild(el("circle",{cx:jx,cy:jy,r:17,fill:"var(--orange)"}));
+ s.appendChild(el("text",{x:jx,y:jy+6,"text-anchor":"middle","font-size":16,"font-weight":900,fill:"#fff"},"塾"));
+ s.appendChild(el("text",{x:jx,y:jy+36,"text-anchor":"middle","font-size":14,"font-weight":900,fill:"var(--orange)"},"学習空間"));
 })();
 
 /* timeline */
-(()=>{const s=document.getElementById("tlSvg");
- const start=new Date(2026,10,1),end=new Date(2027,2,10),x0=30,x1=930;
- const X=d=>x0+(d-start)/(end-start)*(x1-x0);
- const months=[[2026,10,"11月"],[2026,11,"12月"],[2027,0,"1月"],[2027,1,"2月"],[2027,2,"3月"]];
- s.appendChild(el("line",{x1:x0,y1:120,x2:x1,y2:120,stroke:"var(--line)","stroke-width":4,"stroke-linecap":"round"}));
- months.forEach(m=>{const x=X(new Date(m[0],m[1],1));s.appendChild(el("line",{x1:x,y1:110,x2:x,y2:130,stroke:"var(--muted)","stroke-width":1.5}));s.appendChild(el("text",{x:x+4,y:108,"font-size":13,fill:"var(--muted)"},m[2]))});
- // today
- const tx=X(new Date(2026,10,17));s.appendChild(el("line",{x1:tx,y1:96,x2:tx,y2:132,stroke:"var(--ink)","stroke-dasharray":"3 3"}));s.appendChild(el("text",{x:tx,y:90,"text-anchor":"middle","font-size":11,fill:"var(--ink)"},"いま"));
- const spans=[ // private (above)
-  [new Date(2026,10,14),new Date(2027,0,5),"私立 個別相談会",50,"var(--gyoda)"],
-  [new Date(2026,11,1),new Date(2027,0,8),"私立 出願",74,"var(--gyoda)"],
-  [new Date(2027,0,26),new Date(2027,1,9),"公立 出願(ネット)",172,"var(--negi)"],
-  [new Date(2027,1,17),new Date(2027,1,18),"志願先変更 2/17・18",74,"var(--negi)"]];
- spans.forEach(sp=>{const a=X(sp[0]),b=Math.max(X(sp[1]),a+8);s.appendChild(el("rect",{x:a,y:sp[3]-12,width:b-a,height:14,rx:7,fill:sp[4],opacity:.85}));s.appendChild(el("text",{x:a,y:sp[3]-18,"font-size":12,fill:"var(--ink)"},sp[2]))});
- const pts=[[new Date(2027,0,22),"私立入試 1/22〜",100,"var(--gyoda)"],[new Date(2027,1,25),"学力検査 2/25",196,"var(--heat)"],[new Date(2027,1,26),"面接 2/26",216,"var(--talk)"],[new Date(2027,2,5),"発表 3/5",236,"var(--ink)"]];
- pts.forEach(p=>{const x=X(p[0]);s.appendChild(el("circle",{cx:x,cy:120,r:7,fill:p[3]}));s.appendChild(el("line",{x1:x,y1:120,x2:x,y2:p[2]-4,stroke:p[3],"stroke-width":1.5}));
-  const late=p[2]>150;s.appendChild(el("text",{x:late?x-8:x,y:p[2],"text-anchor":late?"end":"middle","font-size":12.5,"font-weight":600,fill:"var(--ink)"},p[1]))});
-})();
+(()=>{const tc={pri:"var(--g)",pub:"var(--f)",big:"var(--navy)",now:"var(--orange)"};const tl=document.getElementById("tl");
+ const today=new Date(),td=new Date(today.getFullYear(),today.getMonth(),today.getDate());const items=TL.slice();const i=items.findIndex(t=>new Date(t.at+"T00:00:00")>td);if(i>=0)items.splice(i,0,{d:(td.getMonth()+1)+"月"+td.getDate()+"日",w:"いまここ",s:"志望校と併願校を考えよう",c:"now"});
+ items.forEach(t=>{const li=document.createElement("li");li.className=t.c==="now"?"now":(t.c==="big"?"big":"");li.style.setProperty("--c",tc[t.c]);
+  li.innerHTML=`<div class="dot"></div><div class="card"><div class="date">${t.d}</div><div class="what">${t.w}</div>${t.s?`<div class="sub">${t.s}</div>`:""}</div>`;tl.appendChild(li)})})();
 
-/* hensachi dot/range chart */
-(()=>{const s=document.getElementById("henSvg");const lo=38,hi=67,x0=170,x1=870,top=30,row=34;
- const X=v=>x0+(v-lo)/(hi-lo)*(x1-x0);
- for(let v=40;v<=65;v+=5){const x=X(v);s.appendChild(el("line",{x1:x,y1:top-10,x2:x,y2:top+row*S.length,stroke:"var(--line)"}));s.appendChild(el("text",{x:x,y:top+row*S.length+20,"text-anchor":"middle","font-size":12,fill:"var(--muted)"},v))}
- S.forEach((d,i)=>{const y=top+i*row+row/2;s.appendChild(el("text",{x:x0-12,y:y+4,"text-anchor":"end","font-size":13,fill:"var(--ink)"},d.n));
-  if(d.h[0]!==d.h[1]){s.appendChild(el("line",{x1:X(d.h[0]),y1:y,x2:X(d.h[1]),y2:y,stroke:col[d.c],"stroke-width":8,"stroke-linecap":"round",opacity:.45}))}
-  const m=(d.h[0]+d.h[1])/2;s.appendChild(el("circle",{cx:X(m),cy:y,r:7,fill:col[d.c]}));
-  s.appendChild(el("text",{x:X(d.h[1])+14,y:y+4,"font-size":12.5,fill:"var(--muted)"},d.h[0]===d.h[1]?d.h[0]:d.h[0]+"〜"+d.h[1]))});
-})();
+/* hensachi */
+(()=>{const h=document.getElementById("hen");const lo=38,hi=67,P=v=>(v-lo)/(hi-lo)*100;
+ S.forEach(d=>{const r=document.createElement("div");r.className="row";const a=P(d.h[0]-0.8),b=P(d.h[1]+0.8);
+  r.innerHTML=`<div class="nm" style="color:${col[d.c]}">${d.n}</div><div class="trk"><div class="rng" style="left:${a}%;width:${b-a}%;background:${col[d.c]}"></div></div><div class="v" style="color:${col[d.c]}">${d.h[0]===d.h[1]?d.h[0]:d.h[0]+"-"+d.h[1]}</div>`;h.appendChild(r)});
+ const ax=document.createElement("div");ax.className="axis";ax.innerHTML=`<div class="ticks">${[40,45,50,55,60,65].map(v=>`<span style="left:${P(v)}%">${v}</span>`).join("")}</div>`;h.appendChild(ax)})();
 
 /* score mix */
-let stage=1;
-function drawMix(){const s=document.getElementById("mixSvg");s.innerHTML="";const x0=170,x1=800,top=24,row=44;
- const cols=["var(--exam)","var(--report)","var(--talk)"];
- [0,25,50,75,100].forEach(p=>{const x=x0+(x1-x0)*p/100;s.appendChild(el("line",{x1:x,y1:top-6,x2:x,y2:top+row*S.length-8,stroke:"var(--line)"}));s.appendChild(el("text",{x:x,y:top+row*S.length+10,"text-anchor":"middle","font-size":12,fill:"var(--muted)"},p+"%"))});
- S.forEach((d,i)=>{const v=stage===1?d.s1:d.s2,tot=v[0]+v[1]+v[2],y=top+i*row;
-  const lab=d.n+(d.l1?(stage===1?"("+d.l1+")":"("+d.l2+")"):"");
-  s.appendChild(el("text",{x:x0-12,y:y+19,"text-anchor":"end","font-size":13,fill:col[d.c],"font-weight":600},lab));
-  let x=x0;v.forEach((val,j)=>{const w=(x1-x0)*val/tot;s.appendChild(el("rect",{x:x,y:y+4,width:Math.max(w-1.5,0),height:22,fill:cols[j],rx:3}));
-   if(w>34)s.appendChild(el("text",{x:x+w/2,y:y+19,"text-anchor":"middle","font-size":11.5,fill:j===0?"#fff":"#10213f","font-weight":600},val));x+=w});
-  s.appendChild(el("text",{x:x1+12,y:y+19,"font-size":12.5,fill:"var(--ink)"},"計"+tot+"点"))});
-}
+let stage=1;const MC=["var(--exam)","var(--report)","var(--talk)"];
+function bar(v){const tot=v[0]+v[1]+v[2];return `<div class="bar">${v.map((x,j)=>`<span class="${j===1?"r":""}" style="width:${x/tot*100}%;background:${MC[j]}">${x/tot>.09?x:""}</span>`).join("")}</div>`}
+function drawMix(){const m=document.getElementById("mixList");m.innerHTML=S.map(d=>{const v=stage===1?d.s1:d.s2,tot=v[0]+v[1]+v[2];
+ const lab=d.n+(d.l1?(stage===1?"("+d.l1+")":"("+d.l2+")"):"");
+ return `<div class="row"><div class="hd"><span class="nm" style="color:${col[d.c]}">${lab}</span><span class="tot">学検${v[0]}・調査書${v[1]}・面接${v[2]}/計${tot}点</span></div>${bar(v)}</div>`}).join("")}
 drawMix();
 ["st1","st2"].forEach((id,i)=>document.getElementById(id).addEventListener("click",()=>{stage=i+1;document.getElementById("st1").setAttribute("aria-pressed",stage===1);document.getElementById("st2").setAttribute("aria-pressed",stage===2);drawMix()}));
 
-/* ratio diagram */
-(()=>{const s=document.getElementById("ratioSvg");const rs=[
-  ["1:1:2",[1,1,2],"熊谷女子・熊谷西・熊谷商業・熊谷農業・妻沼・深谷商業"],
-  ["1:1:3",[1,1,3],"深谷第一・深谷(第1次)・熊谷工業・進修館"],
-  ["2:2:5",[2,2,5],"熊谷"],
-  ["1:1:1",[1,1,1],"(周辺13校では使われていません)"]];
- const x0=110,x1=560,top=30,row=72,ops=[.45,.7,1];
- rs.forEach((r,i)=>{const y=top+i*row,sum=r[1][0]+r[1][1]+r[1][2];s.appendChild(el("text",{x:x0-14,y:y+24,"text-anchor":"end","font-size":18,"font-weight":600,fill:"var(--ink)"},r[0]));
-  let x=x0;r[1].forEach((v,j)=>{const w=(x1-x0)*v/sum;s.appendChild(el("rect",{x:x,y:y,width:w-3,height:36,rx:5,fill:"var(--report)",opacity:ops[j]}));
-   s.appendChild(el("text",{x:x+w/2,y:y+23,"text-anchor":"middle","font-size":12.5,fill:"#10213f","font-weight":600},["中1","中2","中3"][j]+" "+Math.round(v/sum*100)+"%"));x+=w});
-  s.appendChild(el("text",{x:x1+16,y:y+16,"font-size":12.5,fill:"var(--muted)"},"満点 "+45*sum+"点"));
-  s.appendChild(el("text",{x:x1+16,y:y+34,"font-size":12,fill:"var(--ink)"},r[2]))});
-})();
-
-/* interview */
-(()=>{const s=document.getElementById("ivSvg");const x0=20,x1=880,maxMin=8,X=m=>x0+(x1-x0)*m/maxMin;
- s.appendChild(el("rect",{x:X(0),y:40,width:X(2)-X(0)-4,height:40,rx:8,fill:"var(--talk)"}));
- s.appendChild(el("rect",{x:X(1.5),y:40,width:X(2)-X(1.5)-4,height:40,rx:0,fill:"var(--talk)",opacity:.5}));
- s.appendChild(el("text",{x:X(0)+12,y:66,"font-size":14,"font-weight":600,fill:"#10213f"},"My Voice"));
- s.appendChild(el("rect",{x:X(2),y:40,width:X(8)-X(2),height:40,rx:8,fill:"var(--exam)"}));
- s.appendChild(el("rect",{x:X(5.5),y:40,width:X(8)-X(5.5),height:40,rx:8,fill:"var(--exam)",opacity:.5}));
- s.appendChild(el("text",{x:X(2)+14,y:66,"font-size":14,"font-weight":600,fill:"#fff"},"質問への応答"));
- s.appendChild(el("text",{x:X(0),y:28,"font-size":12.5,fill:"var(--muted)"},"1分30秒〜2分"));
- s.appendChild(el("text",{x:X(2),y:28,"font-size":12.5,fill:"var(--muted)"},"3分30秒〜6分"));
- for(let m=0;m<=8;m+=2){s.appendChild(el("text",{x:X(m),y:104,"text-anchor":m===0?"start":(m===8?"end":"middle"),"font-size":12,fill:"var(--muted)"},m+"分"))}
- s.appendChild(el("text",{x:X(0),y:134,"font-size":12.5,fill:"var(--ink)"},"個人面接か集団面接かは高校ごとにちがいます(各校の形式は下のカードを参照)。"));
-})();
+/* ratio */
+(()=>{const rs=[["1:1:2",[1,1,2],"熊谷女子・熊谷西・熊谷商業・熊谷農業・妻沼・深谷商業"],["1:1:3",[1,1,3],"深谷第一・深谷(第1次)・熊谷工業・進修館"],["2:2:5",[2,2,5],"熊谷"],["1:1:1",[1,1,1],"(周辺13校では使われていません)"]];
+ const op=[.45,.7,1];
+ document.getElementById("ratio").innerHTML=rs.map(r=>{const sum=r[1][0]+r[1][1]+r[1][2];
+  return `<div><div class="hd"><span class="rt">${r[0]}</span><span class="mx">満点 ${45*sum}点</span></div><div class="bar">${r[1].map((v,j)=>`<span style="width:${v/sum*100}%;background:rgba(66,165,245,${op[j]});${j===2?"color:#fff;background:var(--blue)":""}">${["中1","中2","中3"][j]} ${Math.round(v/sum*100)}%</span>`).join("")}</div><div class="sch">${r[2]}</div></div>`}).join("")})();
 
 /* cards */
 const cards=document.getElementById("cards");
-S.forEach(d=>{const a=document.createElement("article");a.className="card";a.dataset.city=d.c;const v=d.s1,tot=v[0]+v[1]+v[2];
- a.innerHTML=`<div class="card-top"><div><h3>${d.n.replace(/(\(|$)/,"高校$1")}</h3><div class="dept">${d.d}・${d.type}</div></div>
- <div class="hen"><b>${d.h[0]===d.h[1]?d.h[0]:d.h[0]+"-"+d.h[1]}</b><span>偏差値の目安</span></div></div>
- <div class="facts"><div class="fact"><small>内申の目安</small><b>${d.na}</b></div><div class="fact"><small>2027募集</small><b>${d.t}${d.down?" ↓":""}</b></div><div class="fact"><small>2026倍率</small><b>${d.b}</b></div></div>
- ${d.g?(d.g.few?`<div class="goal few">合否の目安:2026年度の開示データが少ないため掲載していません</div>`:`<div class="goal"><div class="goal-h">合否の目安(2026年度 合格者の開示得点より)</div>
- <table><thead><tr><th></th><th>安心ライン<small>合格者の平均</small></th><th>ボーダー<small>合格者の下位1/4</small></th></tr></thead>
- <tbody><tr><th>学力検査 5教科<small>500点満点</small></th><td>${d.g.t[0]}点</td><td>${d.g.t[1]}点</td></tr>
- <tr><th>中3の内申<small>9教科・45点満点</small></th><td>${d.g.y[0]}</td><td>${d.g.y[1]}</td></tr></tbody></table></div>`):""}
- <div class="minibar" aria-label="第1次の配点 学検${v[0]}点 調査書${v[1]}点 面接${v[2]}点"><span style="width:${v[0]/tot*100}%;background:var(--exam)"></span><span style="width:${v[1]/tot*100}%;background:var(--report)"></span><span style="width:${v[2]/tot*100}%;background:var(--talk)"></span></div>
- <div class="note num">${d.l1?d.l1+"選抜":"第1次"}:学検${v[0]}/調査書${v[1]}/面接${v[2]}(内申比率 ${d.r})</div>
- <div class="chips">${d.tags.map(t=>`<span class="chip ${/減/.test(t)?"hot":(/点|重視/.test(t)?"key":"")}">${t}</span>`).join("")}</div>
- <p class="tip"><b>対策:</b>${d.tip}</p>`;
+S.forEach(d=>{const a=document.createElement("article");a.className="sc";a.dataset.city=d.c;const v=d.s1;
+ const G=d.g;let goal="";
+ if(G&&G.few)goal=`<div class="goal few">合否の目安:2026年度の開示データが少ないため掲載していません</div>`;
+ else if(G){const P=x=>(x-100)/400*100;
+  goal=`<div class="goal"><div class="goal-h">合否の目安(2026年度 合格者の開示得点より)</div>
+  <div class="gauge" aria-label="学力検査5教科 ボーダー${G.t[1]}点 安心ライン${G.t[0]}点"><div class="trk"><div class="zone" style="left:${P(G.t[1])}%;width:${P(G.t[0]-G.t[1])}%"></div>
+  <span class="mk bd" style="left:${P(G.t[1])}%">ボーダー ${G.t[1]}</span><span class="mk avg" style="left:${P(G.t[0])}%">安心 ${G.t[0]}</span></div>
+  <div class="lab"><span>100点</span><span>300点</span><span>5教科 500点</span></div></div>
+  <table><thead><tr><th></th><th>安心ライン<small>合格者の平均</small></th><th>ボーダー<small>合格者の下位1/4</small></th></tr></thead>
+  <tbody><tr><th>学力検査 5教科<small>500点満点</small></th><td>${G.t[0]}</td><td>${G.t[1]}</td></tr>
+  <tr><th>中3の内申<small>9教科・45点満点</small></th><td>${G.y[0]}</td><td>${G.y[1]}</td></tr></tbody></table></div>`}
+ a.innerHTML=`<div class="sc-h"><div><h3>${nm(d.n)}</h3><div class="dept">${d.d}・${d.type}</div></div>
+ <div class="hv"><b>${d.h[0]===d.h[1]?d.h[0]:d.h[0]+"-"+d.h[1]}</b><small>偏差値</small></div></div>
+ <div class="sc-b">
+ <div class="facts"><div class="fact"><small>内申の目安</small><b>${d.na}</b></div><div class="fact"><small>2027募集</small><b>${d.t}${d.down?"↓":""}</b></div><div class="fact"><small>2026倍率</small><b>${d.b}</b></div></div>
+ ${goal}
+ <div class="mini"><div class="cap">${d.l1?d.l1+"選抜":"第1次"}の配点(内申比率 ${d.r})</div>${bar(v)}</div>
+ <div class="chips">${d.tags.map(t=>`<span class="chip ${/減/.test(t)?"hot":""}">${t}</span>`).join("")}</div>
+ <p class="tip"><span class="lb">対策</span>${d.tip}</p></div>`;
  cards.appendChild(a)});
 document.querySelectorAll("[data-f]").forEach(b=>b.addEventListener("click",()=>{const f=b.dataset.f;document.querySelectorAll("[data-f]").forEach(x=>x.setAttribute("aria-pressed",x===b));
- cards.querySelectorAll(".card").forEach(c=>c.hidden=!(f==="all"||c.dataset.city===f))}));
+ cards.querySelectorAll(".sc").forEach(c=>c.hidden=!(f==="all"||c.dataset.city===f))}));
 </script>
-
-</body></html>
+</body>
+</html>
