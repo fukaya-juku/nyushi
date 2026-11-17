@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fukaya-kumagaya-nyushi.netlify.app/sitemap.xml

@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>深谷・熊谷 高校入試ナビ｜学習空間 深谷上柴教室</title>
+<link rel="canonical" href="https://fukaya-kumagaya-nyushi.netlify.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="深谷・熊谷 高校入試ナビ｜学習空間 深谷上柴教室">
+<meta property="og:url" content="https://fukaya-kumagaya-nyushi.netlify.app/">
+<meta property="og:locale" content="ja_JP">
 <meta name="description" content="深谷市・熊谷市・本庄市・鴻巣市・上尾市など埼玉県北部・県央の高校20校の入試を、日程・偏差値・配点・内申点・面接・合否の目安まで図でまとめました。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -197,6 +202,7 @@ b.hl{background:linear-gradient(transparent 60%,#ffe0b2 60%)}
 .tip{font-size:16px;background:var(--sky);border-radius:12px;padding:10px 12px}
 .tip .lb{display:inline-block;background:var(--c);color:#fff;font-size:13px;font-weight:900;border-radius:6px;padding:0 8px;margin-right:6px}
 .tip b{color:var(--c)}
+.more{display:block;text-align:center;background:var(--c);color:#fff;border-radius:999px;padding:10px;font-size:16px;font-weight:900;text-decoration:none}
 
 /* private */
 .privs{display:grid;gap:18px}
@@ -502,6 +508,8 @@ const TL=[
 const col={k:"var(--k)",f:"var(--f)",g:"var(--g)",h:"var(--h)",c:"var(--c)"};
 const NS="http://www.w3.org/2000/svg";
 function el(tag,attrs,txt){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(txt!=null)e.textContent=txt;return e}
+/* 高校別ページへのリンク(tools/build-schools.mjs が data/school-pages.json から自動で書きかえる) */
+const PG={"熊谷":"kumagaya/","熊谷女子":"kumagaya-joshi/","熊谷西(普通)":"kumagaya-nishi/","熊谷西(理数)":"kumagaya-nishi/","深谷第一":"fukaya-daiichi/","深谷商業":"fukaya-shogyo/"};/*PG*/
 const nm=n=>n.replace(/(\(|$)/,"高校$1");
 
 /* mark grid icon */
@@ -573,7 +581,7 @@ S.forEach(d=>{const a=document.createElement("article");a.className="sc";a.datas
  ${goal}
  <div class="mini"><div class="cap">${d.l1?d.l1+"選抜":"第1次"}の配点(内申比率 ${d.r})</div>${bar(v)}</div>
  <div class="chips">${d.tags.map(t=>`<span class="chip ${/減/.test(t)?"hot":""}">${t}</span>`).join("")}</div>
- <p class="tip"><span class="lb">対策</span>${d.tip}</p></div>`;
+ <p class="tip"><span class="lb">対策</span>${d.tip}</p>${PG[d.n]?`<a class="more" href="${PG[d.n]}">${nm(d.n).replace(/\(.*\)/,"")}の入試情報をくわしく ›</a>`:""}</div>`;
  cards.appendChild(a)});
 document.querySelectorAll("[data-f]").forEach(b=>b.addEventListener("click",()=>{const f=b.dataset.f;document.querySelectorAll("[data-f]").forEach(x=>x.setAttribute("aria-pressed",x===b));
  cards.querySelectorAll(".sc").forEach(c=>c.hidden=!(f==="all"||c.dataset.city===f))}));
