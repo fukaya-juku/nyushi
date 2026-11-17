@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>My Voice メーカー｜学習空間 深谷上柴教室</title>
+<meta name="description" content="面接の「My Voice」を、えらぶだけの質問から本番の練習まで6つのレベルでつくれるアプリです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Lato:wght@700;900&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --blue:#004cd0; --navy:#03125b; --sky:#e3f2fd; --sky2:#bbdefb;
+  --orange:#ff8924; --orange-soft:#fff1e3; --green:#2e9d5b; --green-soft:#e6f5ec;
+  --ink:#333; --muted:#5f6b7d; --line:#d5e3f5; --white:#fff;
+  --font:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif; --num:"Lato","Noto Sans JP",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sky);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.8}
+button,input,textarea,select{font:inherit}
+a{color:var(--blue);font-weight:700}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+[hidden]{display:none!important}
+.in{max-width:720px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left,0px)) 0 max(16px,env(safe-area-inset-right,0px))}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:var(--white);box-shadow:0 2px 8px rgba(3,18,91,.08)}
+.top .in{display:flex;align-items:center;justify-content:space-between;gap:8px;height:56px}
+.logo{color:var(--blue);font-weight:900;font-size:19px;text-decoration:none;white-space:nowrap}
+.logo small{font-size:12px;color:var(--navy);margin-left:4px}
+.back{font-size:14px;text-decoration:none;white-space:nowrap}
+.prog{background:var(--blue);color:#fff}
+.prog .in{padding-top:10px;padding-bottom:12px}
+.lv{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
+.lv button{border:0;border-radius:10px;background:rgba(255,255,255,.18);color:#fff;padding:6px 0 4px;line-height:1.15;cursor:pointer;min-height:48px}
+.lv button b{display:block;font-family:var(--num);font-size:15px;font-weight:900}
+.lv button small{font-size:10.5px;font-weight:700;opacity:.95}
+.lv button.done{background:rgba(255,255,255,.4)}
+.lv button[aria-current="step"]{background:#fff;color:var(--blue)}
+.bar{height:8px;border-radius:4px;background:rgba(255,255,255,.25);margin-top:10px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--orange);border-radius:4px;transition:width .3s}
+.xp{display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-top:4px}
+
+/* hero */
+.hero{padding:22px 0 6px;text-align:center}
+.hero h1{margin:0;color:var(--navy);font-size:clamp(26px,7vw,34px);font-weight:900;line-height:1.35}
+.hero p{font-size:15px;color:var(--muted)}
+
+/* step */
+main{padding:14px 0 120px}
+.step-h{display:flex;align-items:center;gap:12px;margin:6px 0 14px}
+.badge{flex:none;width:56px;height:56px;border-radius:16px;background:var(--blue);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05}
+.badge small{font-size:11px;font-weight:700}
+.badge b{font-family:var(--num);font-size:24px;font-weight:900}
+.step-h h2{margin:0;font-size:22px;font-weight:900;color:var(--navy);line-height:1.35}
+.step-h p{margin:0;font-size:14px;color:var(--muted);line-height:1.6}
+.card{background:var(--white);border-radius:20px;padding:18px 16px;box-shadow:0 4px 16px rgba(3,18,91,.07);margin-bottom:14px}
+.q{font-size:18px;font-weight:900;color:var(--navy);line-height:1.5;margin:0 0 4px}
+.q .no{display:inline-block;background:var(--orange);color:#fff;border-radius:8px;font-size:13px;padding:0 8px;margin-right:6px;vertical-align:2px}
+.hint{font-size:14px;color:var(--muted);margin:0 0 10px;line-height:1.6}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:var(--white);color:var(--ink);border-radius:999px;padding:7px 14px;font-size:15px;font-weight:700;cursor:pointer;line-height:1.4;text-align:left;min-height:44px}
+.chip[aria-pressed="true"]{border-color:var(--blue);background:var(--blue);color:#fff}
+.chip.add{border-style:dashed;color:var(--blue)}
+.chip.add::before{content:"+ ";font-weight:900}
+textarea,input[type=text]{width:100%;border:2px solid var(--line);border-radius:14px;padding:10px 12px;font-size:17px;background:#fbfdff;color:var(--ink);line-height:1.7}
+textarea{min-height:84px;resize:vertical}
+textarea:focus,input[type=text]:focus{border-color:var(--blue);outline:none}
+.field{margin-top:10px}
+.ex{margin-top:10px;background:var(--orange-soft);border-radius:12px;padding:8px 12px;font-size:14px;line-height:1.7}
+.ex b{color:#c25b00}
+.ok{color:var(--green);font-weight:900;font-size:14px;margin-top:6px}
+.tip{background:var(--sky);border-radius:14px;padding:12px 14px;font-size:15px}
+.tip b{color:var(--blue)}
+
+/* script */
+.script{width:100%;min-height:340px;font-size:17px;line-height:1.95}
+.meter{margin:10px 0 4px;position:relative;height:16px;border-radius:8px;background:var(--sky)}
+.meter .zone{position:absolute;top:0;bottom:0;background:var(--green-soft);border-left:2px solid var(--green);border-right:2px solid var(--green)}
+.meter .now{position:absolute;top:-4px;width:6px;height:24px;border-radius:3px;background:var(--blue);transform:translateX(-50%);transition:left .2s}
+.meter-l{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.stat{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.stat span{background:var(--sky);border-radius:999px;padding:2px 12px;font-size:14px;font-weight:700}
+.stat .good{background:var(--green-soft);color:var(--green)} .stat .warn{background:var(--orange-soft);color:#c25b00}
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.checks li{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.6}
+.checks li i{flex:none;width:24px;height:24px;border-radius:7px;background:var(--line);margin-top:2px;display:flex;align-items:center;justify-content:center;color:#fff;font-style:normal;font-weight:900;font-size:14px}
+.checks li.on i{background:var(--green)}
+.checks li.on i::before{content:"✓"}
+.parts{display:flex;flex-direction:column;gap:6px;margin:0 0 6px}
+.part{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;font-size:14px}
+.part b{display:inline-block;min-width:4.5em;text-align:center;border-radius:8px;color:#fff;padding:0 6px;font-size:13px}
+
+/* practice */
+.timer{text-align:center}
+.timer .t{font-family:var(--num);font-size:56px;font-weight:900;color:var(--navy);line-height:1.1}
+.timer .msg{font-weight:900;min-height:1.8em}
+.qcard{background:var(--navy);color:#fff;border-radius:18px;padding:18px 16px;min-height:120px}
+.qcard small{opacity:.85;font-size:13px;font-weight:700}
+.qcard p{font-size:20px;font-weight:900;line-height:1.5;margin:6px 0 0}
+.prep{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
+.prep div{background:var(--sky);border-radius:10px;padding:6px 4px;text-align:center;font-size:12.5px;line-height:1.35}
+.prep b{display:block;font-family:var(--num);font-size:18px;color:var(--blue)}
+.stars{display:flex;gap:6px}
+.stars button{border:0;background:none;font-size:30px;line-height:1;cursor:pointer;color:var(--line);padding:2px}
+.stars button.on{color:var(--orange)}
+.rate{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--line);font-size:15px}
+.rate:first-child{border-top:0}
+
+/* nav */
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--white);box-shadow:0 -2px 10px rgba(3,18,91,.1);padding-bottom:env(safe-area-inset-bottom,0px)}
+.nav .in{display:flex;gap:10px;padding-top:10px;padding-bottom:10px}
+.btn{flex:1;border:0;border-radius:999px;padding:12px 10px;font-size:17px;font-weight:900;cursor:pointer;min-height:50px;text-decoration:none;text-align:center}
+.btn.pri{background:var(--orange);color:#fff}
+.btn.sec{background:var(--sky);color:var(--blue);flex:.6}
+.btn.blue{background:var(--blue);color:#fff}
+.btn:disabled{opacity:.45}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.row .btn{flex:1 1 140px;font-size:15px;padding:10px}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--navy);color:#fff;border-radius:999px;padding:8px 18px;font-size:15px;font-weight:700;z-index:30;opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1}
+.goal{background:linear-gradient(160deg,#004cd0,#283593);color:#fff;border-radius:20px;padding:20px 16px;text-align:center}
+.goal h3{margin:0;font-size:22px;font-weight:900}
+.goal p{font-size:15px;opacity:.95}
+.foot{font-size:13px;color:var(--muted);text-align:center;padding:10px 0 0}
+@media print{.top,.prog,.nav,.noprint{display:none!important}body{background:#fff}.card{box-shadow:none;border:1px solid #ccc}}
+@media (prefers-reduced-motion:reduce){.bar i,.meter .now{transition:none}}
+</style>
+</head>
+<body>
+<div class="top"><div class="in">
+  <a class="logo" href="https://blue0728.studio.site/" target="_blank" rel="noopener">学習空間<small>深谷上柴教室</small></a>
+  <a class="back" href="../#interview">‹ 入試ナビへ</a>
+</div></div>
+
+<div class="prog"><div class="in">
+  <nav class="lv" id="lvNav" aria-label="レベル"></nav>
+  <div class="bar" aria-hidden="true"><i id="barFill" style="width:0"></i></div>
+  <div class="xp"><span id="xpText">0 / 0 問クリア</span><span id="rankText">見習い</span></div>
+</div></div>
+
+<main><div class="in">
+  <div class="hero" id="hero">
+    <h1>My Voice メーカー</h1>
+    <p>えらぶだけでOK。6つのレベルをクリアすると、<br>面接の「My Voice」が完成して本番の練習までできます。</p>
+  </div>
+  <div id="stage"></div>
+  <p class="foot">入力した内容は、この端末のブラウザの中にだけ保存されます(送信されません)。</p>
+</div></main>
+
+<div class="nav"><div class="in">
+  <button class="btn sec" id="prevBtn" type="button">‹ もどる</button>
+  <button class="btn pri" id="nextBtn" type="button">次へ ›</button>
+</div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ===== 質問データ =====
+ type: multi=複数えらぶ / one=1つえらぶ / text=書く(ことばチップで入れられる)
+*/
+const LEVELS=[
+ {id:"lv1",name:"自分を知る",short:"自分",desc:"まずはえらぶだけ。自分に近いものをタップしよう。",qs:[
+  {id:"traits",type:"multi",max:3,q:"自分に近い言葉を3つまでえらぼう",hint:"まよったら、友だちや家の人に言われたことがある言葉をえらんでOK。",
+   opts:["コツコツ続けられる","責任感がある","明るい","人の話をよく聞く","あきらめない","困っている人を助ける","計画を立てるのが得意","新しいことに挑戦する","細かいことに気づく","まとめ役になれる","みんなを笑顔にする","集中力がある","やさしい","負けずぎらい"]},
+  {id:"fields",type:"multi",max:8,q:"中学校で時間を使ったことを、ぜんぶえらぼう",hint:"小さなことでも大丈夫。毎日やっていることも立派な材料です。",
+   opts:["部活動","勉強","委員会・生徒会","学校行事(体育祭・合唱など)","習い事・クラブチーム","ボランティア・地域の活動","家の手伝い・きょうだいの世話","趣味・好きなこと"]},
+  {id:"subject",type:"multi",max:3,q:"好きな教科・得意な教科は？",hint:"「ほかよりはマシ」でもOK。",
+   opts:["国語","数学","英語","理科","社会","音楽","美術","保健体育","技術・家庭"]}
+ ]},
+ {id:"lv2",name:"中学校で頑張ったこと",short:"中学",desc:"1つのエピソードを、5つの質問でくわしくしていこう。",qs:[
+  {id:"topic",type:"one",q:"いちばん話せそうなことを1つえらぼう",hint:"Lv1でえらんだものから出ています。「すごい結果」がなくても大丈夫。続けたこと・工夫したことが大事です。",fromFields:true},
+  {id:"what",type:"text",q:"具体的に、何をがんばった？",hint:"だれが聞いてもわかるように。チップを押すと文が入るので、〇〇を自分のことに書きかえよう。",
+   chips:["〇〇部で、毎日の練習","〇〇部で、大会に向けた練習","部長・副部長としてチームをまとめること","苦手だった〇〇の勉強","定期テストの点数を上げること","〇〇委員として、〇〇の仕事","体育祭・合唱コンクールの〇〇係","〇〇の習い事","家で〇〇の手伝い"],ph:"例:バスケットボール部で、毎日のシュート練習"},
+  {id:"when",type:"text",q:"いつのこと？",hint:"",chips:["中学1年生のころから","中学2年生の夏","中学3年生になって","3年間ずっと"],ph:"例:中学2年生の夏"},
+  {id:"wall",type:"text",q:"そのとき、どんなカベ(困ったこと)があった？",hint:"面接官がいちばん聞きたいのはここ。うまくいかなかったことを正直に。",
+   chips:["なかなか上達しませんでした","チームの意見がまとまりませんでした","テストの点数が思うように伸びませんでした","勉強と部活動の両立が大変でした","人前で話すのが苦手でした","レギュラーになれませんでした","やる気が続きませんでした"],ph:"例:試合でシュートがほとんど入りませんでした"},
+  {id:"action",type:"text",q:"カベを乗りこえるために、何をした？(工夫)",hint:"「がんばった」ではなく、何を・どれくらいしたかを入れると伝わります。",
+   chips:["毎日〇分、自主練習を続けました","先生や先輩にアドバイスを聞きに行きました","自分で練習メニュー・計画表をつくりました","メンバーと話し合う時間をつくりました","苦手なところをノートにまとめて、くり返し解きました","できたことを毎日記録しました"],ph:"例:毎朝20分早く登校して、シュート練習を続けました"},
+  {id:"result",type:"text",q:"どうなった？(結果)",hint:"勝ち負けでなくてOK。小さな変化も立派な結果です。",
+   chips:["〇〇で〇〇することができました","点数が〇点上がりました","チームの雰囲気がよくなりました","最後までやりきることができました","後輩に教えられるようになりました","自信を持てるようになりました"],ph:"例:最後の大会でスタメンに選ばれました"},
+  {id:"learn",type:"text",q:"その経験から、何を学んだ？",hint:"高校や将来にもつながる「学び」を1つ。",
+   chips:["続けることの大切さ","人と協力することの大切さ","失敗してもあきらめないこと","自分で考えて行動することの大切さ","計画を立てて取り組むことの大切さ","相手の気持ちを考えることの大切さ"],ph:"例:小さな努力を続けることの大切さ"}
+ ]},
+ {id:"lv3",name:"高校で頑張りたいこと",short:"高校",desc:"中学校の経験を、高校でどう生かすかを考えよう。",qs:[
+  {id:"school",type:"text",q:"志望校と学科は？",hint:"まだ決まっていなければ空らんでOK。",chips:["熊谷高校","熊谷女子高校","熊谷西高校","深谷第一高校","深谷商業高校","本庄高校","上尾高校","伊奈学園総合高校","鴻巣高校","進修館高校","熊谷工業高校"],ph:"例:深谷第一高校 普通科",single:true},
+  {id:"why",type:"text",q:"その高校を選んだ理由は？",hint:"学校説明会で見たこと・聞いたことが一番説得力があります。",
+   chips:["学校説明会で、〇〇の様子を見て","〇〇科で専門的に学べるから","〇〇部が熱心に活動しているから","先輩から〇〇と聞いて","進学に向けた授業が充実しているから","資格の取得に力を入れているから"],ph:"例:学校説明会で、先輩たちが授業で活発に発表する様子を見て"},
+  {id:"hsgoal",type:"text",q:"高校で、何に取り組みたい？",hint:"",
+   chips:["勉強と部活動を両立させること","〇〇部で〇〇を目指すこと","大学進学に向けて〇〇の勉強","〇〇の資格を取ること","〇〇科の専門的な学び","学校行事で中心となって活動すること","新しく〇〇に挑戦すること"],ph:"例:勉強と部活動を両立させること"},
+  {id:"use",type:"text",q:"中学校の経験を、高校でどう生かす？",hint:"Lv2の「学んだこと」とつなげると、話に一本の筋が通ります。",
+   chips:["中学校で学んだ〇〇を生かして","中学校で身につけた、毎日続ける力を生かして","中学校で経験した話し合いを生かして","今度は〇〇にも挑戦したいので"],ph:"例:中学校で身につけた、毎日続ける力を生かして"}
+ ]},
+ {id:"lv4",name:"将来のこと",short:"将来",desc:"決まっていなくても大丈夫。「どんな大人になりたいか」でOKです。",qs:[
+  {id:"fstate",type:"one",q:"将来について、いまの気持ちに近いのは？",hint:"",opts:["なりたい仕事が決まっている","やりたい分野はなんとなくある","まだ決まっていない"]},
+  {id:"future",type:"text",q:"将来、どうなりたい？",hint:"仕事が決まっていない人は「どんな大人になりたいか」を書こう。",
+   chips:["〇〇の仕事に就きたいです","人の役に立つ仕事がしたいです","人を笑顔にできる大人になりたいです","専門的な知識を生かして働きたいです","地元の埼玉に貢献したいです","まだ決まっていませんが、高校でいろいろなことに挑戦して見つけたいです"],ph:"例:看護師になって、病気の人を支えたいです"},
+  {id:"fwhy",type:"text",q:"そう思ったきっかけは？",hint:"人との出会い・体験・本や動画など。1文でOK。",
+   chips:["家族が〇〇をしていて","〇〇のときに助けてもらった経験から","職場体験で〇〇を見て","〇〇の授業がおもしろかったから","部活動で人を支える楽しさを知ったから"],ph:"例:けがをしたときに看護師さんに支えてもらった経験から"},
+  {id:"bridge",type:"text",q:"そのために、高校で何をする？",hint:"Lv3とつなげると完成度アップ。",
+   chips:["〇〇の勉強に特に力を入れたいです","いろいろな人と関わって、コミュニケーション力を高めたいです","〇〇の資格を取りたいです","進路についてたくさん調べ、自分に合う道を見つけたいです"],ph:"例:理科と英語の勉強に特に力を入れたいです"}
+ ]},
+ {id:"lv5",name:"原稿をつくる",short:"原稿",desc:"これまでの答えから、My Voiceの原稿を自動でつくります。自分の言葉に直そう。",special:"script"},
+ {id:"lv6",name:"本番練習",short:"本番",desc:"声に出して時間をはかり、質問への答え方も練習しよう。",special:"practice"}
+];
+const ALLQ=LEVELS.flatMap(l=>(l.qs||[]).map(q=>q.id));
+
+/* ===== 保存 ===== */
+const KEY="myvoice-maker-v1";
+let st={a:{},lv:0,script:"",rate:{}};
+try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s&&s.a)st=Object.assign(st,s)}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+
+/* ===== 便利関数 ===== */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ans=id=>st.a[id];
+const filled=id=>{const v=ans(id);return Array.isArray(v)?v.length>0:!!(v&&String(v).trim())};
+const clean=s=>String(s||"").trim().replace(/[。．.]+$/,"");
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove("show"),1800)}
+function lvDone(i){const L=LEVELS[i];if(L.qs)return L.qs.every(q=>filled(q.id));if(L.special==="script")return (st.script||"").length>=200;if(L.special==="practice")return Object.keys(st.rate||{}).length>=4;return false}
+const RANKS=["見習い","ブロンズ","シルバー","ゴールド","プラチナ","ダイヤ","本番準備OK!"];
+
+/* ===== 上の進み具合 ===== */
+function drawNav(){
+ $("lvNav").innerHTML=LEVELS.map((L,i)=>`<button type="button" data-lv="${i}" class="${lvDone(i)?"done":""}" ${i===st.lv?'aria-current="step"':""}><b>Lv${i+1}</b><small>${L.short}</small></button>`).join("");
+ $("lvNav").querySelectorAll("button").forEach(b=>b.onclick=()=>go(+b.dataset.lv));
+ const n=ALLQ.filter(filled).length,done=LEVELS.filter((L,i)=>lvDone(i)).length;
+ $("barFill").style.width=Math.round((n+(lvDone(4)?3:0)+(lvDone(5)?3:0))/(ALLQ.length+6)*100)+"%";
+ $("xpText").textContent=`${n} / ${ALLQ.length} 問クリア`;
+ $("rankText").textContent="ランク:"+RANKS[done];
+}
+
+/* ===== 質問を描く ===== */
+function qHTML(q,i){
+ const v=ans(q.id);let body="";
+ if(q.type==="multi"||q.type==="one"){
+  let opts=q.opts||[];
+  if(q.fromFields){const f=ans("fields")||[];opts=f.length?f:LEVELS[0].qs[1].opts}
+  const sel=Array.isArray(v)?v:(v?[v]:[]);
+  body=`<div class="chips" role="group">${opts.map(o=>`<button type="button" class="chip" data-q="${q.id}" data-v="${esc(o)}" aria-pressed="${sel.includes(o)}">${esc(o)}</button>`).join("")}</div>`;
+  if(q.type==="multi")body+=`<p class="hint" style="margin:8px 0 0">${sel.length} / ${q.max} えらんだ</p>`;
+ }else{
+  body=`<div class="chips">${q.chips.map(c=>`<button type="button" class="chip add" data-ins="${q.id}" data-v="${esc(c)}">${esc(c)}</button>`).join("")}</div>
+  <div class="field">${q.single?`<input type="text" id="f_${q.id}" value="${esc(v||"")}" placeholder="${esc(q.ph)}">`:`<textarea id="f_${q.id}" placeholder="${esc(q.ph)}">${esc(v||"")}</textarea>`}</div>
+  ${/〇〇/.test(v||"")?`<p class="ex">「<b>〇〇</b>」の部分を、自分のことに書きかえよう。</p>`:""}`;
+ }
+ return `<section class="card" id="c_${q.id}"><p class="q"><span class="no">Q${i+1}</span>${esc(q.q)}</p>${q.hint?`<p class="hint">${esc(q.hint)}</p>`:""}${body}${filled(q.id)&&!/〇〇/.test(v||"")?`<p class="ok">✓ クリア!</p>`:""}</section>`;
+}
+function bindQs(L){
+ document.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{
+  const q=L.qs.find(x=>x.id===b.dataset.q),val=b.dataset.v;
+  if(q.type==="one"){st.a[q.id]=val}
+  else{let a=st.a[q.id]||[];if(a.includes(val))a=a.filter(x=>x!==val);else{if(a.length>=q.max){toast(q.max+"つまでえらべます");return}a=[...a,val]}st.a[q.id]=a}
+  save();render(q.id)});
+ document.querySelectorAll("[data-ins]").forEach(b=>b.onclick=()=>{
+  const id=b.dataset.ins,el=$("f_"+id),q=L.qs.find(x=>x.id===id);
+  if(q.single||!el.value.trim())el.value=b.dataset.v;else el.value=el.value.trim()+(/[、。]$/.test(el.value.trim())?"":"。")+b.dataset.v;
+  st.a[id]=el.value;save();render(id);const n=$("f_"+id);if(n){n.focus();const p=n.value.indexOf("〇〇");if(p>=0)n.setSelectionRange(p,p+2)}});
+ L.qs.filter(q=>q.type==="text").forEach(q=>{const el=$("f_"+q.id);if(!el)return;el.oninput=()=>{st.a[q.id]=el.value;save();drawNav()}});
+}
+
+/* ===== 原稿の自動作成 ===== */
+function build(){
+ const a=st.a,p=[];
+ const trait=(a.traits||[])[0];
+ const what=clean(a.what)||"〇〇",when=clean(a.when),wall=clean(a.wall),act=clean(a.action),res=clean(a.result),learn=clean(a.learn);
+ p.push(`私が中学校で力を注いだことは、${what}です。`);
+ if(wall)p.push(`${when?when+"、":""}${wall}。`);
+ if(act)p.push(`そこで私は、${act}。`);
+ if(res)p.push(`その結果、${res}。`);
+ if(learn)p.push(`この経験から、${learn}を学びました。`);
+ const s1=p.join("");
+ const q=[];const school=clean(a.school);
+ const sch=school?school+"を":"貴校を";
+ if(a.why){const w=clean(a.why);q.push(/(から|ので)$/.test(w)?`${sch}志望したのは、${w.replace(/ので$/,"から")}です。`:`${sch}志望したのは、${w}、${school?"この学校":"貴校"}で学びたいと思ったからです。`)}
+ if(a.hsgoal)q.push(`高校では、${a.use?clean(a.use)+"、":""}${clean(a.hsgoal)}に全力で取り組みたいです。`);
+ const s2=q.join("");
+ const r=[];
+ if(a.future){let f=clean(a.future);r.push(`将来は、${f.replace(/^将来は、?/,"")}。`)}
+ if(a.fwhy){const w=clean(a.fwhy);r.push(/から$/.test(w)?`そう考えるようになったのは、${w}です。`:`${w}、そう考えるようになりました。`)}
+ if(a.bridge)r.push(`そのために、高校では${clean(a.bridge).replace(/^高校では、?/,"")}。`);
+ if(trait)r.push(`私の長所である「${trait}」ところを生かし、高校生活を充実させたいです。`);
+ const s3=r.join("");
+ return [s1,s2,s3].filter(Boolean).join("\n\n");
+}
+const SPM=300; /* 1分あたりの文字数のめやす */
+function scriptView(){
+ if(!st.script)st.script=st.built=build();
+ return `<section class="card">
+  <p class="q">My Voice の原稿</p>
+  <div class="parts"><div class="part"><b style="background:var(--blue)">中学校</b><span>がんばったこと・カベ・工夫・結果・学び</span></div><div class="part"><b style="background:var(--orange)">高校</b><span>志望理由・取り組みたいこと</span></div><div class="part"><b style="background:var(--green)">将来</b><span>なりたい姿・きっかけ・そのために</span></div></div>
+  <textarea class="script" id="script">${esc(st.script)}</textarea>
+  <div id="sinfo">${sInfo()}</div>
+  <div class="row noprint"><button class="btn sec" type="button" id="rebuild">答えから作り直す</button><button class="btn blue" type="button" id="copy">コピーする</button><button class="btn sec" type="button" id="print">印刷・PDF</button></div>
+ </section>
+ <section class="card"><p class="q">チェックリスト</p><ul class="checks" id="schecks">${sChecks()}</ul></section>
+ <section class="card tip"><b>話すときのめやす</b>:My Voiceは<b>1分30秒〜2分</b>。ふつうの速さで話すと1分に約300字なので、<b>450〜600字</b>がちょうどよい長さです。覚えた文を読むのではなく、自分の言葉で話せるように練習しよう。</section>`;
+}
+function sChecks(){
+ const t=st.script||"",has=k=>t.includes(k);
+ return [
+  ["結論から話している(「〜ことは、〜です」で始まる)",/^.{0,12}(ことは|は、)/.test(t)],
+  ["カベ(困ったこと)と工夫が入っている",!!(st.a.wall&&st.a.action)],
+  ["数字や具体的な場面がある(〇分・〇点・〇年生など)",/[0-9０-９一二三四五六七八九十百]+(分|点|回|年生|か月|日|位|人)/.test(t)],
+  ["高校で取り組みたいことにつながっている",has("高校では")],
+  ["将来のことまで話せている",has("将来")],
+  ["「〇〇」が残っていない",!has("〇〇")]
+ ].map(c=>`<li class="${c[1]?"on":""}"><i></i>${c[0]}</li>`).join("");
+}
+function sInfo(){
+ const t=st.script||"",len=t.replace(/\s/g,"").length,sec=Math.round(len/SPM*60);
+ const pos=Math.min(100,len/700*100),z1=450/700*100,z2=600/700*100;
+ const mm=Math.floor(sec/60),ss=String(sec%60).padStart(2,"0");
+ return `<div class="meter" aria-hidden="true"><div class="zone" style="left:${z1}%;width:${z2-z1}%"></div><div class="now" style="left:${pos}%"></div></div>
+  <div class="meter-l"><span>0字</span><span>めやす 450〜600字</span><span>700字</span></div>
+  <div class="stat"><span>${len}字</span><span>声に出すと約${mm}分${ss}秒</span><span class="${len>=450&&len<=600?"good":"warn"}">${len<450?"もう少しくわしく":len>600?"少し長いので短く":"ちょうどよい長さ!"}</span></div>`;
+}
+function bindScript(){
+ const el=$("script");el.oninput=()=>{st.script=el.value;save();$("sinfo").innerHTML=sInfo();$("schecks").innerHTML=sChecks();drawNav();$("nextBtn").textContent=lvDone(st.lv)?"クリア!次のレベルへ ›":"次へ ›"};
+ $("rebuild").onclick=()=>{if(st.script&&st.script!==st.built&&!confirm("いまの原稿を、答えから作り直しますか？(自分で直した部分は消えます)"))return;st.script=st.built=build();save();render();toast("作り直しました")};
+ $("copy").onclick=async()=>{try{await navigator.clipboard.writeText(st.script);toast("コピーしました")}catch(e){el.select();toast("選択しました。長押しでコピーしてね")}};
+ $("print").onclick=()=>window.print();
+}
+
+/* ===== 本番練習 ===== */
+function questions(){
+ const a=st.a,t=clean(a.what)||"中学校でがんばったこと";
+ return [
+  ["定番","あなたの長所と短所を教えてください。"],
+  ["定番","本校を志望した理由を教えてください。"],
+  ["深掘り",`「${t}」で、いちばん大変だったことは何ですか。`],
+  ["深掘り",`その経験は、高校生活でどのように生かせると思いますか。`],
+  ["深掘り",`${clean(a.hsgoal)||"高校で取り組みたいこと"}のために、いま中学校でしていることはありますか。`],
+  ["将来","将来の夢(なりたい姿)と、そう考えた理由を教えてください。"],
+  ["定番","中学校生活で、いちばん印象に残っていることは何ですか。"],
+  ["定番","高校生活で不安なことはありますか。どうしたいですか。"],
+  ["定番","友だちから、どんな人だと言われますか。"],
+  ["定番","最近気になったニュースはありますか。"],
+  ["定番","入学したら、どの教科をがんばりたいですか。"],
+  ["深掘り","失敗したとき、あなたはどうしますか。"]
+ ];
+}
+let tm={on:false,start:0,el:0,id:null},qi=0;
+function practiceView(){
+ const Q=questions();qi=qi%Q.length;
+ const R=[["声の大きさ・はっきり話せた","vol"],["面接官の目を見て話せた","eye"],["1分30秒〜2分で話せた","time"],["原稿を見ずに、自分の言葉で話せた","own"],["質問に「結論→理由→具体例」で答えられた","prep"]];
+ return `<section class="card timer"><p class="q">① My Voice を声に出して、時間をはかろう</p>
+  <div class="t num" id="tmT">0:00</div><p class="msg" id="tmMsg">めやす:1分30秒〜2分</p>
+  <div class="row"><button class="btn pri" type="button" id="tmBtn">スタート</button><button class="btn sec" type="button" id="tmReset">リセット</button></div></section>
+ <section class="card"><p class="q">② 面接官の質問に答えよう</p><p class="hint">My Voice のあとは質問への応答(3分30秒〜6分)。カードの質問に、声に出して答えてみよう。</p>
+  <div class="qcard"><small>${Q[qi][0]}の質問 ${qi+1} / ${Q.length}</small><p>${esc(Q[qi][1])}</p></div>
+  <div class="prep" aria-label="答え方の型"><div><b>①</b>結論</div><div><b>②</b>理由</div><div><b>③</b>具体例</div><div><b>④</b>まとめ</div></div>
+  <div class="row"><button class="btn blue" type="button" id="nextQ">次の質問 ›</button></div></section>
+ <section class="card"><p class="q">③ 自己チェック(星をタップ)</p><p class="hint">4つ以上つけるとLv6クリア。家の人や先生に見てもらうのもおすすめ。</p>
+  ${R.map(r=>`<div class="rate"><span>${r[0]}</span><span class="stars" data-r="${r[1]}">${[1,2,3].map(n=>`<button type="button" aria-label="${n}つ星" class="${(st.rate[r[1]]||0)>=n?"on":""}" data-n="${n}">★</button>`).join("")}</span></div>`).join("")}</section>
+ ${lvDone(5)?`<section class="goal"><h3>🎉 本番準備OK!</h3><p>ここまでできたら、あとは何度も声に出して練習するだけ。塾の面接練習でも、この原稿を使えます。</p></section>`:""}`;
+}
+function fmt(ms){const s=Math.floor(ms/1000);return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
+function bindPractice(){
+ const T=$("tmT"),M=$("tmMsg"),B=$("tmBtn");
+ const tick=()=>{const ms=tm.el+(tm.on?Date.now()-tm.start:0),s=ms/1000;T.textContent=fmt(ms);
+  M.textContent=s<90?"めやす:1分30秒〜2分":s<=120?"いい長さ!ここでまとめよう":"2分をこえました。少し短くしよう";M.style.color=s<90?"var(--muted)":s<=120?"var(--green)":"#c25b00"};
+ tick();if(tm.on){B.textContent="ストップ";tm.id=setInterval(tick,200)}
+ B.onclick=()=>{if(tm.on){tm.el+=Date.now()-tm.start;tm.on=false;clearInterval(tm.id);B.textContent="スタート"}else{tm.start=Date.now();tm.on=true;B.textContent="ストップ";tm.id=setInterval(tick,200)}tick()};
+ $("tmReset").onclick=()=>{tm.on=false;tm.el=0;clearInterval(tm.id);B.textContent="スタート";tick()};
+ $("nextQ").onclick=()=>{qi++;render()};
+ document.querySelectorAll(".stars").forEach(g=>g.querySelectorAll("button").forEach(b=>b.onclick=()=>{const k=g.dataset.r,n=+b.dataset.n;st.rate[k]=st.rate[k]===n?0:n;if(!st.rate[k])delete st.rate[k];save();render()}));
+}
+
+/* ===== 画面 ===== */
+function render(focusId){
+ clearInterval(tm.id);
+ const L=LEVELS[st.lv];
+ $("hero").hidden=st.lv!==0;
+ let h=`<div class="step-h"><div class="badge"><small>LEVEL</small><b>${st.lv+1}</b></div><div><h2>${esc(L.name)}</h2><p>${esc(L.desc)}</p></div></div>`;
+ if(L.qs)h+=L.qs.map(qHTML).join("");
+ if(st.lv===1)h+=`<section class="card tip"><b>話の型</b>:「がんばったこと → カベ → 工夫 → 結果 → 学び」の順に答えると、そのまま My Voice の前半になります。</section>`;
+ if(st.lv===0)h+=`<section class="card tip">長所・短所をもっとくわしく考えたい人は<a href="https://splendid-centaur-c2b96a.netlify.app/" target="_blank" rel="noopener">長所・短所を整理するアプリ</a>も使ってみよう。</section>`;
+ if(L.special==="script")h+=scriptView();
+ if(L.special==="practice")h+=practiceView();
+ $("stage").innerHTML=h;
+ if(L.qs)bindQs(L);
+ if(L.special==="script")bindScript();
+ if(L.special==="practice")bindPractice();
+ $("prevBtn").disabled=st.lv===0;
+ $("nextBtn").textContent=st.lv===LEVELS.length-1?"最初にもどる":(lvDone(st.lv)?"クリア!次のレベルへ ›":"次へ ›");
+ drawNav();
+ if(focusId){const c=$("c_"+focusId);if(c&&c.nextElementSibling&&filled(focusId)&&LEVELS[st.lv].qs.find(q=>q.id===focusId).type==="one"){c.nextElementSibling.scrollIntoView({behavior:"smooth",block:"start"})}}
+}
+function go(i){
+ if(i===4){const b=build();if(!st.script||st.script===st.built)st.script=b;st.built=b}
+ st.lv=Math.max(0,Math.min(LEVELS.length-1,i));save();render();window.scrollTo({top:0});
+}
+$("prevBtn").onclick=()=>go(st.lv-1);
+$("nextBtn").onclick=()=>{
+ const L=LEVELS[st.lv];
+ if(L.qs&&!lvDone(st.lv)){const miss=L.qs.find(q=>!filled(q.id));if(miss&&!confirm("まだ答えていない質問があります。このまま次へ進みますか？")){$("c_"+miss.id).scrollIntoView({behavior:"smooth",block:"center"});return}}
+ if(lvDone(st.lv)&&st.lv<5)toast("Lv"+(st.lv+1)+" クリア!");
+ go(st.lv===LEVELS.length-1?0:st.lv+1)};
+render();
+</script>
+</body>
+</html>
