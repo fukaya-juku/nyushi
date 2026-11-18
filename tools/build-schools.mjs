@@ -123,6 +123,7 @@ function feature(p, t = TK[p.slug]) {
   const li = arr => `<ul class="fl">${arr.map(x => `<li>${esc(typeof x === "string" ? x : x.text)}</li>`).join("")}</ul>`;
   if (t.kokun || t.mission) out.push(`<div class="box">${t.kokun ? `<p class="kokun"><small>校訓・教育目標</small>${esc(t.kokun)}</p>` : ""}${t.mission ? `<p class="mission">${esc(t.mission)}</p>` : ""}</div>`);
   if (t.features && t.features.length) out.push(`<div class="box"><h3 class="h3">ここが特色</h3>${li(t.features)}</div>`);
+  if (t.units && t.units.length) out.push(`<div class="box"><h3 class="h3">学科・系列で学ぶこと</h3><dl class="units">${t.units.map(u => `<dt>${esc(u.name)}</dt><dd>${esc(u.text)}</dd>`).join("")}</dl>${t.unitsNote ? `<p class="note" style="margin-top:8px">${esc(t.unitsNote)}</p>` : ""}<p class="note" style="margin-top:6px"><a href="../chigai/">ほかの専門高校・総合学科とのちがいを見る ›</a></p></div>`);
   if (t.life && t.life.length) out.push(`<div class="box"><h3 class="h3">学校生活</h3>${li(t.life)}</div>`);
   if (t.admission && t.admission.length) out.push(`<div class="box"><h3 class="h3">${esc(p.name)}が求める生徒像<small class="yr">アドミッション・ポリシー(学校の公式発表)</small></h3>${li(t.admission)}</div>`);
   if ((t.fit && t.fit.length) || t.voiceEx) out.push(`<div class="box voice-box"><h3 class="h3">こんな人に向いています<small class="yr">学習空間 深谷上柴教室の見方</small></h3>${t.fit && t.fit.length ? li(t.fit) : ""}
@@ -262,6 +263,17 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
 .dl{margin:0;display:grid;gap:4px 12px;font-size:15px}
 .dl dt{font-weight:900;color:var(--navy);margin-top:6px}
 .dl dd{margin:0}
+.units{margin:0;display:grid;gap:2px}
+.units dt{font-weight:900;color:var(--navy);margin-top:8px;padding-left:10px;border-left:4px solid var(--blue)}
+.units dd{margin:2px 0 0 14px;font-size:15px}
+.cmp{display:grid;gap:12px}
+@media (min-width:760px){.cmp{grid-template-columns:1fr 1fr}}
+.cmp .box{margin:0}
+.cmp dl{margin:6px 0 0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:15px}
+.cmp dt{color:var(--muted);font-weight:700;white-space:nowrap}
+.cmp dd{margin:0}
+.cmp .kind-tag{display:inline-block;font-size:13px;font-weight:900;color:#fff;background:var(--blue);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.cmp .more{margin-top:10px}
 </style>
 </head>
 <body>
@@ -397,7 +409,7 @@ ${sec("")}<div class="in">
   <div class="h2"><span class="en">OTHER SCHOOLS</span><h2>ほかの高校の入試情報</h2></div>
   ${[...AREAS].sort((x, y) => (y[0] === main.c) - (x[0] === main.c)).map(([c, lab]) => { const os = others.filter(o => byName[o.keys[0]].c === c); return os.length ? `<div class="box"><h3 class="h3" style="color:${col[c]}">${lab}</h3><div class="links">${os.map(o => { const d = byName[o.keys[0]]; return `<a href="../${o.slug}/"><span>${o.name}<small>偏差値${hv(d)}・志願倍率${d.b}</small></span></a>`; }).join("")}</div></div>` : ""; }).join("")}
   ${privBox("")}
-  <div class="links"><a href="../#schools"><span>20校をまとめて見る<small>私立高校もふくめた一覧</small></span></a></div>
+  <div class="links"><a href="../#schools"><span>22校をまとめて見る<small>私立高校もふくめた一覧</small></span></a></div>
 </div></section>
 
 ` + tail(p.name, "配点から逆算して準備", "内申点・学力検査・面接のどこで点を取るか。志望校の配点に合わせて、一人ひとりやることを決めています。", `埼玉県教育委員会と${p.name}`, SOURCES);
@@ -430,7 +442,7 @@ function privPage(q) {
   const cr = career(q, q.career && (q.career.breakdown || q.career.goukaku || q.career.mainUniv) ? q.career : null);
   const ft = feature(q, { kokun: q.spirit, features: q.features, life: q.life, admission: q.admission, fit: q.fit, sources: q.sources });
   const title = `${q.name}の偏差値・入試日程・コース・学費・進学実績【2027年度入試】｜深谷・熊谷 高校入試ナビ`;
-  const desc = `${q.name}(埼玉県${q.area}・私立)の2027年度入試情報。${(q.courses || []).length}つのコース、単願・併願の入試日と科目、個別相談会、特待生、学費、卒業後の進路まで、地元の塾が公式情報をもとにまとめました。`;
+  const desc = `${q.name}(埼玉県${q.area}・私立)の2027年度入試情報。${(q.courses || []).filter(c => !/課程/.test(c.name)).length}つのコース、単願・併願の入試日と科目、個別相談会、特待生、学費、卒業後の進路まで、地元の塾が公式情報をもとにまとめました。`;
   let k = 0; const sec = id => `<section class="sec${k++ % 2 ? " alt" : ""}"${id ? ` id="${id}"` : ""}>`;
   const ld = [
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
@@ -448,7 +460,7 @@ function privPage(q) {
     <span class="pill">2027年度(令和9年度)入試 対応</span>
     <h1><span>埼玉県${q.area}・私立・${esc(q.sub)}</span>${q.name}の入試日程・コース・学費</h1>
     <div class="big3">
-      <div><small>コース</small><b>${(q.courses || []).length || "—"}</b></div>
+      <div><small>コース</small><b>${(q.courses || []).filter(c => !/課程/.test(c.name)).length || "—"}</b></div>
       <div><small>入試日</small><b style="font-size:20px">${first ? esc(first.date.replace(/\(.\)/, "")).replace(/(\d+月\d+日).*/, "$1") : "—"}</b></div>
       <div><small>出願</small><b style="font-size:17px">${esc(q.applyShort || "Web出願")}</b></div>
     </div>
@@ -513,12 +525,83 @@ ${sec("")}<div class="in">
   <div class="h2"><span class="en">OTHER SCHOOLS</span><h2>ほかの高校の入試情報</h2></div>
   ${privBox(q.slug)}
   ${[...AREAS].sort((x, y) => (y[0] === q.c) - (x[0] === q.c)).map(([c, lab]) => { const os = pages.filter(o => byName[o.keys[0]].c === c); return os.length ? `<div class="box"><h3 class="h3" style="color:${col[c]}">${lab}(公立)</h3><div class="links">${os.map(o => { const d = byName[o.keys[0]]; return `<a href="../${o.slug}/"><span>${o.name}<small>偏差値${hv(d)}・志願倍率${d.b}</small></span></a>`; }).join("")}</div></div>` : ""; }).join("")}
-  <div class="links"><a href="../#schools"><span>20校をまとめて見る<small>公立・私立の一覧</small></span></a></div>
+  <div class="links"><a href="../#schools"><span>22校をまとめて見る<small>公立・私立の一覧</small></span></a></div>
 </div></section>
 
 ` + tail(q.name, "単願・併願の作戦から相談", "単願か併願か、どのコースを狙うか。内申と北辰テストの結果から、一人ひとりに合った受け方を一緒に考えます。", q.name, srcList(q));
 }
 const srcList = q => `<ul>${q.sources.map(x => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></li>`).join("")}</ul>`;
+
+// ---- 「ちがいがわかる」ページ(専門高校・総合学科と私立高校をくらべる。数字はすべて各校のデータから) ----
+const SPEC = [["kumagaya-kogyo", "工業高校", "建築・土木・電気・機械・情報技術の5学科"], ["kumagaya-shogyo", "商業高校", "総合ビジネス科(2年から総合進学・商業・情報処理の3群)"], ["fukaya-shogyo", "商業高校", "商業・会計・情報処理の3学科"], ["kumagaya-nogyo", "農業高校", "生物生産技術・生物生産工学・食品科学・生活技術の4学科7コース"], ["yorii-johoku", "総合学科", "総合学科(文理総合・情報ビジネス・健康教養の3系列7プラン)"], ["shinshukan", "総合学科+工業", "総合学科(5系列)と、電気システム・情報メディア・ものづくりの工業3学科"]];
+function chigaiPage() {
+  const url = `${SITE}/chigai/`;
+  const title = "熊谷工業・熊谷商業・熊谷農業・深谷商業・寄居城北・進修館と私立高校のちがい｜深谷・熊谷 高校入試ナビ";
+  const desc = "熊谷・深谷周辺の専門高校(工業・商業・農業)と総合学科、正智深谷・東京成徳大学深谷・本庄第一などの私立高校のちがいを、学科・進路・資格・入試方法で比べました。各校の公式情報をもとに地元の塾がまとめています。";
+  let k = 0; const sec = id => `<section class="sec${k++ % 2 ? " alt" : ""}"${id ? ` id="${id}"` : ""}>`;
+  const ld = [{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+    { "@type": "ListItem", position: 1, name: "深谷・熊谷 高校入試ナビ", item: SITE + "/" },
+    { "@type": "ListItem", position: 2, name: "高校のちがい", item: url }] }];
+  const nav = `<li><a href="#spec">専門・総合</a></li><li><a href="#private">私立</a></li><li><a href="#voice">My Voice</a></li><li><a href="../#schools">高校一覧</a></li>`;
+  const careerTxt = s => { if (!s) return "—"; const sh = shares(s); return sh.length ? sh.slice().sort((a, b) => b.pct - a.pct).slice(0, 3).map(x => `${x.label} ${pctTxt(x.pct)}`).join("・") + `(${s.year.replace(/\(.*/, "")})` : "—"; };
+  const specCards = SPEC.map(([slug, kind, units]) => {
+    const p = pages.find(x => x.slug === slug); if (!p) return "";
+    const d = byName[p.keys[0]], t = TK[slug] || {}, s = SH[slug];
+    return `<div class="box"><span class="kind-tag">${kind}</span><h3 class="h3">${p.name}</h3><dl>
+      <dt>学科など</dt><dd>${esc(units || "—")}</dd>
+      <dt>偏差値</dt><dd>${hv(d)}</dd>
+      <dt>卒業後</dt><dd>${esc(careerTxt(s))}</dd>
+      ${s && s.shikaku && s.shikaku.length ? `<dt>資格</dt><dd>${esc(s.shikaku.slice(0, 3).join("・"))}など</dd>` : ""}
+      ${t.fit && t.fit.length ? `<dt>向いている人</dt><dd>${esc(t.fit[0])}</dd>` : ""}
+    </dl><a class="more" href="../${slug}/">${p.name}をくわしく ›</a></div>`;
+  }).join("");
+  const privCards = privs.map(q => {
+    const e = q.exam || {}, k1 = (e.kinds || [])[0] || {}, c = q.career || {};
+    const kokko = (c.goukaku || []).find(g => /国公立/.test(g.label));
+    return `<div class="box"><span class="kind-tag" style="background:var(--g)">私立・${esc(q.area)}</span><h3 class="h3">${q.name}</h3><dl>
+      <dt>コース</dt><dd>${esc((q.courses || []).filter(c => !/課程/.test(c.name)).map(x => x.name.replace(/\(.*\)/, "")).join("・"))}</dd>
+      <dt>入試</dt><dd>${esc(k1.date || "—")}から${(e.kinds || []).length}回/${esc(k1.subjects || "—")}</dd>
+      <dt>面接</dt><dd>${esc((e.kinds || []).filter(x => x.interview && x.interview !== "なし").map(x => x.name).join("・") || "なし")}</dd>
+      ${kokko ? `<dt>国公立合格</dt><dd>${kokko.n}人(${esc(c.year.replace(/\(.*/, ""))})</dd>` : ""}
+      ${q.fit && q.fit.length ? `<dt>向いている人</dt><dd>${esc(q.fit[0])}</dd>` : ""}
+    </dl><a class="more" href="../${q.slug}/">${q.name}をくわしく ›</a></div>`;
+  }).join("");
+  return shell(title, desc, url, ld, nav) + `<header class="hero school">
+  <div class="in">
+    <nav class="crumb" aria-label="パンくずリスト" style="color:#dbe6ff"><a href="../" style="color:#fff">高校入試ナビ</a> › 高校のちがい</nav>
+    <span class="pill">2027年度(令和9年度)入試 対応</span>
+    <h1><span>熊谷・深谷・本庄周辺</span>専門高校・総合学科と私立高校のちがい</h1>
+    <p class="lead">同じ「専門高校」でも、工業・商業・農業で学ぶことと卒業後の進路は大きくちがいます。私立高校も、コースの分け方や入試の判定方法が学校ごとにちがいます。各校の公式情報をもとに、くらべやすくまとめました。</p>
+    <p class="stamp">作成:学習空間 深谷上柴教室/情報は${STAMP}時点</p>
+  </div>
+</header>
+
+${sec("spec")}<div class="in">
+  <div class="h2"><span class="en">SPECIALIST</span><h2>専門高校・総合学科の<br>ちがい</h2></div>
+  <p class="lead">工業は「ものづくりの技術と国家資格」、商業は「簿記・情報処理の資格」、農業は「動植物・食品・くらしの実習」が学びの中心です。総合学科は、2年生から系列を選んで自分で時間割をつくります。</p>
+  <div class="cmp">${specCards}</div>
+  <p class="note">「卒業後」は各校の公式サイトの進路資料から、割合の大きい順に3つ。偏差値は民間サイトの値です。</p>
+</div></section>
+
+${sec("private")}<div class="in">
+  <div class="h2"><span class="en">PRIVATE</span><h2>私立高校の<br>ちがい</h2></div>
+  <p class="lead">私立は1月に入試があり、公立の併願先にもなります。コースによって必要な得点がちがい、判定のしかた(3教科の合計か、得意な2教科か)や面接の有無も学校ごとにちがいます。</p>
+  <div class="cmp">${privCards}</div>
+  <p class="note">入試・コース・合格実績は各校の公式サイトと令和9年度の募集要項より。私立高校は偏差値を公表していないため、載せていません。</p>
+</div></section>
+
+${sec("voice")}<div class="in">
+  <div class="h2"><span class="en">MY VOICE</span><h2>「なぜこの学校?」を<br>自分の言葉で</h2></div>
+  <ol class="pts">
+    <li><b>くらべてわかった「その学校だけのこと」を1つ選ぶ。</b>学科・系列・コース、資格、行事など。上のちがいの中から見つけましょう。</li>
+    <li><b>それを選んだ理由に、自分の体験を1つ入れる。</b>「〇〇をしたときに、〇〇だと思ったから」と具体的に。</li>
+    <li><b>入学後にやりたいことと、将来につなげる。</b>「〇〇を学んで、将来は〇〇に生かしたい」で終わると伝わりやすくなります。</li>
+  </ol>
+  <a class="app" href="../myvoice/" style="border-color:var(--blue)"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--blue)"/><path d="M14 16h20a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H24l-7 6v-6h-3a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4z" fill="#fff"/></svg><div><b style="color:var(--blue)">My Voice メーカー ›</b><span>質問に答えるだけで原稿ができる。タイマーと想定質問で本番練習も</span></div></a>
+</div></section>
+
+` + tail("志望校", "くらべて、選んで、準備する", "どの学校が合うか、単願か併願か。内申と北辰テストの結果から、一人ひとりに合った受け方を一緒に考えます。", "各高校と埼玉県教育委員会", SOURCES);
+}
 
 // トップページの高校カードから各ページへのリンク表を書きかえる(内容が同じなら何もしない)
 const pg = `const PG=${JSON.stringify(Object.fromEntries(Object.entries(slugOf).map(([k, v]) => [k, v + "/"])))};/*PG*/`;
@@ -526,6 +609,8 @@ const top2 = top.replace(/const PG=.*?;\/\*PG\*\//, pg);
 if (!/\/\*PG\*\//.test(top)) throw new Error("index.html に PG の目印がありません");
 if (top2 !== top) fs.writeFileSync(path.join(PUB, "index.html"), top2);
 
+fs.mkdirSync(path.join(PUB, "chigai"), { recursive: true });
+fs.writeFileSync(path.join(PUB, "chigai", "index.html"), chigaiPage());
 for (const q of privs) {
   const dir = path.join(PUB, q.slug);
   fs.mkdirSync(dir, { recursive: true });
@@ -541,6 +626,7 @@ const urls = [
   { loc: SITE + "/", pri: "1.0" },
   ...pages.map(p => ({ loc: `${SITE}/${p.slug}/`, pri: "0.8" })),
   ...privs.map(q => ({ loc: `${SITE}/${q.slug}/`, pri: "0.8" })),
+  { loc: SITE + "/chigai/", pri: "0.7" },
   { loc: SITE + "/myvoice/", pri: "0.5" }
 ];
 fs.writeFileSync(path.join(PUB, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
