@@ -41,6 +41,7 @@ const MC = ["var(--exam)", "var(--report)", "var(--talk)"];
 const hv = d => d.h[0] === d.h[1] ? `${d.h[0]}` : `${d.h[0]}-${d.h[1]}`;
 const strip = s => s.replace(/<[^>]+>/g, "");
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const naOf = d => d.na && d.na !== "—" ? d.na : d.g && !d.g.few ? `${d.g.y[1]}〜${d.g.y[0]}` : "—";
 const label = (p, d) => p.keys.length > 1 ? `${d.d}` : p.name;
 
 function bar(v) {
@@ -82,7 +83,7 @@ function mixBlock(p, d) {
 }
 
 function facts(p, d) {
-  return `<div class="box"><h3 class="h3">${label(p, d)}</h3><div class="facts"><div class="fact"><small>偏差値</small><b>${hv(d)}</b></div><div class="fact"><small>内申の目安</small><b>${d.na}</b></div><div class="fact"><small>2027募集</small><b>${d.t}${d.down ? "↓" : ""}</b></div><div class="fact"><small>2026志願倍率</small><b>${d.b}</b></div><div class="fact"><small>2026実質倍率</small><b>${d.j || "—"}</b></div><div class="fact"><small>選抜</small><b style="font-size:13px;display:block;line-height:1.35;margin-top:2px">${d.type}</b></div></div>
+  return `<div class="box"><h3 class="h3">${label(p, d)}</h3><div class="facts"><div class="fact"><small>偏差値</small><b>${hv(d)}</b></div><div class="fact"><small>内申の目安</small><b>${naOf(d)}</b></div><div class="fact"><small>2027募集</small><b>${d.t}${d.down ? "↓" : ""}</b></div><div class="fact"><small>2026志願倍率</small><b>${d.b}</b></div><div class="fact"><small>2026実質倍率</small><b>${d.j || "—"}</b></div><div class="fact"><small>選抜</small><b style="font-size:13px;display:block;line-height:1.35;margin-top:2px">${d.type}</b></div></div>
   <div class="chips">${d.tags.map(t => `<span class="chip ${/減/.test(t) ? "hot" : ""}">${t}</span>`).join("")}</div>${d.down ? `<p class="note">↓は2026年度より募集人数が減ることを示します。</p>` : ""}</div>`;
 }
 
@@ -103,7 +104,7 @@ function career(p, s = SH[p.slug]) {
   if (sh.length) out.push(`<div class="box"><h3 class="h3">進路の内訳<small class="yr">${esc(s.year)}</small></h3>
   <div class="bar cbar" role="img" aria-label="${esc(sh.map(x => x.label + pctTxt(x.pct)).join("、"))}">${sh.map(x => `<span style="width:${x.pct}%;background:${x.c}"></span>`).join("")}</div>
   <ul class="crs">${sh.map(x => `<li><i style="background:${x.c}"></i><span>${esc(x.label)}</span><b>${x.hasN ? fmt(x.n) + "人" : ""}<small>${pctTxt(x.pct)}</small></b></li>`).join("")}</ul>
-  ${s.total ? `<p class="note" style="margin-top:8px">卒業生 ${fmt(s.total)}人${s.shushokuRate ? `/就職内定率 ${esc(s.shushokuRate)}` : ""}</p>` : ""}</div>`);
+  ${sh.reduce((a, x) => a + (x.pct < 1 ? 0 : Math.round(x.pct)), 0) !== 100 ? `<p class="note" style="margin-top:8px">割合は四捨五入しているため、合計が100%にならないことがあります。</p>` : ""}${s.total ? `<p class="note" style="margin-top:8px">卒業生 ${fmt(s.total)}人${s.shushokuRate ? `/就職内定率 ${esc(s.shushokuRate)}` : ""}</p>` : ""}</div>`);
   const gk = s.goukaku || [], mu = s.mainUniv || [];
   if (gk.length || mu.length) out.push(`<div class="box"><h3 class="h3">${esc(s.goukakuTitle || "大学などの合格実績")}<small class="yr">${esc(s.goukakuYear || s.year)}</small></h3>
   ${gk.length ? `<div class="facts gk">${gk.map(g => `<div class="fact"><small>${esc(g.label)}</small><b>${fmt(g.n)}<span>人</span></b></div>`).join("")}</div>` : ""}
@@ -117,7 +118,7 @@ function career(p, s = SH[p.slug]) {
   if (!out.length) return "";
   if (s.lead) out.unshift(`<p class="lead">${esc(s.lead)}</p>`);
   return out.join("\n  ") + `
-  <p class="note">${esc(p.name)}の公式サイトの進路情報より:${s.sources.map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>`).join("、")}。進路の結果は年度によって変わります。</p>`;
+  <p class="note">${esc(p.name)}の公式サイトの進路情報より:${s.sources.filter((x, i, a) => a.findIndex(y => y.title === x.title) === i).map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>`).join("、")}。進路の結果は年度によって変わります。</p>`;
 }
 
 function feature(p, t = TK[p.slug]) {
@@ -135,7 +136,7 @@ function feature(p, t = TK[p.slug]) {
   ${t.voiceEx || (t.voiceKeys && t.voiceKeys.length) ? `<a class="more" href="../myvoice/">My Voice メーカーで原稿を作る ›</a>` : ""}</div>`);
   if (!out.length) return "";
   return out.join("\n  ") + `
-  <p class="note">校訓・特色・学校生活・求める生徒像は${esc(p.name)}の公式サイトより:${t.sources.map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>`).join("、")}。「こんな人に向いています」とMy Voiceの例は、公式の情報をもとに当教室がまとめたものです。</p>`;
+  <p class="note">校訓・特色・学校生活${t.admission && t.admission.length ? "・求める生徒像" : ""}は${esc(p.name)}の公式サイトより:${t.sources.map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>`).join("、")}。「こんな人に向いています」${t.voiceEx ? "とMy Voiceの例" : ""}は、公式の情報をもとに当教室がまとめたものです。</p>`;
 }
 
 function faq(p) {
@@ -144,21 +145,21 @@ function faq(p) {
   const q = [];
   q.push([`${p.name}の偏差値はいくつですか?`, each(d => `${hv(d)}`) + "です(民間の偏差値サイトの値。模試によって数値は変わります)。"]);
   q.push([`${p.name}の倍率は?`, each(d => `2026年度の志願確定倍率が${d.b}倍、実際に受検した人数をもとにした実質倍率が${d.j || "—"}倍`) + "でした。"]);
-  q.push([`${p.name}に合格するには内申点がどのくらい必要ですか?`, each(d => d.g && !d.g.few ? `2026年度の合格者の中3の内申(9教科・45点満点)は平均${d.g.y[0]}、下位4分の1で${d.g.y[1]}でした` : `内申の目安は${d.na}です`) + "。" + `${ds[0].r === "1:1:2" ? "中1・中2・中3の比率は1:1:2" : "中1・中2・中3の比率は" + ds[0].r}なので、中3の成績がとくに大切です。`]);
+  q.push([`${p.name}に合格するには内申点がどのくらい必要ですか?`, each(d => d.g && !d.g.few ? `2026年度の合格者の中3の内申(9教科・45点満点)は平均${d.g.y[0]}、下位4分の1で${d.g.y[1]}でした` : (naOf(d) === "—" ? "内申の目安は、開示データが少ないため掲載していません" : `内申の目安は${naOf(d)}です`)) + "。" + (() => { const [a, , c] = ds[0].r.split(":").map(Number); return c > a ? `中1・中2・中3の比率は${ds[0].r}なので、中3の成績がとくに大切です。` : `中1・中2・中3の比率は${ds[0].r}で、どの学年の成績も同じ重さです。中1からの成績が大切です。`; })()]);
   const gs = ds.filter(d => d.g && !d.g.few);
   if (gs.length) q.push([`${p.name}は学力検査で何点取れば合格できますか?`, gs.map(d => (one ? "" : `${d.d}は`) + `2026年度の合格者の5教科の平均が約${d.g.t[0]}点、下位4分の1が約${d.g.t[1]}点`).join("。") + "でした。安心ラインの点数を目標にしましょう。年度によって問題の難しさや倍率が変わるため、あくまで目安です。"]);
-  q.push([`${p.name}の面接はどのくらい大切ですか?`, each(d => `面接の配点は${d.l1 ? d.l1 + "選抜" : "第1次"}${d.s1[2]}点・${d.l2 ? d.l2 + "選抜" : "第2次"}${d.s2[2]}点`) + "です。2027年度からすべての受検生に面接があり、最初に自分の言葉で話す「My Voice」があります。"]);
+  q.push([`${p.name}の面接はどのくらい大切ですか?`, each(d => `面接の配点は${d.l1 ? d.l1 + "選抜" : "第1次"}${d.s1[2]}点・${d.l2 ? d.l2 + "選抜" : "第2次"}${d.s2[2]}点`) + "です。" + (p.mixNote || "") + "2027年度からすべての受検生に面接があり、最初に自分の言葉で話す「My Voice」があります。"]);
   const t = TK[p.slug];
   if (t && (t.kokun || (t.features && t.features.length))) {
-    const a = (t.kokun ? `校訓・教育目標は「${t.kokun}」です。` : "") + (t.features || []).slice(0, 3).map(x => typeof x === "string" ? x : x.text).join("") + (t.admission && t.admission.length ? `求める生徒像の1つに「${t.admission[0]}」があります。` : "");
+    const gl = GL[p.slug]; const a = gl ? `校風をひと言でいうと、${gl.tone.replace(/。$/, "")}。主な強みは、${gl.strengths.map((x, i) => "①②③"[i] + x.replace(/。$/, "")).join("。")}。` + (t.admission && t.admission.length ? `学校が求める生徒像の1つは「${t.admission[0].replace(/(を募集します|。)$/, "")}」です。` : "") : (t.kokun ? `校訓・教育目標は「${t.kokun}」です。` : "");
     q.splice(1, 0, [`${p.name}はどんな学校ですか?(校風・特色)`, a]);
   }
   const s = SH[p.slug];
   if (s) {
     const sh = shares(s);
     let a = sh.length ? `${s.year}は、${sh.map(x => `${x.label}${x.hasN ? x.n + "人" : ""}(${pctTxt(x.pct)})`).join("、")}でした。` : "";
-    if (s.goukaku && s.goukaku.length) a += `合格実績は${s.goukaku.slice(0, 3).map(g => `${g.label}${g.n}人`).join("、")}です${s.goukakuNote ? "(" + s.goukakuNote + ")" : ""}。`;
-    else if (s.mainUniv && s.mainUniv.length) a += `主な進学先は${s.mainUniv.slice(0, 3).join("・")}などです。`;
+    if (s.goukaku && s.goukaku.length) a += `${s.goukakuYear && s.goukakuYear !== s.year ? `合格実績(${s.goukakuYear})` : "合格実績"}は${s.goukaku.slice(0, 3).map(g => `${g.label}${g.n}人`).join("、")}です。${s.goukakuNote ? s.goukakuNote.replace(/([^。])$/, "$1。") : ""}`;
+    else if (s.mainUniv && s.mainUniv.length) a += `${s.goukakuYear && s.goukakuYear !== s.year ? `主な進学先(${s.goukakuYear})` : "主な進学先"}は${s.mainUniv.slice(0, 3).join("・")}などです。`;
     if (s.shikaku && s.shikaku.length) a += `在学中に${s.shikaku.slice(0, 3).join("・")}などの資格・検定がめざせます。`;
     if (a) q.push([`${p.name}の卒業後の進路(進学・就職実績)は?`, a + "くわしくは高校の公式サイトをご確認ください。"]);
   }
@@ -353,7 +354,7 @@ function page(p) {
     <div class="big3">
       <div><small>偏差値</small><b>${hv(main)}</b></div>
       <div><small>2026志願倍率</small><b>${main.b.replace("〜", "<br>〜")}</b></div>
-      <div><small>内申の目安</small><b>${main.na}</b></div>
+      <div><small>内申の目安</small><b>${naOf(main)}</b></div>
     </div>
     ${ds.length > 1 ? `<p class="stamp">※上の数字は${main.d}。${ds.slice(1).map(d => `${d.d}は偏差値${hv(d)}・志願倍率${d.b}`).join("、")}。</p>` : ""}
     <p class="lead">${p.intro}</p>
@@ -378,7 +379,7 @@ ${sec("mix")}<div class="in">
   <div class="h2"><span class="en">SCORE</span><h2>${p.name}の<br>配点と選抜方法</h2></div>
   <div class="legend"><span><i style="background:var(--exam)"></i>学力検査</span><span><i style="background:var(--report)"></i>調査書(内申)</span><span><i style="background:var(--talk)"></i>面接</span></div>
   ${ds.map(d => mixBlock(p, d)).join("\n  ")}
-  <p class="note">第1次選抜で定員の多くが決まり、残りを第2次選抜で決めます。調査書は中1〜中3の9教科の評定(各学年45点満点)を、学年の比率に合わせて点数にしたものです。</p>
+  <p class="note">${ds[0].l1 ? `${ds[0].l1}選抜で定員の多くが決まり、残りを${ds[0].l2}選抜で決めます。` : "第1次選抜で定員の多くが決まり、残りを第2次選抜で決めます。"}${p.mixNote ? p.mixNote : ""}調査書は中1〜中3の9教科の評定(各学年45点満点)を、学年の比率に合わせて点数にしたものです。</p>
 </div></section>
 
 ${sec("point")}<div class="in">
@@ -451,11 +452,11 @@ function privFaq(q) {
   if (e.kinds && e.kinds.length) out.push([`${q.name}の入試日と科目は?`, `${e.year || ""}は、` + e.kinds.map(k => `${k.name}が${k.date}${k.subjects ? "(" + k.subjects + ")" : ""}`).join("、") + "です。"]);
   if (e.kinds && e.kinds.some(k => k.interview)) out.push([`${q.name}の入試に面接はありますか?`, e.kinds.filter(k => k.interview).map(k => `${k.name}:${k.interview}`).join("。") + "。"]);
   if (e.scholarship) out.push([`${q.name}に特待生制度はありますか?`, e.scholarship]);
-  if (q.fees && q.fees.items && q.fees.items.length) out.push([`${q.name}の学費は?`, `${q.fees.year}の公式資料では、` + q.fees.items.map(x => `${x.label}${fmt(x.yen)}円`).join("、") + `です。${q.fees.note || ""}`]);
+  if (q.fees && q.fees.items && q.fees.items.length) out.push([`${q.name}の学費は?`, `学校の公式資料では、` + q.fees.items.map(x => `${x.label}が${fmt(x.yen)}円`).join("、") + `です。${(() => { const y = q.fees.year, i = y.indexOf("("); return i < 0 ? `これは${y}です。` : `これは${y.slice(0, i)}です(${y.slice(i + 1, -1)})。`; })()}${q.fees.note || ""}`]);
   const c = q.career;
   if (c && ((c.breakdown && c.breakdown.length) || (c.mainUniv && c.mainUniv.length))) {
     const sh = shares(c);
-    out.push([`${q.name}の進学実績は?`, (sh.length ? `${c.year}は、${sh.map(x => `${x.label}${x.hasN ? x.n + "人" : ""}`).join("、")}でした。` : "") + (c.goukaku && c.goukaku.length ? `合格実績は${c.goukaku.slice(0, 3).map(g => g.label + g.n + "人").join("、")}です。` : "") + (c.mainUniv && c.mainUniv.length ? `主な進学先・合格先は${c.mainUniv.slice(0, 4).join("・")}などです。` : "")]);
+    out.push([`${q.name}の進学実績は?`, (sh.length ? `${c.year}は、${sh.map(x => `${x.label}${x.hasN ? x.n + "人" : pctTxt(x.pct)}`).join("、")}でした。` : "") + (c.goukaku && c.goukaku.length ? `合格実績は${c.goukaku.slice(0, 3).map(g => g.label + g.n + "人").join("、")}です。` : "") + (c.mainUniv && c.mainUniv.length ? `主な進学先・合格先は${c.mainUniv.slice(0, 4).join("・")}などです。` : "")]);
   }
   return out;
 }
@@ -501,8 +502,8 @@ ${glance(q.slug, q.name, q.fit, sec, ft ? "#feature" : "#point")}${sec("course")
 
 ${sec("exam")}<div class="in">
   <div class="h2"><span class="en">EXAM</span><h2>${q.name}の<br>入試日程と科目</h2></div>
-  <p class="lead">${esc(e.year || "")}の入試です。</p>
-  <div class="kinds">${(e.kinds || []).map(x => `<div class="kind"><div class="kh"><b>${esc(x.name)}</b><span>${esc(x.date)}</span></div><dl><dt>科目</dt><dd>${td(x.subjects)}</dd><dt>面接</dt><dd>${td(x.interview)}</dd></dl>${x.note ? `<p class="kn">${esc(x.note)}</p>` : ""}</div>`).join("")}</div>
+  <p class="lead">${esc(e.year || "")}の日程です。</p>
+  <div class="kinds">${(e.kinds || []).map(x => `<div class="kind"><div class="kh"><b>${esc(x.name)}</b> <span>${esc(x.date)}</span></div><dl><dt>科目</dt><dd>${td(x.subjects)}</dd><dt>面接</dt><dd>${td(x.interview)}</dd></dl>${x.note ? `<p class="kn">${esc(x.note)}</p>` : ""}</div>`).join("")}</div>
   <div class="box"><dl class="dl">
     ${e.apply ? `<dt>出願</dt><dd>${esc(e.apply)}</dd>` : ""}${e.result ? `<dt>合格発表</dt><dd>${esc(e.result)}</dd>` : ""}${e.consult ? `<dt>個別相談会・説明会</dt><dd>${esc(e.consult)}</dd>` : ""}${e.criteria ? `<dt>推薦の基準</dt><dd>${esc(e.criteria)}</dd>` : ""}${e.scholarship ? `<dt>特待生・奨学生</dt><dd>${esc(e.scholarship)}</dd>` : ""}
   </dl></div>
@@ -567,7 +568,7 @@ function chigaiPage() {
     { "@type": "ListItem", position: 1, name: "深谷・熊谷 高校入試ナビ", item: SITE + "/" },
     { "@type": "ListItem", position: 2, name: "高校のちがい", item: url }] }];
   const nav = `<li><a href="#spec">専門・総合</a></li><li><a href="#private">私立</a></li><li><a href="#voice">My Voice</a></li><li><a href="../#schools">高校一覧</a></li>`;
-  const careerTxt = s => { if (!s) return "—"; const sh = shares(s); return sh.length ? sh.slice().sort((a, b) => b.pct - a.pct).slice(0, 3).map(x => `${x.label} ${pctTxt(x.pct)}`).join("・") + `(${s.year.replace(/\(.*/, "")})` : "—"; };
+  const careerTxt = s => { if (!s) return "—"; const sh = shares(s); return sh.length ? sh.slice().sort((a, b) => b.pct - a.pct).slice(0, 3).map(x => `${x.label} ${pctTxt(x.pct)}`).join("/") + `(${s.year.replace(/\(.*/, "")})` : "—"; };
   const specCards = SPEC.map(([slug, kind, units]) => {
     const p = pages.find(x => x.slug === slug); if (!p) return "";
     const d = byName[p.keys[0]], t = TK[slug] || {}, s = SH[slug];
@@ -584,8 +585,8 @@ function chigaiPage() {
     const kokko = (c.goukaku || []).find(g => /国公立/.test(g.label));
     return `<div class="box"><span class="kind-tag" style="background:var(--g)">私立・${esc(q.area)}</span><h3 class="h3">${q.name}</h3><dl>
       <dt>コース</dt><dd>${esc((q.courses || []).filter(c => !/課程/.test(c.name)).map(x => x.name.replace(/\(.*\)/, "")).join("・"))}</dd>
-      <dt>入試</dt><dd>${esc(k1.date || "—")}から${(e.kinds || []).length}回/${esc(k1.subjects || "—")}</dd>
-      <dt>面接</dt><dd>${esc((e.kinds || []).filter(x => x.interview && x.interview !== "なし").map(x => x.name).join("・") || "なし")}</dd>
+      <dt>入試</dt><dd>${esc(k1.date || "—")}から${new Set((e.kinds || []).map(x => x.date)).size}日程/${esc(k1.subjects || "—")}</dd>
+      <dt>面接</dt><dd>${(() => { const ik = (e.kinds || []).filter(x => x.interview && x.interview !== "なし"); return ik.length ? (ik.every(x => /単願/.test(x.name + x.interview)) ? "単願のみあり" : esc(ik.map(x => x.name).join("・"))) : "なし"; })()}</dd>
       ${kokko ? `<dt>国公立合格</dt><dd>${kokko.n}人(${esc(c.year.replace(/\(.*/, ""))})</dd>` : ""}
       ${q.fit && q.fit.length ? `<dt>向いている人</dt><dd>${esc(q.fit[0])}</dd>` : ""}
     </dl><a class="more" href="../${q.slug}/">${q.name}をくわしく ›</a></div>`;
