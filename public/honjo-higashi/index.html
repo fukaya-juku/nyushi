@@ -333,6 +333,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
 .dl{margin:0;display:grid;gap:4px 12px;font-size:15px}
 .dl dt{font-weight:900;color:var(--navy);margin-top:6px}
 .dl dd{margin:0}
+.gl{border:2px solid var(--blue)}
+.gl-tone{margin:0;font-size:18px;font-weight:900;color:var(--navy);line-height:1.5}
+.gl-tone small{display:block;font-size:13px;color:var(--muted)}
+.gl-st{list-style:none;margin:0;padding:0;counter-reset:g;display:flex;flex-direction:column;gap:8px}
+.gl-st li{counter-increment:g;position:relative;padding:8px 10px 8px 42px;background:var(--sky);border-radius:12px;font-size:16px;font-weight:700;color:var(--navy)}
+.gl-st li::before{content:counter(g);position:absolute;left:10px;top:8px;width:24px;height:24px;border-radius:50%;background:var(--orange);color:#fff;font-family:var(--num);font-weight:900;text-align:center;line-height:24px;font-size:14px}
+.gl .more{margin-top:14px}
 .units{margin:0;display:grid;gap:2px}
 .units dt{font-weight:900;color:var(--navy);margin-top:8px;padding-left:10px;border-left:4px solid var(--blue)}
 .units dd{margin:2px 0 0 14px;font-size:15px}
@@ -373,7 +380,16 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   </div>
 </header>
 
-<section class="sec" id="course"><div class="in">
+<section class="sec" id="glance"><div class="in">
+  <div class="h2"><span class="en">AT A GLANCE</span><h2>ひと目でわかる<br>本庄東高校</h2></div>
+  <div class="box gl"><p class="gl-tone"><small>校風</small>「素直な心」「感謝の心」を育てる、附属中もある進学校</p>
+  <p class="sub-h">ここが強み</p><ol class="gl-st"><li>2026年3月卒の87.7%が4年制大学に現役進学。国公立大学に95名合格</li><li>1年は選抜・特進・進学の3コース、2年から東大・医学部をめざす類型まで4つ</li><li>すべてのコースで部活動に参加できる。スクールバス5路線</li></ol>
+  <p class="sub-h">こんな人に向いています</p><ul class="fl"><li>国公立大学や難関私立大学に、学校のサポートを受けながら挑戦したい人</li><li>勉強と部活動の両方をがんばりたい人(すべてのコースで部活動に参加できる)</li><li>本庄・寄居・妻沼方面からスクールバスで通いたい人</li></ul>
+  <a class="more" href="#feature">校風・特色をくわしく見る ›</a></div>
+  <p class="note">各高校の公式サイト・学校案内・県教育委員会のスクール・ポリシーで確認した情報をもとに、学習空間 深谷上柴教室がまとめた要点です。</p>
+</div></section>
+
+<section class="sec alt" id="course"><div class="in">
   <div class="h2"><span class="en">COURSE</span><h2>本庄東高校の<br>コース</h2></div>
   <div class="box"><h3 class="h3">選抜コース<small class="yr">募集 30名(単願15・併願15)</small></h3><p style="margin:0">週35時間授業。「選抜された精鋭による最難関大学へのチャレンジコース」。2年次からE類・A類・S類(希望によりT類)を選ぶ。</p></div>
   <div class="box"><h3 class="h3">特進コース<small class="yr">募集 180名(単願110・併願70)</small></h3><p style="margin:0">週35時間授業。ハイレベルな大学・学部への合格を目標とするアドバンスコース。2年次からE類・A類・S類(希望によりT類)を選ぶ。</p></div>
@@ -381,7 +397,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">出典:<a href="https://www.honjo-higashi.ed.jp/senior/course/" target="_blank" rel="noopener">コース紹介</a></p>
 </div></section>
 
-<section class="sec alt" id="exam"><div class="in">
+<section class="sec" id="exam"><div class="in">
   <div class="h2"><span class="en">EXAM</span><h2>本庄東高校の<br>入試日程と科目</h2></div>
   <p class="lead">2027年度(令和9年度)入試の入試です。</p>
   <div class="kinds"><div class="kind"><div class="kh"><b>単願</b><span>1月22日(金)</span></div><dl><dt>科目</dt><dd>国・英・数(各50分)</dd><dt>面接</dt><dd>あり(受験生のみ)</dd></dl><p class="kn">スライド合格あり。スポーツ・文化活動特待生は単願のみ</p></div><div class="kind"><div class="kh"><b>併願 第1回</b><span>1月22日(金)</span></div><dl><dt>科目</dt><dd>国・英・数(各50分)</dd><dt>面接</dt><dd>なし</dd></dl><p class="kn">スライド合格あり</p></div><div class="kind"><div class="kh"><b>併願 第2回</b><span>1月23日(土)</span></div><dl><dt>科目</dt><dd>国・英・数(各50分)</dd><dt>面接</dt><dd>なし</dd></dl></div><div class="kind"><div class="kh"><b>併願 第3回</b><span>2月5日(金)</span></div><dl><dt>科目</dt><dd>国・英・数(各50分)</dd><dt>面接</dt><dd>なし</dd></dl><p class="kn">スクールバスの運行なし</p></div></div>
@@ -392,13 +408,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">日程や基準は変わることがあります。出願前に、必ず本庄東高校の募集要項で確認してください。</p>
 </div></section>
 
-<section class="sec" id="point"><div class="in">
+<section class="sec alt" id="point"><div class="in">
   <div class="h2"><span class="en">POINT</span><h2>本庄東高校合格への<br>ポイント</h2></div>
   <ol class="pts"><li><b>試験は国・英・数(各50分)。</b>単願は面接(受験生のみ)もあります。</li><li><b>スライド合格あり。</b>選抜コースを受けて届かなくても、得点によって特進・進学コースで合格できます(上のコースへのスライドはありません)。</li><li><b>併願は1月22日・23日・2月5日の3回。</b>各回とも受験料が必要です。</li><li><b>出願はネット登録(12/15〜1/12)のあと、調査書と願書の郵送(1/7〜1/13 12時必着)。</b></li><li><b>高校から入る生徒は、附属中からの一貫コースとは別のクラス</b>です。高校入学組どうしで3年間学びます。</li></ol>
   <div class="box voice"><div class="ic">塾長<br>より</div><div><div class="who">学習空間 深谷上柴教室から</div><p>本庄東は、国公立大学や医学部をめざす人が多い進学校です。どのコースで合格できるかで3年間の学び方が変わるので、北辰テストの結果を持って受験相談会に行き、コースと特待生の見込みを確認しましょう。</p></div></div>
 </div></section>
 
-<section class="sec alt" id="feature"><div class="in">
+<section class="sec" id="feature"><div class="in">
   <div class="h2"><span class="en">FEATURE</span><h2>本庄東高校の<br>校風と特色</h2></div>
   <div class="box"><p class="kokun"><small>校訓・教育目標</small>「素直な心」「感謝の心」を育てる(建学の精神より)</p></div>
   <div class="box"><h3 class="h3">ここが特色</h3><ul class="fl"><li>所在地は本庄市日の出1-4-5。JR高崎線「本庄駅」北口から徒歩15分(朝の本庄駅からのバスはなし)。スクールバス5路線(江南・寄居線、鬼石・児玉線、南河原・妻沼線、前橋大島・伊勢崎線、太田線)。下校時は全生徒が使える本庄駅行きシャトルバスあり。。</li><li>1年次は習熟度別に選抜・特進・進学の3コース、2年次からはE類(東大・医学部など)・A類(難関国立)・S類(国立・MARCH)・T類(公・私立大の3科目型)の4類型から、1年次の成績と希望で選ぶ(2025年度から新コース制・類型制)。</li><li>高校から入学する生徒(選抜・特進・進学コース)と、附属中学校からの内部進学者の「一貫コース」(2年次以降はI類)はコースが分かれている。一貫コースは高校での募集なし。</li><li>入試は「スライド合格制度」で、選抜コース受験者は得点により特進・進学コース合格もある(下のコースから上のコースへのスライドはなし)。</li><li>令和8年3月卒業生の87.7%が四年制大学に現役進学。東京大学・京都大学の合格者も出ている。</li><li>小テストシステム、小論文対策、東大プロジェクト補習など受験指導を整え、推薦・総合型選抜にも個別指導で対応。</li><li>授業での英語4技能の習得、オーストラリアの姉妹校との交流、希望者の語学研修など国際理解教育に力を入れる。</li></ul></div>
@@ -410,7 +426,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">校訓・特色・学校生活・求める生徒像は本庄東高校の公式サイトより:<a href="https://www.honjo-higashi.ed.jp/honjohigashi2025/senior/wp-content/uploads/2026/09/boshu_youkou2027.pdf" target="_blank" rel="noopener">令和9年度 生徒募集要項(PDF)</a>、<a href="https://www.honjo-higashi.ed.jp/honjohigashi2025/senior/wp-content/uploads/2026/09/boshu2027.pdf" target="_blank" rel="noopener">令和9年度入試の概要(PDF)</a>、<a href="https://www.honjo-higashi.ed.jp/senior/exam/" target="_blank" rel="noopener">入試情報 出願/募集要項</a>、<a href="https://www.honjo-higashi.ed.jp/senior/apply/" target="_blank" rel="noopener">イベント情報(説明会・受験相談会)</a>、<a href="https://www.honjo-higashi.ed.jp/honjohigashi2025/senior/wp-content/uploads/2026/05/setsumeikai_2026.pdf" target="_blank" rel="noopener">学校説明会&amp;校内見学(PDF)</a>、<a href="https://www.honjo-higashi.ed.jp/honjohigashi2025/senior/wp-content/uploads/2026/07/gakuhi2026.pdf" target="_blank" rel="noopener">納付金、その他費用について(PDF)</a>、<a href="https://www.honjo-higashi.ed.jp/senior/course/" target="_blank" rel="noopener">コース紹介</a>、<a href="https://www.honjo-higashi.ed.jp/honjohigashi2025/senior/wp-content/uploads/2025/05/faq.pdf" target="_blank" rel="noopener">よくあるご質問(PDF)</a>、<a href="https://www.honjo-higashi.ed.jp/senior/singaku/achievement/" target="_blank" rel="noopener">進学実績</a>、<a href="https://www.honjo-higashi.ed.jp/senior/education/" target="_blank" rel="noopener">本庄東高校の教育 5つのポイント</a>、<a href="https://www.honjo-higashi.ed.jp/senior/education/international/" target="_blank" rel="noopener">国際理解教育</a>、<a href="https://www.honjo-higashi.ed.jp/senior/access/" target="_blank" rel="noopener">アクセスガイド</a>、<a href="https://www.honjo-higashi.ed.jp/senior/life/club/" target="_blank" rel="noopener">部活動紹介</a>、<a href="https://www.honjo-higashi.ed.jp/senior/life/event/" target="_blank" rel="noopener">年間行事</a>、<a href="https://www.honjo-higashi.ed.jp/senior/life/facility/" target="_blank" rel="noopener">施設・制服紹介</a>、<a href="https://www.honjo-higashi.ed.jp/" target="_blank" rel="noopener">学校法人小林学園(建学の精神)</a>、<a href="https://www.honjo-higashi.ed.jp/school/" target="_blank" rel="noopener">小林学園のあゆみ</a>。「こんな人に向いています」とMy Voiceの例は、公式の情報をもとに当教室がまとめたものです。</p>
 </div></section>
 
-<section class="sec" id="fee"><div class="in">
+<section class="sec alt" id="fee"><div class="in">
   <div class="h2"><span class="en">FEE</span><h2>本庄東高校の<br>学費</h2></div>
   <div class="box"><h3 class="h3">入学時・年間の費用<small class="yr">2027年度(令和9年度)入学者(生徒募集要項)。年額の内訳は学費PDF(ファイル名は2026)</small></h3><div class="tbl"><table class="ex fee"><tbody><tr><th>入学金</th><td>220,000円</td></tr><tr><th>施設拡充費(入学時)</th><td>50,000円</td></tr><tr><th>PTA・生徒会入会費(入学時)</th><td>6,000円</td></tr><tr><th>授業料(月額)</th><td>40,000円</td></tr><tr><th>月々の納入金(授業料・会費・補習指導費・タブレット代など)の年額合計</th><td>635,520円</td></tr></tbody></table></div>
   <p class="note" style="margin-top:8px">入学手続きのときに納めるのは276,000円。ほかに制服など約98,400円(令和7年度実績)、2年生の研修旅行代など。国の就学支援金や埼玉県の授業料等軽減補助の案内があります。</p></div>
@@ -418,7 +434,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">国の就学支援金などで、実際に払う額は家庭によって変わります。くわしくは学校の説明会で確認しましょう。</p>
 </div></section>
 
-<section class="sec alt" id="career"><div class="in">
+<section class="sec" id="career"><div class="in">
   <div class="h2"><span class="en">CAREER</span><h2>本庄東高校の<br>卒業後の進路</h2></div>
   <div class="box"><h3 class="h3">進路の内訳<small class="yr">2026年3月卒業生</small></h3>
   <div class="bar cbar" role="img" aria-label="4年制大学(現役進学)88%、専門学校2%、その他11%"><span style="width:87.7%;background:var(--blue)"></span><span style="width:1.5%;background:var(--report)"></span><span style="width:10.8%;background:var(--h)"></span></div>
@@ -431,18 +447,18 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">本庄東高校の公式サイトの進路情報より:<a href="https://www.honjo-higashi.ed.jp/senior/singaku/achievement/" target="_blank" rel="noopener">進学実績</a>。進路の結果は年度によって変わります。</p>
 </div></section>
 
-<section class="sec" id="schedule"><div class="in">
+<section class="sec alt" id="schedule"><div class="in">
   <div class="h2"><span class="en">SCHEDULE</span><h2>私立入試の流れ</h2></div>
   <ol class="tl"><li style="--c:var(--g)"><div class="dot"></div><div class="card"><div class="date">11月14日〜1月5日</div><div class="what">私立 個別相談会</div><div class="sub">通知表・北辰テストの結果を持って相談</div></div></li><li style="--c:var(--g)"><div class="dot"></div><div class="card"><div class="date">12月1日〜1月8日</div><div class="what">私立 出願</div></div></li><li style="--c:var(--g)"><div class="dot"></div><div class="card"><div class="date">1月22日〜</div><div class="what">私立 入試</div><div class="sub">多くの学校が1/22(金)〜。本庄第一は1/24(日)・2/6(土)・3/6(土)もあり</div></div></li></ol>
   <p class="note">公立高校の日程は<a href="../#schedule">トップページ</a>で見られます。私立を併願にして公立を受けるときは、公立の合格発表(3月)まで手続きを待てるかも確認しましょう。</p>
 </div></section>
 
-<section class="sec alt" id="faq"><div class="in">
+<section class="sec" id="faq"><div class="in">
   <div class="h2"><span class="en">FAQ</span><h2>本庄東高校の入試<br>よくある質問</h2></div>
   <div class="qa"><details open><summary>本庄東高校の偏差値は?</summary><p>本庄東高校は偏差値を公表していません。私立高校は、11〜12月の個別相談で通知表(内申)や北辰テストの結果をもとに合格の見込みを相談するのが一般的です。基準は個別相談で確認しましょう。</p></details><details open><summary>本庄東高校の入試日と科目は?</summary><p>2027年度(令和9年度)入試は、単願が1月22日(金)(国・英・数(各50分))、併願 第1回が1月22日(金)(国・英・数(各50分))、併願 第2回が1月23日(土)(国・英・数(各50分))、併願 第3回が2月5日(金)(国・英・数(各50分))です。</p></details><details open><summary>本庄東高校の入試に面接はありますか?</summary><p>単願:あり(受験生のみ)。併願 第1回:なし。併願 第2回:なし。併願 第3回:なし。</p></details><details open><summary>本庄東高校に特待生制度はありますか?</summary><p>特待生制度あり。学業特待生(単願・併願とも、学業成績優秀者に資格S〜D)、スポーツ・文化活動特待生(単願のみ、入学後の部活動継続が条件。野球部は5名以内)、兄弟姉妹同時在籍者・本庄青葉幼稚園卒園者向け(単願、資格E=入学金半額)。S=入学金・施設拡充費・学用品等・授業料除外分・補習指導費・諸会費・教材費・交通費相当、A=Sから交通費を除く、B=Aから教材費を除く、C=入学金・施設拡充費相当、D=その半額相当。入学手続き時はいったん全額納入し、奨学金は入学後に支給。S・A・Bは毎年度末の審査で条件変更あり</p></details><details open><summary>本庄東高校の学費は?</summary><p>2027年度(令和9年度)入学者(生徒募集要項)。年額の内訳は学費PDF(ファイル名は2026)の公式資料では、入学金220,000円、施設拡充費(入学時)50,000円、PTA・生徒会入会費(入学時)6,000円、授業料(月額)40,000円、月々の納入金(授業料・会費・補習指導費・タブレット代など)の年額合計635,520円です。入学手続きのときに納めるのは276,000円。ほかに制服など約98,400円(令和7年度実績)、2年生の研修旅行代など。国の就学支援金や埼玉県の授業料等軽減補助の案内があります。</p></details><details open><summary>本庄東高校の進学実績は?</summary><p>2026年3月卒業生は、4年制大学(現役進学)、専門学校、その他でした。合格実績は国公立大学95人、医学部医学科19人、早慶上理66人です。主な進学先・合格先は東京大学・京都大学・東北大学・北海道大学などです。</p></details></div>
 </div></section>
 
-<section class="sec"><div class="in">
+<section class="sec alt"><div class="in">
   <div class="h2"><span class="en">OTHER SCHOOLS</span><h2>ほかの高校の入試情報</h2></div>
   <div class="box"><h3 class="h3" style="color:var(--g)">私立高校</h3><div class="links"><a href="../shochi-fukaya/"><span>正智深谷高校<small>深谷市・普通科・4コース</small></span></a><a href="../tokyoseitoku-fukaya/"><span>東京成徳大学深谷高校<small>深谷市・普通科・3コース</small></span></a><a href="../honjo-daiichi/"><span>本庄第一高校<small>本庄市・普通科・3類型</small></span></a><a href="../tokyo-nodai-daisan/"><span>東京農業大学第三高校<small>東松山市・Ⅰ・Ⅱ・Ⅲの3コース</small></span></a></div></div>
   <div class="box"><h3 class="h3" style="color:var(--h)">本庄市・寄居町(公立)</h3><div class="links"><a href="../honjo/"><span>本庄高校<small>偏差値56・志願倍率1.09</small></span></a><a href="../yorii-johoku/"><span>寄居城北高校<small>偏差値43・志願倍率0.99</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--f)">深谷市(公立)</h3><div class="links"><a href="../fukaya-daiichi/"><span>深谷第一高校<small>偏差値52・志願倍率1.01</small></span></a><a href="../fukaya-shogyo/"><span>深谷商業高校<small>偏差値47・志願倍率1.01〜1.08</small></span></a><a href="../fukaya/"><span>深谷高校<small>偏差値42・志願倍率0.75</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--k)">熊谷市(公立)</h3><div class="links"><a href="../kumagaya/"><span>熊谷高校<small>偏差値65・志願倍率1.13</small></span></a><a href="../kumagaya-joshi/"><span>熊谷女子高校<small>偏差値63・志願倍率1.13</small></span></a><a href="../kumagaya-nishi/"><span>熊谷西高校<small>偏差値62・志願倍率1.17</small></span></a><a href="../kumagaya-shogyo/"><span>熊谷商業高校<small>偏差値46・志願倍率0.81</small></span></a><a href="../kumagaya-kogyo/"><span>熊谷工業高校<small>偏差値42-43・志願倍率0.78〜1.15</small></span></a><a href="../kumagaya-nogyo/"><span>熊谷農業高校<small>偏差値40-42・志願倍率0.90〜1.18</small></span></a><a href="../menuma/"><span>妻沼高校<small>偏差値40・志願倍率0.67</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--g)">行田市(公立)</h3><div class="links"><a href="../shinshukan/"><span>進修館高校<small>偏差値44-47・志願倍率0.28〜0.77</small></span></a></div></div><div class="box"><h3 class="h3" style="color:#455a64">鴻巣市・上尾市・伊奈町(公立)</h3><div class="links"><a href="../ageo/"><span>上尾高校<small>偏差値55-57・志願倍率1.28〜1.33</small></span></a><a href="../ina-gakuen/"><span>伊奈学園総合高校<small>偏差値59・志願倍率1.10</small></span></a><a href="../konosu/"><span>鴻巣高校<small>偏差値42-46・志願倍率0.87〜0.98</small></span></a><a href="../konosu-joshi/"><span>鴻巣女子高校<small>偏差値40-44・志願倍率0.51〜0.98</small></span></a></div></div>

@@ -333,6 +333,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
 .dl{margin:0;display:grid;gap:4px 12px;font-size:15px}
 .dl dt{font-weight:900;color:var(--navy);margin-top:6px}
 .dl dd{margin:0}
+.gl{border:2px solid var(--blue)}
+.gl-tone{margin:0;font-size:18px;font-weight:900;color:var(--navy);line-height:1.5}
+.gl-tone small{display:block;font-size:13px;color:var(--muted)}
+.gl-st{list-style:none;margin:0;padding:0;counter-reset:g;display:flex;flex-direction:column;gap:8px}
+.gl-st li{counter-increment:g;position:relative;padding:8px 10px 8px 42px;background:var(--sky);border-radius:12px;font-size:16px;font-weight:700;color:var(--navy)}
+.gl-st li::before{content:counter(g);position:absolute;left:10px;top:8px;width:24px;height:24px;border-radius:50%;background:var(--orange);color:#fff;font-family:var(--num);font-weight:900;text-align:center;line-height:24px;font-size:14px}
+.gl .more{margin-top:14px}
 .units{margin:0;display:grid;gap:2px}
 .units dt{font-weight:900;color:var(--navy);margin-top:8px;padding-left:10px;border-left:4px solid var(--blue)}
 .units dd{margin:2px 0 0 14px;font-size:15px}
@@ -373,7 +380,16 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   </div>
 </header>
 
-<section class="sec" id="course"><div class="in">
+<section class="sec" id="glance"><div class="in">
+  <div class="h2"><span class="en">AT A GLANCE</span><h2>ひと目でわかる<br>正智深谷高校</h2></div>
+  <div class="box gl"><p class="gl-tone"><small>校風</small>浄土宗の教えを建学の精神とする、校訓「選択」「専修」の私立高校</p>
+  <p class="sub-h">ここが強み</p><ol class="gl-st"><li>難関国立大をめざす特別選抜から、推薦・看護医療に強い総合進学まで4コース</li><li>大学・短大の指定校推薦枠は157大学972名分</li><li>JR深谷駅南口から徒歩約4分。無料スクールバスも3コース</li></ol>
+  <p class="sub-h">こんな人に向いています</p><ul class="fl"><li>駅から近い学校に通いたい人</li><li>難関大の一般受験から推薦・看護医療まで、目標に合ったコースで学びたい人</li><li>部活動にも力を入れたい人</li></ul>
+  <a class="more" href="#feature">校風・特色をくわしく見る ›</a></div>
+  <p class="note">各高校の公式サイト・学校案内・県教育委員会のスクール・ポリシーで確認した情報をもとに、学習空間 深谷上柴教室がまとめた要点です。</p>
+</div></section>
+
+<section class="sec alt" id="course"><div class="in">
   <div class="h2"><span class="en">COURSE</span><h2>正智深谷高校の<br>コース</h2></div>
   <div class="box"><h3 class="h3">特別選抜コース(特別進学系・難関国立大コース)<small class="yr">募集 30名</small></h3><p style="margin:0">東京大学・東北大学・北海道大学・筑波大学などの難関国立大学に、一般選抜で現役合格することをめざすコース。</p></div>
   <div class="box"><h3 class="h3">特別進学コース(特別進学系・国公立・難関私大コース)<small class="yr">募集 90名</small></h3><p style="margin:0">埼玉大学・埼玉県立大学などの国公立大学や、早稲田大学・明治大学などの難関私立大学に、一般選抜で現役合格することをめざすコース。私立大学受験用のカリキュラムがあり、推薦入試など一般選抜以外の受験もフォローする。</p></div>
@@ -382,7 +398,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">出典:<a href="https://shochi.jp/education/tokushin/" target="_blank" rel="noopener">コース紹介(特別進学系)</a>、<a href="https://shochi.jp/education/attack/" target="_blank" rel="noopener">コース紹介(総合進学系)</a></p>
 </div></section>
 
-<section class="sec alt" id="exam"><div class="in">
+<section class="sec" id="exam"><div class="in">
   <div class="h2"><span class="en">EXAM</span><h2>正智深谷高校の<br>入試日程と科目</h2></div>
   <p class="lead">2027年度(令和9年度)入試の入試です。</p>
   <div class="kinds"><div class="kind"><div class="kh"><b>単願(推薦)</b><span>1月22日(金)</span></div><dl><dt>科目</dt><dd>国・数・英(各100点・50分、マークシート)</dd><dt>面接</dt><dd>グループ面接</dd></dl><p class="kn">特待生の対象</p></div><div class="kind"><div class="kh"><b>併願 第1回</b><span>1月22日(金)</span></div><dl><dt>科目</dt><dd>国・数・英(同上)</dd><dt>面接</dt><dd>なし</dd></dl><p class="kn">公立・私立と併願できる</p></div><div class="kind"><div class="kh"><b>併願 第2回</b><span>1月23日(土)</span></div><dl><dt>科目</dt><dd>国・数・英(同上)</dd><dt>面接</dt><dd>なし</dd></dl></div><div class="kind"><div class="kh"><b>併願 第3回</b><span>2月6日(土)</span></div><dl><dt>科目</dt><dd>国・数・英(同上)</dd><dt>面接</dt><dd>なし</dd></dl></div></div>
@@ -393,13 +409,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">日程や基準は変わることがあります。出願前に、必ず正智深谷高校の募集要項で確認してください。</p>
 </div></section>
 
-<section class="sec" id="point"><div class="in">
+<section class="sec alt" id="point"><div class="in">
   <div class="h2"><span class="en">POINT</span><h2>正智深谷高校合格への<br>ポイント</h2></div>
   <ol class="pts"><li><b>試験は国・数・英の3教科(各100点・50分・マークシート)。</b>英語のリスニングはありません。マーク式に慣れておきましょう。</li><li><b>単願はグループ面接あり、併願は面接なし。</b>単願は自己推薦書(学校指定の書式)も必要です。</li><li><b>特待生は単願だけが対象。</b>単願で受けるかどうかは、個別相談で特待の見込みも聞いてから決めましょう。</li><li><b>併願は1月22日・23日・2月6日の3回。</b>公立が第一志望なら、併願第1回を確実に押さえるのが基本です。</li></ol>
   <div class="box voice"><div class="ic">塾長<br>より</div><div><div class="who">学習空間 深谷上柴教室から</div><p>正智深谷は、同じ学校の中で国立大志望から推薦中心の進学まで幅が広いのが特長です。どのコースで受けるかで必要な得点がちがうので、北辰テストの結果を持って早めに個別相談に行き、コースと受け方を決めましょう。</p></div></div>
 </div></section>
 
-<section class="sec alt" id="feature"><div class="in">
+<section class="sec" id="feature"><div class="in">
   <div class="h2"><span class="en">FEATURE</span><h2>正智深谷高校の<br>校風と特色</h2></div>
   <div class="box"><p class="kokun"><small>校訓・教育目標</small>校訓「選択」「専修」(浄土宗・法然上人の教えが建学の精神)</p></div>
   <div class="box"><h3 class="h3">ここが特色</h3><ul class="fl"><li>所在地は深谷市上野台369番地。JR高崎線 深谷駅南口から徒歩約4分(400m)。無料スクールバスあり(熊谷・妻沼コース/寄居コース/森林公園コース)。</li><li>普通科の中に、特別進学系(特別選抜・特別進学)と総合進学系(選抜進学・総合進学)の4コースがある。</li><li>特別進学系は、模試を全員が受験(1年5回・2年6回・3年7回)し、個別指導の「志学塾」や自習室・進路室などで一般選抜に備える。</li><li>総合進学系では、大学進学者の7割以上が指定校推薦で進学していると公式に記載(指定校推薦枠:157大学972名分)。面接・小論文・志望理由書の指導を独自テキストで行う。</li><li>3年次に看護医療系コースがあり、医療系大学・医療系専門学校への進学に向けて数学・理科を重点的に学ぶ。</li><li>付属校である埼玉工業大学への内部進学制度がある。</li><li>浄土宗の宗門関係学校で、3年次には授業で茶道と華道を学ぶ。</li></ul></div>
@@ -411,7 +427,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">校訓・特色・学校生活・求める生徒像は正智深谷高校の公式サイトより:<a href="https://shochi.jp/admission/application/" target="_blank" rel="noopener">令和9年度入試・生徒募集要項</a>、<a href="https://shochi.jp/admission/openschool/" target="_blank" rel="noopener">令和9年度入学生向けイベント(令和8年度実施分)</a>、<a href="https://shochi.jp/admission/scholarship/" target="_blank" rel="noopener">令和7年度入試奨学制度について</a>、<a href="https://shochi.jp/admission/recommendation/" target="_blank" rel="noopener">令和9年度入試 推薦書(本校指定)</a>、<a href="https://shochi.jp/admission/tuition/" target="_blank" rel="noopener">令和8年度生学費実績</a>、<a href="https://shochi.jp/career/achievement/" target="_blank" rel="noopener">進路実績一覧</a>、<a href="https://shochi.jp/education/tokushin/" target="_blank" rel="noopener">コース紹介(特別進学系)</a>、<a href="https://shochi.jp/education/attack/" target="_blank" rel="noopener">コース紹介(総合進学系)</a>、<a href="https://shochi.jp/guide/about_us/" target="_blank" rel="noopener">本校について</a>、<a href="https://shochi.jp/access/" target="_blank" rel="noopener">交通アクセス</a>、<a href="https://shochi.jp/schoollife/uniform/" target="_blank" rel="noopener">制服・制定品</a>、<a href="https://shochi.jp/schoollife/events/" target="_blank" rel="noopener">年間行事</a>、<a href="https://shochi.jp/club/tac/" target="_blank" rel="noopener">トップアスリートクラブ</a>。「こんな人に向いています」とMy Voiceの例は、公式の情報をもとに当教室がまとめたものです。</p>
 </div></section>
 
-<section class="sec" id="fee"><div class="in">
+<section class="sec alt" id="fee"><div class="in">
   <div class="h2"><span class="en">FEE</span><h2>正智深谷高校の<br>学費</h2></div>
   <div class="box"><h3 class="h3">入学時・年間の費用<small class="yr">令和8年度入学生の実績(学校は「令和9年度入学生も同様の予定」と記載)</small></h3><div class="tbl"><table class="ex fee"><tbody><tr><th>入学金(入学手続金)</th><td>200,000円</td></tr><tr><th>入学前費用(制服・体育用品・iPad・教科書。概算・最大249,000円)</th><td>232,000円</td></tr><tr><th>月々の納入金 5月分以降(特選・特進コース。概算)</th><td>15,900円</td></tr><tr><th>月々の納入金 5月分以降(選抜・総進コース。概算)</th><td>12,400円</td></tr></tbody></table></div>
   <p class="note" style="margin-top:8px">公式の表では月々の授業料は0円で、維持費・教育後援会費・生徒会費などが月々の納入金です。4月分は諸費用をふくむため、特選・特進67,909円、選抜・総進54,539円(概算)。</p></div>
@@ -419,7 +435,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">国の就学支援金などで、実際に払う額は家庭によって変わります。くわしくは学校の説明会で確認しましょう。</p>
 </div></section>
 
-<section class="sec alt" id="career"><div class="in">
+<section class="sec" id="career"><div class="in">
   <div class="h2"><span class="en">CAREER</span><h2>正智深谷高校の<br>卒業後の進路</h2></div>
   <div class="box"><h3 class="h3">進路の内訳<small class="yr">2026年3月卒業生</small></h3>
   <div class="bar cbar" role="img" aria-label="大学84%、短期大学1%未満、専門学校12%、就職3%、進学準備など1%未満"><span style="width:84%;background:var(--blue)"></span><span style="width:0.6%;background:var(--report)"></span><span style="width:11.8%;background:var(--h)"></span><span style="width:3%;background:var(--orange)"></span><span style="width:0.6%;background:var(--g)"></span></div>
@@ -432,18 +448,18 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">正智深谷高校の公式サイトの進路情報より:<a href="https://shochi.jp/career/achievement/" target="_blank" rel="noopener">進路実績一覧</a>。進路の結果は年度によって変わります。</p>
 </div></section>
 
-<section class="sec" id="schedule"><div class="in">
+<section class="sec alt" id="schedule"><div class="in">
   <div class="h2"><span class="en">SCHEDULE</span><h2>私立入試の流れ</h2></div>
   <ol class="tl"><li style="--c:var(--g)"><div class="dot"></div><div class="card"><div class="date">11月14日〜1月5日</div><div class="what">私立 個別相談会</div><div class="sub">通知表・北辰テストの結果を持って相談</div></div></li><li style="--c:var(--g)"><div class="dot"></div><div class="card"><div class="date">12月1日〜1月8日</div><div class="what">私立 出願</div></div></li><li style="--c:var(--g)"><div class="dot"></div><div class="card"><div class="date">1月22日〜</div><div class="what">私立 入試</div><div class="sub">多くの学校が1/22(金)〜。本庄第一は1/24(日)・2/6(土)・3/6(土)もあり</div></div></li></ol>
   <p class="note">公立高校の日程は<a href="../#schedule">トップページ</a>で見られます。私立を併願にして公立を受けるときは、公立の合格発表(3月)まで手続きを待てるかも確認しましょう。</p>
 </div></section>
 
-<section class="sec alt" id="faq"><div class="in">
+<section class="sec" id="faq"><div class="in">
   <div class="h2"><span class="en">FAQ</span><h2>正智深谷高校の入試<br>よくある質問</h2></div>
   <div class="qa"><details open><summary>正智深谷高校の偏差値は?</summary><p>正智深谷高校は偏差値を公表していません。私立高校は、11〜12月の個別相談で通知表(内申)や北辰テストの結果をもとに合格の見込みを相談するのが一般的です。基準は個別相談で確認しましょう。</p></details><details open><summary>正智深谷高校の入試日と科目は?</summary><p>2027年度(令和9年度)入試は、単願(推薦)が1月22日(金)(国・数・英(各100点・50分、マークシート))、併願 第1回が1月22日(金)(国・数・英(同上))、併願 第2回が1月23日(土)(国・数・英(同上))、併願 第3回が2月6日(土)(国・数・英(同上))です。</p></details><details open><summary>正智深谷高校の入試に面接はありますか?</summary><p>単願(推薦):グループ面接。併願 第1回:なし。併願 第2回:なし。併願 第3回:なし。</p></details><details open><summary>正智深谷高校に特待生制度はありますか?</summary><p>単願受験者のみ対象。成績優秀者の特待(SS・S・A・B・C・D特待。SS特待は特別選抜コース対象で入学金・維持費・制服・iPad・模試代など、原則3年間。D特待は特別選抜・特別進学コースでiPad支給)、文化・スポーツ特待(中学校長の推薦と該当クラブ監督の申請が必要)、兄弟姉妹・同窓子女優遇(入学金の一部100,000円)。すべて給付型で、学費は一度全額納入し、国・県の補助金確定後(2月頃)に支給。※公式ページの表題は「令和7年度入試奨学制度」のままで、令和9年度の内容は未確認</p></details><details open><summary>正智深谷高校の学費は?</summary><p>令和8年度入学生の実績(学校は「令和9年度入学生も同様の予定」と記載)の公式資料では、入学金(入学手続金)200,000円、入学前費用(制服・体育用品・iPad・教科書。概算・最大249,000円)232,000円、月々の納入金 5月分以降(特選・特進コース。概算)15,900円、月々の納入金 5月分以降(選抜・総進コース。概算)12,400円です。公式の表では月々の授業料は0円で、維持費・教育後援会費・生徒会費などが月々の納入金です。4月分は諸費用をふくむため、特選・特進67,909円、選抜・総進54,539円(概算)。</p></details><details open><summary>正智深谷高校の進学実績は?</summary><p>2026年3月卒業生は、大学、短期大学、専門学校、就職、進学準備などでした。合格実績は国公立大学7人、私立大学371人です。主な進学先・合格先は群馬大学・東京農工大学・早稲田大学・東京理科大学などです。</p></details></div>
 </div></section>
 
-<section class="sec"><div class="in">
+<section class="sec alt"><div class="in">
   <div class="h2"><span class="en">OTHER SCHOOLS</span><h2>ほかの高校の入試情報</h2></div>
   <div class="box"><h3 class="h3" style="color:var(--g)">私立高校</h3><div class="links"><a href="../tokyoseitoku-fukaya/"><span>東京成徳大学深谷高校<small>深谷市・普通科・3コース</small></span></a><a href="../honjo-daiichi/"><span>本庄第一高校<small>本庄市・普通科・3類型</small></span></a><a href="../honjo-higashi/"><span>本庄東高校<small>本庄市・選抜・特進・進学の3コース</small></span></a><a href="../tokyo-nodai-daisan/"><span>東京農業大学第三高校<small>東松山市・Ⅰ・Ⅱ・Ⅲの3コース</small></span></a></div></div>
   <div class="box"><h3 class="h3" style="color:var(--f)">深谷市(公立)</h3><div class="links"><a href="../fukaya-daiichi/"><span>深谷第一高校<small>偏差値52・志願倍率1.01</small></span></a><a href="../fukaya-shogyo/"><span>深谷商業高校<small>偏差値47・志願倍率1.01〜1.08</small></span></a><a href="../fukaya/"><span>深谷高校<small>偏差値42・志願倍率0.75</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--k)">熊谷市(公立)</h3><div class="links"><a href="../kumagaya/"><span>熊谷高校<small>偏差値65・志願倍率1.13</small></span></a><a href="../kumagaya-joshi/"><span>熊谷女子高校<small>偏差値63・志願倍率1.13</small></span></a><a href="../kumagaya-nishi/"><span>熊谷西高校<small>偏差値62・志願倍率1.17</small></span></a><a href="../kumagaya-shogyo/"><span>熊谷商業高校<small>偏差値46・志願倍率0.81</small></span></a><a href="../kumagaya-kogyo/"><span>熊谷工業高校<small>偏差値42-43・志願倍率0.78〜1.15</small></span></a><a href="../kumagaya-nogyo/"><span>熊谷農業高校<small>偏差値40-42・志願倍率0.90〜1.18</small></span></a><a href="../menuma/"><span>妻沼高校<small>偏差値40・志願倍率0.67</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--h)">本庄市・寄居町(公立)</h3><div class="links"><a href="../honjo/"><span>本庄高校<small>偏差値56・志願倍率1.09</small></span></a><a href="../yorii-johoku/"><span>寄居城北高校<small>偏差値43・志願倍率0.99</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--g)">行田市(公立)</h3><div class="links"><a href="../shinshukan/"><span>進修館高校<small>偏差値44-47・志願倍率0.28〜0.77</small></span></a></div></div><div class="box"><h3 class="h3" style="color:#455a64">鴻巣市・上尾市・伊奈町(公立)</h3><div class="links"><a href="../ageo/"><span>上尾高校<small>偏差値55-57・志願倍率1.28〜1.33</small></span></a><a href="../ina-gakuen/"><span>伊奈学園総合高校<small>偏差値59・志願倍率1.10</small></span></a><a href="../konosu/"><span>鴻巣高校<small>偏差値42-46・志願倍率0.87〜0.98</small></span></a><a href="../konosu-joshi/"><span>鴻巣女子高校<small>偏差値40-44・志願倍率0.51〜0.98</small></span></a></div></div>

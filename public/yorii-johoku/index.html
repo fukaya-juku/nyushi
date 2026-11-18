@@ -333,6 +333,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
 .dl{margin:0;display:grid;gap:4px 12px;font-size:15px}
 .dl dt{font-weight:900;color:var(--navy);margin-top:6px}
 .dl dd{margin:0}
+.gl{border:2px solid var(--blue)}
+.gl-tone{margin:0;font-size:18px;font-weight:900;color:var(--navy);line-height:1.5}
+.gl-tone small{display:block;font-size:13px;color:var(--muted)}
+.gl-st{list-style:none;margin:0;padding:0;counter-reset:g;display:flex;flex-direction:column;gap:8px}
+.gl-st li{counter-increment:g;position:relative;padding:8px 10px 8px 42px;background:var(--sky);border-radius:12px;font-size:16px;font-weight:700;color:var(--navy)}
+.gl-st li::before{content:counter(g);position:absolute;left:10px;top:8px;width:24px;height:24px;border-radius:50%;background:var(--orange);color:#fff;font-family:var(--num);font-weight:900;text-align:center;line-height:24px;font-size:14px}
+.gl .more{margin-top:14px}
 .units{margin:0;display:grid;gap:2px}
 .units dt{font-weight:900;color:var(--navy);margin-top:8px;padding-left:10px;border-left:4px solid var(--blue)}
 .units dd{margin:2px 0 0 14px;font-size:15px}
@@ -375,7 +382,16 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   </div>
 </header>
 
-<section class="sec" id="data"><div class="in">
+<section class="sec" id="glance"><div class="in">
+  <div class="h2"><span class="en">AT A GLANCE</span><h2>ひと目でわかる<br>寄居城北高校</h2></div>
+  <div class="box gl"><p class="gl-tone"><small>校風</small>校訓「誠実・貢献・創造」。一人ひとりの個性が輝く、地域とつながる総合学科</p>
+  <p class="sub-h">ここが強み</p><ol class="gl-st"><li>2年生から3系列7プランを選ぶ。進学希望者向けの特別編成進学クラスも</li><li>全学年少人数学級。1年生は全員がインターンシップで働く体験</li><li>学校を通した就職の合格率はほぼ100%。スクールバス3路線</li></ol>
+  <p class="sub-h">こんな人に向いています</p><ul class="fl"><li>自分の興味や進路に合わせて科目を選びたい人</li><li>進学と就職のどちらも考えながら学びたい人</li><li>地域とかかわる活動に参加したい人</li></ul>
+  <a class="more" href="#feature">校風・特色をくわしく見る ›</a></div>
+  <p class="note">各高校の公式サイト・学校案内・県教育委員会のスクール・ポリシーで確認した情報をもとに、学習空間 深谷上柴教室がまとめた要点です。</p>
+</div></section>
+
+<section class="sec alt" id="data"><div class="in">
   <div class="h2"><span class="en">DATA</span><h2>寄居城北高校の<br>基本データ</h2></div>
   <div class="box"><h3 class="h3">寄居城北高校</h3><div class="facts"><div class="fact"><small>偏差値</small><b>43</b></div><div class="fact"><small>内申の目安</small><b>—</b></div><div class="fact"><small>2027募集</small><b>200</b></div><div class="fact"><small>2026志願倍率</small><b>0.99</b></div><div class="fact"><small>2026実質倍率</small><b>1.00</b></div><div class="fact"><small>選抜</small><b style="font-size:13px;display:block;line-height:1.35;margin-top:2px">共通選抜のみ</b></div></div>
   <div class="chips"><span class="chip ">中3重視 1:1:3</span><span class="chip ">個人面接</span><span class="chip ">2次は調査書400点</span></div></div>
@@ -383,13 +399,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">「志願倍率」は2026年度の志願確定倍率(志願者数÷募集人数、埼玉県教育委員会)、「実質倍率」は2026年度に実際に受検した人数をもとにした倍率(民間の開示資料の集計)です。内申の目安(9教科・45点満点)は学習空間 深谷上柴教室の進路指導での目安です。</p>
 </div></section>
 
-<section class="sec alt" id="goal"><div class="in">
+<section class="sec" id="goal"><div class="in">
   <div class="h2"><span class="en">BORDER</span><h2>何点取れば合格?<br>合否の目安</h2></div>
   <div class="box"><div class="goal few">合否の目安:2026年度の開示データが少ないため掲載していません</div></div>
   
 </div></section>
 
-<section class="sec" id="mix"><div class="in">
+<section class="sec alt" id="mix"><div class="in">
   <div class="h2"><span class="en">SCORE</span><h2>寄居城北高校の<br>配点と選抜方法</h2></div>
   <div class="legend"><span><i style="background:var(--exam)"></i>学力検査</span><span><i style="background:var(--report)"></i>調査書(内申)</span><span><i style="background:var(--talk)"></i>面接</span></div>
   <div class="box"><h3 class="h3">寄居城北高校(共通選抜のみ)</h3><div class="mix"><div class="row"><div class="hd"><span class="nm">第1次選抜</span><span class="tot">学検500・調査書200・面接60/計760点</span></div><div class="bar"><span class="" style="width:65.78947368421053%;background:var(--exam)">500</span><span class="r" style="width:26.31578947368421%;background:var(--report)">200</span><span class="" style="width:7.894736842105263%;background:var(--talk)"></span></div></div><div class="row"><div class="hd"><span class="nm">第2次選抜</span><span class="tot">学検500・調査書400・面接60/計960点</span></div><div class="bar"><span class="" style="width:52.083333333333336%;background:var(--exam)">500</span><span class="r" style="width:41.66666666666667%;background:var(--report)">400</span><span class="" style="width:6.25%;background:var(--talk)"></span></div></div></div>
@@ -397,13 +413,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">第1次選抜で定員の多くが決まり、残りを第2次選抜で決めます。調査書は中1〜中3の9教科の評定(各学年45点満点)を、学年の比率に合わせて点数にしたものです。</p>
 </div></section>
 
-<section class="sec alt" id="point"><div class="in">
+<section class="sec" id="point"><div class="in">
   <div class="h2"><span class="en">POINT</span><h2>寄居城北高校合格への<br>ポイント</h2></div>
   <ol class="pts"><li>共通選抜のみ。内申の比率は<b>1:1:3</b>で、中3の成績が大切です。</li><li>第2次選抜では<b>調査書400点</b>になります。</li><li>自己評価資料は<b>勉強以外で続けてきた活動</b>について書きます。</li></ol>
   <div class="box voice"><div class="ic">塾長<br>より</div><div><div class="who">学習空間 深谷上柴教室から</div><p>寄居城北高校は、2年次以降に自分で科目を選んで学ぶ総合学科です。面接や自己評価資料では、部活動や地域の活動など、勉強以外で続けてきたことが問われます。続けてきた理由や、そこで身についた力を自分の言葉で話せるようにしておきましょう。中3の内申の比重が大きいので、中3の定期テストで少しでも評定を上げることも大切です。</p></div></div>
 </div></section>
 
-<section class="sec" id="feature"><div class="in">
+<section class="sec alt" id="feature"><div class="in">
   <div class="h2"><span class="en">FEATURE</span><h2>寄居城北高校の<br>校風と特色</h2></div>
   <div class="box"><p class="kokun"><small>校訓・教育目標</small>誠実・貢献・創造</p><p class="mission">目指す学校像：一人ひとりが 個性輝く 元気な学校。確かな学力と心身ともに健全な豊かな人間性の育成とともに、地域に貢献できる人材育成を行うことを教育方針とする。</p></div>
   <div class="box"><h3 class="h3">ここが特色</h3><ul class="fl"><li>全日制の総合学科で、2年次から3系列7つの学習プラン（文理総合系列・情報ビジネス系列・健康教養系列）に分かれ、幅広い選択科目から自分で科目を選んで学ぶ。</li><li>全学年で少人数学級を編成し、1・2年次は主要教科で習熟度別授業を行う。</li><li>4年制大学・短期大学・看護系学校等への進学を希望する生徒のために「特別編成進学クラス」を設置している。</li><li>1年次の「産業社会と人間」で、本校独自の「職業人インタビュー」などのキャリア教育を行う。埼玉工業大学・武蔵丘短期大学などとも連携している。</li><li>寄居町で唯一の高校。桜沢駅から徒歩3分で、PTA・後援会の協力によりスクールバス3路線を運行している。</li></ul></div>
@@ -417,7 +433,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">校訓・特色・学校生活・求める生徒像は寄居城北高校の公式サイトより:<a href="https://www.pref.saitama.lg.jp/documents/65317/n11_yorii.pdf" target="_blank" rel="noopener">県立寄居城北高校 活性化・特色化方針（スクール・ポリシー）R8（埼玉県教育委員会）</a>、<a href="https://www.pref.saitama.lg.jp/documents/277139/146_yoriijyouhoku_r9.pdf" target="_blank" rel="noopener">令和9年度入学者選抜実施内容（寄居城北）（埼玉県教育委員会）</a>、<a href="https://yjouhoku-h.spec.ed.jp/wysiwyg/file/download/1/7382" target="_blank" rel="noopener">寄居城北学校案内2027（PDF）</a>、<a href="https://yjouhoku-h.spec.ed.jp/" target="_blank" rel="noopener">寄居城北高校 トップページ</a>、<a href="https://yjouhoku-h.spec.ed.jp/学校概要-2/系列と学習プラン" target="_blank" rel="noopener">学科紹介</a>。「こんな人に向いています」とMy Voiceの例は、公式の情報をもとに当教室がまとめたものです。</p>
 </div></section>
 
-<section class="sec alt" id="career"><div class="in">
+<section class="sec" id="career"><div class="in">
   <div class="h2"><span class="en">CAREER</span><h2>寄居城北高校の<br>卒業後の進路</h2></div>
   <div class="box"><h3 class="h3">進路の内訳<small class="yr">2026年3月卒業生(令和7年度)</small></h3>
   <div class="bar cbar" role="img" aria-label="4年制大学19%、短期大学4%、専門学校35%、就職(公務員5名を含む)42%"><span style="width:19.298245614035086%;background:var(--blue)"></span><span style="width:3.508771929824561%;background:var(--report)"></span><span style="width:35.08771929824561%;background:var(--h)"></span><span style="width:42.10526315789473%;background:var(--orange)"></span></div>
@@ -431,25 +447,25 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">寄居城北高校の公式サイトの進路情報より:<a href="https://www.pref.saitama.lg.jp/documents/65317/n11_yorii.pdf" target="_blank" rel="noopener">県立寄居城北高校 活性化・特色化方針（スクール・ポリシー）R8（埼玉県教育委員会）</a>、<a href="https://yjouhoku-h.spec.ed.jp/進路" target="_blank" rel="noopener">寄居城北高校 進路</a>、<a href="https://yjouhoku-h.spec.ed.jp/wysiwyg/file/download/1/7382" target="_blank" rel="noopener">寄居城北学校案内2027(PDF)</a>、<a href="https://yjouhoku-h.spec.ed.jp/wysiwyg/file/download/1/6501" target="_blank" rel="noopener">寄居城北高校 令和6年度 過去3年間の進路実績(進学)(PDF)</a>、<a href="https://yjouhoku-h.spec.ed.jp/wysiwyg/file/download/1/6502" target="_blank" rel="noopener">寄居城北高校 令和6年度 過去3年間の進路実績(就職)(PDF)</a>。進路の結果は年度によって変わります。</p>
 </div></section>
 
-<section class="sec" id="schedule"><div class="in">
+<section class="sec alt" id="schedule"><div class="in">
   <div class="h2"><span class="en">SCHEDULE</span><h2>公立入試の日程</h2></div>
   <ol class="tl"><li class="" style="--c:var(--f)"><div class="dot"></div><div class="card"><div class="date">1月26日〜2月9日</div><div class="what">公立 出願(インターネット)</div></div></li><li class="" style="--c:var(--f)"><div class="dot"></div><div class="card"><div class="date">2月17日・18日</div><div class="what">公立 志願先変更</div></div></li><li class="big" style="--c:var(--navy)"><div class="dot"></div><div class="card"><div class="date">2月25日</div><div class="what">公立 学力検査</div><div class="sub">5教科・各100点</div></div></li><li class="big" style="--c:var(--navy)"><div class="dot"></div><div class="card"><div class="date">2月26日</div><div class="what">公立 面接</div><div class="sub">全員に面接(My Voice)</div></div></li><li class="big" style="--c:var(--navy)"><div class="dot"></div><div class="card"><div class="date">3月5日</div><div class="what">公立 合格発表</div></div></li></ol>
   <p class="note">私立高校の日程や、ほかの高校とくらべた情報は<a href="../#schedule">トップページ</a>で見られます。</p>
 </div></section>
 
-<section class="sec alt" id="interview"><div class="in">
+<section class="sec" id="interview"><div class="in">
   <div class="h2"><span class="en">INTERVIEW</span><h2>寄居城北高校の<br>面接対策</h2></div>
   <p class="lead">2027年度から、すべての受検生に面接があります。最初に1分30秒〜2分ほど自分の言葉で話す「My Voice」のあと、面接官からの質問に答えます。面接の配点は第1次60点・第2次60点です。</p>
   <a class="app" href="../myvoice/" style="border-color:var(--blue)"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--blue)"/><path d="M14 16h20a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H24l-7 6v-6h-3a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4z" fill="#fff"/></svg><div><b style="color:var(--blue)">My Voice メーカー ›</b><span>質問に答えるだけで原稿ができる。タイマーと想定質問で本番練習も</span></div></a>
   <a class="app" href="https://splendid-centaur-c2b96a.netlify.app/" target="_blank" rel="noopener"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--orange)"/><circle cx="24" cy="19" r="7" fill="#fff"/><path d="M11 38c2-7 7-10 13-10s11 3 13 10z" fill="#fff"/></svg><div><b>長所・短所を整理するアプリ ›</b><span>自分のよいところと課題を書き出そう</span></div></a>
 </div></section>
 
-<section class="sec" id="faq"><div class="in">
+<section class="sec alt" id="faq"><div class="in">
   <div class="h2"><span class="en">FAQ</span><h2>寄居城北高校の入試<br>よくある質問</h2></div>
   <div class="qa"><details open><summary>寄居城北高校の偏差値はいくつですか?</summary><p>43です(民間の偏差値サイトの値。模試によって数値は変わります)。</p></details><details open><summary>寄居城北高校はどんな学校ですか?(校風・特色)</summary><p>校訓・教育目標は「誠実・貢献・創造」です。全日制の総合学科で、2年次から3系列7つの学習プラン（文理総合系列・情報ビジネス系列・健康教養系列）に分かれ、幅広い選択科目から自分で科目を選んで学ぶ。全学年で少人数学級を編成し、1・2年次は主要教科で習熟度別授業を行う。4年制大学・短期大学・看護系学校等への進学を希望する生徒のために「特別編成進学クラス」を設置している。求める生徒像の1つに「本校の目指す学校像の理念や教育方針を理解する生徒」があります。</p></details><details open><summary>寄居城北高校の倍率は?</summary><p>2026年度の志願確定倍率が0.99倍、実際に受検した人数をもとにした実質倍率が1.00倍でした。</p></details><details open><summary>寄居城北高校に合格するには内申点がどのくらい必要ですか?</summary><p>内申の目安は—です。中1・中2・中3の比率は1:1:3なので、中3の成績がとくに大切です。</p></details><details open><summary>寄居城北高校の面接はどのくらい大切ですか?</summary><p>面接の配点は第1次60点・第2次60点です。2027年度からすべての受検生に面接があり、最初に自分の言葉で話す「My Voice」があります。</p></details><details open><summary>寄居城北高校の卒業後の進路(進学・就職実績)は?</summary><p>2026年3月卒業生(令和7年度)は、4年制大学33人(19%)、短期大学6人(4%)、専門学校60人(35%)、就職(公務員5名を含む)72人(42%)でした。合格実績は4年制大学20人、短期大学9人、看護・医療系専門学校19人です(令和6年度の合格者数(公式サイトの進路実績より)。)。くわしくは高校の公式サイトをご確認ください。</p></details></div>
 </div></section>
 
-<section class="sec alt"><div class="in">
+<section class="sec"><div class="in">
   <div class="h2"><span class="en">OTHER SCHOOLS</span><h2>ほかの高校の入試情報</h2></div>
   <div class="box"><h3 class="h3" style="color:var(--h)">本庄市・寄居町</h3><div class="links"><a href="../honjo/"><span>本庄高校<small>偏差値56・志願倍率1.09</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--f)">深谷市</h3><div class="links"><a href="../fukaya-daiichi/"><span>深谷第一高校<small>偏差値52・志願倍率1.01</small></span></a><a href="../fukaya-shogyo/"><span>深谷商業高校<small>偏差値47・志願倍率1.01〜1.08</small></span></a><a href="../fukaya/"><span>深谷高校<small>偏差値42・志願倍率0.75</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--k)">熊谷市</h3><div class="links"><a href="../kumagaya/"><span>熊谷高校<small>偏差値65・志願倍率1.13</small></span></a><a href="../kumagaya-joshi/"><span>熊谷女子高校<small>偏差値63・志願倍率1.13</small></span></a><a href="../kumagaya-nishi/"><span>熊谷西高校<small>偏差値62・志願倍率1.17</small></span></a><a href="../kumagaya-shogyo/"><span>熊谷商業高校<small>偏差値46・志願倍率0.81</small></span></a><a href="../kumagaya-kogyo/"><span>熊谷工業高校<small>偏差値42-43・志願倍率0.78〜1.15</small></span></a><a href="../kumagaya-nogyo/"><span>熊谷農業高校<small>偏差値40-42・志願倍率0.90〜1.18</small></span></a><a href="../menuma/"><span>妻沼高校<small>偏差値40・志願倍率0.67</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--g)">行田市</h3><div class="links"><a href="../shinshukan/"><span>進修館高校<small>偏差値44-47・志願倍率0.28〜0.77</small></span></a></div></div><div class="box"><h3 class="h3" style="color:#455a64">鴻巣市・上尾市・伊奈町</h3><div class="links"><a href="../ageo/"><span>上尾高校<small>偏差値55-57・志願倍率1.28〜1.33</small></span></a><a href="../ina-gakuen/"><span>伊奈学園総合高校<small>偏差値59・志願倍率1.10</small></span></a><a href="../konosu/"><span>鴻巣高校<small>偏差値42-46・志願倍率0.87〜0.98</small></span></a><a href="../konosu-joshi/"><span>鴻巣女子高校<small>偏差値40-44・志願倍率0.51〜0.98</small></span></a></div></div>
   <div class="box"><h3 class="h3" style="color:var(--g)">私立高校</h3><div class="links"><a href="../shochi-fukaya/"><span>正智深谷高校<small>深谷市・普通科・4コース</small></span></a><a href="../tokyoseitoku-fukaya/"><span>東京成徳大学深谷高校<small>深谷市・普通科・3コース</small></span></a><a href="../honjo-daiichi/"><span>本庄第一高校<small>本庄市・普通科・3類型</small></span></a><a href="../honjo-higashi/"><span>本庄東高校<small>本庄市・選抜・特進・進学の3コース</small></span></a><a href="../tokyo-nodai-daisan/"><span>東京農業大学第三高校<small>東松山市・Ⅰ・Ⅱ・Ⅲの3コース</small></span></a></div></div>

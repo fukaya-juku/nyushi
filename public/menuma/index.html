@@ -333,6 +333,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
 .dl{margin:0;display:grid;gap:4px 12px;font-size:15px}
 .dl dt{font-weight:900;color:var(--navy);margin-top:6px}
 .dl dd{margin:0}
+.gl{border:2px solid var(--blue)}
+.gl-tone{margin:0;font-size:18px;font-weight:900;color:var(--navy);line-height:1.5}
+.gl-tone small{display:block;font-size:13px;color:var(--muted)}
+.gl-st{list-style:none;margin:0;padding:0;counter-reset:g;display:flex;flex-direction:column;gap:8px}
+.gl-st li{counter-increment:g;position:relative;padding:8px 10px 8px 42px;background:var(--sky);border-radius:12px;font-size:16px;font-weight:700;color:var(--navy)}
+.gl-st li::before{content:counter(g);position:absolute;left:10px;top:8px;width:24px;height:24px;border-radius:50%;background:var(--orange);color:#fff;font-family:var(--num);font-weight:900;text-align:center;line-height:24px;font-size:14px}
+.gl .more{margin-top:14px}
 .units{margin:0;display:grid;gap:2px}
 .units dt{font-weight:900;color:var(--navy);margin-top:8px;padding-left:10px;border-left:4px solid var(--blue)}
 .units dd{margin:2px 0 0 14px;font-size:15px}
@@ -375,7 +382,16 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   </div>
 </header>
 
-<section class="sec" id="data"><div class="in">
+<section class="sec" id="glance"><div class="in">
+  <div class="h2"><span class="en">AT A GLANCE</span><h2>ひと目でわかる<br>妻沼高校</h2></div>
+  <div class="box gl"><p class="gl-tone"><small>校風</small>校訓「勤勉・努力」。つまずいたところから学び直し、母校を誇れる生徒を育てる</p>
+  <p class="sub-h">ここが強み</p><ol class="gl-st"><li>1年生は毎日1時間目に「カルティベートタイム」。1クラス2人の先生で基礎から</li><li>3クラスを4クラスに分ける少人数編制。数学・英語は習熟度別</li><li>就職決定率100%で地元企業への就職が多い。大学は指定校推薦も活用</li></ol>
+  <p class="sub-h">こんな人に向いています</p><ul class="fl"><li>中学校の勉強を基礎からやり直したい人</li><li>少人数で先生に質問しやすい環境で学びたい人</li><li>高校を卒業して就職や進学の目標をかなえたい人</li></ul>
+  <a class="more" href="#feature">校風・特色をくわしく見る ›</a></div>
+  <p class="note">各高校の公式サイト・学校案内・県教育委員会のスクール・ポリシーで確認した情報をもとに、学習空間 深谷上柴教室がまとめた要点です。</p>
+</div></section>
+
+<section class="sec alt" id="data"><div class="in">
   <div class="h2"><span class="en">DATA</span><h2>妻沼高校の<br>基本データ</h2></div>
   <div class="box"><h3 class="h3">妻沼高校</h3><div class="facts"><div class="fact"><small>偏差値</small><b>40</b></div><div class="fact"><small>内申の目安</small><b>—</b></div><div class="fact"><small>2027募集</small><b>120</b></div><div class="fact"><small>2026志願倍率</small><b>0.67</b></div><div class="fact"><small>2026実質倍率</small><b>0.67</b></div><div class="fact"><small>選抜</small><b style="font-size:13px;display:block;line-height:1.35;margin-top:2px">共通選抜のみ</b></div></div>
   <div class="chips"><span class="chip ">調査書400点</span><span class="chip ">学び直し歓迎</span></div></div>
@@ -383,13 +399,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">「志願倍率」は2026年度の志願確定倍率(志願者数÷募集人数、埼玉県教育委員会)、「実質倍率」は2026年度に実際に受検した人数をもとにした倍率(民間の開示資料の集計)です。内申の目安(9教科・45点満点)は学習空間 深谷上柴教室の進路指導での目安です。</p>
 </div></section>
 
-<section class="sec alt" id="goal"><div class="in">
+<section class="sec" id="goal"><div class="in">
   <div class="h2"><span class="en">BORDER</span><h2>何点取れば合格?<br>合否の目安</h2></div>
   <div class="box"><div class="goal few">合否の目安:2026年度の開示データが少ないため掲載していません</div></div>
   
 </div></section>
 
-<section class="sec" id="mix"><div class="in">
+<section class="sec alt" id="mix"><div class="in">
   <div class="h2"><span class="en">SCORE</span><h2>妻沼高校の<br>配点と選抜方法</h2></div>
   <div class="legend"><span><i style="background:var(--exam)"></i>学力検査</span><span><i style="background:var(--report)"></i>調査書(内申)</span><span><i style="background:var(--talk)"></i>面接</span></div>
   <div class="box"><h3 class="h3">妻沼高校(共通選抜のみ)</h3><div class="mix"><div class="row"><div class="hd"><span class="nm">第1次選抜</span><span class="tot">学検500・調査書400・面接60/計960点</span></div><div class="bar"><span class="" style="width:52.083333333333336%;background:var(--exam)">500</span><span class="r" style="width:41.66666666666667%;background:var(--report)">400</span><span class="" style="width:6.25%;background:var(--talk)"></span></div></div><div class="row"><div class="hd"><span class="nm">第2次選抜</span><span class="tot">学検500・調査書200・面接60/計760点</span></div><div class="bar"><span class="" style="width:65.78947368421053%;background:var(--exam)">500</span><span class="r" style="width:26.31578947368421%;background:var(--report)">200</span><span class="" style="width:7.894736842105263%;background:var(--talk)"></span></div></div></div>
@@ -397,13 +413,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">第1次選抜で定員の多くが決まり、残りを第2次選抜で決めます。調査書は中1〜中3の9教科の評定(各学年45点満点)を、学年の比率に合わせて点数にしたものです。</p>
 </div></section>
 
-<section class="sec alt" id="point"><div class="in">
+<section class="sec" id="point"><div class="in">
   <div class="h2"><span class="en">POINT</span><h2>妻沼高校合格への<br>ポイント</h2></div>
   <ol class="pts"><li>共通選抜のみ。第1次は<b>調査書400点</b>と、内申点の比重が大きい学校です。</li><li>面接は第1次・第2次とも60点です。</li><li>計算・英単語・漢字などの<b>基礎</b>を確実に得点することが大切です。</li></ol>
   <div class="box voice"><div class="ic">塾長<br>より</div><div><div class="who">学習空間 深谷上柴教室から</div><p>妻沼高校は、中学校で勉強につまずいた生徒も、もう一度学び直せる学校です。入試では、まず計算・英単語・漢字などの基本問題で確実に点を取りましょう。調査書の配点が大きいので、残りの定期テストや提出物もあきらめずに取り組むことが大切です。面接では、高校で何をがんばりたいかを前向きに話せるように準備しておきましょう。</p></div></div>
 </div></section>
 
-<section class="sec" id="feature"><div class="in">
+<section class="sec alt" id="feature"><div class="in">
   <div class="h2"><span class="en">FEATURE</span><h2>妻沼高校の<br>校風と特色</h2></div>
   <div class="box"><p class="kokun"><small>校訓・教育目標</small>勤勉・努力</p><p class="mission">生徒の成長を全力で支援する学校として、つまずきの解消と基礎・基本の定着を目指す授業、きめ細やかな進路指導、学校行事、部活動等の教育活動を通して、団結力・自主性を養い、心豊かで社会に貢献できる人材を育成します。</p></div>
   <div class="box"><h3 class="h3">ここが特色</h3><ul class="fl"><li>平成20年4月に、埼玉県の公立高校で初めて基礎学力を定着させる学校設定教科「カルティベートタイム(CT)」を導入した。国語・数学・英語を重視し、1年生は毎日1時間目、2・3年生は週3日または2日行う。</li><li>カルティベートタイムは1クラスを2人の先生で担当し、「基礎の基礎からステップアップする教材」を使って自分のペースで学ぶ。評価は「できる、できない」ではなく「やる、やらない」が基準。</li><li>3クラスを4クラスに分ける少人数学級編制をとり、1年の数学と英語では習熟度別の少人数授業を行う。</li><li>「学び直しから大学進学まで」「礼儀・身だしなみ・時間厳守」「母校を誇れる生徒を育てる学校」を「3つの約束」として掲げる。</li><li>スクールカウンセラー、スクールソーシャルワーカー、就職支援アドバイザー、日本語支援員(2名)が配置され、漢字検定・英語検定・ビジネス文書実務検定・情報処理検定などの資格取得も勧めている。</li></ul></div>
@@ -416,7 +432,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">校訓・特色・学校生活・求める生徒像は妻沼高校の公式サイトより:<a href="https://www.pref.saitama.lg.jp/documents/65317/n14_menuma.pdf" target="_blank" rel="noopener">県立妻沼高校 活性化・特色化方針(スクール・ポリシー)R8.5.1(埼玉県 県立学校魅力発信サイト)</a>、<a href="https://www.pref.saitama.lg.jp/documents/265289/missionzen.pdf" target="_blank" rel="noopener">県立高等学校のスクール・ミッション一覧(全日制)p.14(埼玉県教育委員会)</a>、<a href="https://menuma-h.spec.ed.jp/%E5%AD%A6%E6%A0%A1%E6%A6%82%E8%A6%81" target="_blank" rel="noopener">妻沼高校 学校概要(校訓・目指す学校像・3つの約束)</a>、<a href="https://menuma-h.spec.ed.jp/%E5%AD%A6%E6%A0%A1%E6%A6%82%E8%A6%81/%E3%82%AB%E3%83%AB%E3%83%86%E3%82%A3%E3%83%99%E3%83%BC%E3%83%88%E3%82%BF%E3%82%A4%E3%83%A0" target="_blank" rel="noopener">妻沼高校 カルティベートタイム</a>。「こんな人に向いています」とMy Voiceの例は、公式の情報をもとに当教室がまとめたものです。</p>
 </div></section>
 
-<section class="sec alt" id="career"><div class="in">
+<section class="sec" id="career"><div class="in">
   <div class="h2"><span class="en">CAREER</span><h2>妻沼高校の<br>卒業後の進路</h2></div>
   <div class="box"><h3 class="h3">進路の内訳<small class="yr">2026年3月卒業生(令和7年度)</small></h3>
   <div class="bar cbar" role="img" aria-label="4年制大学9%、短期大学2%、専門学校42%、就職47%"><span style="width:9.375%;background:var(--blue)"></span><span style="width:1.5625%;background:var(--report)"></span><span style="width:42.1875%;background:var(--h)"></span><span style="width:46.875%;background:var(--orange)"></span></div>
@@ -430,25 +446,25 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">妻沼高校の公式サイトの進路情報より:<a href="https://www.pref.saitama.lg.jp/documents/65317/n14_menuma.pdf" target="_blank" rel="noopener">県立妻沼高校 活性化・特色化方針(スクール・ポリシー)R8.5.1(埼玉県 県立学校魅力発信サイト)</a>、<a href="https://menuma-h.spec.ed.jp/%E9%80%B2%E8%B7%AF%E6%8C%87%E5%B0%8E%E3%83%BB%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B" target="_blank" rel="noopener">妻沼高校 進路指導・教育課程</a>、<a href="https://navi.spec.ed.jp/4dc0720b270a7f3ea9198d5e615aae1b?frame_id=285" target="_blank" rel="noopener">妻沼高校&lt;全日制&gt; 彩の国さいたま公立高校ナビゲーション(埼玉県教育委員会)</a>。進路の結果は年度によって変わります。</p>
 </div></section>
 
-<section class="sec" id="schedule"><div class="in">
+<section class="sec alt" id="schedule"><div class="in">
   <div class="h2"><span class="en">SCHEDULE</span><h2>公立入試の日程</h2></div>
   <ol class="tl"><li class="" style="--c:var(--f)"><div class="dot"></div><div class="card"><div class="date">1月26日〜2月9日</div><div class="what">公立 出願(インターネット)</div></div></li><li class="" style="--c:var(--f)"><div class="dot"></div><div class="card"><div class="date">2月17日・18日</div><div class="what">公立 志願先変更</div></div></li><li class="big" style="--c:var(--navy)"><div class="dot"></div><div class="card"><div class="date">2月25日</div><div class="what">公立 学力検査</div><div class="sub">5教科・各100点</div></div></li><li class="big" style="--c:var(--navy)"><div class="dot"></div><div class="card"><div class="date">2月26日</div><div class="what">公立 面接</div><div class="sub">全員に面接(My Voice)</div></div></li><li class="big" style="--c:var(--navy)"><div class="dot"></div><div class="card"><div class="date">3月5日</div><div class="what">公立 合格発表</div></div></li></ol>
   <p class="note">私立高校の日程や、ほかの高校とくらべた情報は<a href="../#schedule">トップページ</a>で見られます。</p>
 </div></section>
 
-<section class="sec alt" id="interview"><div class="in">
+<section class="sec" id="interview"><div class="in">
   <div class="h2"><span class="en">INTERVIEW</span><h2>妻沼高校の<br>面接対策</h2></div>
   <p class="lead">2027年度から、すべての受検生に面接があります。最初に1分30秒〜2分ほど自分の言葉で話す「My Voice」のあと、面接官からの質問に答えます。面接の配点は第1次60点・第2次60点です。</p>
   <a class="app" href="../myvoice/" style="border-color:var(--blue)"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--blue)"/><path d="M14 16h20a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H24l-7 6v-6h-3a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4z" fill="#fff"/></svg><div><b style="color:var(--blue)">My Voice メーカー ›</b><span>質問に答えるだけで原稿ができる。タイマーと想定質問で本番練習も</span></div></a>
   <a class="app" href="https://splendid-centaur-c2b96a.netlify.app/" target="_blank" rel="noopener"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--orange)"/><circle cx="24" cy="19" r="7" fill="#fff"/><path d="M11 38c2-7 7-10 13-10s11 3 13 10z" fill="#fff"/></svg><div><b>長所・短所を整理するアプリ ›</b><span>自分のよいところと課題を書き出そう</span></div></a>
 </div></section>
 
-<section class="sec" id="faq"><div class="in">
+<section class="sec alt" id="faq"><div class="in">
   <div class="h2"><span class="en">FAQ</span><h2>妻沼高校の入試<br>よくある質問</h2></div>
   <div class="qa"><details open><summary>妻沼高校の偏差値はいくつですか?</summary><p>40です(民間の偏差値サイトの値。模試によって数値は変わります)。</p></details><details open><summary>妻沼高校はどんな学校ですか?(校風・特色)</summary><p>校訓・教育目標は「勤勉・努力」です。平成20年4月に、埼玉県の公立高校で初めて基礎学力を定着させる学校設定教科「カルティベートタイム(CT)」を導入した。国語・数学・英語を重視し、1年生は毎日1時間目、2・3年生は週3日または2日行う。カルティベートタイムは1クラスを2人の先生で担当し、「基礎の基礎からステップアップする教材」を使って自分のペースで学ぶ。評価は「できる、できない」ではなく「やる、やらない」が基準。3クラスを4クラスに分ける少人数学級編制をとり、1年の数学と英語では習熟度別の少人数授業を行う。求める生徒像の1つに「勉強につまずいてしまったけれど、学び直しをしたいという生徒」があります。</p></details><details open><summary>妻沼高校の倍率は?</summary><p>2026年度の志願確定倍率が0.67倍、実際に受検した人数をもとにした実質倍率が0.67倍でした。</p></details><details open><summary>妻沼高校に合格するには内申点がどのくらい必要ですか?</summary><p>内申の目安は—です。中1・中2・中3の比率は1:1:2なので、中3の成績がとくに大切です。</p></details><details open><summary>妻沼高校の面接はどのくらい大切ですか?</summary><p>面接の配点は第1次60点・第2次60点です。2027年度からすべての受検生に面接があり、最初に自分の言葉で話す「My Voice」があります。</p></details><details open><summary>妻沼高校の卒業後の進路(進学・就職実績)は?</summary><p>2026年3月卒業生(令和7年度)は、4年制大学6人(9%)、短期大学1人(2%)、専門学校27人(42%)、就職30人(47%)でした。主な進学先は国際教養大学・東京家政学院大学・関東学園大学などです。くわしくは高校の公式サイトをご確認ください。</p></details></div>
 </div></section>
 
-<section class="sec alt"><div class="in">
+<section class="sec"><div class="in">
   <div class="h2"><span class="en">OTHER SCHOOLS</span><h2>ほかの高校の入試情報</h2></div>
   <div class="box"><h3 class="h3" style="color:var(--k)">熊谷市</h3><div class="links"><a href="../kumagaya/"><span>熊谷高校<small>偏差値65・志願倍率1.13</small></span></a><a href="../kumagaya-joshi/"><span>熊谷女子高校<small>偏差値63・志願倍率1.13</small></span></a><a href="../kumagaya-nishi/"><span>熊谷西高校<small>偏差値62・志願倍率1.17</small></span></a><a href="../kumagaya-shogyo/"><span>熊谷商業高校<small>偏差値46・志願倍率0.81</small></span></a><a href="../kumagaya-kogyo/"><span>熊谷工業高校<small>偏差値42-43・志願倍率0.78〜1.15</small></span></a><a href="../kumagaya-nogyo/"><span>熊谷農業高校<small>偏差値40-42・志願倍率0.90〜1.18</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--f)">深谷市</h3><div class="links"><a href="../fukaya-daiichi/"><span>深谷第一高校<small>偏差値52・志願倍率1.01</small></span></a><a href="../fukaya-shogyo/"><span>深谷商業高校<small>偏差値47・志願倍率1.01〜1.08</small></span></a><a href="../fukaya/"><span>深谷高校<small>偏差値42・志願倍率0.75</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--h)">本庄市・寄居町</h3><div class="links"><a href="../honjo/"><span>本庄高校<small>偏差値56・志願倍率1.09</small></span></a><a href="../yorii-johoku/"><span>寄居城北高校<small>偏差値43・志願倍率0.99</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--g)">行田市</h3><div class="links"><a href="../shinshukan/"><span>進修館高校<small>偏差値44-47・志願倍率0.28〜0.77</small></span></a></div></div><div class="box"><h3 class="h3" style="color:#455a64">鴻巣市・上尾市・伊奈町</h3><div class="links"><a href="../ageo/"><span>上尾高校<small>偏差値55-57・志願倍率1.28〜1.33</small></span></a><a href="../ina-gakuen/"><span>伊奈学園総合高校<small>偏差値59・志願倍率1.10</small></span></a><a href="../konosu/"><span>鴻巣高校<small>偏差値42-46・志願倍率0.87〜0.98</small></span></a><a href="../konosu-joshi/"><span>鴻巣女子高校<small>偏差値40-44・志願倍率0.51〜0.98</small></span></a></div></div>
   <div class="box"><h3 class="h3" style="color:var(--g)">私立高校</h3><div class="links"><a href="../shochi-fukaya/"><span>正智深谷高校<small>深谷市・普通科・4コース</small></span></a><a href="../tokyoseitoku-fukaya/"><span>東京成徳大学深谷高校<small>深谷市・普通科・3コース</small></span></a><a href="../honjo-daiichi/"><span>本庄第一高校<small>本庄市・普通科・3類型</small></span></a><a href="../honjo-higashi/"><span>本庄東高校<small>本庄市・選抜・特進・進学の3コース</small></span></a><a href="../tokyo-nodai-daisan/"><span>東京農業大学第三高校<small>東松山市・Ⅰ・Ⅱ・Ⅲの3コース</small></span></a></div></div>

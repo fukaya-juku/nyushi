@@ -333,6 +333,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
 .dl{margin:0;display:grid;gap:4px 12px;font-size:15px}
 .dl dt{font-weight:900;color:var(--navy);margin-top:6px}
 .dl dd{margin:0}
+.gl{border:2px solid var(--blue)}
+.gl-tone{margin:0;font-size:18px;font-weight:900;color:var(--navy);line-height:1.5}
+.gl-tone small{display:block;font-size:13px;color:var(--muted)}
+.gl-st{list-style:none;margin:0;padding:0;counter-reset:g;display:flex;flex-direction:column;gap:8px}
+.gl-st li{counter-increment:g;position:relative;padding:8px 10px 8px 42px;background:var(--sky);border-radius:12px;font-size:16px;font-weight:700;color:var(--navy)}
+.gl-st li::before{content:counter(g);position:absolute;left:10px;top:8px;width:24px;height:24px;border-radius:50%;background:var(--orange);color:#fff;font-family:var(--num);font-weight:900;text-align:center;line-height:24px;font-size:14px}
+.gl .more{margin-top:14px}
 .units{margin:0;display:grid;gap:2px}
 .units dt{font-weight:900;color:var(--navy);margin-top:8px;padding-left:10px;border-left:4px solid var(--blue)}
 .units dd{margin:2px 0 0 14px;font-size:15px}
@@ -375,7 +382,16 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   </div>
 </header>
 
-<section class="sec" id="data"><div class="in">
+<section class="sec" id="glance"><div class="in">
+  <div class="h2"><span class="en">AT A GLANCE</span><h2>ひと目でわかる<br>伊奈学園総合高校</h2></div>
+  <div class="box gl"><p class="gl-tone"><small>校風</small>校訓「自彊創生」。自分で選び、自分で学ぶ、全国でも珍しい総合選択制</p>
+  <p class="sub-h">ここが強み</p><ol class="gl-st"><li>193講座から「自分だけの時間割」。人文・理数・語学・芸術など7つの学系</li><li>5つの「ハウス」に分かれて生活。大きな学校でも自分の居場所がある</li><li>国公立大学に38名合格、東京芸術大学は6年連続合格(2026年3月卒)</li></ol>
+  <p class="sub-h">こんな人に向いています</p><ul class="fl"><li>自分の興味に合わせて科目を選び、深く学びたい人</li><li>大勢の仲間の中でいろいろな人と関わりたい人</li><li>スポーツや芸術など専門的な分野を伸ばしたい人</li></ul>
+  <a class="more" href="#feature">校風・特色をくわしく見る ›</a></div>
+  <p class="note">各高校の公式サイト・学校案内・県教育委員会のスクール・ポリシーで確認した情報をもとに、学習空間 深谷上柴教室がまとめた要点です。</p>
+</div></section>
+
+<section class="sec alt" id="data"><div class="in">
   <div class="h2"><span class="en">DATA</span><h2>伊奈学園総合高校の<br>基本データ</h2></div>
   <div class="box"><h3 class="h3">伊奈学園総合高校</h3><div class="facts"><div class="fact"><small>偏差値</small><b>59</b></div><div class="fact"><small>内申の目安</small><b>33〜36</b></div><div class="fact"><small>2027募集</small><b>760↓</b></div><div class="fact"><small>2026志願倍率</small><b>1.10</b></div><div class="fact"><small>2026実質倍率</small><b>1.10</b></div><div class="fact"><small>選抜</small><b style="font-size:13px;display:block;line-height:1.35;margin-top:2px">普通学系は共通選抜のみ</b></div></div>
   <div class="chips"><span class="chip ">中3重視 1:1:3</span><span class="chip ">スポーツ・芸術系は実技あり</span><span class="chip hot">募集40人減</span></div><p class="note">↓は2026年度より募集人数が減ることを示します。</p></div>
@@ -383,7 +399,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">「志願倍率」は2026年度の志願確定倍率(志願者数÷募集人数、埼玉県教育委員会)、「実質倍率」は2026年度に実際に受検した人数をもとにした倍率(民間の開示資料の集計)です。内申の目安(9教科・45点満点)は学習空間 深谷上柴教室の進路指導での目安です。</p>
 </div></section>
 
-<section class="sec alt" id="goal"><div class="in">
+<section class="sec" id="goal"><div class="in">
   <div class="h2"><span class="en">BORDER</span><h2>何点取れば合格?<br>合否の目安</h2></div>
   <div class="box"><div class="goal"><div class="goal-h">合否の目安(2026年度 合格者の開示得点より)</div>
   <div class="gauge" aria-label="学力検査5教科 ボーダー355点 安心ライン375点"><div class="trk"><div class="zone" style="left:63.74999999999999%;width:-20%"></div>
@@ -395,7 +411,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">2026年度入試を受けた先輩の開示得点(民間の調査資料)をもとに、学習空間 深谷上柴教室が算出しました。「安心ライン」は合格者の平均、「ボーダー」は合格者を点数順に並べた下から4分の1の位置です(5教科は5点単位に丸めています)。年度によって問題の難しさや倍率が変わるため、あくまで目安です。</p>
 </div></section>
 
-<section class="sec" id="mix"><div class="in">
+<section class="sec alt" id="mix"><div class="in">
   <div class="h2"><span class="en">SCORE</span><h2>伊奈学園総合高校の<br>配点と選抜方法</h2></div>
   <div class="legend"><span><i style="background:var(--exam)"></i>学力検査</span><span><i style="background:var(--report)"></i>調査書(内申)</span><span><i style="background:var(--talk)"></i>面接</span></div>
   <div class="box"><h3 class="h3">伊奈学園総合高校(普通学系は共通選抜のみ)</h3><div class="mix"><div class="row"><div class="hd"><span class="nm">第1次選抜</span><span class="tot">学検500・調査書300・面接30/計830点</span></div><div class="bar"><span class="" style="width:60.24096385542169%;background:var(--exam)">500</span><span class="r" style="width:36.144578313253014%;background:var(--report)">300</span><span class="" style="width:3.614457831325301%;background:var(--talk)"></span></div></div><div class="row"><div class="hd"><span class="nm">第2次選抜</span><span class="tot">学検500・調査書200・面接30/計730点</span></div><div class="bar"><span class="" style="width:68.4931506849315%;background:var(--exam)">500</span><span class="r" style="width:27.397260273972602%;background:var(--report)">200</span><span class="" style="width:4.10958904109589%;background:var(--talk)"></span></div></div></div>
@@ -403,13 +419,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">第1次選抜で定員の多くが決まり、残りを第2次選抜で決めます。調査書は中1〜中3の9教科の評定(各学年45点満点)を、学年の比率に合わせて点数にしたものです。</p>
 </div></section>
 
-<section class="sec alt" id="point"><div class="in">
+<section class="sec" id="point"><div class="in">
   <div class="h2"><span class="en">POINT</span><h2>伊奈学園総合高校合格への<br>ポイント</h2></div>
   <ol class="pts"><li>普通学系は共通選抜のみ(学力検査500点・調査書300点)。</li><li>内申の比率は<b>1:1:3</b>で、中3の成績が内申点の60%をしめます。</li><li>スポーツ科学系・芸術系は特色選抜で<b>実技検査200点</b>があります。</li></ol>
   <div class="box voice"><div class="ic">塾長<br>より</div><div><div class="who">学習空間 深谷上柴教室から</div><p>伊奈学園総合高校の普通学系は、合格者の5教科の平均がおよそ375点と、このサイトでまとめている高校の中で最も高い水準です(合否の目安はスポーツ科学系・芸術系を含めて計算しています)。中3の内申の比重も大きいので、中3の定期テストと学力検査の両方で力を出しきりましょう。学系ごとに学べることが大きくちがうので、学校説明会で自分に合う学系を確かめ、面接で「なぜその学系か」を話せるようにしておきましょう。</p></div></div>
 </div></section>
 
-<section class="sec" id="feature"><div class="in">
+<section class="sec alt" id="feature"><div class="in">
   <div class="h2"><span class="en">FEATURE</span><h2>伊奈学園総合高校の<br>校風と特色</h2></div>
   <div class="box"><p class="kokun"><small>校訓・教育目標</small>自彊創生(じきょうそうせい)</p><p class="mission">一人一人の個性を最大限に開花させる学校として、興味・関心や適性、進路希望等に合わせて多様な学びを実現できる学系や選択科目を展開し、個性や資質・能力を伸長させ、切磋琢磨する中で高い志を持って希望をかなえる人材を育成します。</p></div>
   <div class="box"><h3 class="h3">ここが特色</h3><ul class="fl"><li>全日制普通科の「総合選択制」で、全193講座(必修23・選択170)の中から科目を選び「自分だけの時間割」を作る。分野をまたいだ選択もできる。</li><li>人文・理数・語学・情報経営・生活科学・スポーツ科学・芸術の7つの学系がある。スポーツ科学系と芸術系は出願時に選び、残り5学系は「普通学系」として入学して1年次に選び、2年次から分かれる。</li><li>生徒全員が学系とは関係なく5つの「ハウス」(小さな母校)のどれかに所属し、さまざまな学系の生徒が混ざるホームルームで3年間を過ごす。各ハウスに職員室があり、行事や生徒会もハウス単位。</li><li>生徒数は2,350名(男子1,158名・女子1,192名、スクール・ポリシー掲載の5月1日現在)。敷地は東京ドーム約3個分で、専門教室や競技専用のグラウンド・体育館があり、各ハウスは広いモールでつながっている。</li><li>IINAサイエンスプロジェクトや大学の出張講義、長期休業中に海外5か国(英・中・独・仏・豪)へ生徒を派遣する国際交流、県下最大の約10万冊の中央図書館など「本物体験」の機会がある。</li></ul></div>
@@ -422,7 +438,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">校訓・特色・学校生活・求める生徒像は伊奈学園総合高校の公式サイトより:<a href="https://www.pref.saitama.lg.jp/documents/65317/s25_ina.pdf" target="_blank" rel="noopener">県立伊奈学園総合高校 活性化・特色化方針(スクール・ポリシー)(埼玉県 県立学校魅力発信サイト)</a>、<a href="https://www.pref.saitama.lg.jp/documents/265289/missionzen.pdf" target="_blank" rel="noopener">県立高等学校のスクール・ミッション一覧(全日制)p.12(埼玉県教育委員会)</a>、<a href="https://inagakuen.spec.ed.jp/hs/page_2021gakkousyoukai" target="_blank" rel="noopener">伊奈学園総合高校 学校紹介</a>、<a href="https://inagakuen.spec.ed.jp/hs/page_2021gakkei" target="_blank" rel="noopener">伊奈学園総合高校 学系紹介</a>、<a href="https://inagakuen.spec.ed.jp/hs/" target="_blank" rel="noopener">伊奈学園総合高校 トップページ</a>。「こんな人に向いています」とMy Voiceの例は、公式の情報をもとに当教室がまとめたものです。</p>
 </div></section>
 
-<section class="sec alt" id="career"><div class="in">
+<section class="sec" id="career"><div class="in">
   <div class="h2"><span class="en">CAREER</span><h2>伊奈学園総合高校の<br>卒業後の進路</h2></div>
   <div class="box"><h3 class="h3">大学などの合格実績<small class="yr">2026年3月卒業生(令和7年度)</small></h3>
   <div class="facts gk"><div class="fact"><small>国公立大学</small><b>37<span>人</span></b></div><div class="fact"><small>省庁大学校</small><b>1<span>人</span></b></div><div class="fact"><small>私立大学</small><b>1,248<span>人</span></b></div></div>
@@ -432,25 +448,25 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">伊奈学園総合高校の公式サイトの進路情報より:<a href="https://inagakuen.spec.ed.jp/hs/f4f47e7a82aa8a7f377f930e99e0f064" target="_blank" rel="noopener">伊奈学園総合高校 進路指導</a>、<a href="https://inagakuen.spec.ed.jp/hs/wysiwyg/file/download/45/12685" target="_blank" rel="noopener">令和８年度入試 主要大学合格状況(PDF, R8.4.7)</a>、<a href="https://inagakuen.spec.ed.jp/hs/wysiwyg/file/download/45/13084" target="_blank" rel="noopener">令和８年度入試 学系別主要大学合格状況(合格延べ人数)(PDF)</a>、<a href="https://inagakuen.spec.ed.jp/hs/page_2021gakkei" target="_blank" rel="noopener">伊奈学園総合高校 学系とは</a>、<a href="https://inagakuen.spec.ed.jp/hs/page_20260529011037" target="_blank" rel="noopener">伊奈学園総合高校 語学系(中国語)</a>。進路の結果は年度によって変わります。</p>
 </div></section>
 
-<section class="sec" id="schedule"><div class="in">
+<section class="sec alt" id="schedule"><div class="in">
   <div class="h2"><span class="en">SCHEDULE</span><h2>公立入試の日程</h2></div>
   <ol class="tl"><li class="" style="--c:var(--f)"><div class="dot"></div><div class="card"><div class="date">1月26日〜2月9日</div><div class="what">公立 出願(インターネット)</div></div></li><li class="" style="--c:var(--f)"><div class="dot"></div><div class="card"><div class="date">2月17日・18日</div><div class="what">公立 志願先変更</div></div></li><li class="big" style="--c:var(--navy)"><div class="dot"></div><div class="card"><div class="date">2月25日</div><div class="what">公立 学力検査</div><div class="sub">5教科・各100点</div></div></li><li class="big" style="--c:var(--navy)"><div class="dot"></div><div class="card"><div class="date">2月26日</div><div class="what">公立 面接</div><div class="sub">全員に面接(My Voice)</div></div></li><li class="big" style="--c:var(--navy)"><div class="dot"></div><div class="card"><div class="date">3月5日</div><div class="what">公立 合格発表</div></div></li></ol>
   <p class="note">私立高校の日程や、ほかの高校とくらべた情報は<a href="../#schedule">トップページ</a>で見られます。</p>
 </div></section>
 
-<section class="sec alt" id="interview"><div class="in">
+<section class="sec" id="interview"><div class="in">
   <div class="h2"><span class="en">INTERVIEW</span><h2>伊奈学園総合高校の<br>面接対策</h2></div>
   <p class="lead">2027年度から、すべての受検生に面接があります。最初に1分30秒〜2分ほど自分の言葉で話す「My Voice」のあと、面接官からの質問に答えます。面接の配点は第1次30点・第2次30点です。</p>
   <a class="app" href="../myvoice/" style="border-color:var(--blue)"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--blue)"/><path d="M14 16h20a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H24l-7 6v-6h-3a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4z" fill="#fff"/></svg><div><b style="color:var(--blue)">My Voice メーカー ›</b><span>質問に答えるだけで原稿ができる。タイマーと想定質問で本番練習も</span></div></a>
   <a class="app" href="https://splendid-centaur-c2b96a.netlify.app/" target="_blank" rel="noopener"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--orange)"/><circle cx="24" cy="19" r="7" fill="#fff"/><path d="M11 38c2-7 7-10 13-10s11 3 13 10z" fill="#fff"/></svg><div><b>長所・短所を整理するアプリ ›</b><span>自分のよいところと課題を書き出そう</span></div></a>
 </div></section>
 
-<section class="sec" id="faq"><div class="in">
+<section class="sec alt" id="faq"><div class="in">
   <div class="h2"><span class="en">FAQ</span><h2>伊奈学園総合高校の入試<br>よくある質問</h2></div>
   <div class="qa"><details open><summary>伊奈学園総合高校の偏差値はいくつですか?</summary><p>59です(民間の偏差値サイトの値。模試によって数値は変わります)。</p></details><details open><summary>伊奈学園総合高校はどんな学校ですか?(校風・特色)</summary><p>校訓・教育目標は「自彊創生(じきょうそうせい)」です。全日制普通科の「総合選択制」で、全193講座(必修23・選択170)の中から科目を選び「自分だけの時間割」を作る。分野をまたいだ選択もできる。人文・理数・語学・情報経営・生活科学・スポーツ科学・芸術の7つの学系がある。スポーツ科学系と芸術系は出願時に選び、残り5学系は「普通学系」として入学して1年次に選び、2年次から分かれる。生徒全員が学系とは関係なく5つの「ハウス」(小さな母校)のどれかに所属し、さまざまな学系の生徒が混ざるホームルームで3年間を過ごす。各ハウスに職員室があり、行事や生徒会もハウス単位。求める生徒像の1つに「日々の努力を通じ、個性を最大限に開花させ、高い志を持って自己実現を図ろうとする生徒」があります。</p></details><details open><summary>伊奈学園総合高校の倍率は?</summary><p>2026年度の志願確定倍率が1.10倍、実際に受検した人数をもとにした実質倍率が1.10倍でした。</p></details><details open><summary>伊奈学園総合高校に合格するには内申点がどのくらい必要ですか?</summary><p>2026年度の合格者の中3の内申(9教科・45点満点)は平均36、下位4分の1で33でした。中1・中2・中3の比率は1:1:3なので、中3の成績がとくに大切です。</p></details><details open><summary>伊奈学園総合高校は学力検査で何点取れば合格できますか?</summary><p>2026年度の合格者の5教科の平均が約375点、下位4分の1が約355点でした。安心ラインの点数を目標にしましょう。年度によって問題の難しさや倍率が変わるため、あくまで目安です。</p></details><details open><summary>伊奈学園総合高校の面接はどのくらい大切ですか?</summary><p>面接の配点は第1次30点・第2次30点です。2027年度からすべての受検生に面接があり、最初に自分の言葉で話す「My Voice」があります。</p></details><details open><summary>伊奈学園総合高校の卒業後の進路(進学・就職実績)は?</summary><p>合格実績は国公立大学37人、省庁大学校1人、私立大学1248人です(合格者数は延べ人数で、現役と既卒の合計です。国公立37名は現役33名・既卒4名、私立1248名は現役1162名・既卒86名。)。くわしくは高校の公式サイトをご確認ください。</p></details></div>
 </div></section>
 
-<section class="sec alt"><div class="in">
+<section class="sec"><div class="in">
   <div class="h2"><span class="en">OTHER SCHOOLS</span><h2>ほかの高校の入試情報</h2></div>
   <div class="box"><h3 class="h3" style="color:#455a64">鴻巣市・上尾市・伊奈町</h3><div class="links"><a href="../ageo/"><span>上尾高校<small>偏差値55-57・志願倍率1.28〜1.33</small></span></a><a href="../konosu/"><span>鴻巣高校<small>偏差値42-46・志願倍率0.87〜0.98</small></span></a><a href="../konosu-joshi/"><span>鴻巣女子高校<small>偏差値40-44・志願倍率0.51〜0.98</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--f)">深谷市</h3><div class="links"><a href="../fukaya-daiichi/"><span>深谷第一高校<small>偏差値52・志願倍率1.01</small></span></a><a href="../fukaya-shogyo/"><span>深谷商業高校<small>偏差値47・志願倍率1.01〜1.08</small></span></a><a href="../fukaya/"><span>深谷高校<small>偏差値42・志願倍率0.75</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--k)">熊谷市</h3><div class="links"><a href="../kumagaya/"><span>熊谷高校<small>偏差値65・志願倍率1.13</small></span></a><a href="../kumagaya-joshi/"><span>熊谷女子高校<small>偏差値63・志願倍率1.13</small></span></a><a href="../kumagaya-nishi/"><span>熊谷西高校<small>偏差値62・志願倍率1.17</small></span></a><a href="../kumagaya-shogyo/"><span>熊谷商業高校<small>偏差値46・志願倍率0.81</small></span></a><a href="../kumagaya-kogyo/"><span>熊谷工業高校<small>偏差値42-43・志願倍率0.78〜1.15</small></span></a><a href="../kumagaya-nogyo/"><span>熊谷農業高校<small>偏差値40-42・志願倍率0.90〜1.18</small></span></a><a href="../menuma/"><span>妻沼高校<small>偏差値40・志願倍率0.67</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--h)">本庄市・寄居町</h3><div class="links"><a href="../honjo/"><span>本庄高校<small>偏差値56・志願倍率1.09</small></span></a><a href="../yorii-johoku/"><span>寄居城北高校<small>偏差値43・志願倍率0.99</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--g)">行田市</h3><div class="links"><a href="../shinshukan/"><span>進修館高校<small>偏差値44-47・志願倍率0.28〜0.77</small></span></a></div></div>
   <div class="box"><h3 class="h3" style="color:var(--g)">私立高校</h3><div class="links"><a href="../shochi-fukaya/"><span>正智深谷高校<small>深谷市・普通科・4コース</small></span></a><a href="../tokyoseitoku-fukaya/"><span>東京成徳大学深谷高校<small>深谷市・普通科・3コース</small></span></a><a href="../honjo-daiichi/"><span>本庄第一高校<small>本庄市・普通科・3類型</small></span></a><a href="../honjo-higashi/"><span>本庄東高校<small>本庄市・選抜・特進・進学の3コース</small></span></a><a href="../tokyo-nodai-daisan/"><span>東京農業大学第三高校<small>東松山市・Ⅰ・Ⅱ・Ⅲの3コース</small></span></a></div></div>

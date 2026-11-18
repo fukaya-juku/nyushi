@@ -333,6 +333,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
 .dl{margin:0;display:grid;gap:4px 12px;font-size:15px}
 .dl dt{font-weight:900;color:var(--navy);margin-top:6px}
 .dl dd{margin:0}
+.gl{border:2px solid var(--blue)}
+.gl-tone{margin:0;font-size:18px;font-weight:900;color:var(--navy);line-height:1.5}
+.gl-tone small{display:block;font-size:13px;color:var(--muted)}
+.gl-st{list-style:none;margin:0;padding:0;counter-reset:g;display:flex;flex-direction:column;gap:8px}
+.gl-st li{counter-increment:g;position:relative;padding:8px 10px 8px 42px;background:var(--sky);border-radius:12px;font-size:16px;font-weight:700;color:var(--navy)}
+.gl-st li::before{content:counter(g);position:absolute;left:10px;top:8px;width:24px;height:24px;border-radius:50%;background:var(--orange);color:#fff;font-family:var(--num);font-weight:900;text-align:center;line-height:24px;font-size:14px}
+.gl .more{margin-top:14px}
 .units{margin:0;display:grid;gap:2px}
 .units dt{font-weight:900;color:var(--navy);margin-top:8px;padding-left:10px;border-left:4px solid var(--blue)}
 .units dd{margin:2px 0 0 14px;font-size:15px}
@@ -373,7 +380,16 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   </div>
 </header>
 
-<section class="sec" id="course"><div class="in">
+<section class="sec" id="glance"><div class="in">
+  <div class="h2"><span class="en">AT A GLANCE</span><h2>ひと目でわかる<br>東京成徳大学深谷高校</h2></div>
+  <div class="box gl"><p class="gl-tone"><small>校風</small>建学の精神「成徳(徳を成す人間の育成)」。勉強と部活動を両立する私立高校</p>
+  <p class="sub-h">ここが強み</p><ol class="gl-st"><li>進学選抜・進学コースは、得意な2教科の合計で合否を判定</li><li>校内の進学センターで、放課後・土曜・夏休みに講習や進学相談</li><li>深谷駅など6駅から無料スクールバス。サッカー部は関東大会県予選優勝(R7)</li></ol>
+  <p class="sub-h">こんな人に向いています</p><ul class="fl"><li>得意な教科を生かして受験したい人</li><li>部活動と勉強を両立したい人</li><li>保育士・幼稚園や小学校の先生などをめざしたい人(進学コースの子ども教育系)</li></ul>
+  <a class="more" href="#feature">校風・特色をくわしく見る ›</a></div>
+  <p class="note">各高校の公式サイト・学校案内・県教育委員会のスクール・ポリシーで確認した情報をもとに、学習空間 深谷上柴教室がまとめた要点です。</p>
+</div></section>
+
+<section class="sec alt" id="course"><div class="in">
   <div class="h2"><span class="en">COURSE</span><h2>東京成徳大学深谷高校の<br>コース</h2></div>
   <div class="box"><h3 class="h3">特進Sコース<small class="yr">募集 40名(共学)</small></h3><p style="margin:0">難関国公立大学などの難関大学進学をめざすコース。週2日の7時間授業、土曜授業、夏休みなどの各種講習で学習習慣をつくる。</p></div>
   <div class="box"><h3 class="h3">進学選抜コース<small class="yr">募集 80名(共学)</small></h3><p style="margin:0">一般選抜に対応できる力を養い、有名私立大学進学をめざすコース。平日放課後と土曜午前は「進学センターの講習」か部活動を選択でき、勉強と部活動の両立を図る。</p></div>
@@ -381,7 +397,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">出典:<a href="https://tsfh.jp/courses/tokushinsenbatsu" target="_blank" rel="noopener">特進Sコース</a>、<a href="https://tsfh.jp/courses/shingakusenbatsu" target="_blank" rel="noopener">進学選抜コース</a>、<a href="https://tsfh.jp/courses/shingaku" target="_blank" rel="noopener">進学コース</a></p>
 </div></section>
 
-<section class="sec alt" id="exam"><div class="in">
+<section class="sec" id="exam"><div class="in">
   <div class="h2"><span class="en">EXAM</span><h2>東京成徳大学深谷高校の<br>入試日程と科目</h2></div>
   <p class="lead">2027年度(令和9年度)入試の入試です。</p>
   <div class="kinds"><div class="kind"><div class="kh"><b>単願</b><span>1月22日(金)</span></div><dl><dt>科目</dt><dd>国・数・英(各50分)</dd><dt>面接</dt><dd>個人面接(約10分)</dd></dl><p class="kn">特待生判定あり</p></div><div class="kind"><div class="kh"><b>併願1</b><span>1月22日(金)</span></div><dl><dt>科目</dt><dd>国・数・英(各50分)</dd><dt>面接</dt><dd>なし</dd></dl><p class="kn">私立の第一希望。特待生判定あり</p></div><div class="kind"><div class="kh"><b>併願2</b><span>1月23日(土)</span></div><dl><dt>科目</dt><dd>国・数・英(各50分)</dd><dt>面接</dt><dd>なし</dd></dl><p class="kn">特待生判定あり</p></div><div class="kind"><div class="kh"><b>2月単願</b><span>2月6日(土)</span></div><dl><dt>科目</dt><dd>国・数・英(各50分)</dd><dt>面接</dt><dd>個人面接(約10分)</dd></dl></div><div class="kind"><div class="kh"><b>2月併願</b><span>2月6日(土)</span></div><dl><dt>科目</dt><dd>国・数・英(各50分)</dd><dt>面接</dt><dd>なし</dd></dl></div></div>
@@ -392,13 +408,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">日程や基準は変わることがあります。出願前に、必ず東京成徳大学深谷高校の募集要項で確認してください。</p>
 </div></section>
 
-<section class="sec" id="point"><div class="in">
+<section class="sec alt" id="point"><div class="in">
   <div class="h2"><span class="en">POINT</span><h2>東京成徳大学深谷高校合格への<br>ポイント</h2></div>
   <ol class="pts"><li><b>試験は国・数・英(各50分)。</b>特進Sは3教科の合計、進学選抜・進学は<b>高い2教科の合計</b>で判定します。得意教科を確実に伸ばしましょう。</li><li><b>単願は個人面接(約10分)あり。</b>志望理由と中学校でがんばったことを、自分の言葉で話せるようにしておきましょう。</li><li><b>特待生の判定は1月の入試(単願・併願1・併願2)だけ。</b>2月入試にはありません。</li><li><b>入学するコースは、合格したコースの中から手続きのときに選べます。</b></li></ol>
   <div class="box voice"><div class="ic">塾長<br>より</div><div><div class="who">学習空間 深谷上柴教室から</div><p>東京成徳大学深谷は、2教科で判定してもらえるコースがあるので、苦手教科がある人にもチャンスがあります。個別相談は予約制で、保護者の同伴が必要です。北辰テストの結果を持って、どのコースで合格できそうかを確認しましょう。</p></div></div>
 </div></section>
 
-<section class="sec alt" id="feature"><div class="in">
+<section class="sec" id="feature"><div class="in">
   <div class="h2"><span class="en">FEATURE</span><h2>東京成徳大学深谷高校の<br>校風と特色</h2></div>
   <div class="box"><p class="kokun"><small>校訓・教育目標</small>成徳(徳を成す人間の育成)</p></div>
   <div class="box"><h3 class="h3">ここが特色</h3><ul class="fl"><li>所在地は深谷市宿根559。深谷駅・寄居駅・森林公園駅・小川駅・行田市駅・児玉駅から無料スクールバスを運行。</li><li>普通科3コース制(特進S・進学選抜・進学)で、全コース男女共学。</li><li>校内の「進学センター」で放課後・土曜午前・夏休みなどに講習や進学相談を受けられ、元予備校講師なども担当している。</li><li>スタディサプリを全学年・全コースで導入し、生徒・教員が1人1台Chromebookを持っている。</li><li>進学コースは東京成徳大学・東京成徳短期大学への併設校推薦が可能で、子ども教育系では保育士・幼稚園教諭・小学校教諭をめざせる。</li><li>入学するコースは、合格判定を受けたコースの中から入学手続き時に選べる。</li><li>深谷駅など6駅から無料スクールバスを運行し、県北を中心に広い地域から通学している。</li></ul></div>
@@ -410,7 +426,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">校訓・特色・学校生活・求める生徒像は東京成徳大学深谷高校の公式サイトより:<a href="https://tsfh.jp/" target="_blank" rel="noopener">東京成徳大学深谷高等学校 トップページ</a>、<a href="https://tsfh.jp/entrance_exam/募集要項" target="_blank" rel="noopener">募集要項</a>、<a href="https://tsfh.jp/entrance_exam/特待制度" target="_blank" rel="noopener">特待制度</a>、<a href="https://tsfh.jp/entrance_exam/学費・諸費用" target="_blank" rel="noopener">学費・諸費用</a>、<a href="https://tsfh.jp/entrance_exam/進路結果" target="_blank" rel="noopener">進路結果</a>、<a href="https://tsfh.jp/entrance_exam/個別相談" target="_blank" rel="noopener">個別相談</a>、<a href="https://tsfh.jp/entrance_exam/学校説明会" target="_blank" rel="noopener">学校説明会</a>、<a href="https://tsfh.jp/courses/tokushinsenbatsu" target="_blank" rel="noopener">特進Sコース</a>、<a href="https://tsfh.jp/courses/shingakusenbatsu" target="_blank" rel="noopener">進学選抜コース</a>、<a href="https://tsfh.jp/courses/shingaku" target="_blank" rel="noopener">進学コース</a>、<a href="https://tsfh.jp/aboutschool/本校の教育方針等" target="_blank" rel="noopener">本校の教育方針等</a>、<a href="https://tsfh.jp/aboutschool/校歌・沿革（歴史）" target="_blank" rel="noopener">校歌・沿革(歴史)</a>、<a href="https://tsfh.jp/access" target="_blank" rel="noopener">アクセス</a>、<a href="https://tsfh.jp/digital_pamph/html5.html#page=1" target="_blank" rel="noopener">デジタルパンフレット「東京成徳大学深谷高等学校2027 学校案内」</a>。「こんな人に向いています」とMy Voiceの例は、公式の情報をもとに当教室がまとめたものです。</p>
 </div></section>
 
-<section class="sec" id="fee"><div class="in">
+<section class="sec alt" id="fee"><div class="in">
   <div class="h2"><span class="en">FEE</span><h2>東京成徳大学深谷高校の<br>学費</h2></div>
   <div class="box"><h3 class="h3">入学時・年間の費用<small class="yr">令和8年度(公式ページ)。2027学校案内も入学金・施設費・授業料・維持費は同額</small></h3><div class="tbl"><table class="ex fee"><tbody><tr><th>入学金</th><td>200,000円</td></tr><tr><th>オリエンテーション費(年によって変わる)</th><td>40,000円</td></tr><tr><th>施設費(年額)</th><td>40,000円</td></tr><tr><th>授業料(月額)</th><td>37,700円</td></tr><tr><th>維持費(月額)</th><td>5,000円</td></tr><tr><th>PTA会費・後援会費・生徒会費(月額の合計)</th><td>3,500円</td></tr></tbody></table></div>
   <p class="note" style="margin-top:8px">授業料(年452,400円)は国の就学支援金で無償化されます(要件あり)。埼玉県の補助で、入学金・施設費・維持費が年収に応じて軽くなります(学校案内2027)。ほかに学校指定品約142,000〜165,000円、修学旅行積立金約160,000円など。</p></div>
@@ -418,7 +434,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">国の就学支援金などで、実際に払う額は家庭によって変わります。くわしくは学校の説明会で確認しましょう。</p>
 </div></section>
 
-<section class="sec alt" id="career"><div class="in">
+<section class="sec" id="career"><div class="in">
   <div class="h2"><span class="en">CAREER</span><h2>東京成徳大学深谷高校の<br>卒業後の進路</h2></div>
   <div class="box"><h3 class="h3">大学などの合格実績<small class="yr">令和7年度</small></h3>
   <div class="facts gk"><div class="fact"><small>国公立大学</small><b>8<span>人</span></b></div></div>
@@ -427,18 +443,18 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">東京成徳大学深谷高校の公式サイトの進路情報より:<a href="https://tsfh.jp/entrance_exam/進路結果" target="_blank" rel="noopener">進路結果</a>。進路の結果は年度によって変わります。</p>
 </div></section>
 
-<section class="sec" id="schedule"><div class="in">
+<section class="sec alt" id="schedule"><div class="in">
   <div class="h2"><span class="en">SCHEDULE</span><h2>私立入試の流れ</h2></div>
   <ol class="tl"><li style="--c:var(--g)"><div class="dot"></div><div class="card"><div class="date">11月14日〜1月5日</div><div class="what">私立 個別相談会</div><div class="sub">通知表・北辰テストの結果を持って相談</div></div></li><li style="--c:var(--g)"><div class="dot"></div><div class="card"><div class="date">12月1日〜1月8日</div><div class="what">私立 出願</div></div></li><li style="--c:var(--g)"><div class="dot"></div><div class="card"><div class="date">1月22日〜</div><div class="what">私立 入試</div><div class="sub">多くの学校が1/22(金)〜。本庄第一は1/24(日)・2/6(土)・3/6(土)もあり</div></div></li></ol>
   <p class="note">公立高校の日程は<a href="../#schedule">トップページ</a>で見られます。私立を併願にして公立を受けるときは、公立の合格発表(3月)まで手続きを待てるかも確認しましょう。</p>
 </div></section>
 
-<section class="sec alt" id="faq"><div class="in">
+<section class="sec" id="faq"><div class="in">
   <div class="h2"><span class="en">FAQ</span><h2>東京成徳大学深谷高校の入試<br>よくある質問</h2></div>
   <div class="qa"><details open><summary>東京成徳大学深谷高校の偏差値は?</summary><p>東京成徳大学深谷高校は偏差値を公表していません。私立高校は、11〜12月の個別相談で通知表(内申)や北辰テストの結果をもとに合格の見込みを相談するのが一般的です。基準は個別相談で確認しましょう。</p></details><details open><summary>東京成徳大学深谷高校の入試日と科目は?</summary><p>2027年度(令和9年度)入試は、単願が1月22日(金)(国・数・英(各50分))、併願1が1月22日(金)(国・数・英(各50分))、併願2が1月23日(土)(国・数・英(各50分))、2月単願が2月6日(土)(国・数・英(各50分))、2月併願が2月6日(土)(国・数・英(各50分))です。</p></details><details open><summary>東京成徳大学深谷高校の入試に面接はありますか?</summary><p>単願:個人面接(約10分)。併願1:なし。併願2:なし。2月単願:個人面接(約10分)。2月併願:なし。</p></details><details open><summary>東京成徳大学深谷高校に特待生制度はありますか?</summary><p>単願・併願1・併願2で特待生判定あり(2月入試はなし)。特待の種類・基準・減免額は公式サイトの「特待制度」ページが画像のみで、内容を確認できなかった</p></details><details open><summary>東京成徳大学深谷高校の学費は?</summary><p>令和8年度(公式ページ)。2027学校案内も入学金・施設費・授業料・維持費は同額の公式資料では、入学金200,000円、オリエンテーション費(年によって変わる)40,000円、施設費(年額)40,000円、授業料(月額)37,700円、維持費(月額)5,000円、PTA会費・後援会費・生徒会費(月額の合計)3,500円です。授業料(年452,400円)は国の就学支援金で無償化されます(要件あり)。埼玉県の補助で、入学金・施設費・維持費が年収に応じて軽くなります(学校案内2027)。ほかに学校指定品約142,000〜165,000円、修学旅行積立金約160,000円など。</p></details><details open><summary>東京成徳大学深谷高校の進学実績は?</summary><p>合格実績は国公立大学8人です。主な進学先・合格先は一橋大学・横浜国立大学・埼玉大学・群馬大学などです。</p></details></div>
 </div></section>
 
-<section class="sec"><div class="in">
+<section class="sec alt"><div class="in">
   <div class="h2"><span class="en">OTHER SCHOOLS</span><h2>ほかの高校の入試情報</h2></div>
   <div class="box"><h3 class="h3" style="color:var(--g)">私立高校</h3><div class="links"><a href="../shochi-fukaya/"><span>正智深谷高校<small>深谷市・普通科・4コース</small></span></a><a href="../honjo-daiichi/"><span>本庄第一高校<small>本庄市・普通科・3類型</small></span></a><a href="../honjo-higashi/"><span>本庄東高校<small>本庄市・選抜・特進・進学の3コース</small></span></a><a href="../tokyo-nodai-daisan/"><span>東京農業大学第三高校<small>東松山市・Ⅰ・Ⅱ・Ⅲの3コース</small></span></a></div></div>
   <div class="box"><h3 class="h3" style="color:var(--f)">深谷市(公立)</h3><div class="links"><a href="../fukaya-daiichi/"><span>深谷第一高校<small>偏差値52・志願倍率1.01</small></span></a><a href="../fukaya-shogyo/"><span>深谷商業高校<small>偏差値47・志願倍率1.01〜1.08</small></span></a><a href="../fukaya/"><span>深谷高校<small>偏差値42・志願倍率0.75</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--k)">熊谷市(公立)</h3><div class="links"><a href="../kumagaya/"><span>熊谷高校<small>偏差値65・志願倍率1.13</small></span></a><a href="../kumagaya-joshi/"><span>熊谷女子高校<small>偏差値63・志願倍率1.13</small></span></a><a href="../kumagaya-nishi/"><span>熊谷西高校<small>偏差値62・志願倍率1.17</small></span></a><a href="../kumagaya-shogyo/"><span>熊谷商業高校<small>偏差値46・志願倍率0.81</small></span></a><a href="../kumagaya-kogyo/"><span>熊谷工業高校<small>偏差値42-43・志願倍率0.78〜1.15</small></span></a><a href="../kumagaya-nogyo/"><span>熊谷農業高校<small>偏差値40-42・志願倍率0.90〜1.18</small></span></a><a href="../menuma/"><span>妻沼高校<small>偏差値40・志願倍率0.67</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--h)">本庄市・寄居町(公立)</h3><div class="links"><a href="../honjo/"><span>本庄高校<small>偏差値56・志願倍率1.09</small></span></a><a href="../yorii-johoku/"><span>寄居城北高校<small>偏差値43・志願倍率0.99</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--g)">行田市(公立)</h3><div class="links"><a href="../shinshukan/"><span>進修館高校<small>偏差値44-47・志願倍率0.28〜0.77</small></span></a></div></div><div class="box"><h3 class="h3" style="color:#455a64">鴻巣市・上尾市・伊奈町(公立)</h3><div class="links"><a href="../ageo/"><span>上尾高校<small>偏差値55-57・志願倍率1.28〜1.33</small></span></a><a href="../ina-gakuen/"><span>伊奈学園総合高校<small>偏差値59・志願倍率1.10</small></span></a><a href="../konosu/"><span>鴻巣高校<small>偏差値42-46・志願倍率0.87〜0.98</small></span></a><a href="../konosu-joshi/"><span>鴻巣女子高校<small>偏差値40-44・志願倍率0.51〜0.98</small></span></a></div></div>

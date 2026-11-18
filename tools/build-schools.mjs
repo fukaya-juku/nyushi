@@ -20,6 +20,9 @@ const TKF = path.join(ROOT, "data", "school-features.json");
 const TK = fs.existsSync(TKF) ? JSON.parse(fs.readFileSync(TKF, "utf8")) : {};
 // 私立高校のページ(slug ごと)。ない場合は作らない
 const PVF = path.join(ROOT, "data", "private-pages.json");
+// 「ひと目でわかる」要点(公式で確認した情報から塾がまとめたもの)
+const GLF = path.join(ROOT, "data", "school-glance.json");
+const GL = fs.existsSync(GLF) ? JSON.parse(fs.readFileSync(GLF, "utf8")) : {};
 const privs = fs.existsSync(PVF) ? JSON.parse(fs.readFileSync(PVF, "utf8")) : [];
 
 const grab = (re, what) => { const m = top.match(re); if (!m) throw new Error(what + " が index.html に見つかりません"); return m[1]; };
@@ -263,6 +266,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
 .dl{margin:0;display:grid;gap:4px 12px;font-size:15px}
 .dl dt{font-weight:900;color:var(--navy);margin-top:6px}
 .dl dd{margin:0}
+.gl{border:2px solid var(--blue)}
+.gl-tone{margin:0;font-size:18px;font-weight:900;color:var(--navy);line-height:1.5}
+.gl-tone small{display:block;font-size:13px;color:var(--muted)}
+.gl-st{list-style:none;margin:0;padding:0;counter-reset:g;display:flex;flex-direction:column;gap:8px}
+.gl-st li{counter-increment:g;position:relative;padding:8px 10px 8px 42px;background:var(--sky);border-radius:12px;font-size:16px;font-weight:700;color:var(--navy)}
+.gl-st li::before{content:counter(g);position:absolute;left:10px;top:8px;width:24px;height:24px;border-radius:50%;background:var(--orange);color:#fff;font-family:var(--num);font-weight:900;text-align:center;line-height:24px;font-size:14px}
+.gl .more{margin-top:14px}
 .units{margin:0;display:grid;gap:2px}
 .units dt{font-weight:900;color:var(--navy);margin-top:8px;padding-left:10px;border-left:4px solid var(--blue)}
 .units dd{margin:2px 0 0 14px;font-size:15px}
@@ -351,7 +361,7 @@ function page(p) {
   </div>
 </header>
 
-${sec("data")}<div class="in">
+${glance(p.slug, p.name, (TK[p.slug] || {}).fit, sec, ft ? "#feature" : "#point")}${sec("data")}<div class="in">
   <div class="h2"><span class="en">DATA</span><h2>${p.name}の<br>基本データ</h2></div>
   ${ds.map(d => facts(p, d)).join("\n  ")}
   <div class="box"><h3 class="h3">近い偏差値の高校とくらべる</h3>${hensachi(p)}<p class="note" style="margin-top:8px">偏差値は「みんなの高校情報」の値をまとめた民間サイトより。模試によって数値は変わります。</p></div>
@@ -416,6 +426,20 @@ ${sec("")}<div class="in">
 }
 
 // ---- 私立高校のページ(data/private-pages.json。入試・コース・学費・進路は各校の公式サイトと入試要項から) ----
+function glance(slug, name, fit, sec, more) {
+  const g = GL[slug]; if (!g) return "";
+  return `${sec("glance")}<div class="in">
+  <div class="h2"><span class="en">AT A GLANCE</span><h2>ひと目でわかる<br>${name}</h2></div>
+  <div class="box gl"><p class="gl-tone"><small>校風</small>${esc(g.tone)}</p>
+  <p class="sub-h">ここが強み</p><ol class="gl-st">${g.strengths.map(x => `<li>${esc(x)}</li>`).join("")}</ol>
+  ${fit && fit.length ? `<p class="sub-h">こんな人に向いています</p><ul class="fl">${fit.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+  <a class="more" href="${more}">校風・特色をくわしく見る ›</a></div>
+  <p class="note">各高校の公式サイト・学校案内・県教育委員会のスクール・ポリシーで確認した情報をもとに、学習空間 深谷上柴教室がまとめた要点です。</p>
+</div></section>
+
+`;
+}
+
 function privBox(me) {
   const os = privs.filter(q => q.slug !== me);
   return os.length ? `<div class="box"><h3 class="h3" style="color:var(--g)">私立高校</h3><div class="links">${os.map(q => `<a href="../${q.slug}/"><span>${q.name}<small>${esc(q.area)}・${esc(q.sub)}</small></span></a>`).join("")}</div></div>` : "";
@@ -469,7 +493,7 @@ function privPage(q) {
   </div>
 </header>
 
-${sec("course")}<div class="in">
+${glance(q.slug, q.name, q.fit, sec, ft ? "#feature" : "#point")}${sec("course")}<div class="in">
   <div class="h2"><span class="en">COURSE</span><h2>${q.name}の<br>コース</h2></div>
   ${(q.courses || []).map(c => `<div class="box"><h3 class="h3">${esc(c.name)}${c.teiin ? `<small class="yr">募集 ${esc(c.teiin)}</small>` : ""}</h3><p style="margin:0">${esc(c.text)}</p></div>`).join("\n  ")}
   ${srcNote([...new Set((q.courses || []).map(c => c.src).filter(Boolean))].map(u => q.sources.find(x => x.url === u) || u))}

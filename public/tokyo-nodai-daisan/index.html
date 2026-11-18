@@ -333,6 +333,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
 .dl{margin:0;display:grid;gap:4px 12px;font-size:15px}
 .dl dt{font-weight:900;color:var(--navy);margin-top:6px}
 .dl dd{margin:0}
+.gl{border:2px solid var(--blue)}
+.gl-tone{margin:0;font-size:18px;font-weight:900;color:var(--navy);line-height:1.5}
+.gl-tone small{display:block;font-size:13px;color:var(--muted)}
+.gl-st{list-style:none;margin:0;padding:0;counter-reset:g;display:flex;flex-direction:column;gap:8px}
+.gl-st li{counter-increment:g;position:relative;padding:8px 10px 8px 42px;background:var(--sky);border-radius:12px;font-size:16px;font-weight:700;color:var(--navy)}
+.gl-st li::before{content:counter(g);position:absolute;left:10px;top:8px;width:24px;height:24px;border-radius:50%;background:var(--orange);color:#fff;font-family:var(--num);font-weight:900;text-align:center;line-height:24px;font-size:14px}
+.gl .more{margin-top:14px}
 .units{margin:0;display:grid;gap:2px}
 .units dt{font-weight:900;color:var(--navy);margin-top:8px;padding-left:10px;border-left:4px solid var(--blue)}
 .units dd{margin:2px 0 0 14px;font-size:15px}
@@ -373,7 +380,16 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   </div>
 </header>
 
-<section class="sec" id="course"><div class="in">
+<section class="sec" id="glance"><div class="in">
+  <div class="h2"><span class="en">AT A GLANCE</span><h2>ひと目でわかる<br>東京農業大学第三高校</h2></div>
+  <div class="box gl"><p class="gl-tone"><small>校風</small>建学の精神「人物を畑に還す」。東京農業大学の併設校</p>
+  <p class="sub-h">ここが強み</p><ol class="gl-st"><li>生徒の約4分の1が東京農業大学などへの推薦制度で進学。他大学との併願も可</li><li>進学重視のⅠコース、文武両道のⅡコース、スポーツ科学のⅢコース</li><li>国公立大学に36名合格(令和8年度)。熊谷駅からスクールバス</li></ol>
+  <p class="sub-h">こんな人に向いています</p><ul class="fl"><li>農学・生物・食品・環境などに興味があり、東京農業大学への進学も考えている人</li><li>国公立大学をめざして、進んだ授業を受けたい人(Ⅰコース)</li><li>部活動と勉強を両立したい人(Ⅱコース)、スポーツで全国をめざしたい人(Ⅲコース)</li></ul>
+  <a class="more" href="#feature">校風・特色をくわしく見る ›</a></div>
+  <p class="note">各高校の公式サイト・学校案内・県教育委員会のスクール・ポリシーで確認した情報をもとに、学習空間 深谷上柴教室がまとめた要点です。</p>
+</div></section>
+
+<section class="sec alt" id="course"><div class="in">
   <div class="h2"><span class="en">COURSE</span><h2>東京農業大学第三高校の<br>コース</h2></div>
   <div class="box"><h3 class="h3">Ⅰコース（進学重視）</h3><p style="margin:0">国公立大学・難関私立大学への現役合格をめざすコース。先取り授業で入試レベルの学力を早めに固め、3年次には平日5・6限に自由選択科目（国公立二次・共通テスト対策など）を置く。目標大学は旧7帝大・一橋大・東京科学大・医学部医学科、筑波大・千葉大など首都圏国公立大、早稲田・慶應・上智・ICU。</p></div>
   <div class="box"><h3 class="h3">Ⅰコース グローバル課程</h3><p style="margin:0">Ⅰコース内の課程（入学時に所属）。カナダや台湾出身の講師の指導、模擬国連、ネイティブ講師の英作文・面接の個別指導などで英語力と国際感覚を伸ばす。希望者向けにクイーンズランド語学研修（2週間）や中長期留学もある。研修費用等がかかる。</p></div>
@@ -383,7 +399,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">出典:<a href="https://www.nodai-3-h.ed.jp/download_file/view/5906/275" target="_blank" rel="noopener">2027 School Guide（学校案内）PDF</a></p>
 </div></section>
 
-<section class="sec alt" id="exam"><div class="in">
+<section class="sec" id="exam"><div class="in">
   <div class="h2"><span class="en">EXAM</span><h2>東京農業大学第三高校の<br>入試日程と科目</h2></div>
   <p class="lead">2027年度（令和9年度）入試の入試です。</p>
   <div class="kinds"><div class="kind"><div class="kh"><b>推薦入試Ⅰ(単願・併願)</b><span>1月22日(金)</span></div><dl><dt>科目</dt><dd>国・数・英(各45分、マークシート)</dd><dt>面接</dt><dd>なし</dd></dl><p class="kn">スポーツ推薦・特別推薦は単願のみでこの回</p></div><div class="kind"><div class="kh"><b>推薦入試Ⅱ(併願)</b><span>1月23日(土)</span></div><dl><dt>科目</dt><dd>国・数・英(各45分、マークシート)</dd><dt>面接</dt><dd>なし</dd></dl></div><div class="kind"><div class="kh"><b>一般入試(単願・併願)</b><span>2月1日(月)</span></div><dl><dt>科目</dt><dd>5教科の総合問題(60分、記述式)</dd><dt>面接</dt><dd>なし</dd></dl><p class="kn">募集は若干名</p></div></div>
@@ -394,13 +410,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">日程や基準は変わることがあります。出願前に、必ず東京農業大学第三高校の募集要項で確認してください。</p>
 </div></section>
 
-<section class="sec" id="point"><div class="in">
+<section class="sec alt" id="point"><div class="in">
   <div class="h2"><span class="en">POINT</span><h2>東京農業大学第三高校合格への<br>ポイント</h2></div>
   <ol class="pts"><li><b>推薦入試は国・数・英(各45分・マークシート)。</b>面接はありません(帰国子女入試のみ)。</li><li><b>推薦入試Ⅰ(1月22日・単願/併願)と推薦入試Ⅱ(1月23日・併願)の両方を受けられます。</b>検定料は各回25,000円です。</li><li><b>スライド合格あり。</b>Ⅰコースに届かなくてもⅡコースで合格でき、Ⅱコースの合格者が結果によってⅠコースに上がることもあります。</li><li><b>2月1日の一般入試は5教科の総合問題(60分・記述式)で、募集は若干名。</b>1月の推薦入試が中心です。</li></ol>
   <div class="box voice"><div class="ic">塾長<br>より</div><div><div class="who">学習空間 深谷上柴教室から</div><p>東京農大第三は、東京農業大学への推薦の道がありながら、国公立大学や他の私立大学もめざせる学校です。深谷から通う場合は熊谷駅からのスクールバスになるので、通学時間も含めて説明会で確認しましょう。推薦の基準は個別説明会で教えてもらえます。</p></div></div>
 </div></section>
 
-<section class="sec alt" id="feature"><div class="in">
+<section class="sec" id="feature"><div class="in">
   <div class="h2"><span class="en">FEATURE</span><h2>東京農業大学第三高校の<br>校風と特色</h2></div>
   <div class="box"><p class="kokun"><small>校訓・教育目標</small>人物を畑に還す(建学の精神)/不屈・探究・信頼</p></div>
   <div class="box"><h3 class="h3">ここが特色</h3><ul class="fl"><li>所在地は東松山市（大字松山1400-1）。スクールバスあり（熊谷駅・行田市駅〈秩父鉄道〉・吹上駅・鴻巣駅・東松山駅・上尾駅・本川越駅）。最寄り駅は東武東上線 東松山駅。深谷駅発のスクールバスはなく、深谷方面からはJR高崎線で熊谷駅へ出て、熊谷駅からスクールバスを使う形になる。。</li><li>学校法人東京農業大学の併設校で、希望者は東京農業大学・東京情報大学への推薦入試制度を利用できる。学校案内によると生徒の約4分の1がこの制度で進学しており、他大学も受けられる併願制度もある。</li><li>東京農業大学の併設高校推薦入試の合格者は、R8が105名、R7が84名、R6が70名（学部別では国際食料情報学部35名、応用生物科学部27名など）。</li><li>国公立大学の合格者はR8が36名、R7が25名、R6が24名で、Ⅰ・Ⅱ・Ⅲの全コースから出ている。総合型選抜・学校推薦型選抜では、志望理由書・小論文・面接を個別に指導している。</li><li>教育改革の3本柱として「グローバル教育」「実学教育」「学内完結型教育」を掲げている。</li><li>入学後もコースの異動ができる場合があり、希望すれば2年次に進級するときに認められることがある。</li><li>スクールバスで熊谷・行田市・吹上・鴻巣・東松山・上尾・本川越の各駅と学校を結んでいる。</li></ul></div>
@@ -413,7 +429,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">校訓・特色・学校生活・求める生徒像は東京農業大学第三高校の公式サイトより:<a href="https://www.nodai-3-h.ed.jp/download_file/view/6402/441" target="_blank" rel="noopener">2027年度 生徒募集要項（高校）PDF</a>、<a href="https://www.nodai-3-h.ed.jp/download_file/view/5906/275" target="_blank" rel="noopener">2027 School Guide（学校案内）PDF</a>、<a href="https://www.nodai-3-h.ed.jp/admission/hs" target="_blank" rel="noopener">入試情報（高校）</a>、<a href="https://www.nodai-3-h.ed.jp/admission/hs/event" target="_blank" rel="noopener">学校見学会・学校説明会・個別説明会日程</a>、<a href="https://www.nodai-3-h.ed.jp/access" target="_blank" rel="noopener">交通アクセス</a>、<a href="https://www.nodai-3-h.ed.jp/download_file/view/6569/2388" target="_blank" rel="noopener">11/22 学校説明会・個別説明会 バスダイヤ PDF</a>、<a href="https://www.nodai-3-h.ed.jp/hs/career/result01" target="_blank" rel="noopener">進路実績（国公立大学）</a>、<a href="https://www.nodai-3-h.ed.jp/hs/career/result02" target="_blank" rel="noopener">進路実績（私立大学）</a>、<a href="https://www.nodai-3-h.ed.jp/hs/career/result03" target="_blank" rel="noopener">進路実績（東京農業大学）</a>、<a href="https://www.nodai-3-h.ed.jp/hs/career/recommendation" target="_blank" rel="noopener">東京農大等への推薦制度</a>、<a href="https://www.nodai-3-h.ed.jp/hs/history" target="_blank" rel="noopener">沿革（高校）</a>、<a href="https://www.nodai-3-h.ed.jp/aboutus/policy" target="_blank" rel="noopener">教育方針</a>。「こんな人に向いています」とMy Voiceの例は、公式の情報をもとに当教室がまとめたものです。</p>
 </div></section>
 
-<section class="sec" id="fee"><div class="in">
+<section class="sec alt" id="fee"><div class="in">
   <div class="h2"><span class="en">FEE</span><h2>東京農業大学第三高校の<br>学費</h2></div>
   <div class="box"><h3 class="h3">入学時・年間の費用<small class="yr">初年度納付金 令和8年度実績（2027年度募集要項に掲載）</small></h3><div class="tbl"><table class="ex fee"><tbody><tr><th>入学金</th><td>228,000円</td></tr><tr><th>授業料(年額)</th><td>372,000円</td></tr><tr><th>施設設備資金</th><td>120,000円</td></tr><tr><th>維持費</th><td>78,000円</td></tr><tr><th>実験・教材費</th><td>60,000円</td></tr><tr><th>その他諸経費(保護者会費・後援会費・生徒会費)</th><td>49,000円</td></tr><tr><th>初年度の合計</th><td>907,000円</td></tr></tbody></table></div>
   <p class="note" style="margin-top:8px">授業料は令和9年度から金額が変わる予定です(募集要項の注記)。ほかに学年費・スクールバス利用料金・修学旅行費など。制服は男子約60,000円・女子約65,000円。</p></div>
@@ -421,7 +437,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">国の就学支援金などで、実際に払う額は家庭によって変わります。くわしくは学校の説明会で確認しましょう。</p>
 </div></section>
 
-<section class="sec alt" id="career"><div class="in">
+<section class="sec" id="career"><div class="in">
   <div class="h2"><span class="en">CAREER</span><h2>東京農業大学第三高校の<br>卒業後の進路</h2></div>
   <div class="box"><h3 class="h3">大学などの合格実績<small class="yr">令和8年度の実績</small></h3>
   <div class="facts gk"><div class="fact"><small>国公立大学</small><b>36<span>人</span></b></div><div class="fact"><small>東京農業大学</small><b>115<span>人</span></b></div><div class="fact"><small>うち併設高校推薦</small><b>105<span>人</span></b></div><div class="fact"><small>GMARCH</small><b>39<span>人</span></b></div><div class="fact"><small>日東駒専</small><b>72<span>人</span></b></div></div>
@@ -430,18 +446,18 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">東京農業大学第三高校の公式サイトの進路情報より:<a href="https://www.nodai-3-h.ed.jp/hs/career/result01" target="_blank" rel="noopener">進路実績（国公立大学）</a>、<a href="https://www.nodai-3-h.ed.jp/hs/career/result02" target="_blank" rel="noopener">進路実績（私立大学）</a>、<a href="https://www.nodai-3-h.ed.jp/hs/career/result03" target="_blank" rel="noopener">進路実績（東京農業大学）</a>、<a href="https://www.nodai-3-h.ed.jp/download_file/view/5906/275" target="_blank" rel="noopener">2027 School Guide（学校案内）PDF</a>。進路の結果は年度によって変わります。</p>
 </div></section>
 
-<section class="sec" id="schedule"><div class="in">
+<section class="sec alt" id="schedule"><div class="in">
   <div class="h2"><span class="en">SCHEDULE</span><h2>私立入試の流れ</h2></div>
   <ol class="tl"><li style="--c:var(--g)"><div class="dot"></div><div class="card"><div class="date">11月14日〜1月5日</div><div class="what">私立 個別相談会</div><div class="sub">通知表・北辰テストの結果を持って相談</div></div></li><li style="--c:var(--g)"><div class="dot"></div><div class="card"><div class="date">12月1日〜1月8日</div><div class="what">私立 出願</div></div></li><li style="--c:var(--g)"><div class="dot"></div><div class="card"><div class="date">1月22日〜</div><div class="what">私立 入試</div><div class="sub">多くの学校が1/22(金)〜。本庄第一は1/24(日)・2/6(土)・3/6(土)もあり</div></div></li></ol>
   <p class="note">公立高校の日程は<a href="../#schedule">トップページ</a>で見られます。私立を併願にして公立を受けるときは、公立の合格発表(3月)まで手続きを待てるかも確認しましょう。</p>
 </div></section>
 
-<section class="sec alt" id="faq"><div class="in">
+<section class="sec" id="faq"><div class="in">
   <div class="h2"><span class="en">FAQ</span><h2>東京農業大学第三高校の入試<br>よくある質問</h2></div>
   <div class="qa"><details open><summary>東京農業大学第三高校の偏差値は?</summary><p>東京農業大学第三高校は偏差値を公表していません。私立高校は、11〜12月の個別相談で通知表(内申)や北辰テストの結果をもとに合格の見込みを相談するのが一般的です。基準は個別相談で確認しましょう。</p></details><details open><summary>東京農業大学第三高校の入試日と科目は?</summary><p>2027年度（令和9年度）入試は、推薦入試Ⅰ(単願・併願)が1月22日(金)(国・数・英(各45分、マークシート))、推薦入試Ⅱ(併願)が1月23日(土)(国・数・英(各45分、マークシート))、一般入試(単願・併願)が2月1日(月)(5教科の総合問題(60分、記述式))です。</p></details><details open><summary>東京農業大学第三高校の入試に面接はありますか?</summary><p>推薦入試Ⅰ(単願・併願):なし。推薦入試Ⅱ(併願):なし。一般入試(単願・併願):なし。</p></details><details open><summary>東京農業大学第三高校に特待生制度はありますか?</summary><p>学業成績奨学生、併願特待生、運動選手特待生があり、いずれも学校法人東京農業大学奨学生制度によって決まる。運動選手特待生の募集は5名以内で、野球部特待生への応募には在籍中学校長の推薦書が必要。具体的な基準や減免額は要項に記載がない。</p></details><details open><summary>東京農業大学第三高校の学費は?</summary><p>初年度納付金 令和8年度実績（2027年度募集要項に掲載）の公式資料では、入学金228,000円、授業料(年額)372,000円、施設設備資金120,000円、維持費78,000円、実験・教材費60,000円、その他諸経費(保護者会費・後援会費・生徒会費)49,000円、初年度の合計907,000円です。授業料は令和9年度から金額が変わる予定です(募集要項の注記)。ほかに学年費・スクールバス利用料金・修学旅行費など。制服は男子約60,000円・女子約65,000円。</p></details><details open><summary>東京農業大学第三高校の進学実績は?</summary><p>合格実績は国公立大学36人、東京農業大学115人、うち併設高校推薦105人です。主な進学先・合格先は東京農業大学・群馬大学・宇都宮大学・横浜国立大学などです。</p></details></div>
 </div></section>
 
-<section class="sec"><div class="in">
+<section class="sec alt"><div class="in">
   <div class="h2"><span class="en">OTHER SCHOOLS</span><h2>ほかの高校の入試情報</h2></div>
   <div class="box"><h3 class="h3" style="color:var(--g)">私立高校</h3><div class="links"><a href="../shochi-fukaya/"><span>正智深谷高校<small>深谷市・普通科・4コース</small></span></a><a href="../tokyoseitoku-fukaya/"><span>東京成徳大学深谷高校<small>深谷市・普通科・3コース</small></span></a><a href="../honjo-daiichi/"><span>本庄第一高校<small>本庄市・普通科・3類型</small></span></a><a href="../honjo-higashi/"><span>本庄東高校<small>本庄市・選抜・特進・進学の3コース</small></span></a></div></div>
   <div class="box"><h3 class="h3" style="color:#455a64">鴻巣市・上尾市・伊奈町(公立)</h3><div class="links"><a href="../ageo/"><span>上尾高校<small>偏差値55-57・志願倍率1.28〜1.33</small></span></a><a href="../ina-gakuen/"><span>伊奈学園総合高校<small>偏差値59・志願倍率1.10</small></span></a><a href="../konosu/"><span>鴻巣高校<small>偏差値42-46・志願倍率0.87〜0.98</small></span></a><a href="../konosu-joshi/"><span>鴻巣女子高校<small>偏差値40-44・志願倍率0.51〜0.98</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--f)">深谷市(公立)</h3><div class="links"><a href="../fukaya-daiichi/"><span>深谷第一高校<small>偏差値52・志願倍率1.01</small></span></a><a href="../fukaya-shogyo/"><span>深谷商業高校<small>偏差値47・志願倍率1.01〜1.08</small></span></a><a href="../fukaya/"><span>深谷高校<small>偏差値42・志願倍率0.75</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--k)">熊谷市(公立)</h3><div class="links"><a href="../kumagaya/"><span>熊谷高校<small>偏差値65・志願倍率1.13</small></span></a><a href="../kumagaya-joshi/"><span>熊谷女子高校<small>偏差値63・志願倍率1.13</small></span></a><a href="../kumagaya-nishi/"><span>熊谷西高校<small>偏差値62・志願倍率1.17</small></span></a><a href="../kumagaya-shogyo/"><span>熊谷商業高校<small>偏差値46・志願倍率0.81</small></span></a><a href="../kumagaya-kogyo/"><span>熊谷工業高校<small>偏差値42-43・志願倍率0.78〜1.15</small></span></a><a href="../kumagaya-nogyo/"><span>熊谷農業高校<small>偏差値40-42・志願倍率0.90〜1.18</small></span></a><a href="../menuma/"><span>妻沼高校<small>偏差値40・志願倍率0.67</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--h)">本庄市・寄居町(公立)</h3><div class="links"><a href="../honjo/"><span>本庄高校<small>偏差値56・志願倍率1.09</small></span></a><a href="../yorii-johoku/"><span>寄居城北高校<small>偏差値43・志願倍率0.99</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--g)">行田市(公立)</h3><div class="links"><a href="../shinshukan/"><span>進修館高校<small>偏差値44-47・志願倍率0.28〜0.77</small></span></a></div></div>

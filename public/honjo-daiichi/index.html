@@ -333,6 +333,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
 .dl{margin:0;display:grid;gap:4px 12px;font-size:15px}
 .dl dt{font-weight:900;color:var(--navy);margin-top:6px}
 .dl dd{margin:0}
+.gl{border:2px solid var(--blue)}
+.gl-tone{margin:0;font-size:18px;font-weight:900;color:var(--navy);line-height:1.5}
+.gl-tone small{display:block;font-size:13px;color:var(--muted)}
+.gl-st{list-style:none;margin:0;padding:0;counter-reset:g;display:flex;flex-direction:column;gap:8px}
+.gl-st li{counter-increment:g;position:relative;padding:8px 10px 8px 42px;background:var(--sky);border-radius:12px;font-size:16px;font-weight:700;color:var(--navy)}
+.gl-st li::before{content:counter(g);position:absolute;left:10px;top:8px;width:24px;height:24px;border-radius:50%;background:var(--orange);color:#fff;font-family:var(--num);font-weight:900;text-align:center;line-height:24px;font-size:14px}
+.gl .more{margin-top:14px}
 .units{margin:0;display:grid;gap:2px}
 .units dt{font-weight:900;color:var(--navy);margin-top:8px;padding-left:10px;border-left:4px solid var(--blue)}
 .units dd{margin:2px 0 0 14px;font-size:15px}
@@ -373,7 +380,16 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   </div>
 </header>
 
-<section class="sec" id="course"><div class="in">
+<section class="sec" id="glance"><div class="in">
+  <div class="h2"><span class="en">AT A GLANCE</span><h2>ひと目でわかる<br>本庄第一高校</h2></div>
+  <div class="box gl"><p class="gl-tone"><small>校風</small>学園理念「響生」。影響を受け、影響を与え合いながら成長する私立高校</p>
+  <p class="sub-h">ここが強み</p><ol class="gl-st"><li>国公立をめざすS類型と、勉強も部活も本気のAⅠ・AⅡ類型</li><li>全方面のスクールバスが無料(深谷・熊谷・妻沼方面も)</li><li>2026年は国公立大学に7名、全員が現役で合格。DXハイスクール採択校</li></ol>
+  <p class="sub-h">こんな人に向いています</p><ul class="fl"><li>国公立大学など高い目標に、学校のサポートを受けながら挑戦したい人</li><li>勉強と部活動の両方に本気で取り組みたい人</li><li>スクールバスで通いたい深谷・熊谷・本庄方面の人</li></ul>
+  <a class="more" href="#feature">校風・特色をくわしく見る ›</a></div>
+  <p class="note">各高校の公式サイト・学校案内・県教育委員会のスクール・ポリシーで確認した情報をもとに、学習空間 深谷上柴教室がまとめた要点です。</p>
+</div></section>
+
+<section class="sec alt" id="course"><div class="in">
   <div class="h2"><span class="en">COURSE</span><h2>本庄第一高校の<br>コース</h2></div>
   <div class="box"><h3 class="h3">S類型<small class="yr">募集 50名</small></h3><p style="margin:0">1年次から大学受験に特化した集中カリキュラム。2年次から文系・理系に分かれ、国公立大学・GMARCHレベルの大学への現役合格をめざす(国公立対応カリキュラム、2年次までに英検2級取得をサポート)。部活動への参加も可能。</p></div>
   <div class="box"><h3 class="h3">AⅠ類型(アドバンス・スタンダード)<small class="yr">募集 150名(アドバンス・スタンダード合計)</small></h3><p style="margin:0">「勉強も部活も本気」の類型。定期試験の順位・模試偏差値・資格取得などの目標に向け、資格取得チャレンジ・放課後ゼミ・個別指導で支える。2年次から文系Ⅰ型・理系Ⅰ型・文系Ⅱ型に分かれる。</p></div>
@@ -381,7 +397,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">出典:<a href="https://www.hon1.ed.jp/hs/education/" target="_blank" rel="noopener">高校 教育内容・進路(大学合格実績)</a></p>
 </div></section>
 
-<section class="sec alt" id="exam"><div class="in">
+<section class="sec" id="exam"><div class="in">
   <div class="h2"><span class="en">EXAM</span><h2>本庄第一高校の<br>入試日程と科目</h2></div>
   <p class="lead">2027年度(令和9年度)入試の入試です。</p>
   <div class="kinds"><div class="kind"><div class="kh"><b>単願推薦1</b><span>1月22日(金)</span></div><dl><dt>科目</dt><dd>英・国・数(各100点・40分、マークシート)</dd><dt>面接</dt><dd>あり(5〜10分)</dd></dl><p class="kn">学業奨学生・部活動奨学生の対象</p></div><div class="kind"><div class="kh"><b>併願推薦1</b><span>1月22日(金)</span></div><dl><dt>科目</dt><dd>英・国・数(同上)</dd><dt>面接</dt><dd>なし</dd></dl><p class="kn">学業奨学生の対象</p></div><div class="kind"><div class="kh"><b>併願推薦2</b><span>1月24日(日)</span></div><dl><dt>科目</dt><dd>英・国・数(同上)</dd><dt>面接</dt><dd>なし</dd></dl></div><div class="kind"><div class="kh"><b>単願推薦2・併願推薦3</b><span>2月6日(土)</span></div><dl><dt>科目</dt><dd>英・国・数(同上)</dd><dt>面接</dt><dd>単願のみ(5〜10分)</dd></dl></div><div class="kind"><div class="kh"><b>単願推薦3</b><span>3月6日(土)</span></div><dl><dt>科目</dt><dd>総合(英・国・数)1科目(100点・40分)</dd><dt>面接</dt><dd>あり(5〜10分)</dd></dl></div></div>
@@ -392,13 +408,13 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">日程や基準は変わることがあります。出願前に、必ず本庄第一高校の募集要項で確認してください。</p>
 </div></section>
 
-<section class="sec" id="point"><div class="in">
+<section class="sec alt" id="point"><div class="in">
   <div class="h2"><span class="en">POINT</span><h2>本庄第一高校合格への<br>ポイント</h2></div>
   <ol class="pts"><li><b>試験は英・国・数の3教科(各100点・40分・マークシート)。</b>3月の単願推薦3だけは3教科をまとめた「総合」1科目です。</li><li><b>単願は面接(5〜10分)あり。</b>併願は面接なしです。</li><li><b>学業奨学生は単願推薦1・併願推薦1(1月22日)だけが対象。</b>部活動奨学生は単願推薦1だけです。1月22日に力を出し切りましょう。</li><li><b>第2希望の類型の入力が必須。</b>S類型・AⅠ類型に届かなかったときも、第2希望の類型で判定してもらえます。</li><li><b>出願はWebでの申込み(12/9〜1/7)と、書類の郵送(12/28〜1/8必着)の2段階。</b>郵送を忘れないように。</li></ol>
   <div class="box voice"><div class="ic">塾長<br>より</div><div><div class="who">学習空間 深谷上柴教室から</div><p>本庄第一は、深谷・熊谷方面からもスクールバスで通いやすく、入試の回数も多い学校です。奨学生をねらうなら1月22日の入試が勝負なので、個別相談で類型と奨学生の見込みを確認してから受け方を決めましょう。</p></div></div>
 </div></section>
 
-<section class="sec alt" id="feature"><div class="in">
+<section class="sec" id="feature"><div class="in">
   <div class="h2"><span class="en">FEATURE</span><h2>本庄第一高校の<br>校風と特色</h2></div>
   <div class="box"><p class="kokun"><small>校訓・教育目標</small>響生(学園理念:影響を受け、影響を与え、柔軟さと豊かさを育む)</p></div>
   <div class="box"><h3 class="h3">ここが特色</h3><ul class="fl"><li>所在地は本庄市仁手1789。全方面無料スクールバスあり(本庄駅・寄居・小前田・児玉・神川・藤岡・秩父・小鹿野・皆野・上里・川本・妻沼・熊谷・上柴・伊勢崎・太田方面など。2026年度平日ダイヤ)。上柴方面は上柴中学校前7:50発など。</li><li>普通科3類型(S類型・AⅠ類型〈アドバンス・スタンダード〉・AⅡ類型)で、2年次から文系・理系などに分かれる。</li><li>國學院大學など15大学(2026年3月現在、68学部136学科・専攻)と教育連携協定を結び、出張講義や大学見学を行っている。</li><li>2025年から文部科学省の「DXハイスクール」(高等学校DX加速化推進事業)採択校で、DXルームにハイスペックPCや3Dプリンタを整備。</li><li>学校独自科目「資格取得チャレンジ」と選択制の「放課後ゼミ」があり、テスト期間には5教科の教員が常駐するサポートルームを開く。</li><li>原則3年間同じスタッフが生徒と関わる「チームスタッフ制」と定期的な二者面談で、学習・生活面を支える。</li><li>アメリカ・カナダ・イギリス・オーストラリア・ニュージーランドへの1年間の長期留学や、夏休みの短期語学研修がある。</li></ul></div>
@@ -411,7 +427,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">校訓・特色・学校生活・求める生徒像は本庄第一高校の公式サイトより:<a href="https://www.hon1.ed.jp/wp-content/uploads/2026/09/dd88008bb677a5218607ba34dd7539da.pdf" target="_blank" rel="noopener">令和9年度入学生 入学試験要項(PDF)</a>、<a href="https://www.hon1.ed.jp/hs/examination/" target="_blank" rel="noopener">高校 入試・イベント情報</a>、<a href="https://www.hon1.ed.jp/for-examinees/" target="_blank" rel="noopener">受験生の方へ</a>、<a href="https://www.hon1.ed.jp/school-news/hs/news-9642/" target="_blank" rel="noopener">【お知らせ】12月個別相談会 開催日追加</a>、<a href="https://www.hon1.ed.jp/hs/education/" target="_blank" rel="noopener">高校 教育内容・進路(大学合格実績)</a>、<a href="https://www.hon1.ed.jp/hs/school/" target="_blank" rel="noopener">高校案内</a>、<a href="https://www.hon1.ed.jp/hs/campus/" target="_blank" rel="noopener">学校生活</a>、<a href="https://www.hon1.ed.jp/hs/club/" target="_blank" rel="noopener">部活動紹介</a>、<a href="https://www.hon1.ed.jp/philosophy/" target="_blank" rel="noopener">学園紹介(理念・沿革・アクセス)</a>、<a href="https://www.hon1.ed.jp/wp-content/uploads/2026/04/557f2bfbbd9fd2e7914a699f906c887c.pdf" target="_blank" rel="noopener">2026年度スクールバス時刻表(平日)PDF</a>。「こんな人に向いています」とMy Voiceの例は、公式の情報をもとに当教室がまとめたものです。</p>
 </div></section>
 
-<section class="sec" id="fee"><div class="in">
+<section class="sec alt" id="fee"><div class="in">
   <div class="h2"><span class="en">FEE</span><h2>本庄第一高校の<br>学費</h2></div>
   <div class="box"><h3 class="h3">入学時・年間の費用<small class="yr">令和8年度(2026年度)入学生の金額</small></h3><div class="tbl"><table class="ex fee"><tbody><tr><th>入学金</th><td>220,000円</td></tr><tr><th>施設設備費(入学時)</th><td>80,000円</td></tr><tr><th>授業料(月額)</th><td>38,000円</td></tr><tr><th>PTA会費(月額)</th><td>4,500円</td></tr><tr><th>タブレット</th><td>68,000円</td></tr><tr><th>制服(男子。女子は49,940円)</th><td>45,760円</td></tr></tbody></table></div>
   <p class="note" style="margin-top:8px">入学手続きのときに納めるのは300,000円(入学金+施設設備費)。国の就学支援金が満額認定されると授業料の負担は実質0円です。ほかに諸費用 年約5万円、類型の諸費用(模試・スキー実習など)年約10万円、修学旅行積立(沖縄 約18万円/ニュージーランド 約51万円)など。</p></div>
@@ -419,7 +435,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">国の就学支援金などで、実際に払う額は家庭によって変わります。くわしくは学校の説明会で確認しましょう。</p>
 </div></section>
 
-<section class="sec alt" id="career"><div class="in">
+<section class="sec" id="career"><div class="in">
   <div class="h2"><span class="en">CAREER</span><h2>本庄第一高校の<br>卒業後の進路</h2></div>
   <div class="box"><h3 class="h3">大学などの合格実績<small class="yr">2026年</small></h3>
   <div class="facts gk"><div class="fact"><small>国公立大学</small><b>7<span>人</span></b></div></div>
@@ -428,18 +444,18 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="note">本庄第一高校の公式サイトの進路情報より:<a href="https://www.hon1.ed.jp/hs/education/" target="_blank" rel="noopener">高校 教育内容・進路(大学合格実績)</a>、<a href="https://www.hon1.ed.jp/wp-content/uploads/2026/05/8ac9cacae72e388b5269a4a28317d785.webp" target="_blank" rel="noopener">公式サイト</a>、<a href="https://www.hon1.ed.jp/wp-content/uploads/2026/05/510ad0d8fcb9756c4112fe50a05db492-scaled.webp" target="_blank" rel="noopener">公式サイト</a>。進路の結果は年度によって変わります。</p>
 </div></section>
 
-<section class="sec" id="schedule"><div class="in">
+<section class="sec alt" id="schedule"><div class="in">
   <div class="h2"><span class="en">SCHEDULE</span><h2>私立入試の流れ</h2></div>
   <ol class="tl"><li style="--c:var(--g)"><div class="dot"></div><div class="card"><div class="date">11月14日〜1月5日</div><div class="what">私立 個別相談会</div><div class="sub">通知表・北辰テストの結果を持って相談</div></div></li><li style="--c:var(--g)"><div class="dot"></div><div class="card"><div class="date">12月1日〜1月8日</div><div class="what">私立 出願</div></div></li><li style="--c:var(--g)"><div class="dot"></div><div class="card"><div class="date">1月22日〜</div><div class="what">私立 入試</div><div class="sub">多くの学校が1/22(金)〜。本庄第一は1/24(日)・2/6(土)・3/6(土)もあり</div></div></li></ol>
   <p class="note">公立高校の日程は<a href="../#schedule">トップページ</a>で見られます。私立を併願にして公立を受けるときは、公立の合格発表(3月)まで手続きを待てるかも確認しましょう。</p>
 </div></section>
 
-<section class="sec alt" id="faq"><div class="in">
+<section class="sec" id="faq"><div class="in">
   <div class="h2"><span class="en">FAQ</span><h2>本庄第一高校の入試<br>よくある質問</h2></div>
   <div class="qa"><details open><summary>本庄第一高校の偏差値は?</summary><p>本庄第一高校は偏差値を公表していません。私立高校は、11〜12月の個別相談で通知表(内申)や北辰テストの結果をもとに合格の見込みを相談するのが一般的です。基準は個別相談で確認しましょう。</p></details><details open><summary>本庄第一高校の入試日と科目は?</summary><p>2027年度(令和9年度)入試は、単願推薦1が1月22日(金)(英・国・数(各100点・40分、マークシート))、併願推薦1が1月22日(金)(英・国・数(同上))、併願推薦2が1月24日(日)(英・国・数(同上))、単願推薦2・併願推薦3が2月6日(土)(英・国・数(同上))、単願推薦3が3月6日(土)(総合(英・国・数)1科目(100点・40分))です。</p></details><details open><summary>本庄第一高校の入試に面接はありますか?</summary><p>単願推薦1:あり(5〜10分)。併願推薦1:なし。併願推薦2:なし。単願推薦2・併願推薦3:単願のみ(5〜10分)。単願推薦3:あり(5〜10分)。</p></details><details open><summary>本庄第一高校に特待生制度はありますか?</summary><p>学業奨学生(単願推薦1・併願推薦1のみ、詳細は入試相談課へ)、部活動奨学生(単願推薦1のみ、詳細は各部顧問へ)、卒業生子女・兄弟姉妹優遇(単願推薦1のみ:保護者か兄弟姉妹が卒業生なら施設設備費の一部3万円、兄弟姉妹が在学・同時入学なら施設設備費8万円を支給)。重複支給なし。</p></details><details open><summary>本庄第一高校の学費は?</summary><p>令和8年度(2026年度)入学生の金額の公式資料では、入学金220,000円、施設設備費(入学時)80,000円、授業料(月額)38,000円、PTA会費(月額)4,500円、タブレット68,000円、制服(男子。女子は49,940円)45,760円です。入学手続きのときに納めるのは300,000円(入学金+施設設備費)。国の就学支援金が満額認定されると授業料の負担は実質0円です。ほかに諸費用 年約5万円、類型の諸費用(模試・スキー実習など)年約10万円、修学旅行積立(沖縄 約18万円/ニュージーランド 約51万円)など。</p></details><details open><summary>本庄第一高校の進学実績は?</summary><p>合格実績は国公立大学7人です。主な進学先・合格先は信州大学・群馬大学・福井大学・高崎経済大学などです。</p></details></div>
 </div></section>
 
-<section class="sec"><div class="in">
+<section class="sec alt"><div class="in">
   <div class="h2"><span class="en">OTHER SCHOOLS</span><h2>ほかの高校の入試情報</h2></div>
   <div class="box"><h3 class="h3" style="color:var(--g)">私立高校</h3><div class="links"><a href="../shochi-fukaya/"><span>正智深谷高校<small>深谷市・普通科・4コース</small></span></a><a href="../tokyoseitoku-fukaya/"><span>東京成徳大学深谷高校<small>深谷市・普通科・3コース</small></span></a><a href="../honjo-higashi/"><span>本庄東高校<small>本庄市・選抜・特進・進学の3コース</small></span></a><a href="../tokyo-nodai-daisan/"><span>東京農業大学第三高校<small>東松山市・Ⅰ・Ⅱ・Ⅲの3コース</small></span></a></div></div>
   <div class="box"><h3 class="h3" style="color:var(--h)">本庄市・寄居町(公立)</h3><div class="links"><a href="../honjo/"><span>本庄高校<small>偏差値56・志願倍率1.09</small></span></a><a href="../yorii-johoku/"><span>寄居城北高校<small>偏差値43・志願倍率0.99</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--f)">深谷市(公立)</h3><div class="links"><a href="../fukaya-daiichi/"><span>深谷第一高校<small>偏差値52・志願倍率1.01</small></span></a><a href="../fukaya-shogyo/"><span>深谷商業高校<small>偏差値47・志願倍率1.01〜1.08</small></span></a><a href="../fukaya/"><span>深谷高校<small>偏差値42・志願倍率0.75</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--k)">熊谷市(公立)</h3><div class="links"><a href="../kumagaya/"><span>熊谷高校<small>偏差値65・志願倍率1.13</small></span></a><a href="../kumagaya-joshi/"><span>熊谷女子高校<small>偏差値63・志願倍率1.13</small></span></a><a href="../kumagaya-nishi/"><span>熊谷西高校<small>偏差値62・志願倍率1.17</small></span></a><a href="../kumagaya-shogyo/"><span>熊谷商業高校<small>偏差値46・志願倍率0.81</small></span></a><a href="../kumagaya-kogyo/"><span>熊谷工業高校<small>偏差値42-43・志願倍率0.78〜1.15</small></span></a><a href="../kumagaya-nogyo/"><span>熊谷農業高校<small>偏差値40-42・志願倍率0.90〜1.18</small></span></a><a href="../menuma/"><span>妻沼高校<small>偏差値40・志願倍率0.67</small></span></a></div></div><div class="box"><h3 class="h3" style="color:var(--g)">行田市(公立)</h3><div class="links"><a href="../shinshukan/"><span>進修館高校<small>偏差値44-47・志願倍率0.28〜0.77</small></span></a></div></div><div class="box"><h3 class="h3" style="color:#455a64">鴻巣市・上尾市・伊奈町(公立)</h3><div class="links"><a href="../ageo/"><span>上尾高校<small>偏差値55-57・志願倍率1.28〜1.33</small></span></a><a href="../ina-gakuen/"><span>伊奈学園総合高校<small>偏差値59・志願倍率1.10</small></span></a><a href="../konosu/"><span>鴻巣高校<small>偏差値42-46・志願倍率0.87〜0.98</small></span></a><a href="../konosu-joshi/"><span>鴻巣女子高校<small>偏差値40-44・志願倍率0.51〜0.98</small></span></a></div></div>
