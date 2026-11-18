@@ -13,6 +13,7 @@
   - 数字は `public/index.html` の配列 `S`・`TL`・時点の日付・情報源から、高校ごとの文章は `data/school-pages.json` から作られる
   - 公開のたびに GitHub Actions でも実行されるが、`public/index.html` を直したら `node tools/build-schools.mjs` を実行し、生成されたファイルもいっしょにコミットする
   - `data/school-pages.json` の `points`・`comment` は塾の先生の文章。自動更新では、数字が公式情報と食いちがう部分だけ直す
+  - 「卒業後の進路」は `data/school-shinro.json`(slug ごと)から作られる。数字は**各高校の公式サイトの進路資料だけ**から取り、`year`(何年3月卒業生か)と `sources`(使った公式ページ)を必ず入れる。新しい年度の進路資料が公式サイトに出たら、その高校の数字と `year`・`sources` をまとめて差しかえる(年度の違う数字を混ぜない。混ざる場合は `goukakuYear` で分ける)。公式に見つからない項目は書かない
 - デザインは教室サイト（https://blue0728.studio.site/）に合わせた青と白・スマホ優先。色・文字サイズ・レイアウトは変えない
 
 ## 更新のルール
