@@ -98,6 +98,10 @@
     "year": "2026年3月卒業生(令和7年度)",
     "sources": [
       {
+        "title": "埼玉県 県立深谷第一高校 活性化・特色化方針(スクール・ポリシー)R8.5.1",
+        "url": "https://www.pref.saitama.lg.jp/documents/65317/n13_fukaya1.pdf"
+      },
+      {
         "title": "深谷第一高校 進路データ",
         "url": "https://fukaya1-h.spec.ed.jp/%E9%80%B2%E8%B7%AF%E6%8C%87%E5%B0%8E%E9%83%A8/%E9%80%B2%E8%B7%AF%E3%83%87%E3%83%BC%E3%82%BF"
       },
@@ -134,10 +138,28 @@
       "拓殖大学",
       "群馬パース大学",
       "東京電機大学"
+    ],
+    "breakdown": [
+      {
+        "label": "4年制大学",
+        "n": 187
+      },
+      {
+        "label": "短期大学",
+        "n": 5
+      },
+      {
+        "label": "専門学校",
+        "n": 54
+      },
+      {
+        "label": "就職",
+        "n": 11
+      }
     ]
   },
   "fukaya-shogyo": {
-    "year": "2025年3月卒業生(令和6年度)",
+    "year": "2026年3月卒業生(令和7年度)",
     "sources": [
       {
         "title": "深谷商業高校 進路状況",
@@ -157,19 +179,10 @@
       "会計科",
       "情報処理科"
     ],
-    "total": 272,
     "breakdown": [
       {
-        "label": "就職",
-        "n": 65
-      },
-      {
-        "label": "公務員",
-        "n": 5
-      },
-      {
         "label": "4年制大学",
-        "n": 65
+        "n": 73
       },
       {
         "label": "短期大学",
@@ -177,11 +190,11 @@
       },
       {
         "label": "専門学校",
-        "n": 124
+        "n": 102
       },
       {
-        "label": "その他",
-        "n": 6
+        "label": "就職",
+        "n": 73
       }
     ],
     "goukakuNote": "主な進学先は、学校の公式サイトの一覧より(学校ごとの人数は載っていません)。",
@@ -211,11 +224,16 @@
       "会計(税理士法人)",
       "公務員(国税局・警察・自衛隊)"
     ],
-    "goukakuTitle": "主な進学先"
+    "goukakuTitle": "主な進学先",
+    "goukakuYear": "2025年3月卒業生(令和6年度)"
   },
   "fukaya": {
     "year": "2026年3月卒業生(令和7年度)",
     "sources": [
+      {
+        "title": "県立深谷高校 活性化・特色化方針(スクール・ポリシー)R8.5.1(埼玉県 県立学校魅力発信サイト)",
+        "url": "https://www.pref.saitama.lg.jp/documents/65317/n09_fukaya.pdf"
+      },
       {
         "title": "深谷高校 進路指導(卒業生の進路先)",
         "url": "https://fukaya-h.spec.ed.jp/%E5%8D%92%E6%A5%AD%E7%94%9F%E3%81%AE%E9%80%B2%E8%B7%AF%E5%85%88"
@@ -266,6 +284,24 @@
       "金属製品製造業",
       "住宅設備機器製造業",
       "公務員"
+    ],
+    "breakdown": [
+      {
+        "label": "4年制大学",
+        "n": 60
+      },
+      {
+        "label": "短期大学",
+        "n": 6
+      },
+      {
+        "label": "専門学校",
+        "n": 75
+      },
+      {
+        "label": "就職",
+        "n": 31
+      }
     ]
   },
   "honjo": {
@@ -772,6 +808,10 @@
     "year": "2026年3月卒業生(令和7年度)",
     "sources": [
       {
+        "title": "県立熊谷農業高校 活性化・特色化方針（スクール・ポリシー）R8（埼玉県教育委員会）",
+        "url": "https://www.pref.saitama.lg.jp/documents/65317/n17_kumagayanou.pdf"
+      },
+      {
         "title": "熊谷農業高校 令和9年度学校案内(PDF)",
         "url": "https://kumanou-ah.spec.ed.jp/wysiwyg/file/download/1/6779"
       },
@@ -792,24 +832,20 @@
     ],
     "breakdown": [
       {
-        "label": "就職",
-        "pct": 42
-      },
-      {
         "label": "4年制大学",
-        "pct": 15
+        "n": 32
       },
       {
         "label": "短期大学",
-        "pct": 4
+        "n": 8
       },
       {
         "label": "専門学校",
-        "pct": 33.5
+        "n": 70
       },
       {
-        "label": "その他",
-        "pct": 5.5
+        "label": "就職",
+        "n": 87
       }
     ],
     "goukaku": [
@@ -852,7 +888,7 @@
     ]
   },
   "kumagaya-shogyo": {
-    "year": "2025年3月卒業生(令和6年度)",
+    "year": "2026年3月卒業生(令和7年度)",
     "sources": [
       {
         "title": "熊谷商業高校 進路実績(令和6年度進路実績)",
@@ -866,7 +902,6 @@
     "gakka": [
       "総合ビジネス科"
     ],
-    "lead": "令和6年度の4年制大学への進学者は45名です。",
     "goukakuNote": "4年制大学の進学者が多い順(令和6年度)。",
     "mainUniv": [
       "日本大学",
@@ -894,7 +929,26 @@
       "サービス",
       "建設"
     ],
-    "goukakuTitle": "主な進学先"
+    "goukakuTitle": "主な進学先",
+    "goukakuYear": "2025年3月卒業生(令和6年度)",
+    "breakdown": [
+      {
+        "label": "4年制大学",
+        "n": 41
+      },
+      {
+        "label": "短期大学",
+        "n": 9
+      },
+      {
+        "label": "専門学校等",
+        "n": 85
+      },
+      {
+        "label": "就職",
+        "n": 55
+      }
+    ]
   },
   "kumagaya": {
     "year": "2026年3月卒業生(令和7年度)",
@@ -962,6 +1016,10 @@
     "year": "2026年3月卒業生(令和7年度)",
     "sources": [
       {
+        "title": "県立妻沼高校 活性化・特色化方針(スクール・ポリシー)R8.5.1(埼玉県 県立学校魅力発信サイト)",
+        "url": "https://www.pref.saitama.lg.jp/documents/65317/n14_menuma.pdf"
+      },
+      {
         "title": "妻沼高校 進路指導・教育課程",
         "url": "https://menuma-h.spec.ed.jp/%E9%80%B2%E8%B7%AF%E6%8C%87%E5%B0%8E%E3%83%BB%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B"
       },
@@ -976,23 +1034,19 @@
     "breakdown": [
       {
         "label": "4年制大学",
-        "pct": 9
+        "n": 6
       },
       {
         "label": "短期大学",
-        "pct": 1
+        "n": 1
       },
       {
         "label": "専門学校",
-        "pct": 39
+        "n": 27
       },
       {
         "label": "就職",
-        "pct": 43
-      },
-      {
-        "label": "その他",
-        "pct": 8
+        "n": 30
       }
     ],
     "goukakuNote": "主な進学先は、学校の公式サイトの一覧より(人数は載っていません)。",
@@ -1017,8 +1071,12 @@
     "goukakuTitle": "主な進学先"
   },
   "shinshukan": {
-    "year": "2025年3月卒業生(令和6年度)",
+    "year": "2026年3月卒業生(令和7年度)",
     "sources": [
+      {
+        "title": "県立進修館高校 活性化・特色化方針（スクール・ポリシー）R8（埼玉県教育委員会）",
+        "url": "https://www.pref.saitama.lg.jp/documents/65317/n03_shinnsyuukan.pdf"
+      },
       {
         "title": "進修館高校 2026年度学校案内(PDF)",
         "url": "https://shinsyukan-h.spec.ed.jp/wysiwyg/file/download/1/13722"
@@ -1034,23 +1092,22 @@
       "情報メディア科",
       "ものづくり科"
     ],
-    "total": 249,
     "breakdown": [
       {
-        "label": "大学等への進学",
-        "n": 59
+        "label": "4年制大学",
+        "n": 70
       },
       {
-        "label": "専門学校等への進学",
-        "n": 102
+        "label": "短期大学",
+        "n": 8
+      },
+      {
+        "label": "専門学校",
+        "n": 115
       },
       {
         "label": "就職",
-        "n": 85
-      },
-      {
-        "label": "その他の進路",
-        "n": 3
+        "n": 86
       }
     ],
     "goukakuNote": "2025年入試の合格者数が多い順。",
@@ -1080,12 +1137,17 @@
       "電力",
       "公務員(埼玉県警察・自衛隊)"
     ],
-    "goukakuTitle": "主な合格大学"
+    "goukakuTitle": "主な合格大学",
+    "goukakuYear": "2025年3月卒業生(令和6年度)"
   },
   "yorii-johoku": {
     "year": "2026年3月卒業生(令和7年度)",
     "goukakuYear": "2025年3月卒業生(令和6年度)",
     "sources": [
+      {
+        "title": "県立寄居城北高校 活性化・特色化方針（スクール・ポリシー）R8（埼玉県教育委員会）",
+        "url": "https://www.pref.saitama.lg.jp/documents/65317/n11_yorii.pdf"
+      },
       {
         "title": "寄居城北高校 進路",
         "url": "https://yjouhoku-h.spec.ed.jp/進路"
@@ -1108,16 +1170,20 @@
     ],
     "breakdown": [
       {
-        "label": "大学・短大",
-        "pct": 21
+        "label": "4年制大学",
+        "n": 33
+      },
+      {
+        "label": "短期大学",
+        "n": 6
       },
       {
         "label": "専門学校",
-        "pct": 33
+        "n": 60
       },
       {
-        "label": "就職等",
-        "pct": 46
+        "label": "就職(公務員5名を含む)",
+        "n": 72
       }
     ],
     "goukaku": [
@@ -1138,7 +1204,7 @@
         "n": 48
       }
     ],
-    "goukakuNote": "令和6年度の合格者数(公式サイトの進路実績より)。令和7年度は割合だけが公開されています。",
+    "goukakuNote": "令和6年度の合格者数(公式サイトの進路実績より)。",
     "mainUniv": [
       "城西大学",
       "十文字学園女子大学",

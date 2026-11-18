@@ -15,6 +15,9 @@ const pages = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "school-pages.j
 // 卒業後の進路(各高校の公式サイトの進路情報)。slug ごと。ない高校は進路の項目を出さない
 const SHF = path.join(ROOT, "data", "school-shinro.json");
 const SH = fs.existsSync(SHF) ? JSON.parse(fs.readFileSync(SHF, "utf8")) : {};
+// 学校の特色・校風・求める生徒像(各高校の公式サイトで確認したもの)と、塾の見方(fit・voice)。ない高校は項目を出さない
+const TKF = path.join(ROOT, "data", "school-features.json");
+const TK = fs.existsSync(TKF) ? JSON.parse(fs.readFileSync(TKF, "utf8")) : {};
 
 const grab = (re, what) => { const m = top.match(re); if (!m) throw new Error(what + " が index.html に見つかりません"); return m[1]; };
 const S = new Function("return " + grab(/const S=(\[[\s\S]*?\n\]);/, "高校データ S"))();
@@ -111,6 +114,23 @@ function career(p) {
   <p class="note">${esc(p.name)}の公式サイトの進路情報より:${s.sources.map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>`).join("、")}。進路の結果は年度によって変わります。</p>`;
 }
 
+function feature(p) {
+  const t = TK[p.slug]; if (!t) return "";
+  const out = [];
+  const li = arr => `<ul class="fl">${arr.map(x => `<li>${esc(typeof x === "string" ? x : x.text)}</li>`).join("")}</ul>`;
+  if (t.kokun || t.mission) out.push(`<div class="box">${t.kokun ? `<p class="kokun"><small>校訓・教育目標</small>${esc(t.kokun)}</p>` : ""}${t.mission ? `<p class="mission">${esc(t.mission)}</p>` : ""}</div>`);
+  if (t.features && t.features.length) out.push(`<div class="box"><h3 class="h3">ここが特色</h3>${li(t.features)}</div>`);
+  if (t.life && t.life.length) out.push(`<div class="box"><h3 class="h3">学校生活</h3>${li(t.life)}</div>`);
+  if (t.admission && t.admission.length) out.push(`<div class="box"><h3 class="h3">${esc(p.name)}が求める生徒像<small class="yr">アドミッション・ポリシー(学校の公式発表)</small></h3>${li(t.admission)}</div>`);
+  if ((t.fit && t.fit.length) || t.voiceEx) out.push(`<div class="box voice-box"><h3 class="h3">こんな人に向いています<small class="yr">学習空間 深谷上柴教室の見方</small></h3>${t.fit && t.fit.length ? li(t.fit) : ""}
+  ${t.voiceKeys && t.voiceKeys.length ? `<p class="sub-h">My Voice で使える${esc(p.name)}のキーワード</p>${chips(t.voiceKeys, "hot")}` : ""}
+  ${t.voiceEx ? `<p class="sub-h">志望理由の話し始めの例</p><p class="vex">${esc(t.voiceEx)}</p><p class="note">例をそのまま使うのではなく、「なぜそう思ったか」に自分の体験を1つ入れると、自分の言葉になります。</p>` : ""}
+  <a class="more" href="../myvoice/">My Voice メーカーで原稿を作る ›</a></div>`);
+  if (!out.length) return "";
+  return out.join("\n  ") + `
+  <p class="note">校訓・特色・学校生活・求める生徒像は${esc(p.name)}の公式サイトより:${t.sources.map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>`).join("、")}。「こんな人に向いています」とMy Voiceの例は、公式の情報をもとに当教室がまとめたものです。</p>`;
+}
+
 function faq(p) {
   const ds = p.keys.map(k => byName[k]), one = ds.length === 1;
   const each = (f) => ds.map(d => (one ? "" : `${d.d}は`) + f(d)).join("。");
@@ -121,6 +141,11 @@ function faq(p) {
   const gs = ds.filter(d => d.g && !d.g.few);
   if (gs.length) q.push([`${p.name}は学力検査で何点取れば合格できますか?`, gs.map(d => (one ? "" : `${d.d}は`) + `2026年度の合格者の5教科の平均が約${d.g.t[0]}点、下位4分の1が約${d.g.t[1]}点`).join("。") + "でした。安心ラインの点数を目標にしましょう。年度によって問題の難しさや倍率が変わるため、あくまで目安です。"]);
   q.push([`${p.name}の面接はどのくらい大切ですか?`, each(d => `面接の配点は${d.l1 ? d.l1 + "選抜" : "第1次"}${d.s1[2]}点・${d.l2 ? d.l2 + "選抜" : "第2次"}${d.s2[2]}点`) + "です。2027年度からすべての受検生に面接があり、最初に自分の言葉で話す「My Voice」があります。"]);
+  const t = TK[p.slug];
+  if (t && (t.kokun || (t.features && t.features.length))) {
+    const a = (t.kokun ? `校訓・教育目標は「${t.kokun}」です。` : "") + (t.features || []).slice(0, 3).map(x => typeof x === "string" ? x : x.text).join("") + (t.admission && t.admission.length ? `求める生徒像の1つに「${t.admission[0]}」があります。` : "");
+    q.splice(1, 0, [`${p.name}はどんな学校ですか?(校風・特色)`, a]);
+  }
   const s = SH[p.slug];
   if (s) {
     const sh = shares(s);
@@ -138,9 +163,9 @@ function page(p) {
   ds.forEach((d, i) => { if (!d) throw new Error(`${p.keys[i]} が高校データ S にありません`); });
   const main = ds[0];
   const url = `${SITE}/${p.slug}/`;
-  const cr = career(p);
-  const title = cr ? `${p.name}の偏差値・倍率・合格の目安と進学実績【2027年度入試】｜深谷・熊谷 高校入試ナビ` : `${p.name}の偏差値・倍率・内申点と合格の目安【2027年度入試】｜深谷・熊谷 高校入試ナビ`;
-  const desc = `${p.name}(埼玉県${p.area})の2027年度入試情報。偏差値${hv(main)}、2026年度の倍率${main.b}倍、合格者の内申点と学力検査の得点の目安、配点、面接対策${cr ? "、卒業後の進路" : ""}まで、地元の塾がわかりやすくまとめました。`;
+  const cr = career(p), ft = feature(p);
+  const title = `${p.name}の偏差値・倍率・合格の目安${ft ? "・校風" : ""}${cr ? "と進学実績" : ""}【2027年度入試】｜深谷・熊谷 高校入試ナビ`;
+  const desc = `${p.name}(埼玉県${p.area})の2027年度入試情報。偏差値${hv(main)}、2026年度の倍率${main.b}倍、合格者の内申点と学力検査の得点の目安、配点${ft ? "、校風・特色と求める生徒像" : ""}、面接対策${cr ? "、卒業後の進路" : ""}まで、地元の塾がわかりやすくまとめました。`;
   let k = 0; const sec = id => `<section class="sec${k++ % 2 ? " alt" : ""}"${id ? ` id="${id}"` : ""}>`;
   const qs = faq(p);
   const tl = TL.filter(t => t.c !== "pri");
@@ -221,6 +246,15 @@ body{--c:var(--blue);--cs:var(--sky)}
 .facts.gk b span{font-size:14px;margin-left:2px}
 .sub-h{font-size:14px;font-weight:900;color:var(--navy);margin:14px 0 6px}
 .box .h3+.sub-h{margin-top:0}
+.kokun{margin:0;font-size:20px;font-weight:900;color:var(--navy);line-height:1.5}
+.kokun small{display:block;font-size:13px;font-weight:700;color:var(--muted)}
+.mission{margin:8px 0 0;font-size:15px}
+.fl{margin:0;padding:0 0 0 1.2em;display:flex;flex-direction:column;gap:6px;font-size:16px}
+.fl li::marker{color:var(--blue)}
+.voice-box{border:2px solid var(--orange)}
+.voice-box .h3{color:#d35400}
+.vex{margin:0;background:var(--orange-soft);border-radius:12px;padding:10px 12px;font-size:16px}
+.voice-box .more{margin-top:12px}
 </style>
 </head>
 <body>
@@ -231,7 +265,7 @@ body{--c:var(--blue);--cs:var(--sky)}
     <a class="btn-tel" href="${LINE}" target="_blank" rel="noopener"><span class="line-ic">LINE</span>無料体験・相談</a>
   </div>
   <nav class="nav" aria-label="ページ内メニュー"><ul>
-    <li><a href="#data">基本データ</a></li><li><a href="#goal">合否の目安</a></li><li><a href="#mix">配点</a></li><li><a href="#point">対策</a></li>${cr ? `<li><a href="#career">進路</a></li>` : ""}
+    <li><a href="#data">基本データ</a></li><li><a href="#goal">合否の目安</a></li>${ft ? "" : `<li><a href="#mix">配点</a></li>`}<li><a href="#point">対策</a></li>${ft ? `<li><a href="#feature">特色</a></li>` : ""}${cr ? `<li><a href="#career">進路</a></li>` : ""}
     ${cr ? "" : `<li><a href="#schedule">日程</a></li>`}<li><a href="#interview">面接</a></li><li><a href="#faq">よくある質問</a></li><li><a href="../#schools">ほかの高校</a></li>
   </ul></nav>
 </div>
@@ -278,7 +312,12 @@ ${sec("point")}<div class="in">
   <div class="box voice"><div class="ic">塾長<br>より</div><div><div class="who">学習空間 深谷上柴教室から</div><p>${p.comment}</p></div></div>
 </div></section>
 
-${cr ? `${sec("career")}<div class="in">
+${ft ? `${sec("feature")}<div class="in">
+  <div class="h2"><span class="en">FEATURE</span><h2>${p.name}の<br>校風と特色</h2></div>
+  ${ft}
+</div></section>
+
+` : ""}${cr ? `${sec("career")}<div class="in">
   <div class="h2"><span class="en">CAREER</span><h2>${p.name}の<br>卒業後の進路</h2></div>
   ${cr}
 </div></section>
