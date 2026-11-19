@@ -623,5 +623,6 @@ S.forEach(d=>{const a=document.createElement("article");a.className="sc";a.datas
 document.querySelectorAll("[data-f]").forEach(b=>b.addEventListener("click",()=>{const f=b.dataset.f;document.querySelectorAll("[data-f]").forEach(x=>x.setAttribute("aria-pressed",x===b));
  cards.querySelectorAll(".sc").forEach(c=>c.hidden=!(f==="all"||c.dataset.city===f))}));
 </script>
+<script>/* 他ページから #schools などで来たとき、内容の表示が終わってからその場所へ移動する */addEventListener("load",function(){if(location.hash.length>1){var t=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(t)setTimeout(function(){t.scrollIntoView()},60)}});</script>
 </body>
 </html>
