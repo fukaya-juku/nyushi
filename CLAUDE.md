@@ -16,6 +16,7 @@
   - 「卒業後の進路」は `data/school-shinro.json`(slug ごと)から作られる。数字は**各高校の公式サイトの進路資料だけ**から取り、`year`(何年3月卒業生か)と `sources`(使った公式ページ)を必ず入れる。新しい年度の進路資料が公式サイトに出たら、その高校の数字と `year`・`sources` をまとめて差しかえる(年度の違う数字を混ぜない。混ざる場合は `goukakuYear` で分ける)。公式に見つからない項目は書かない
   - 「校風と特色」は `data/school-features.json`(slug ごと)から作られる。`kokun`・`mission`・`admission`(求める生徒像)・`features`・`life` は各高校の公式サイトと県教委のスクール・ポリシーで確認できたことだけ。`fit`・`voiceKeys`・`voiceEx` は塾の先生の文章なので、自動更新では変えない。民間サイトや AI が作った調査レポートの内容は、公式で確認できるまで使わない
   - ページ上部の「ひと目でわかる」は `data/school-glance.json`(slug ごと。`tone`=校風の一言、`strengths`=強み3つ)。公式で確認した事実から塾がまとめた文章。数字(合格者数・年度など)が進路データの更新で古くなったら、同じ年度の数字に直す
+  - 面接・内申のページ(`public/<slug>-mensetsu/`・`public/<slug>-naishin/`)と総合ガイド(`public/mensetsu/`・`public/naishin/`)も自動で作られる。数字と面接の方法・評価の観点・自己評価資料の項目は `data/r9-senbatsu.json`(各校の「令和9年度入学者選抜 選抜実施内容」)、県のしくみは `data/ken-r9.json`(県教委の要項・Q&A・リーフレット)から。新しい年度の選抜実施内容が出たら、この2つをまとめて差しかえる。`data/school-myvoice.json`(話す内容・例文・質問)は塾の先生の文章なので、自動更新では変えない
   - 私立高校のページ(`public/shochi-fukaya/` など)は `data/private-pages.json` から作られる。コース・入試日程・科目・面接・学費・進路は各校の公式サイトと募集要項で確認できたことだけ。`intro`・`points`・`comment`・`fit` は塾の先生の文章。新しい年度の募集要項が出たら `exam` と `fees` をまとめて差しかえ、トップページの私立カードも同じ内容にそろえる
 - デザインは教室サイト（https://blue0728.studio.site/）に合わせた青と白・スマホ優先。色・文字サイズ・レイアウトは変えない
 

@@ -148,7 +148,7 @@ function faq(p) {
   q.push([`${p.name}に合格するには内申点がどのくらい必要ですか?`, each(d => d.g && !d.g.few ? `2026年度の合格者の中3の内申(9教科・45点満点)は平均${d.g.y[0]}、下位4分の1で${d.g.y[1]}でした` : (naOf(d) === "—" ? "内申の目安は、開示データが少ないため掲載していません" : `内申の目安は${naOf(d)}です`)) + "。" + (() => { const [a, , c] = ds[0].r.split(":").map(Number); return c > a ? `中1・中2・中3の比率は${ds[0].r}なので、中3の成績がとくに大切です。` : `中1・中2・中3の比率は${ds[0].r}で、どの学年の成績も同じ重さです。中1からの成績が大切です。`; })()]);
   const gs = ds.filter(d => d.g && !d.g.few);
   if (gs.length) q.push([`${p.name}は学力検査で何点取れば合格できますか?`, gs.map(d => (one ? "" : `${d.d}は`) + `2026年度の合格者の5教科の平均が約${d.g.t[0]}点、下位4分の1が約${d.g.t[1]}点`).join("。") + "でした。安心ラインの点数を目標にしましょう。年度によって問題の難しさや倍率が変わるため、あくまで目安です。"]);
-  q.push([`${p.name}の面接はどのくらい大切ですか?`, each(d => `面接の配点は${d.l1 ? d.l1 + "選抜" : "第1次"}${d.s1[2]}点・${d.l2 ? d.l2 + "選抜" : "第2次"}${d.s2[2]}点`) + "です。" + (p.mixNote || "") + "2027年度からすべての受検生に面接があり、最初に自分の言葉で話す「My Voice」があります。"]);
+  q.push([`${p.name}の面接はどのくらい大切ですか?`, each(d => `面接の配点は${d.l1 ? d.l1 + "選抜" : "第1次"}${d.s1[2]}点・${d.l2 ? d.l2 + "選抜" : "第2次"}${d.s2[2]}点`) + "です。" + (p.mixNote || "") + "2027年度からすべての受検生に面接があり、最初に自分の言葉で話す「マイボイス(My Voice)」があります。" + (subOK(p) ? `面接の方法・見られること・例文は「${p.name}の面接・マイボイス対策」のページでくわしく説明しています。` : "")]);
   const t = TK[p.slug];
   if (t && (t.kokun || (t.features && t.features.length))) {
     const gl = GL[p.slug]; const a = gl ? `校風をひと言でいうと、${gl.tone.replace(/。$/, "")}。主な強みは、${gl.strengths.map((x, i) => "①②③"[i] + x.replace(/。$/, "")).join("。")}。` + (t.admission && t.admission.length ? `学校が求める生徒像の1つは「${t.admission[0].replace(/(を募集します|。)$/, "")}」です。` : "") : (t.kokun ? `校訓・教育目標は「${t.kokun}」です。` : "");
@@ -267,6 +267,17 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
 .dl{margin:0;display:grid;gap:4px 12px;font-size:15px}
 .dl dt{font-weight:900;color:var(--navy);margin-top:6px}
 .dl dd{margin:0}
+.subnav{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 0}
+.subnav a{background:#fff;color:var(--blue);border-radius:12px;padding:10px 8px;text-align:center;font-weight:900;font-size:15px;text-decoration:none;line-height:1.3}
+.nc-l{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:14px;margin-bottom:10px}
+.nc-l select{font-size:16px;padding:8px;border-radius:10px;border:2px solid var(--line)}
+.nc-in{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.nc-in label{display:flex;flex-direction:column;gap:4px;font-weight:900;color:var(--navy);text-align:center}
+.nc-in input{font-size:22px;font-family:var(--num);font-weight:900;text-align:center;padding:8px 4px;border-radius:10px;border:2px solid var(--line);width:100%;box-sizing:border-box}
+.nc-out{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.nc-out div{background:var(--sky);border-radius:12px;padding:10px;text-align:center}
+.nc-out small{display:block;font-weight:700;color:var(--muted);font-size:13px}
+.nc-out b{font-family:var(--num);font-size:24px;color:var(--blue)}
 .gl{border:2px solid var(--blue)}
 .gl-tone{margin:0;font-size:18px;font-weight:900;color:var(--navy);line-height:1.5}
 .gl-tone small{display:block;font-size:13px;color:var(--muted)}
@@ -357,6 +368,7 @@ function page(p) {
       <div><small>内申の目安</small><b>${naOf(main)}</b></div>
     </div>
     ${ds.length > 1 ? `<p class="stamp">※上の数字は${main.d}。${ds.slice(1).map(d => `${d.d}は偏差値${hv(d)}・志願倍率${d.b}`).join("、")}。</p>` : ""}
+    ${subOK(p) ? `<div class="subnav"><a href="../${p.slug}-mensetsu/">面接・マイボイス対策 ›</a><a href="../${p.slug}-naishin/">内申点は何点必要? ›</a></div>` : ""}
     <p class="lead">${p.intro}</p>
     <p class="stamp">作成:学習空間 深谷上柴教室/情報は${STAMP}時点</p>
   </div>
@@ -406,7 +418,8 @@ ${ft ? `${sec("feature")}<div class="in">
 
 ${sec("interview")}<div class="in">
   <div class="h2"><span class="en">INTERVIEW</span><h2>${p.name}の<br>面接対策</h2></div>
-  <p class="lead">2027年度から、すべての受検生に面接があります。最初に1分30秒〜2分ほど自分の言葉で話す「My Voice」のあと、面接官からの質問に答えます。${ds.map(d => (ds.length > 1 ? d.d + "の" : "") + `面接の配点は${d.l1 ? d.l1 + "選抜" : "第1次"}${d.s1[2]}点・${d.l2 ? d.l2 + "選抜" : "第2次"}${d.s2[2]}点`).join("、")}です。</p>
+  <p class="lead">2027年度から、すべての受検生に面接があります。最初に1分30秒〜2分ほど自分の言葉で話す「マイボイス(My Voice)」のあと、面接官からの質問に答えます。${ds.map(d => (ds.length > 1 ? d.d + "の" : "") + `面接の配点は${d.l1 ? d.l1 + "選抜" : "第1次"}${d.s1[2]}点・${d.l2 ? d.l2 + "選抜" : "第2次"}${d.s2[2]}点`).join("、")}です。</p>
+  ${subOK(p) ? `<div class="links" style="margin-bottom:12px"><a href="../${p.slug}-mensetsu/"><span>${p.name}の面接・マイボイス対策<small>面接の方法・見られること・例文・質問</small></span></a><a href="../${p.slug}-naishin/"><span>${p.name}の内申点<small>合格者の内申・計算ツール</small></span></a></div>` : ""}
   <a class="app" href="../myvoice/" style="border-color:var(--blue)"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--blue)"/><path d="M14 16h20a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H24l-7 6v-6h-3a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4z" fill="#fff"/></svg><div><b style="color:var(--blue)">My Voice メーカー ›</b><span>質問に答えるだけで原稿ができる。タイマーと想定質問で本番練習も</span></div></a>
   <a class="app" href="https://splendid-centaur-c2b96a.netlify.app/" target="_blank" rel="noopener"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--orange)"/><circle cx="24" cy="19" r="7" fill="#fff"/><path d="M11 38c2-7 7-10 13-10s11 3 13 10z" fill="#fff"/></svg><div><b>長所・短所を整理するアプリ ›</b><span>自分のよいところと課題を書き出そう</span></div></a>
 </div></section>
@@ -628,12 +641,242 @@ ${sec("voice")}<div class="in">
 ` + tail("志望校", "くらべて、選んで、準備する", "どの学校が合うか、単願か併願か。内申と北辰テストの結果から、一人ひとりに合った受け方を一緒に考えます。", "各高校と埼玉県教育委員会", SOURCES);
 }
 
+// ---- 面接(マイボイス)ページ・内申点ページ・総合ガイド(令和9年度 選抜実施内容と県の資料から) ----
+const R9F = path.join(ROOT, "data", "r9-senbatsu.json"), KENF = path.join(ROOT, "data", "ken-r9.json"), MVF = path.join(ROOT, "data", "school-myvoice.json");
+const R9 = fs.existsSync(R9F) ? JSON.parse(fs.readFileSync(R9F, "utf8")) : {};
+const KEN = fs.existsSync(KENF) ? JSON.parse(fs.readFileSync(KENF, "utf8")) : null;
+const MV = fs.existsSync(MVF) ? JSON.parse(fs.readFileSync(MVF, "utf8")) : {};
+const subOK = p => R9[p.slug] && KEN;
+const pctOf = (a, b) => Math.round(a / b * 100);
+const selName = s => s.name.replace(/\((第\d次選抜)\)/, "・$1").replace(/選抜・第/, "選抜 第");
+const ld2 = (url, name, qs, crumb) => [
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+    { "@type": "ListItem", position: 1, name: "深谷・熊谷 高校入試ナビ", item: SITE + "/" },
+    ...(crumb ? [{ "@type": "ListItem", position: 2, name: crumb[0], item: crumb[1] }] : []),
+    { "@type": "ListItem", position: crumb ? 3 : 2, name, item: url }] },
+  { "@context": "https://schema.org", "@type": "Article", headline: name, dateModified: isoDate, author: { "@type": "Organization", name: "学習空間 深谷上柴教室", url: "https://fukaya-juku.github.io/" }, publisher: { "@type": "Organization", name: "学習空間 深谷上柴教室" } },
+  ...(qs && qs.length ? [{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: qs.map(([a, b]) => ({ "@type": "Question", name: a, acceptedAnswer: { "@type": "Answer", text: strip(b) } })) }] : [])
+];
+const qaHtml = qs => `<div class="qa">${qs.map(([a, b]) => `<details open><summary>${a}</summary><p>${b}</p></details>`).join("")}</div>`;
+const hero = (crumbs, pill, h1sub, h1, lead) => `<header class="hero school">
+  <div class="in">
+    <nav class="crumb" aria-label="パンくずリスト" style="color:#dbe6ff">${crumbs}</nav>
+    <span class="pill">${pill}</span>
+    <h1><span>${h1sub}</span>${h1}</h1>
+    <p class="lead">${lead}</p>
+    <p class="stamp">作成:学習空間 深谷上柴教室/情報は${STAMP}時点</p>
+  </div>
+</header>
+
+`;
+const appBtn = `<a class="app" href="../myvoice/" style="border-color:var(--blue)"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--blue)"/><path d="M14 16h20a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H24l-7 6v-6h-3a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4z" fill="#fff"/></svg><div><b style="color:var(--blue)">マイボイス(My Voice)メーカー ›</b><span>質問に答えるだけで原稿ができる。タイマーと想定質問で本番練習も</span></div></a>`;
+const kenSrc = () => KEN.sources.slice(0, 5).map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join("、");
+const schoolSrc = p => `<a href="${esc(R9[p.slug].url)}" target="_blank" rel="noopener">${esc(p.name)} 令和9年度入学者選抜 選抜実施内容(埼玉県教育委員会)</a>`;
+
+function mensetsuPage(p) {
+  const r = R9[p.slug], d0 = byName[p.keys[0]], mv = MV[p.slug] || {}, t = TK[p.slug] || {};
+  const url = `${SITE}/${p.slug}-mensetsu/`, name = `${p.name}の面接・マイボイス対策`;
+  const cs = r.courses, one = cs.length === 1, c0 = cs[0];
+  const sameAll = cs.every(c => c.method === c0.method && c.kanten === c0.kanten && c.jiko === c0.jiko);
+  const mScores = c => c.selections.map(s => `${selName(s)} ${s.mensetsu}点(合計${s.total}点の${pctOf(s.mensetsu, s.total)}%)`).join("/");
+  const adm = (r.admission || "").split(/\n|・/).map(x => x.trim()).filter(Boolean);
+  const qs = [];
+  qs.push([`${p.name}の面接は個人面接ですか、集団面接ですか?`, (sameAll ? `${c0.method}です。` : cs.map(c => `${c.name}は${c.method}`).join("、") + "です。") + "どの高校も、最初に受検生が自分の言葉で話す「マイボイス(My Voice)」があり、そのあと面接委員からの質問に答えます。"]);
+  qs.push([`${p.name}の面接の配点は何点ですか?`, cs.map(c => (one ? "" : `${c.name}は`) + mScores(c)).join("。") + "です。"]);
+  qs.push([`${p.name}の面接では何を見られますか?`, (c0.kanten ? `${p.name}は、面接の評価の観点を「${c0.kanten}」としています。評価規準は「${c0.kijun}」です。` : `${p.name}は、学校独自の評価の観点を設定していません(令和9年度 選抜実施内容)。県の資料では、話のうまさではなく、これまでの取り組みの過程や意欲などを見るとされています。`)]);
+  if (c0.jiko) qs.push([`${p.name}の自己評価資料には何を書きますか?`, `学校独自の項目は「${c0.jiko}」です。面接ではこの内容をもとに質問されることがあるので、マイボイスと内容をそろえておきましょう。`]);
+  qs.push([`${p.name}のマイボイスでは何を話せばいいですか?`, `マイボイスは1分30秒〜2分程度で、自分の言葉で話します。${p.name}なら、${(mv.topics || []).slice(0, 2).map(x => x.replace(/。$/, "")).join("、")}などを、中学校での具体的な体験と結びつけて話すと伝わりやすくなります。`]);
+  const ld = ld2(url, name, qs, [`${p.name}の入試情報`, `${SITE}/${p.slug}/`]);
+  let k = 0; const sec = id => `<section class="sec${k++ % 2 ? " alt" : ""}"${id ? ` id="${id}"` : ""}>`;
+  const title = `${p.name}の面接対策|マイボイス(My Voice)例文・質問・配点【2027年度 埼玉県公立入試】`;
+  const desc = `${p.name}の面接(${sameAll ? c0.method : "学科により異なる"})とマイボイス(My Voice)の対策。面接の配点、${c0.kanten ? "学校が示す評価の観点、" : ""}求める生徒像、話す内容のヒント、1分30秒〜2分の例文、よく聞かれる質問まで、令和9年度の選抜実施内容をもとに地元の塾がまとめました。`;
+  const nav = `<li><a href="#point">ポイント</a></li><li><a href="#flow">面接の流れ</a></li><li><a href="#topic">話す内容</a></li><li><a href="#example">例文</a></li><li><a href="#question">質問</a></li><li><a href="#faq">よくある質問</a></li><li><a href="../${p.slug}/">入試情報</a></li><li><a href="../${p.slug}-naishin/">内申点</a></li>`;
+  return shell(title, desc, url, ld, nav) + hero(`<a href="../" style="color:#fff">高校入試ナビ</a> › <a href="../${p.slug}/" style="color:#fff">${p.name}</a> › 面接・マイボイス`, "2027年度(令和9年度)入試 対応", `埼玉県${p.area}・${d0.d}`, `${p.name}の<br>面接・マイボイス対策`, `2027年度の埼玉県公立高校入試から、すべての受検生に面接があります。${p.name}の面接の方法・配点・見られることを、埼玉県教育委員会が公表した「選抜実施内容」をもとにまとめました。`) + `${sec("point")}<div class="in">
+  <div class="h2"><span class="en">POINT</span><h2>${p.name}の面接<br>ここだけは押さえる</h2></div>
+  ${cs.map(c => `<div class="box gl">${one ? "" : `<h3 class="h3">${esc(c.name)}</h3>`}<div class="facts gk"><div class="fact"><small>面接の方法</small><b style="font-size:20px">${esc(c.method)}</b></div>${c.selections.map(s => `<div class="fact"><small>${esc(selName(s))}</small><b>${s.mensetsu}<span>点</span></b><small>合計${s.total}点の${pctOf(s.mensetsu, s.total)}%</small></div>`).join("")}</div>
+  <p class="sub-h">${p.name}が面接で見ること</p>${c.kanten ? `<p class="gl-tone" style="font-size:17px"><small>評価の観点</small>${esc(c.kanten)}</p><p class="mission">評価規準:${esc(c.kijun)}</p>` : `<p style="margin:0">学校独自の評価の観点は「設定なし」です。県の共通の考え方(下の「面接の流れ」を参照)で評価されます。</p>`}
+  ${c.jiko ? `<p class="sub-h">自己評価資料(学校独自の項目)</p><p class="vex" style="background:var(--sky)">${esc(c.jiko)}</p>` : ""}</div>`).join("\n  ")}
+  ${adm.length ? `<div class="box"><h3 class="h3">${p.name}が求める生徒像<small class="yr">アドミッション・ポリシー</small></h3><ul class="fl">${adm.map(x => `<li>${esc(x)}</li>`).join("")}</ul><p class="note" style="margin-top:8px">面接で話す内容は、この生徒像と結びつけると伝わりやすくなります。</p></div>` : ""}
+  <p class="note">出典:${schoolSrc(p)}</p>
+</div></section>
+
+${sec("flow")}<div class="in">
+  <div class="h2"><span class="en">FLOW</span><h2>面接の流れと<br>評価のしかた</h2></div>
+  <ol class="tl">${KEN.mensetsu.flow.map(f => `<li style="--c:var(--blue)"><div class="dot"></div><div class="card"><div class="date">${esc(f.step)}</div>${f.time ? `<div class="what">${esc(f.time)}</div>` : ""}${f.text ? `<div class="sub">${esc(f.text)}</div>` : ""}</div></li>`).join("")}</ol>
+  <div class="box"><h3 class="h3">県の資料が示す評価の考え方</h3><ul class="fl">${KEN.mensetsu.evaluate.map(x => `<li>${esc(x)}</li>`).join("")}</ul>${KEN.mensetsu.notEvaluate && KEN.mensetsu.notEvaluate.length ? `<p class="sub-h">評価しないこと</p><ul class="fl">${KEN.mensetsu.notEvaluate.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}</div>
+  <p class="note">出典:${kenSrc()}。くわしくは<a href="../mensetsu/">埼玉県公立高校の面接・マイボイス完全ガイド</a>へ。</p>
+</div></section>
+
+${sec("topic")}<div class="in">
+  <div class="h2"><span class="en">TOPIC</span><h2>${p.name}のマイボイスで<br>話す内容のヒント</h2></div>
+  <ol class="pts">${(mv.topics || []).map(x => `<li>${x}</li>`).join("")}</ol>
+  ${t.voiceKeys && t.voiceKeys.length ? `<div class="box"><p class="sub-h" style="margin-top:0">${p.name}らしさが伝わるキーワード</p>${chips(t.voiceKeys, "hot")}<p class="note" style="margin-top:8px">キーワードを入れるだけでなく、「なぜそこにひかれたのか」を自分の体験で説明できるようにしましょう。</p></div>` : ""}
+</div></section>
+
+${sec("example")}<div class="in">
+  <div class="h2"><span class="en">EXAMPLE</span><h2>${p.name}の<br>マイボイス例文</h2></div>
+  ${mv.example ? `<div class="box voice-box"><h3 class="h3">例文(約${mv.example.replace(/\s/g, "").length}字・1分30秒〜2分が目安)</h3><p class="vex" style="white-space:pre-line">${esc(mv.example)}</p><p class="note">例文をそのまま使うのはやめましょう。体験の部分を自分のことに置きかえ、声に出して時間を計ると、自分の言葉になります。</p></div>` : ""}
+  ${appBtn}
+</div></section>
+
+${sec("question")}<div class="in">
+  <div class="h2"><span class="en">QUESTION</span><h2>面接で聞かれそうな質問と<br>答え方のコツ</h2></div>
+  <div class="qa">${(mv.questions || []).map(([q, a]) => `<details open><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("")}</div>
+  <p class="note">県の資料では、マイボイスで話した内容について面接委員が質問するとされています。上の質問は、${p.name}の評価の観点や特色から当教室が予想したものです。</p>
+</div></section>
+
+${sec("faq")}<div class="in">
+  <div class="h2"><span class="en">FAQ</span><h2>${p.name}の面接<br>よくある質問</h2></div>
+  ${qaHtml(qs)}
+  <div class="links" style="margin-top:14px"><a href="../${p.slug}-naishin/"><span>${p.name}の内申点<small>合格者の内申と計算方法</small></span></a><a href="../${p.slug}/"><span>${p.name}の入試情報<small>偏差値・倍率・合否の目安</small></span></a><a href="../mensetsu/"><span>面接・マイボイス完全ガイド<small>埼玉県公立高校 全体のしくみ</small></span></a></div>
+</div></section>
+
+` + tail(p.name, "面接まで一緒に準備", "マイボイスの原稿づくりから本番形式の練習まで、一人ひとりに合わせて面接対策をしています。", `埼玉県教育委員会と${p.name}`, SOURCES);
+}
+
+function naishinPage(p) {
+  const r = R9[p.slug], ds = p.keys.map(k => byName[k]), d0 = ds[0];
+  const url = `${SITE}/${p.slug}-naishin/`, name = `${p.name}の内申点`;
+  const cs = r.courses, one = cs.length === 1;
+  const gs = ds.filter(d => d.g && !d.g.few);
+  const ans = gs.length ? gs.map(d => `${ds.length > 1 ? d.d + "は" : ""}2026年度の合格者の中3の内申(9教科・45点満点)が平均${d.g.y[0]}、下位4分の1で${d.g.y[1]}`).join("。") + "でした" : `${p.name}は2026年度の開示データが少ないため、合格者の内申は掲載していません${naOf(d0) !== "—" ? `。当教室の進路指導での目安は${naOf(d0)}です` : ""}`;
+  const calc = cs.map((c, ci) => ({ name: c.name, sels: c.selections.map((s, si) => ({ name: selName(s), chosa: s.chosa, total: s.total, ratio: c.ratio[si] || c.ratio[0], kihon: c.kihonten[si] || c.kihonten[0] })) }));
+  const qs = [];
+  qs.push([`${p.name}に合格するには内申点がどのくらい必要ですか?`, ans + "。"]);
+  qs.push([`${p.name}の内申(調査書)は中1から関係ありますか?`, `関係あります。${p.name}は学年の比率が${[...new Set(calc.flatMap(c => c.sels.map(s => s.ratio)))].join("・")}(中1:中2:中3)なので、${(() => { const [a, , z] = calc[0].sels[0].ratio.split(":").map(Number); return z > a ? "中3の成績がいちばん大きく影響しますが、中1・中2の成績も点数に入ります" : "中1・中2・中3の成績が同じ重さで点数に入ります"; })()}。`]);
+  qs.push([`${p.name}の入試で、内申はどのくらいの割合ですか?`, calc.map(c => (one ? "" : `${c.name}は`) + c.sels.map(s => `${s.name}で調査書${s.chosa}点(合計${s.total}点の${pctOf(s.chosa, s.total)}%)`).join("、")).join("。") + "です。"]);
+  qs.push([`内申の「基本点」とは何ですか?`, `各学年の9教科の評定(5段階)の合計に、学年の比率をかけて足した点数です。${p.name}の基本点の満点は${[...new Set(calc.flatMap(c => c.sels.map(s => s.kihon)))].join("・")}点です。高校はこれを、決めた配点(例:300点)に置きかえて調査書の点数にします。令和9年度からは、部活動や出欠などの記録は調査書の点数に入りません。`]);
+  const ld = ld2(url, name, qs, [`${p.name}の入試情報`, `${SITE}/${p.slug}/`]);
+  let k = 0; const sec = id => `<section class="sec${k++ % 2 ? " alt" : ""}"${id ? ` id="${id}"` : ""}>`;
+  const title = `${p.name}の内申点は何点必要?${gs.length ? "合格者の内申平均と" : "学年の比率と"}調査書の計算方法【2027年度 埼玉県公立入試】`;
+  const desc = `${p.name}に必要な内申点(通知表)の目安。${gs.length ? "2026年度合格者の中3の内申、" : ""}学年の比率(${calc[0].sels[0].ratio})と基本点、調査書の配点と割合、自分の通知表で計算できるツールまで、開示データと令和9年度の選抜実施内容をもとに地元の塾がまとめました。`;
+  const nav = `<li><a href="#answer">何点必要?</a></li><li><a href="#calc">計算ツール</a></li><li><a href="#ratio">学年の比率</a></li><li><a href="#weight">内申の割合</a></li><li><a href="#faq">よくある質問</a></li><li><a href="../${p.slug}/">入試情報</a></li><li><a href="../${p.slug}-mensetsu/">面接</a></li><li><a href="../naishin/">内申ガイド</a></li>`;
+  const ex = [27, 36, 45].map(v => ({ v, lab: v === 27 ? "オール3" : v === 36 ? "オール4" : "オール5" }));
+  return shell(title, desc, url, ld, nav) + hero(`<a href="../" style="color:#fff">高校入試ナビ</a> › <a href="../${p.slug}/" style="color:#fff">${p.name}</a> › 内申点`, "2027年度(令和9年度)入試 対応", `埼玉県${p.area}・${d0.d}`, `${p.name}の<br>内申点は何点必要?`, `${ans}。通知表の数字が入試で何点になるのか、${p.name}の学年の比率と調査書の配点から説明します。`) + `${sec("answer")}<div class="in">
+  <div class="h2"><span class="en">ANSWER</span><h2>${p.name}合格に<br>必要な内申点</h2></div>
+  ${ds.map(d => `<div class="box gl">${ds.length > 1 ? `<h3 class="h3">${d.d}</h3>` : ""}<div class="facts gk">${d.g && !d.g.few ? `<div class="fact"><small>合格者の平均</small><b>${d.g.y[0]}</b><small>中3・45点満点</small></div><div class="fact"><small>合格者の下位1/4</small><b>${d.g.y[1]}</b><small>ここを下回ると厳しい</small></div>` : (naOf(d) !== "—" ? `<div class="fact"><small>内申の目安</small><b>${naOf(d)}</b><small>当教室の目安</small></div>` : `<div class="fact"><small>合格者の内申</small><b style="font-size:16px">データが少なく掲載なし</b></div>`)}<div class="fact"><small>学年の比率</small><b style="font-size:22px">${d.r}</b><small>中1:中2:中3</small></div></div></div>`).join("\n  ")}
+  <p class="note">合格者の内申は、2026年度入試を受けた先輩の開示資料(民間の調査資料)をもとに当教室が集計したものです。「下位1/4」は、合格者を内申の順に並べて下から4分の1の位置です。年度によって変わるため、あくまで目安です。</p>
+</div></section>
+
+${sec("calc")}<div class="in">
+  <div class="h2"><span class="en">CALC</span><h2>通知表から<br>基本点を計算する</h2></div>
+  <div class="box nc" id="nc"><p style="margin:0 0 8px">各学年の通知表の<b>9教科の合計</b>(1教科5段階、最大45)を入れてください。</p>
+  ${calc.length > 1 ? `<label class="nc-l">学科・選抜<select id="ncSel">${calc.flatMap((c, ci) => c.sels.map((s, si) => `<option value="${ci}-${si}">${esc(one ? s.name : c.name + " " + s.name)}</option>`)).join("")}</select></label>` : `<label class="nc-l">選抜<select id="ncSel">${calc[0].sels.map((s, si) => `<option value="0-${si}">${esc(s.name)}</option>`).join("")}</select></label>`}
+  <div class="nc-in"><label>中1<input type="number" id="nc1" min="9" max="45" value="36" inputmode="numeric"></label><label>中2<input type="number" id="nc2" min="9" max="45" value="36" inputmode="numeric"></label><label>中3<input type="number" id="nc3" min="9" max="45" value="36" inputmode="numeric"></label></div>
+  <div class="nc-out"><div><small>基本点</small><b id="ncK">—</b></div><div><small>調査書の点数</small><b id="ncC">—</b></div></div>
+  <p class="note" id="ncNote"></p></div>
+  <p class="note">基本点=中1の合計×比率+中2の合計×比率+中3の合計×比率。「調査書の点数」は、基本点を${p.name}の調査書の配点に置きかえた点数です(共通選抜は200・300・400点のどれかに、特色選抜は基本点に高校が決めた数をかけて換算。小数第1位を四捨五入)。令和9年度から、調査書の点数になるのは9教科の評定だけで、部活動や出欠の記録は点数になりません。</p>
+  <script>(()=>{const C=${JSON.stringify(calc)};const $=i=>document.getElementById(i);const go=()=>{const [ci,si]=$("ncSel").value.split("-").map(Number);const s=C[ci].sels[si];const r=s.ratio.split(":").map(Number);const v=[1,2,3].map(i=>Math.max(9,Math.min(45,+$("nc"+i).value||0)));const k=v[0]*r[0]+v[1]*r[1]+v[2]*r[2];const max=45*(r[0]+r[1]+r[2]);$("ncK").textContent=k+" / "+max;$("ncC").textContent=Math.round(k/max*s.chosa)+" / "+s.chosa;$("ncNote").textContent="学年の比率は "+s.ratio+"(中1:中2:中3)。この選抜の合計点は"+s.total+"点で、調査書はその"+Math.round(s.chosa/s.total*100)+"%です。"};["ncSel","nc1","nc2","nc3"].forEach(i=>$(i).addEventListener("input",go));go()})();</script>
+</div></section>
+
+${sec("ratio")}<div class="in">
+  <div class="h2"><span class="en">RATIO</span><h2>学年の比率と<br>通知表の例</h2></div>
+  ${calc.map(c => `<div class="box">${one ? "" : `<h3 class="h3">${esc(c.name)}</h3>`}<div class="tbl"><table class="ex"><thead><tr><th>通知表</th>${c.sels.map(s => `<th>${esc(s.name)}<small>比率${s.ratio}・調査書${s.chosa}点</small></th>`).join("")}</tr></thead><tbody>${ex.map(e => `<tr><th>${e.lab}<small>各学年${e.v}</small></th>${c.sels.map(s => { const r = s.ratio.split(":").map(Number), kk = e.v * (r[0] + r[1] + r[2]), mx = 45 * (r[0] + r[1] + r[2]); return `<td>基本点 ${kk}/${mx}<br>調査書 ${Math.round(kk / mx * s.chosa)}点</td>`; }).join("")}</tr>`).join("")}</tbody></table></div></div>`).join("\n  ")}
+  <p class="note">調査書の点数は、基本点を配点に置きかえて小数第1位を四捨五入した値です。</p>
+</div></section>
+
+${sec("weight")}<div class="in">
+  <div class="h2"><span class="en">WEIGHT</span><h2>${p.name}の入試で<br>内申はどのくらい大事?</h2></div>
+  <div class="legend"><span><i style="background:var(--exam)"></i>学力検査</span><span><i style="background:var(--report)"></i>調査書(内申)</span><span><i style="background:var(--talk)"></i>面接</span></div>
+  ${cs.map(c => `<div class="box">${one ? "" : `<h3 class="h3">${esc(c.name)}</h3>`}<div class="mix">${c.selections.map(s => `<div class="row"><div class="hd"><span class="nm">${esc(selName(s))}</span><span class="tot">学検${s.exam}・調査書${s.chosa}・面接${s.mensetsu}${s.tokushoku ? `・特色検査${s.tokushoku}` : ""}/計${s.total}点</span></div>${bar([s.exam, s.chosa, s.mensetsu])}<p class="note" style="margin:4px 0 0">調査書は合計の${pctOf(s.chosa, s.total)}%</p></div>`).join("")}</div></div>`).join("\n  ")}
+  <p class="note">出典:${schoolSrc(p)}。調査書のしくみは<a href="../naishin/">埼玉県の内申点(調査書)の計算方法</a>でくわしく説明しています。</p>
+</div></section>
+
+${sec("faq")}<div class="in">
+  <div class="h2"><span class="en">FAQ</span><h2>${p.name}の内申点<br>よくある質問</h2></div>
+  ${qaHtml(qs)}
+  <div class="links" style="margin-top:14px"><a href="../${p.slug}-mensetsu/"><span>${p.name}の面接・マイボイス<small>配点・見ること・例文</small></span></a><a href="../${p.slug}/"><span>${p.name}の入試情報<small>偏差値・倍率・合否の目安</small></span></a><a href="../naishin/"><span>内申点(調査書)の計算方法<small>埼玉県公立高校 全体のしくみ</small></span></a></div>
+</div></section>
+
+` + tail(p.name, "内申を上げる作戦から", "定期テスト対策と提出物・授業の取り組みまで、通知表の数字を上げるための計画を一人ひとりに合わせて立てます。", `埼玉県教育委員会と${p.name}`, SOURCES);
+}
+
+function guidePage(kind) {
+  const isM = kind === "mensetsu", list = pages.filter(subOK);
+  const url = `${SITE}/${kind}/`;
+  const title = isM ? "埼玉県公立高校の面接・マイボイス(My Voice)完全ガイド|流れ・評価・例文【2027年度入試】" : "埼玉県公立高校の内申点(調査書)の計算方法|学年の比率・基本点・高校別の配点【2027年度入試】";
+  const desc = isM ? "2027年度(令和9年度)から埼玉県公立高校入試の全受検生に面接があります。マイボイス(My Voice)の時間・流れ・評価のしかた、自己評価資料との関係、深谷・熊谷周辺の高校別の面接方法と配点を、県の資料をもとにまとめました。" : "埼玉県公立高校入試の内申点(調査書)のしくみ。学年の比率(1:1:2など)と基本点の計算方法、深谷・熊谷周辺の高校別の調査書の配点と割合を、令和9年度の選抜実施内容をもとにまとめました。";
+  const name = isM ? "埼玉県公立高校の面接・マイボイス完全ガイド" : "埼玉県の内申点(調査書)の計算方法";
+  const K = KEN, qs = [];
+  if (isM) {
+    qs.push(["マイボイス(My Voice)とは何ですか?", K.mensetsu.myvoice]);
+    qs.push(["面接は何分くらいですか?", K.mensetsu.flow.filter(f => f.time).map(f => `${f.step}は${f.time}`).join("、") + "です。"]);
+    qs.push(["面接では何が評価されますか?", K.mensetsu.evaluate.join(" ")]);
+    (K.mensetsu.faq || []).slice(0, 4).forEach(f => qs.push([f.q, f.a]));
+    qs.push(["自己評価資料とは何ですか?", `${K.jikohyoka.what} ${K.jikohyoka.relation || ""}`]);
+  } else {
+    qs.push(["内申点(調査書)はどうやって計算しますか?", K.chosa.gakushu]);
+    qs.push(["学年の比率とは何ですか?", K.chosa.ratio]);
+    if (K.chosa.jitsugi) qs.push(["実技教科(音楽・美術・保健体育・技術家庭)は倍になりますか?", K.chosa.jitsugi]);
+    if (K.chosa.changes) qs.push(["令和9年度から調査書は何が変わりましたか?", K.chosa.changes]);
+  }
+  const ld = ld2(url, name, qs, null);
+  let k = 0; const sec = id => `<section class="sec${k++ % 2 ? " alt" : ""}"${id ? ` id="${id}"` : ""}>`;
+  const nav = isM ? `<li><a href="#what">マイボイスとは</a></li><li><a href="#flow">流れ</a></li><li><a href="#eval">評価</a></li><li><a href="#jiko">自己評価資料</a></li><li><a href="#schools">高校別</a></li><li><a href="#faq">よくある質問</a></li><li><a href="../naishin/">内申ガイド</a></li><li><a href="../">トップ</a></li>` : `<li><a href="#how">計算方法</a></li><li><a href="#ratio">学年の比率</a></li><li><a href="#schools">高校別</a></li><li><a href="#faq">よくある質問</a></li><li><a href="../mensetsu/">面接ガイド</a></li><li><a href="../">トップ</a></li>`;
+  const rows = list.map(p => { const r = R9[p.slug]; return r.courses.map((c, i) => ({ p, c, i })); }).flat();
+  const table = isM
+    ? `<div class="cmp">${list.map(p => { const r = R9[p.slug]; return `<div class="box"><h3 class="h3">${p.name}</h3><dl>${r.courses.map(c => `${r.courses.length > 1 ? `<dt>学科</dt><dd>${esc(c.name)}</dd>` : ""}<dt>方法</dt><dd>${esc(c.method)}</dd><dt>配点</dt><dd>${c.selections.map(s => `${s.mensetsu}点`).join("/")}</dd><dt>見ること</dt><dd>${esc(c.kanten || "学校独自の観点は設定なし")}</dd>`).join("")}</dl><a class="more" href="../${p.slug}-mensetsu/">${p.name}の面接対策 ›</a></div>`; }).join("")}</div>`
+    : `<div class="cmp">${list.map(p => { const r = R9[p.slug]; const d = byName[p.keys[0]]; return `<div class="box"><h3 class="h3">${p.name}</h3><dl>${r.courses.map(c => `${r.courses.length > 1 ? `<dt>学科</dt><dd>${esc(c.name)}</dd>` : ""}<dt>比率</dt><dd>${esc([...new Set(c.ratio)].join("/"))}(基本点${[...new Set(c.kihonten)].join("/")})</dd><dt>調査書</dt><dd>${c.selections.map(s => `${s.chosa}点(${pctOf(s.chosa, s.total)}%)`).join("/")}</dd>`).join("")}${d.g && !d.g.few ? `<dt>合格者</dt><dd>中3内申 平均${d.g.y[0]}・下位1/4 ${d.g.y[1]}</dd>` : ""}</dl><a class="more" href="../${p.slug}-naishin/">${p.name}の内申点 ›</a></div>`; }).join("")}</div>`;
+  const body = isM ? `${sec("what")}<div class="in">
+  <div class="h2"><span class="en">MY VOICE</span><h2>マイボイス(My Voice)<br>とは?</h2></div>
+  <p class="lead">${esc(K.mensetsu.myvoice)}</p>
+  <div class="box"><p style="margin:0">${esc(K.mensetsu.format)}</p><p class="mission">${esc(K.mensetsu.scoreRule)}</p></div>
+</div></section>
+
+${sec("flow")}<div class="in">
+  <div class="h2"><span class="en">FLOW</span><h2>面接の流れ</h2></div>
+  <ol class="tl">${K.mensetsu.flow.map(f => `<li style="--c:var(--blue)"><div class="dot"></div><div class="card"><div class="date">${esc(f.step)}</div>${f.time ? `<div class="what">${esc(f.time)}</div>` : ""}${f.text ? `<div class="sub">${esc(f.text)}</div>` : ""}</div></li>`).join("")}</ol>
+</div></section>
+
+${sec("eval")}<div class="in">
+  <div class="h2"><span class="en">EVALUATION</span><h2>何が評価される?</h2></div>
+  <div class="box"><h3 class="h3">評価すること</h3><ul class="fl">${K.mensetsu.evaluate.map(x => `<li>${esc(x)}</li>`).join("")}</ul>${K.mensetsu.notEvaluate && K.mensetsu.notEvaluate.length ? `<p class="sub-h">評価しないこと</p><ul class="fl">${K.mensetsu.notEvaluate.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}</div>
+  <p class="lead">高校によっては、独自の「評価の観点」を決めています。下の高校別の一覧で確認しましょう。</p>
+</div></section>
+
+${sec("jiko")}<div class="in">
+  <div class="h2"><span class="en">SELF REPORT</span><h2>自己評価資料と<br>面接の関係</h2></div>
+  <div class="box"><p style="margin:0">${esc(K.jikohyoka.what)}</p><p class="mission">${esc(K.jikohyoka.how || "")}</p><p class="mission">${esc(K.jikohyoka.relation || "")}</p></div>
+  ${appBtn}
+</div></section>
+
+` : `${sec("how")}<div class="in">
+  <div class="h2"><span class="en">HOW TO</span><h2>内申点(調査書)の<br>計算方法</h2></div>
+  <div class="box"><h3 class="h3">学習の記録(通知表の評定)</h3><p style="margin:0">${esc(K.chosa.gakushu)}</p>${K.chosa.jitsugi ? `<p class="mission">${esc(K.chosa.jitsugi)}</p>` : ""}</div>
+  ${K.chosa.tokkatsu || K.chosa.sonota ? `<div class="box"><h3 class="h3">学習の記録のほかに書かれること</h3>${K.chosa.tokkatsu ? `<p style="margin:0">${esc(K.chosa.tokkatsu)}</p>` : ""}${K.chosa.sonota ? `<p class="mission">${esc(K.chosa.sonota)}</p>` : ""}</div>` : ""}
+  ${K.chosa.changes ? `<div class="box"><h3 class="h3">令和9年度からの変更点</h3><p style="margin:0">${esc(K.chosa.changes)}</p></div>` : ""}
+</div></section>
+
+${sec("ratio")}<div class="in">
+  <div class="h2"><span class="en">RATIO</span><h2>学年の比率と基本点</h2></div>
+  <p class="lead">${esc(K.chosa.ratio)}</p>
+  <div class="box"><div class="tbl"><table class="ex"><thead><tr><th>比率(中1:中2:中3)</th><th>基本点の満点</th><th>オール4のとき</th></tr></thead><tbody>${["1:1:1", "1:1:2", "1:1:3", "2:2:5"].map(rr => { const r = rr.split(":").map(Number), s = r[0] + r[1] + r[2]; return `<tr><th>${rr}</th><td>${45 * s}</td><td>${36 * s}</td></tr>`; }).join("")}</tbody></table></div><p class="note" style="margin-top:8px">基本点=中1の9教科の合計×比率+中2の合計×比率+中3の合計×比率。高校はこれをもとに、決めた配点で調査書の点数をつけます。</p></div>
+</div></section>
+
+`;
+  return shell(title, desc, url, ld, nav) + hero(`<a href="../" style="color:#fff">高校入試ナビ</a> › ${isM ? "面接・マイボイス" : "内申点"}`, "2027年度(令和9年度)入試 対応", "埼玉県公立高校入試", isM ? "面接・マイボイス(My Voice)<br>完全ガイド" : "内申点(調査書)の<br>計算方法", isM ? "2027年度(令和9年度)の埼玉県公立高校入試から、すべての受検生に面接があります。最初に自分の言葉で話す「マイボイス(My Voice)」のしくみと、深谷・熊谷周辺の高校ごとの面接の方法・配点をまとめました。" : "通知表の数字は、入試で何点になるのか。埼玉県公立高校の調査書(内申点)のしくみと、深谷・熊谷周辺の高校ごとの学年の比率・配点をまとめました。") + body + `${sec("schools")}<div class="in">
+  <div class="h2"><span class="en">SCHOOLS</span><h2>高校別の${isM ? "面接" : "内申点"}</h2></div>
+  ${table}
+  <p class="note">各高校の令和9年度入学者選抜 選抜実施内容(埼玉県教育委員会)より。</p>
+</div></section>
+
+${sec("faq")}<div class="in">
+  <div class="h2"><span class="en">FAQ</span><h2>よくある質問</h2></div>
+  ${qaHtml(qs)}
+  <p class="note">出典:${kenSrc()}</p>
+</div></section>
+
+` + tail("志望校", isM ? "面接まで一緒に準備" : "内申を上げる作戦から", isM ? "マイボイスの原稿づくりから本番形式の練習まで、一人ひとりに合わせて面接対策をしています。" : "定期テスト対策と提出物・授業の取り組みまで、通知表の数字を上げるための計画を一人ひとりに合わせて立てます。", "埼玉県教育委員会", SOURCES);
+}
+
 // トップページの高校カードから各ページへのリンク表を書きかえる(内容が同じなら何もしない)
 const pg = `const PG=${JSON.stringify(Object.fromEntries(Object.entries(slugOf).map(([k, v]) => [k, v + "/"])))};/*PG*/`;
 const top2 = top.replace(/const PG=.*?;\/\*PG\*\//, pg);
 if (!/\/\*PG\*\//.test(top)) throw new Error("index.html に PG の目印がありません");
 if (top2 !== top) fs.writeFileSync(path.join(PUB, "index.html"), top2);
 
+for (const p of pages.filter(subOK)) for (const [suf, fn] of [["mensetsu", mensetsuPage], ["naishin", naishinPage]]) { const dd = path.join(PUB, `${p.slug}-${suf}`); fs.mkdirSync(dd, { recursive: true }); fs.writeFileSync(path.join(dd, "index.html"), fn(p)); }
+if (KEN) for (const g of ["mensetsu", "naishin"]) { fs.mkdirSync(path.join(PUB, g), { recursive: true }); fs.writeFileSync(path.join(PUB, g, "index.html"), guidePage(g)); }
 fs.mkdirSync(path.join(PUB, "chigai"), { recursive: true });
 fs.writeFileSync(path.join(PUB, "chigai", "index.html"), chigaiPage());
 for (const q of privs) {
@@ -652,6 +895,8 @@ const urls = [
   ...pages.map(p => ({ loc: `${SITE}/${p.slug}/`, pri: "0.8" })),
   ...privs.map(q => ({ loc: `${SITE}/${q.slug}/`, pri: "0.8" })),
   { loc: SITE + "/chigai/", pri: "0.7" },
+  ...(KEN ? [{ loc: SITE + "/mensetsu/", pri: "0.9" }, { loc: SITE + "/naishin/", pri: "0.9" }] : []),
+  ...pages.filter(subOK).flatMap(p => [{ loc: `${SITE}/${p.slug}-mensetsu/`, pri: "0.8" }, { loc: `${SITE}/${p.slug}-naishin/`, pri: "0.8" }]),
   { loc: SITE + "/myvoice/", pri: "0.5" }
 ];
 fs.writeFileSync(path.join(PUB, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
