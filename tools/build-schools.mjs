@@ -43,6 +43,15 @@ const strip = s => s.replace(/<[^>]+>/g, "");
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const naOf = d => d.na && d.na !== "—" ? d.na : d.g && !d.g.few ? `${d.g.y[1]}〜${d.g.y[0]}` : "—";
 const label = (p, d) => p.keys.length > 1 ? `${d.d}` : p.name;
+// 埼玉県教育委員会「進学希望状況」(data/kibou.json。tools/fetch-kibou.mjs で取得)
+const KBF = path.join(ROOT, "data", "kibou.json");
+const KB = fs.existsSync(KBF) ? JSON.parse(fs.readFileSync(KBF, "utf8")) : null;
+const wareki = iso => { const [y, m, d] = iso.split("-").map(Number); return `令和${y - 2018}年${m}月${d}日`; };
+function kibouBox(p) {
+  const k = KB && KB.schools[p.slug]; if (!k) return "";
+  const many = k.length > 1;
+  return `<div class="box kb"><h3 class="h3">最新の進学希望状況<small class="yr">${wareki(KB.date)}現在・埼玉県教育委員会の進路希望状況調査</small></h3><div class="tbl"><table class="ex kbt"><thead><tr>${many ? "<th>学科</th>" : ""}<th>募集人員</th><th>希望者数</th><th>倍率</th><th>前年同期</th></tr></thead><tbody>${k.map(x => `<tr>${many ? `<th>${esc(x.gakka)}</th>` : ""}<td>${x.boshu}人</td><td>${x.kibou}人</td><td class="bb">${x.bairitsu.toFixed(2)}倍</td><td>${x.zennen == null ? "—" : x.zennen.toFixed(2) + "倍"}</td></tr>`).join("")}</tbody></table></div>${k.some(x => x.biko) ? `<p class="note" style="margin-top:6px">${k.filter(x => x.biko).map(x => (many ? x.gakka + ":" : "") + esc(x.biko.replace(/^注[)）]/, ""))).join("/")}</p>` : ""}<p class="note" style="margin-top:6px">中学3年生に、どの高校に進みたいかを聞いた調査の結果です(実際の出願者数とはちがいます)。「前年同期」は1年前の同じ時期の倍率です。出典:<a href="${esc(KB.source)}" target="_blank" rel="noopener">埼玉県公立高等学校 進学希望状況(埼玉県教育委員会)</a></p></div>`;
+}
 
 function bar(v) {
   const tot = v[0] + v[1] + v[2];
@@ -267,6 +276,11 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
 .dl{margin:0;display:grid;gap:4px 12px;font-size:15px}
 .dl dt{font-weight:900;color:var(--navy);margin-top:6px}
 .dl dd{margin:0}
+.kb{border:2px solid var(--blue)}
+table.kbt td{text-align:right;font-family:var(--num);font-weight:700;white-space:nowrap}
+table.kbt td.bb{color:var(--blue);font-weight:900;font-size:17px}
+table.kbt thead th{text-align:center}
+.kbs b{font-family:var(--num);font-size:18px}
 .subnav{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 0}
 .subnav a{background:#fff;color:var(--blue);border-radius:12px;padding:10px 8px;text-align:center;font-weight:900;font-size:15px;text-decoration:none;line-height:1.3}
 .nc-l{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:14px;margin-bottom:10px}
@@ -371,6 +385,7 @@ function page(p) {
       <div><small>2026志願倍率</small><b>${main.b.replace("〜", "<br>〜")}</b></div>
       <div><small>内申の目安</small><b>${naOf(main)}</b></div>
     </div>
+    ${KB && KB.schools[p.slug] ? `<p class="stamp kbs">最新の進学希望倍率(${wareki(KB.date)}現在):${KB.schools[p.slug].map(x => (KB.schools[p.slug].length > 1 ? x.gakka + " " : "") + `<b>${x.bairitsu.toFixed(2)}倍</b>`).join("・")} <a href="#data" style="color:#fff">くわしく ›</a></p>` : ""}
     ${ds.length > 1 ? `<p class="stamp">※上の数字は${main.d}。${ds.slice(1).map(d => `${d.d}は偏差値${hv(d)}・志願倍率${d.b}`).join("、")}。</p>` : ""}
     ${subOK(p) ? `<div class="subnav"><a href="../${p.slug}-mensetsu/">面接・マイボイス対策 ›</a><a href="../${p.slug}-naishin/">内申点は何点必要? ›</a></div>` : ""}
     <p class="lead">${p.intro}</p>
@@ -380,6 +395,7 @@ function page(p) {
 
 ${glance(p.slug, p.name, (TK[p.slug] || {}).fit, sec, ft ? "#feature" : "#point")}${sec("data")}<div class="in">
   <div class="h2"><span class="en">DATA</span><h2>${p.name}の<br>基本データ</h2></div>
+  ${kibouBox(p)}
   ${ds.map(d => facts(p, d)).join("\n  ")}
   <div class="box"><h3 class="h3">近い偏差値の高校とくらべる</h3>${hensachi(p)}<p class="note" style="margin-top:8px">偏差値は「みんなの高校情報」の値をまとめた民間サイトより。模試によって数値は変わります。</p></div>
   <p class="note">「志願倍率」は2026年度の志願確定倍率(志願者数÷募集人数、埼玉県教育委員会)、「実質倍率」は2026年度に実際に受検した人数をもとにした倍率(民間の開示資料の集計)です。内申の目安(9教科・45点満点)は学習空間 深谷上柴教室の進路指導での目安です。</p>

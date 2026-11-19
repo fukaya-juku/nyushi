@@ -1,0 +1,312 @@
+{
+ "date": "2026-10-01",
+ "source": "https://app.powerbi.com/view?r=eyJrIjoiMmExZWZhZmUtNzBiNy00ODViLWE4M2YtYzc1YjNiZWUwZDQ3IiwidCI6IjVlNzM4ZjMxLTVhNzItNGNiNS04NzA4LThiZWNlZjgwM2QyNyJ9",
+ "schools": {
+  "kumagaya": [
+   {
+    "gakka": "普通",
+    "boshu": 278,
+    "kibou": 262,
+    "bairitsu": 0.94,
+    "zennen": 0.96,
+    "biko": null
+   }
+  ],
+  "kumagaya-joshi": [
+   {
+    "gakka": "普通",
+    "boshu": 278,
+    "kibou": 256,
+    "bairitsu": 0.92,
+    "zennen": 0.91,
+    "biko": null
+   }
+  ],
+  "kumagaya-nishi": [
+   {
+    "gakka": "普通",
+    "boshu": 278,
+    "kibou": 383,
+    "bairitsu": 1.38,
+    "zennen": 1.48,
+    "biko": null
+   },
+   {
+    "gakka": "理数",
+    "boshu": 40,
+    "kibou": 41,
+    "bairitsu": 1.02,
+    "zennen": 0.83,
+    "biko": null
+   }
+  ],
+  "fukaya-daiichi": [
+   {
+    "gakka": "普通",
+    "boshu": 278,
+    "kibou": 345,
+    "bairitsu": 1.24,
+    "zennen": 1.42,
+    "biko": null
+   }
+  ],
+  "fukaya-shogyo": [
+   {
+    "gakka": "会計",
+    "boshu": 40,
+    "kibou": 31,
+    "bairitsu": 0.78,
+    "zennen": 0.83,
+    "biko": null
+   },
+   {
+    "gakka": "商業",
+    "boshu": 158,
+    "kibou": 177,
+    "bairitsu": 1.12,
+    "zennen": 1,
+    "biko": null
+   },
+   {
+    "gakka": "情報処理",
+    "boshu": 80,
+    "kibou": 61,
+    "bairitsu": 0.76,
+    "zennen": 0.65,
+    "biko": null
+   }
+  ],
+  "fukaya": [
+   {
+    "gakka": "普通",
+    "boshu": 158,
+    "kibou": 103,
+    "bairitsu": 0.65,
+    "zennen": 0.85,
+    "biko": "注）募集人員40人減"
+   }
+  ],
+  "honjo": [
+   {
+    "gakka": "普通",
+    "boshu": 278,
+    "kibou": 420,
+    "bairitsu": 1.51,
+    "zennen": 1.19,
+    "biko": "注）募集人員40人減"
+   }
+  ],
+  "ageo": [
+   {
+    "gakka": "商業",
+    "boshu": 120,
+    "kibou": 126,
+    "bairitsu": 1.05,
+    "zennen": 1,
+    "biko": null
+   },
+   {
+    "gakka": "普通",
+    "boshu": 238,
+    "kibou": 552,
+    "bairitsu": 2.32,
+    "zennen": 2.36,
+    "biko": null
+   }
+  ],
+  "ina-gakuen": [
+   {
+    "gakka": "普通",
+    "boshu": 675,
+    "kibou": 899,
+    "bairitsu": 1.33,
+    "zennen": 1.33,
+    "biko": "注）募集人員40人減・内部進学者含まず"
+   }
+  ],
+  "kumagaya-shogyo": [
+   {
+    "gakka": "総合ビジネス",
+    "boshu": 159,
+    "kibou": 118,
+    "bairitsu": 0.74,
+    "zennen": 0.74,
+    "biko": "注）募集人員40人減"
+   }
+  ],
+  "kumagaya-kogyo": [
+   {
+    "gakka": "機械",
+    "boshu": 79,
+    "kibou": 83,
+    "bairitsu": 1.05,
+    "zennen": 0.68,
+    "biko": null
+   },
+   {
+    "gakka": "建築",
+    "boshu": 40,
+    "kibou": 53,
+    "bairitsu": 1.32,
+    "zennen": 1.15,
+    "biko": null
+   },
+   {
+    "gakka": "情報技術",
+    "boshu": 40,
+    "kibou": 53,
+    "bairitsu": 1.32,
+    "zennen": 1.4,
+    "biko": null
+   },
+   {
+    "gakka": "電気",
+    "boshu": 40,
+    "kibou": 49,
+    "bairitsu": 1.23,
+    "zennen": 0.9,
+    "biko": null
+   },
+   {
+    "gakka": "土木",
+    "boshu": 40,
+    "kibou": 33,
+    "bairitsu": 0.82,
+    "zennen": 0.85,
+    "biko": null
+   }
+  ],
+  "kumagaya-nogyo": [
+   {
+    "gakka": "食品科学",
+    "boshu": 40,
+    "kibou": 68,
+    "bairitsu": 1.7,
+    "zennen": 1.4,
+    "biko": null
+   },
+   {
+    "gakka": "生活技術",
+    "boshu": 40,
+    "kibou": 40,
+    "bairitsu": 1,
+    "zennen": 0.88,
+    "biko": null
+   },
+   {
+    "gakka": "生物生産技術",
+    "boshu": 80,
+    "kibou": 59,
+    "bairitsu": 0.74,
+    "zennen": 1,
+    "biko": null
+   },
+   {
+    "gakka": "生物生産工学",
+    "boshu": 79,
+    "kibou": 52,
+    "bairitsu": 0.66,
+    "zennen": 0.71,
+    "biko": null
+   }
+  ],
+  "menuma": [
+   {
+    "gakka": "普通",
+    "boshu": 118,
+    "kibou": 25,
+    "bairitsu": 0.21,
+    "zennen": 0.28,
+    "biko": null
+   }
+  ],
+  "yorii-johoku": [
+   {
+    "gakka": "総合",
+    "boshu": 198,
+    "kibou": 162,
+    "bairitsu": 0.82,
+    "zennen": 0.84,
+    "biko": null
+   }
+  ],
+  "konosu": [
+   {
+    "gakka": "商業",
+    "boshu": 80,
+    "kibou": 56,
+    "bairitsu": 0.7,
+    "zennen": 0.65,
+    "biko": null
+   },
+   {
+    "gakka": "普通",
+    "boshu": 158,
+    "kibou": 221,
+    "bairitsu": 1.4,
+    "zennen": 1.16,
+    "biko": "注）募集人員40人減"
+   }
+  ],
+  "konosu-joshi": [
+   {
+    "gakka": "家政科学",
+    "boshu": 40,
+    "kibou": 29,
+    "bairitsu": 0.72,
+    "zennen": 0.83,
+    "biko": null
+   },
+   {
+    "gakka": "普通",
+    "boshu": 79,
+    "kibou": 43,
+    "bairitsu": 0.54,
+    "zennen": 0.53,
+    "biko": null
+   },
+   {
+    "gakka": "保育",
+    "boshu": 40,
+    "kibou": 26,
+    "bairitsu": 0.65,
+    "zennen": 0.85,
+    "biko": null
+   }
+  ],
+  "shinshukan": [
+   {
+    "gakka": "ものづくり",
+    "boshu": 40,
+    "kibou": 18,
+    "bairitsu": 0.45,
+    "zennen": 0.58,
+    "biko": null
+   },
+   {
+    "gakka": "情報メディア",
+    "boshu": 40,
+    "kibou": 18,
+    "bairitsu": 0.45,
+    "zennen": 0.68,
+    "biko": null
+   },
+   {
+    "gakka": "総合",
+    "boshu": 198,
+    "kibou": 139,
+    "bairitsu": 0.7,
+    "zennen": 0.69,
+    "biko": null
+   },
+   {
+    "gakka": "電気システム",
+    "boshu": 39,
+    "kibou": 16,
+    "bairitsu": 0.41,
+    "zennen": 0.28,
+    "biko": null
+   }
+  ]
+ }
+}
