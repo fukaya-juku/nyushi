@@ -345,6 +345,10 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
 .nc-out div{background:var(--sky);border-radius:12px;padding:10px;text-align:center}
 .nc-out small{display:block;font-weight:700;color:var(--muted);font-size:13px}
 .nc-out b{font-family:var(--num);font-size:24px;color:var(--blue)}
+.nc-req{margin-top:14px;border-top:2px dashed var(--line);padding-top:10px}
+.nc-req .sub-h small{display:block;font-weight:700;color:var(--muted);font-size:12.5px}
+.nc-req .b{background:#ffece0}.nc-req .b b{color:#d35400}
+.nc-req .s{background:var(--sky)}
 .gl{border:2px solid var(--blue)}
 .gl-tone{margin:0;font-size:18px;font-weight:900;color:var(--navy);line-height:1.5}
 .gl-tone small{display:block;font-size:13px;color:var(--muted)}
@@ -369,7 +373,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
 
 <div class="top">
   <div class="in">
-    <a class="logo" href="https://blue0728.studio.site/" target="_blank" rel="noopener">学習空間<small>深谷上柴教室</small></a>
+    <a class="logo" href="https://fukaya-juku.github.io/">学習空間<small>深谷上柴教室</small></a>
     <a class="btn-tel" href="https://lin.ee/rcfMHgx" target="_blank" rel="noopener"><span class="line-ic">LINE</span>無料体験・相談</a>
   </div>
   <nav class="nav" aria-label="ページ内メニュー"><ul>
@@ -394,14 +398,16 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
 </div></section>
 
 <section class="sec alt" id="calc"><div class="in">
-  <div class="h2"><span class="en">CALC</span><h2>通知表から<br>基本点を計算する</h2></div>
-  <div class="box nc" id="nc"><p style="margin:0 0 8px">各学年の通知表の<b>9教科の合計</b>(1教科5段階、最大45)を入れてください。</p>
+  <div class="h2"><span class="en">CALC</span><h2>通知表から<br>必要な点数を計算する</h2></div>
+  <div class="box nc" id="nc"><p style="margin:0 0 8px">各学年の通知表の<b>9教科の合計</b>(1教科5段階、最大45)を入れてください。中3は1学期(2学期)の成績で考えます。</p>
   <label class="nc-l">選抜<select id="ncSel"><option value="0-0">特色選抜 第1次選抜</option><option value="0-1">特色選抜 第2次選抜</option></select></label>
   <div class="nc-in"><label>中1<input type="number" id="nc1" min="9" max="45" value="36" inputmode="numeric"></label><label>中2<input type="number" id="nc2" min="9" max="45" value="36" inputmode="numeric"></label><label>中3<input type="number" id="nc3" min="9" max="45" value="36" inputmode="numeric"></label></div>
   <div class="nc-out"><div><small>基本点</small><b id="ncK">—</b></div><div><small>調査書の点数</small><b id="ncC">—</b></div></div>
+  <div class="nc-req"><p class="sub-h">学力検査(5教科500点)で必要な点数の目安<small id="ncRc"></small></p><div class="nc-out"><div class="b"><small>ボーダー</small><b id="ncRb">—</b></div><div class="s"><small>安心ライン</small><b id="ncRs">—</b></div></div><p class="note" id="ncRn"></p></div>
   <p class="note" id="ncNote"></p></div>
+  <p class="note"><b>必要な点数の出し方:</b>過去4年分の熊谷高校の合格者の得点を、2027年度の配点(調査書300点・学力検査500点・比率2:2:5)で計算しなおし、合格者の合計点の下位4分の1を「ボーダー」、真ん中を「安心ライン」としました。そこからあなたの調査書の点数を引いたのが、学力検査で必要な点数です。第1次選抜の配点で計算し、面接の点数はふくみません。問題の難しさや倍率で毎年変わるので、あくまで目安です。</p>
   <p class="note">基本点=中1の合計×比率+中2の合計×比率+中3の合計×比率。「調査書の点数」は、基本点を熊谷高校の調査書の配点に置きかえた点数です(共通選抜は200・300・400点のどれかに、特色選抜は基本点に高校が決めた数をかけて換算。小数第1位を四捨五入)。令和9年度から、調査書の点数になるのは9教科の評定だけで、部活動や出欠の記録は点数になりません。</p>
-  <script>(()=>{const C=[{"name":"普通科","sels":[{"name":"特色選抜 第1次選抜","chosa":300,"total":830,"ratio":"2:2:5","kihon":405},{"name":"特色選抜 第2次選抜","chosa":200,"total":760,"ratio":"2:2:5","kihon":405}]}];const $=i=>document.getElementById(i);const go=()=>{const [ci,si]=$("ncSel").value.split("-").map(Number);const s=C[ci].sels[si];const r=s.ratio.split(":").map(Number);const v=[1,2,3].map(i=>Math.max(9,Math.min(45,+$("nc"+i).value||0)));const k=v[0]*r[0]+v[1]*r[1]+v[2]*r[2];const max=45*(r[0]+r[1]+r[2]);$("ncK").textContent=k+" / "+max;$("ncC").textContent=Math.round(k/max*s.chosa)+" / "+s.chosa;$("ncNote").textContent="学年の比率は "+s.ratio+"(中1:中2:中3)。この選抜の合計点は"+s.total+"点で、調査書はその"+Math.round(s.chosa/s.total*100)+"%です。"};["ncSel","nc1","nc2","nc3"].forEach(i=>$(i).addEventListener("input",go));go()})();</script>
+  <script>(()=>{const C=[{"name":"普通科","sels":[{"name":"特色選抜 第1次選抜","chosa":300,"total":830,"ratio":"2:2:5","kihon":405},{"name":"特色選抜 第2次選抜","chosa":200,"total":760,"ratio":"2:2:5","kihon":405}]}];const H=[{"ci":0,"course":"普通科","ratio":"2:2:5","chosa":300,"examMax":500,"border":558,"safe":592,"n":187,"small":false,"k5":1,"years":3}];const $=i=>document.getElementById(i);const go=()=>{const [ci,si]=$("ncSel").value.split("-").map(Number);const s=C[ci].sels[si];const r=s.ratio.split(":").map(Number);const v=[1,2,3].map(i=>Math.max(9,Math.min(45,+$("nc"+i).value||0)));const k=v[0]*r[0]+v[1]*r[1]+v[2]*r[2];const max=45*(r[0]+r[1]+r[2]);$("ncK").textContent=k+" / "+max;$("ncC").textContent=Math.round(k/max*s.chosa)+" / "+s.chosa;$("ncNote").textContent="学年の比率は "+s.ratio+"(中1:中2:中3)。この選抜の合計点は"+s.total+"点で、調査書はその"+Math.round(s.chosa/s.total*100)+"%です。";if(H){const h=H.find(x=>x.ci===ci)||H[0];const rr=h.ratio.split(":").map(Number),kk=v[0]*rr[0]+v[1]*rr[1]+v[2]*rr[2],mx=45*(rr[0]+rr[1]+rr[2]),cp=kk/mx*h.chosa;const f=x=>{let y=(x-cp)*h.k5;return y>500?"500点でも届かない":y<=0?"内申だけで届く計算":Math.min(500,Math.ceil(y/5)*5)+"点"};$("ncRb").textContent=f(h.border);$("ncRs").textContent=f(h.safe);$("ncRc").textContent=H.length>1?"("+h.course+"・第1次選抜)":"(第1次選抜)";$("ncRn").textContent="このとき、2027年度の配点で調査書は約"+Math.round(cp)+"点("+h.chosa+"点満点)。ボーダーは合格者の下位4分の1、安心ラインは真ん中の位置です。"+(h.small?"この学科は合格者のデータが少ないため、参考程度にしてください。":"")}};["ncSel","nc1","nc2","nc3"].forEach(i=>$(i).addEventListener("input",go));go()})();</script>
 </div></section>
 
 <section class="sec" id="ratio"><div class="in">
@@ -429,7 +435,7 @@ table.fee td{text-align:right;font-family:var(--num);font-weight:900;white-space
   <p class="lead">定期テスト対策と提出物・授業の取り組みまで、通知表の数字を上げるための計画を一人ひとりに合わせて立てます。</p>
   <div class="cta">
     <a class="big line" href="https://lin.ee/rcfMHgx" target="_blank" rel="noopener"><small>無料体験(1週間・3回程度)・進路相談</small>LINEで問い合わせる</a>
-    <a class="sub" href="https://blue0728.studio.site/" target="_blank" rel="noopener">学習空間 深谷上柴教室のサイトへ ›</a>
+    <a class="sub" href="https://fukaya-juku.github.io/">学習空間 深谷上柴教室のサイトへ ›</a>
   </div>
   <p style="text-align:center;font-size:14px;color:#dbe6ff">お電話でも受け付けています:<a href="tel:0485715050" style="color:#fff">048-571-5050</a>(平日17:00〜22:00)/深谷市上柴町東4-14-1</p>
 </div></section>
