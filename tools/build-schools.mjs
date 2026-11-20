@@ -188,7 +188,10 @@ function shell(title, desc, url, ld, nav) {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${url}">
-<meta property="og:site_name" content="深谷・熊谷 高校入試ナビ">
+<meta property="og:site_name" content="学習空間">
+<link rel="icon" href="https://fukaya-juku.github.io/favicon.ico" sizes="48x48">
+<link rel="icon" href="https://fukaya-juku.github.io/favicon.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://fukaya-juku.github.io/apple-touch-icon.png">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
