@@ -24,6 +24,9 @@ const PVF = path.join(ROOT, "data", "private-pages.json");
 const GLF = path.join(ROOT, "data", "school-glance.json");
 const GL = fs.existsSync(GLF) ? JSON.parse(fs.readFileSync(GLF, "utf8")) : {};
 const privs = fs.existsSync(PVF) ? JSON.parse(fs.readFileSync(PVF, "utf8")) : [];
+// 高校別ページの追加項目(data/school-extra.json。slug ごと)。ない高校は追加項目を出さない
+const EXF = path.join(ROOT, "data", "school-extra.json");
+const EX = fs.existsSync(EXF) ? JSON.parse(fs.readFileSync(EXF, "utf8")) : {};
 
 const grab = (re, what) => { const m = top.match(re); if (!m) throw new Error(what + " が index.html に見つかりません"); return m[1]; };
 const S = new Function("return " + grab(/const S=(\[[\s\S]*?\n\]);/, "高校データ S"))();
@@ -130,12 +133,43 @@ function career(p, s = SH[p.slug]) {
   <p class="note">${esc(p.name)}の公式サイトの進路情報より:${s.sources.filter((x, i, a) => a.findIndex(y => y.title === x.title) === i).map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>`).join("、")}。進路の結果は年度によって変わります。</p>`;
 }
 
+// ---- 追加項目(data/school-extra.json) ----
+// 囲み1つ(title・yr・items・note)。items の <b> だけはそのまま出す
+const exBox = (x, cls = "") => x && x.items && x.items.length ? `<div class="box${cls}"><h3 class="h3">${esc(x.title)}${x.yr ? `<small class="yr">${esc(x.yr)}</small>` : ""}</h3><ul class="fl">${x.items.map(s => `<li>${esc(s).replace(/&lt;(\/?)b&gt;/g, "<$1b>")}</li>`).join("")}</ul>${x.note ? `<p class="note" style="margin-top:6px">${esc(x.note)}</p>` : ""}</div>` : "";
+const r9src = p => `<a href="${esc(R9[p.slug].url)}" target="_blank" rel="noopener">${esc(p.name)} 令和9年度入学者選抜 選抜実施内容(確定版・埼玉県教育委員会)</a>`;
+// 配点の下に出す「選抜のしくみ」(令和9年度の選抜実施内容から)
+function senbatsuBox(p) {
+  const e = EX[p.slug], r = R9[p.slug]; if (!e || !r) return "";
+  const c = r.courses[0], sel = c.selections, pc = sel.map(s => (s.note.match(/(\d+)%/) || [])[1]);
+  const items = [];
+  if (sel.length === 2 && pc[0] && pc[1]) items.push(`募集人員の<b>${pc[0]}%</b>を第1次選抜で、残りの<b>${pc[1]}%</b>を第2次選抜で決めます。第2次選抜では、面接の配点が${sel[1].mensetsu}点${sel[1].mensetsu > sel[0].mensetsu ? "に上がります" : "になります"}。`);
+  if (/学校選択問題は実施しない/.test(c.examNote)) items.push("学力検査は国語・社会・数学・理科・英語の5教科。<b>学校選択問題は使いません</b>(全員が同じ問題を解きます)。");
+  if (sel.every(s => !s.tokushoku)) items.push("<b>特色検査はありません</b>。学力検査・調査書・面接の3つで合否が決まります。");
+  if (c.method) items.push(`面接は<b>${esc(c.method)}</b>です(くわしくは下の「面接対策」)。`);
+  if (r.secondChoice) items.push(r.secondChoice === "なし" ? "第2志望の制度はありません。" : `第2志望:${esc(r.secondChoice)}。`);
+  (e.senbatsuExtra || []).forEach(s => items.push(esc(s)));
+  return `<div class="box"><h3 class="h3">選抜のしくみ<small class="yr">令和9年度(2027年度)入試・確定版</small></h3><ul class="fl">${items.map(s => `<li>${s}</li>`).join("")}</ul><p class="note" style="margin-top:6px">出典:${r9src(p)}</p></div>`;
+}
+// 面接対策に出す「面接で見られること」(令和9年度の選抜実施内容から)
+function mensetsuBox(p) {
+  const e = EX[p.slug], r = R9[p.slug]; if (!e || !r) return "";
+  const c = r.courses[0], items = [];
+  if (c.method) items.push(`<b>面接の方法</b>:${esc(c.method)}${/集団/.test(c.method) ? "(何人かの受検生がいっしょに面接を受けます)" : ""}。`);
+  if (c.jiko) items.push(`<b>自己評価資料(学校独自の項目)</b>:${esc(c.jiko)}`);
+  if (c.kanten) items.push(`<b>評価の観点</b>:${esc(c.kanten)}。`);
+  if (!items.length) return "";
+  return `<div class="box"><h3 class="h3">${esc(p.name)}の面接で見られること<small class="yr">令和9年度 選抜実施内容(確定版)より</small></h3><ul class="fl">${items.map(s => `<li>${s}</li>`).join("")}</ul><p class="note" style="margin-top:6px">自己評価資料は点数にはなりませんが、面接官が参考にします。書いた内容とマイボイスで話す内容をそろえておくと、話に一貫性が出ます。出典:${r9src(p)}</p></div>`;
+}
+
 function feature(p, t = TK[p.slug]) {
   if (!t) return "";
   const out = [];
   const li = arr => `<ul class="fl">${arr.map(x => `<li>${esc(typeof x === "string" ? x : x.text)}</li>`).join("")}</ul>`;
+  const ex = EX[p.slug] || {};
   if (t.kokun || t.mission) out.push(`<div class="box">${t.kokun ? `<p class="kokun"><small>校訓・教育目標</small>${esc(t.kokun)}</p>` : ""}${t.mission ? `<p class="mission">${esc(t.mission)}</p>` : ""}</div>`);
   if (t.features && t.features.length) out.push(`<div class="box"><h3 class="h3">ここが特色</h3>${li(t.features)}</div>`);
+  if (ex.study) out.push(exBox(ex.study));
+  if (ex.visit) out.push(exBox(ex.visit));
   if (t.units && t.units.length) out.push(`<div class="box"><h3 class="h3">学科・系列で学ぶこと</h3><dl class="units">${t.units.map(u => `<dt>${esc(u.name)}</dt><dd>${esc(u.text)}</dd>`).join("")}</dl>${t.unitsNote ? `<p class="note" style="margin-top:8px">${esc(t.unitsNote)}</p>` : ""}<p class="note" style="margin-top:6px"><a href="../chigai/">ほかの専門高校・総合学科とのちがいを見る ›</a></p></div>`);
   if (t.life && t.life.length) out.push(`<div class="box"><h3 class="h3">学校生活</h3>${li(t.life)}</div>`);
   if (t.admission && t.admission.length) out.push(`<div class="box"><h3 class="h3">${esc(p.name)}が求める生徒像<small class="yr">アドミッション・ポリシー(学校の公式発表)</small></h3>${li(t.admission)}</div>`);
@@ -145,7 +179,7 @@ function feature(p, t = TK[p.slug]) {
   ${t.voiceEx || (t.voiceKeys && t.voiceKeys.length) ? `<a class="more" href="../myvoice/">My Voice メーカーで原稿を作る ›</a>` : ""}</div>`);
   if (!out.length) return "";
   return out.join("\n  ") + `
-  <p class="note">校訓・特色・学校生活${t.admission && t.admission.length ? "・求める生徒像" : ""}は${esc(p.name)}の公式サイトより:${t.sources.map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>`).join("、")}。「こんな人に向いています」${t.voiceEx ? "とMy Voiceの例" : ""}は、公式の情報をもとに当教室がまとめたものです。</p>`;
+  <p class="note">校訓・特色・学校生活${t.admission && t.admission.length ? "・求める生徒像" : ""}は${esc(p.name)}の公式サイトより:${[...t.sources, ...(ex.sources || [])].map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>`).join("、")}。「こんな人に向いています」${t.voiceEx ? "とMy Voiceの例" : ""}は、公式の情報をもとに当教室がまとめたものです。</p>`;
 }
 
 function faq(p) {
@@ -401,7 +435,7 @@ ${glance(p.slug, p.name, (TK[p.slug] || {}).fit, sec, ft ? "#feature" : "#point"
   ${kibouBox(p)}
   ${ds.map(d => facts(p, d)).join("\n  ")}
   <div class="box"><h3 class="h3">近い偏差値の高校とくらべる</h3>${hensachi(p)}<p class="note" style="margin-top:8px">偏差値は「みんなの高校情報」の値をまとめた民間サイトより。模試によって数値は変わります。</p></div>
-  <p class="note">「志願倍率」は2026年度の志願確定倍率(志願者数÷募集人数、埼玉県教育委員会)、「実質倍率」は2026年度に実際に受検した人数をもとにした倍率(民間の開示資料の集計)です。内申の目安(9教科・45点満点)は学習空間 深谷上柴教室の進路指導での目安です。</p>
+  <p class="note">「志願倍率」は2026年度の志願確定倍率(志願者数÷募集人数、埼玉県教育委員会)、「実質倍率」は2026年度に実際に受検した人数をもとにした倍率(民間の開示資料の集計)です。内申の目安(9教科・45点満点)は学習空間 深谷上柴教室の進路指導での目安です。${EX[p.slug] && EX[p.slug].dataNote ? esc(EX[p.slug].dataNote) : ""}</p>
 </div></section>
 
 ${sec("goal")}<div class="in">
@@ -414,14 +448,14 @@ ${sec("goal")}<div class="in">
 ${sec("mix")}<div class="in">
   <div class="h2"><span class="en">SCORE</span><h2>${p.name}の<br>配点と選抜方法</h2></div>
   <div class="legend"><span><i style="background:var(--exam)"></i>学力検査</span><span><i style="background:var(--report)"></i>調査書(内申)</span><span><i style="background:var(--talk)"></i>面接</span></div>
-  ${ds.map(d => mixBlock(p, d)).join("\n  ")}
+  ${ds.map(d => mixBlock(p, d)).join("\n  ")}${senbatsuBox(p) ? "\n  " + senbatsuBox(p) : ""}
   <p class="note">${ds[0].l1 ? `${ds[0].l1}選抜で定員の多くが決まり、残りを${ds[0].l2}選抜で決めます。` : "第1次選抜で定員の多くが決まり、残りを第2次選抜で決めます。"}${p.mixNote ? p.mixNote : ""}調査書は中1〜中3の9教科の評定(各学年45点満点)を、学年の比率に合わせて点数にしたものです。</p>
 </div></section>
 
 ${sec("point")}<div class="in">
   <div class="h2"><span class="en">POINT</span><h2>${p.name}合格への<br>ポイント</h2></div>
   <ol class="pts">${p.points.map(x => `<li>${x}</li>`).join("")}</ol>
-  <div class="box voice"><div class="ic">塾長<br>より</div><div><div class="who">学習空間 深谷上柴教室から</div><p>${p.comment}</p></div></div>
+  <div class="box voice"><div class="ic">塾長<br>より</div><div><div class="who">学習空間 深谷上柴教室から</div><p>${p.comment}</p></div></div>${EX[p.slug] && EX[p.slug].tips ? "\n  " + exBox({ yr: "学習空間 深谷上柴教室の指導方針", ...EX[p.slug].tips }) : ""}
 </div></section>
 
 ${ft ? `${sec("feature")}<div class="in">
@@ -442,7 +476,7 @@ ${ft ? `${sec("feature")}<div class="in">
 
 ${sec("interview")}<div class="in">
   <div class="h2"><span class="en">INTERVIEW</span><h2>${p.name}の<br>面接対策</h2></div>
-  <p class="lead">2027年度から、すべての受検生に面接があります。最初に1分30秒〜2分ほど自分の言葉で話す「マイボイス(My Voice)」のあと、面接官からの質問に答えます。${ds.map(d => (ds.length > 1 ? d.d + "の" : "") + `面接の配点は${d.l1 ? d.l1 + "選抜" : "第1次"}${d.s1[2]}点・${d.l2 ? d.l2 + "選抜" : "第2次"}${d.s2[2]}点`).join("、")}です。</p>
+  <p class="lead">2027年度から、すべての受検生に面接があります。最初に1分30秒〜2分ほど自分の言葉で話す「マイボイス(My Voice)」のあと、面接官からの質問に答えます。${ds.map(d => (ds.length > 1 ? d.d + "の" : "") + `面接の配点は${d.l1 ? d.l1 + "選抜" : "第1次"}${d.s1[2]}点・${d.l2 ? d.l2 + "選抜" : "第2次"}${d.s2[2]}点`).join("、")}です。</p>${mensetsuBox(p) ? "\n  " + mensetsuBox(p) : ""}
   ${subOK(p) ? `<div class="links" style="margin-bottom:12px"><a href="../${p.slug}-mensetsu/"><span>${p.name}の面接・マイボイス対策<small>面接の方法・見られること・例文・質問</small></span></a><a href="../${p.slug}-naishin/"><span>${p.name}の内申点<small>合格者の内申・計算ツール</small></span></a></div>` : ""}
   <a class="app" href="../myvoice/" style="border-color:var(--blue)"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--blue)"/><path d="M14 16h20a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H24l-7 6v-6h-3a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4z" fill="#fff"/></svg><div><b style="color:var(--blue)">My Voice メーカー ›</b><span>質問に答えるだけで原稿ができる。タイマーと想定質問で本番練習も</span></div></a>
   <a class="app" href="https://splendid-centaur-c2b96a.netlify.app/" target="_blank" rel="noopener"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--orange)"/><circle cx="24" cy="19" r="7" fill="#fff"/><path d="M11 38c2-7 7-10 13-10s11 3 13 10z" fill="#fff"/></svg><div><b>長所・短所を整理するアプリ ›</b><span>自分のよいところと課題を書き出そう</span></div></a>
