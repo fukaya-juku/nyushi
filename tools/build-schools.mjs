@@ -145,7 +145,7 @@ function senbatsuBox(p) {
     const sel = k.selections, pc = sel.map(s => (s.note.match(/(\d+)%/) || [])[1]);
     // 選抜の呼び名:「共通選抜(第1次選抜)」→「第1次選抜」、「特色選抜」→「特色選抜」
     const nm = sel.map(s => (s.name.match(/\((第\d次選抜)\)/) || [])[1] || s.name);
-    if (sel.length === 2 && pc[0] && pc[1]) items.push(`${many ? `<b>${esc(k.name)}</b>:` : ""}募集人員の<b>${pc[0]}%</b>を${esc(nm[0])}で、残りの<b>${pc[1]}%</b>を${esc(nm[1])}で決めます。${sel[1].mensetsu !== sel[0].mensetsu ? `${esc(nm[1])}では、面接の配点が${sel[1].mensetsu}点${sel[1].mensetsu > sel[0].mensetsu ? "に上がります" : "になります"}。` : sel[1].chosa !== sel[0].chosa ? `${esc(nm[1])}では、調査書の配点が${sel[1].chosa}点になります。` : ""}`);
+    if (sel.length === 2 && pc[0] && pc[1]) items.push(`${many ? `<b>${esc(k.name)}</b>:` : ""}募集人員の<b>${pc[0]}%</b>を${esc(nm[0])}で、残りの<b>${pc[1]}%</b>を${esc(nm[1])}で決めます。${(() => { const ch = [["調査書", "chosa"], ["面接", "mensetsu"]].filter(([, f]) => sel[1][f] !== sel[0][f]).map(([l, f]) => `${l}の配点が${sel[0][f]}点から${sel[1][f]}点に${sel[1][f] > sel[0][f] ? "上がり" : "下がり"}`); return ch.length ? `${esc(nm[1])}では、${ch.join("、")}ます。` : ""; })()}`);
   });
   if (cs.every(k => /学校選択問題は実施しない/.test(k.examNote))) items.push("学力検査は国語・社会・数学・理科・英語の5教科。<b>学校選択問題は使いません</b>(全員が同じ問題を解きます)。");
   else if (cs.every(k => /数学と英語は学校選択問題/.test(k.examNote))) items.push("学力検査は5教科。<b>数学と英語は学校選択問題</b>(応用問題が多い問題)です。");
