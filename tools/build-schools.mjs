@@ -585,7 +585,7 @@ ${sec("exam")}<div class="in">
 ${sec("point")}<div class="in">
   <div class="h2"><span class="en">POINT</span><h2>${q.name}合格への<br>ポイント</h2></div>
   <ol class="pts">${(q.points || []).map(x => `<li>${x}</li>`).join("")}</ol>
-  ${q.comment ? `<div class="box voice"><div class="ic">塾長<br>より</div><div><div class="who">学習空間 深谷上柴教室から</div><p>${q.comment}</p></div></div>` : ""}
+  ${q.comment ? `<div class="box voice"><div class="ic">塾長<br>より</div><div><div class="who">学習空間 深谷上柴教室から</div><p>${q.comment}</p></div></div>` : ""}${EX[q.slug] && EX[q.slug].tips ? "\n  " + exBox({ yr: "学習空間 深谷上柴教室の指導方針", ...EX[q.slug].tips }) : ""}
 </div></section>
 
 ${ft ? `${sec("feature")}<div class="in">
@@ -603,7 +603,7 @@ ${ft ? `${sec("feature")}<div class="in">
 
 ` : ""}${cr ? `${sec("career")}<div class="in">
   <div class="h2"><span class="en">CAREER</span><h2>${q.name}の<br>卒業後の進路</h2></div>
-  ${cr}
+  ${cr}${EX[q.slug] && EX[q.slug].results ? "\n  " + exBox(EX[q.slug].results) : ""}
 </div></section>
 
 ` : ""}${sec("schedule")}<div class="in">
