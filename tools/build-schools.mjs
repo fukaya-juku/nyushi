@@ -143,11 +143,13 @@ function senbatsuBox(p) {
   const cs = r.courses, many = cs.length > 1, c = cs[0], items = [];
   cs.forEach(k => {
     const sel = k.selections, pc = sel.map(s => (s.note.match(/(\d+)%/) || [])[1]);
-    if (sel.length === 2 && pc[0] && pc[1]) items.push(`${many ? `<b>${esc(k.name)}</b>:` : ""}募集人員の<b>${pc[0]}%</b>を第1次選抜で、残りの<b>${pc[1]}%</b>を第2次選抜で決めます。${sel[1].mensetsu !== sel[0].mensetsu ? `第2次選抜では、面接の配点が${sel[1].mensetsu}点${sel[1].mensetsu > sel[0].mensetsu ? "に上がります" : "になります"}。` : sel[1].chosa !== sel[0].chosa ? `第2次選抜では、調査書の配点が${sel[1].chosa}点になります。` : ""}`);
+    // 選抜の呼び名:「共通選抜(第1次選抜)」→「第1次選抜」、「特色選抜」→「特色選抜」
+    const nm = sel.map(s => (s.name.match(/\((第\d次選抜)\)/) || [])[1] || s.name);
+    if (sel.length === 2 && pc[0] && pc[1]) items.push(`${many ? `<b>${esc(k.name)}</b>:` : ""}募集人員の<b>${pc[0]}%</b>を${esc(nm[0])}で、残りの<b>${pc[1]}%</b>を${esc(nm[1])}で決めます。${sel[1].mensetsu !== sel[0].mensetsu ? `${esc(nm[1])}では、面接の配点が${sel[1].mensetsu}点${sel[1].mensetsu > sel[0].mensetsu ? "に上がります" : "になります"}。` : sel[1].chosa !== sel[0].chosa ? `${esc(nm[1])}では、調査書の配点が${sel[1].chosa}点になります。` : ""}`);
   });
   if (cs.every(k => /学校選択問題は実施しない/.test(k.examNote))) items.push("学力検査は国語・社会・数学・理科・英語の5教科。<b>学校選択問題は使いません</b>(全員が同じ問題を解きます)。");
   else if (cs.every(k => /数学と英語は学校選択問題/.test(k.examNote))) items.push("学力検査は5教科。<b>数学と英語は学校選択問題</b>(応用問題が多い問題)です。");
-  cs.forEach(k => { const m = k.examNote.match(/(数学[^。]*傾斜配点[^。]*)/); if (m) items.push(`${many ? `<b>${esc(k.name)}</b>:` : ""}${esc(m[1])}。`); });
+  cs.forEach(k => { const m = k.examNote.match(/([^。]*傾斜配点を実施[^。]*)/); if (m) items.push(`${many ? `<b>${esc(k.name)}</b>:` : ""}${esc(m[1])}。`); });
   if (cs.every(k => k.selections.every(s => !s.tokushoku))) items.push("<b>特色検査はありません</b>。学力検査・調査書・面接の3つで合否が決まります。");
   if (c.method) items.push(`面接は<b>${esc(c.method)}</b>です(くわしくは下の「面接対策」)。`);
   if (r.secondChoice) items.push(r.secondChoice === "なし" ? "第2志望の制度はありません。" : `第2志望:${esc(r.secondChoice)}。`);
