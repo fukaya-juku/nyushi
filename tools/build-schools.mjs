@@ -46,7 +46,7 @@ const strip = s => s.replace(/<[^>]+>/g, "");
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 // 内申ページの計算ツールで、最初に入っている内申(各学年の9教科の合計)。
 // 塾が決めた数字があればそれを使い、なければ「内申の目安」の上の数字、それもなければ合格者の平均。
-const NA_START = { "深谷商業": 27, "深谷第一": 31 };
+const NA_START = { "深谷商業": 27, "深谷第一": 31, "鴻巣女子": 24, "寄居城北": 24, "妻沼": 23 };
 const naStart = d => { const v = NA_START[d.n] ?? (d.na && d.na !== "—" ? Math.max(...d.na.match(/\d+/g).map(Number)) : d.g && !d.g.few ? d.g.y[0] : 36); return Math.max(9, Math.min(45, v)); };
 const naOf = d =>d.na && d.na !== "—" ? d.na : d.g && !d.g.few ? `${d.g.y[1]}〜${d.g.y[0]}` : "—";
 const label = (p, d) => p.keys.length > 1 ? `${d.d}` : p.name;
