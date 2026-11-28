@@ -44,7 +44,11 @@ const MC = ["var(--exam)", "var(--report)", "var(--talk)"];
 const hv = d => d.h[0] === d.h[1] ? `${d.h[0]}` : `${d.h[0]}-${d.h[1]}`;
 const strip = s => s.replace(/<[^>]+>/g, "");
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const naOf = d => d.na && d.na !== "—" ? d.na : d.g && !d.g.few ? `${d.g.y[1]}〜${d.g.y[0]}` : "—";
+// 内申ページの計算ツールで、最初に入っている内申(各学年の9教科の合計)。
+// 塾が決めた数字があればそれを使い、なければ「内申の目安」の上の数字、それもなければ合格者の平均。
+const NA_START = { "深谷商業": 27, "深谷第一": 31 };
+const naStart = d => { const v = NA_START[d.n] ?? (d.na && d.na !== "—" ? Math.max(...d.na.match(/\d+/g).map(Number)) : d.g && !d.g.few ? d.g.y[0] : 36); return Math.max(9, Math.min(45, v)); };
+const naOf = d =>d.na && d.na !== "—" ? d.na : d.g && !d.g.few ? `${d.g.y[1]}〜${d.g.y[0]}` : "—";
 const label = (p, d) => p.keys.length > 1 ? `${d.d}` : p.name;
 // 埼玉県教育委員会「進学希望状況」(data/kibou.json。tools/fetch-kibou.mjs で取得)
 const KBF = path.join(ROOT, "data", "kibou.json");
@@ -330,7 +334,7 @@ table.kbt thead th{text-align:center}
 .nc-l select{font-size:16px;padding:8px;border-radius:10px;border:2px solid var(--line)}
 .nc-in{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .nc-in label{display:flex;flex-direction:column;gap:4px;font-weight:900;color:var(--navy);text-align:center}
-.nc-in input{font-size:22px;font-family:var(--num);font-weight:900;text-align:center;padding:8px 4px;border-radius:10px;border:2px solid var(--line);width:100%;box-sizing:border-box}
+.nc-in input,.nc-in select{font-size:22px;font-family:var(--num);font-weight:900;text-align:center;text-align-last:center;padding:8px 4px;border-radius:10px;border:2px solid var(--line);width:100%;box-sizing:border-box;background:#fff;color:inherit}
 .nc-out{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
 .nc-out div{background:var(--sky);border-radius:12px;padding:10px;text-align:center}
 .nc-out small{display:block;font-weight:700;color:var(--muted);font-size:13px}
@@ -837,16 +841,16 @@ function naishinPage(p) {
 
 ${sec("calc")}<div class="in">
   <div class="h2"><span class="en">CALC</span><h2>通知表から<br>必要な点数を計算する</h2></div>
-  <div class="box nc" id="nc"><p style="margin:0 0 8px">各学年の通知表の<b>9教科の合計</b>(1教科5段階、最大45)を入れてください。中3は1学期(2学期)の成績で考えます。</p>
+  <div class="box nc" id="nc"><p style="margin:0 0 8px">各学年の通知表の<b>9教科の合計</b>(1教科5段階、最大45)を選んでください。最初は${p.name}のボーダーの目安の内申が入っています。中3は1学期(2学期)の成績で考えます。</p>
   ${calc.length > 1 ? `<label class="nc-l">学科・選抜<select id="ncSel">${calc.flatMap((c, ci) => c.sels.map((s, si) => `<option value="${ci}-${si}">${esc(one ? s.name : c.name + " " + s.name)}</option>`)).join("")}</select></label>` : `<label class="nc-l">選抜<select id="ncSel">${calc[0].sels.map((s, si) => `<option value="0-${si}">${esc(s.name)}</option>`).join("")}</select></label>`}
-  <div class="nc-in"><label>中1<input type="number" id="nc1" min="9" max="45" value="36" inputmode="numeric"></label><label>中2<input type="number" id="nc2" min="9" max="45" value="36" inputmode="numeric"></label><label>中3<input type="number" id="nc3" min="9" max="45" value="36" inputmode="numeric"></label></div>
+  <div class="nc-in">${[1, 2, 3].map(i => { const v0 = naStart(d0); return `<label>中${i}<select id="nc${i}">${Array.from({ length: 37 }, (_, j) => 9 + j).map(v => `<option value="${v}"${v === v0 ? " selected" : ""}>${v}</option>`).join("")}</select></label>`; }).join("")}</div>
   <div class="nc-out"><div><small>基本点</small><b id="ncK">—</b></div><div><small>調査書の点数</small><b id="ncC">—</b></div></div>
   ${HY[p.slug] ? `<div class="nc-req"><p class="sub-h">学力検査(5教科500点)で必要な点数の目安<small id="ncRc"></small></p><div class="nc-out"><div class="b"><small>ボーダー</small><b id="ncRb">—</b></div><div class="s"><small>安心ライン</small><b id="ncRs">—</b></div></div><p class="note" id="ncRn"></p></div>` : `<p class="note">${p.name}は過去の得点データが少ないため、「必要な学力検査の点数」は計算していません。</p>`}
   <p class="note" id="ncNote"></p></div>
   ${HY[p.slug] ? `<p class="note"><b>必要な点数の出し方:</b>過去4年分の${p.name}の合格者の得点を、2027年度の配点(${HY[p.slug].map(h => `${HY[p.slug].length > 1 ? h.course + " " : ""}調査書${h.chosa}点・学力検査${h.examMax}点・比率${h.ratio}`).join("/")})で計算しなおし、合格者の合計点の下位4分の1を「ボーダー」、真ん中を「安心ライン」としました。そこからあなたの調査書の点数を引いたのが、学力検査で必要な点数です。第1次選抜の配点で計算し、面接の点数はふくみません。${HY[p.slug].some(h => h.k5 !== 1) ? "傾斜配点のある選抜は、5教科500点に置きかえた目安で表示しています。" : ""}${HY[p.slug].some(h => h.small) ? "合格者のデータが少ない学科は、ずれが大きくなることがあります。" : ""}問題の難しさや倍率で毎年変わるので、あくまで目安です。</p>` : ""}
   ${HY[p.slug] && gs.length ? `<p class="note"><b>入試情報ページの「ボーダー」とのちがい:</b><a href="../${p.slug}/">${p.name}の入試情報</a>にある「ボーダー ${gs.map(d => (ds.length > 1 ? d.d + " " : "") + d.g.t[1] + "点").join("・")}」は、合格者が実際に取った学力検査の点数(下から4分の1の位置)です。ここで出す点数は、あなたの内申から逆算した「必要な点数」なので、内申が合格者(平均${gs.map(d => d.g.y[0]).join("・")})より高いと低く、低いと高くなります。</p>` : ""}
   <p class="note">基本点=中1の合計×比率+中2の合計×比率+中3の合計×比率。「調査書の点数」は、基本点を${p.name}の調査書の配点に置きかえた点数です(共通選抜は200・300・400点のどれかに、特色選抜は基本点に高校が決めた数をかけて換算。小数第1位を四捨五入)。令和9年度から、調査書の点数になるのは9教科の評定だけで、部活動や出欠の記録は点数になりません。</p>
-  <script>(()=>{const C=${JSON.stringify(calc)};const H=${JSON.stringify(HY[p.slug] || null)};const $=i=>document.getElementById(i);const go=()=>{const [ci,si]=$("ncSel").value.split("-").map(Number);const s=C[ci].sels[si];const r=s.ratio.split(":").map(Number);const v=[1,2,3].map(i=>Math.max(9,Math.min(45,+$("nc"+i).value||0)));const k=v[0]*r[0]+v[1]*r[1]+v[2]*r[2];const max=45*(r[0]+r[1]+r[2]);$("ncK").textContent=k+" / "+max;$("ncC").textContent=Math.round(k/max*s.chosa)+" / "+s.chosa;$("ncNote").textContent="学年の比率は "+s.ratio+"(中1:中2:中3)。この選抜の合計点は"+s.total+"点で、調査書はその"+Math.round(s.chosa/s.total*100)+"%です。";if(H){const h=H.find(x=>x.ci===ci)||H[0];const rr=h.ratio.split(":").map(Number),kk=v[0]*rr[0]+v[1]*rr[1]+v[2]*rr[2],mx=45*(rr[0]+rr[1]+rr[2]),cp=kk/mx*h.chosa;const f=x=>{let y=(x-cp)*h.k5;return y>500?"500点でも届かない":y<=0?"内申だけで届く計算":Math.min(500,Math.ceil(y/5)*5)+"点"};$("ncRb").textContent=f(h.border);$("ncRs").textContent=f(h.safe);$("ncRc").textContent=H.length>1?"("+h.course+"・第1次選抜)":"(第1次選抜)";$("ncRn").textContent="このとき、2027年度の配点で調査書は約"+Math.round(cp)+"点("+h.chosa+"点満点)。ボーダーは合格者の下位4分の1、安心ラインは真ん中の位置です。"+(h.small?"この学科は合格者のデータが少ないため、参考程度にしてください。":"")}};["ncSel","nc1","nc2","nc3"].forEach(i=>$(i).addEventListener("input",go));go()})();</script>
+  <script>(()=>{const C=${JSON.stringify(calc)};const H=${JSON.stringify(HY[p.slug] || null)};const $=i=>document.getElementById(i);const go=()=>{const [ci,si]=$("ncSel").value.split("-").map(Number);const s=C[ci].sels[si];const r=s.ratio.split(":").map(Number);const v=[1,2,3].map(i=>Math.max(9,Math.min(45,+$("nc"+i).value||0)));const k=v[0]*r[0]+v[1]*r[1]+v[2]*r[2];const max=45*(r[0]+r[1]+r[2]);$("ncK").textContent=k+" / "+max;$("ncC").textContent=Math.round(k/max*s.chosa)+" / "+s.chosa;$("ncNote").textContent="学年の比率は "+s.ratio+"(中1:中2:中3)。この選抜の合計点は"+s.total+"点で、調査書はその"+Math.round(s.chosa/s.total*100)+"%です。";if(H){const h=H.find(x=>x.ci===ci)||H[0];const rr=h.ratio.split(":").map(Number),kk=v[0]*rr[0]+v[1]*rr[1]+v[2]*rr[2],mx=45*(rr[0]+rr[1]+rr[2]),cp=kk/mx*h.chosa;const f=x=>{let y=(x-cp)*h.k5;return y>500?"500点でも届かない":y<=0?"内申だけで届く計算":Math.min(500,Math.ceil(y/5)*5)+"点"};$("ncRb").textContent=f(h.border);$("ncRs").textContent=f(h.safe);$("ncRc").textContent=H.length>1?"("+h.course+"・第1次選抜)":"(第1次選抜)";$("ncRn").textContent="このとき、2027年度の配点で調査書は約"+Math.round(cp)+"点("+h.chosa+"点満点)。ボーダーは合格者の下位4分の1、安心ラインは真ん中の位置です。"+(h.small?"この学科は合格者のデータが少ないため、参考程度にしてください。":"")}};["ncSel","nc1","nc2","nc3"].forEach(i=>{$(i).addEventListener("input",go);$(i).addEventListener("change",go)});go()})();</script>
 </div></section>
 
 ${sec("ratio")}<div class="in">
